@@ -1,0 +1,102 @@
+@charset "UTF-8";
+ 
+
+body{
+    padding: 30px;
+    text-align: center;
+}
+ 
+
+#header{ padding: 5px;}
+#header a{text-decoration: none; color: #333333;}
+
+
+nav{margin-top: 10px; margin-bottom: 20px;}
+ 
+/* 매뉴선 */
+.line{
+    list-style: none;
+    border-top: 1px solid ;
+    border-bottom: 1px solid ;
+    text-align: center;
+}
+ 
+ /*메뉴 */
+.box{
+    display: inline;
+    margin-right: 20px;
+}
+ 
+ /*메뉴 링크선 제거  */
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    line-height: 3em;
+    text-transform: uppercase;
+}
+  
+
+/* 푸터  */
+#footer {
+    clear: both;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 1em
+}
+
+.inline {
+    display: inline;
+}
+
+.title {
+    display: inline;
+    text-align: left;
+    margin-right: 12em;  
+}
+
+
+/* ------------------------------------------------------------------------ */
+
+ul{
+    list-style:none;
+    }
+
+
+/* 드롭 다운 버튼 */
+.dropbtn {
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* 드롭 다운 기능 */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* 드롭 다운되는 것 */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    text-align: left;
+   
+
+  }
+  
+  /* 드롭 다운되는 링크 css*/
+  .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* 드롭다운 되는 링크 색깔 */
+  .dropdown-content a:hover {background-color: #eeeeee;}
+  
+  /* 드롭다운 호버 */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* 드롭다운 커서 시 색깔 */
+  .dropdown:hover .dropbtn {background-color: #eeeeee;}

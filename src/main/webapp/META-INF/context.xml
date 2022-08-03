@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context><!-- context.xml 파일의 시작태그 -->
+<!-- 
+[ DBCP 설정을 위한 context.xml 파일 설정 ]
+Resource 태그를 사용하여 DBCP 정보 설정
+1. name 속성(*) : 공유할 리소스 이름 => DB 작업을 수행하는 코드에서 API를 통해 불러올 이름 지정
+2. auth 속성 : 자원관리를 수행할 대상(인증 대상) 지정 => "Container" 지정(고정값)
+3. type 속성 : 웹 상에서 리소스 사용시 실제 사용될 클래스 지정
+4. driverClassName 속성(*) : JDBC 드라이버 클래스 위치 지정 / "com.mysql.cj.jdbc.Driver"
+5. url 속성(*) : JDBC 접속에 필요한 URL 정보 지정
+6. username 속성(*) : 데이터베이스 접속 계정명
+7. password 속성(*) : 데이터베이스 접속 패스워드
+8. maxActive 속성 : 미리 생성해놓을 Connection 객체의 수
+9. maxIdle : 현재 사용중인 Connection 객체 외에 여유분으로 남겨 놓을 Connection 갯수 - 생략 가능
+ -->
+	<Resource 
+		name="jdbc/MySQL"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/treeEarth"
+		username="root"
+		password="1234"
+		maxActive="500"
+	/>
+</Context>
