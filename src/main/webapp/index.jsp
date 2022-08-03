@@ -52,7 +52,7 @@
                     <li><a href="">반려나무 성장일기</a></li>
                     <li><a href="">Q&A</a></li>
                     <li><a href="">공지사항</a></li>
-                    <li><a href="">자유게시판</a></li>
+                    <li><a href="">자유게시판임</a></li>
                 </ul>
                 </div>
             </div>
