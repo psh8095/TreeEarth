@@ -1,15 +1,13 @@
 package controller;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
-import action.Action;
-import action.FreeBoardWriteProAction;
-import vo.ActionForward;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+
+import action.*;
+import vo.*;
 
 @WebServlet("*.cm")
 public class FreeBoardFrontController extends HttpServlet {
@@ -41,9 +39,7 @@ public class FreeBoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace(); 
 			}
-		} else if {
-			
-		}
+		} 
 		
 	}
 	
