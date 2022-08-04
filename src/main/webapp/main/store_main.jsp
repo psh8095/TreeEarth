@@ -26,10 +26,12 @@
 			<h2>판매 상품 등록</h2>	
 			<table>
 				<tr>
-					<td>식물 상품1 - 사진</td>
+					<td>
+					<img src="upload/plant2.jpg" width="150" height="150">
+					</td>
 				</tr>
 				<tr>
-					<td>상품명</td>
+					<td>상품명 : 아우디라키아</td>
 				</tr>
 				<tr>
 					<td>한 줄 설명</td>
@@ -41,9 +43,6 @@
 					<td>태그들</td>
 				</tr>
 			</table>	
-		</section>
-		<section id="buttonArea">
-			<input type="button" value="상품 등록" onclick="location.href='StoreSellWriteForm.st'">
 		</section>
 		
 		<section id="pageList">
@@ -74,6 +73,7 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
+	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
