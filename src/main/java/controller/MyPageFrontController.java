@@ -28,13 +28,16 @@ public class MyPageFrontController extends HttpServlet {
 		
 		if(command.equals("/Cart.my")) {
 			// 장바구니 서블릿 주소 요청 시 수행
-			action = new CartListAction();
-
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+//			action = new CartListAction();
+//
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+			
+			forward = new ActionForward();
+			forward.setPath("mypage/cart.jsp");
 		} else if(command.equals("/Wishlist.my")) {
 			// 위시리스트 서블릿 주소 요청 시 수행
 			forward = new ActionForward();
