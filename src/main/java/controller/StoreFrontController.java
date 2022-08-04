@@ -29,16 +29,6 @@ public class StoreFrontController extends HttpServlet {
 			
 		}
 		
-		if(forward != null) {
-			if(forward.isRedirect()) {
-				// 리다이렉트방식
-				response.sendRedirect(forward.getPath());
-			} else {
-				// 디스패처 방식
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-				dispatcher.forward(request, response);
-			}
-		}
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

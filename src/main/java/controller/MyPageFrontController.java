@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.CartListAction;
 import vo.ActionForward;
 
 // 마이페이지 컨트롤러
@@ -27,8 +28,13 @@ public class MyPageFrontController extends HttpServlet {
 		
 		if(command.equals("/Cart.my")) {
 			// 장바구니 서블릿 주소 요청 시 수행
-			forward = new ActionForward();
-			forward.setPath("mypage/cart.jsp");
+			action = new CartListAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("/Wishlist.my")) {
 			// 위시리스트 서블릿 주소 요청 시 수행
 			forward = new ActionForward();

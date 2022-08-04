@@ -13,7 +13,9 @@
 	<!-- 헤더 -->
 	
 	<h1>장바구니</h1>
-	
+	<div>
+		장바구니가 비어있습니다.
+	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

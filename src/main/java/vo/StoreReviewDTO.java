@@ -3,15 +3,19 @@ package vo;
  * 아이디, 상품 번호, 상품 구매 평점, 상품 구매 후기 내용
  * 상품 구매 후기 사진 파일
 CREATE TABLE store_review (
-   mem_id VARCHAR(50) REFERENCES member (mem_id),
-   sto_idx INT REFERENCES store (sto_idx),
+   mem_id VARCHAR(50),
+   sto_idx INT,
+   sto_re_idx INT PRIMARY KEY,
    sto_re_score INT CHECK (sto_re_score IN (1,2,3,4,5)),
    sto_re_content VARCHAR(300) NOT NULL,
    sto_re_file VARCHAR(30) NOT NULL,
-   sto_re_real_file VARCHAR(30) NOT NULL
+   sto_re_real_file VARCHAR(30) NOT NULL,
+   FOREIGN KEY (mem_id) REFERENCES member (mem_id),
+   FOREIGN KEY (sto_idx) REFERENCES store (sto_idx)
 );
  */
 public class StoreReviewDTO {
+	private int sto_re_idx;
 	private String mem_id;
 	private int sto_idx;
 	private int sto_re_score;
@@ -19,6 +23,12 @@ public class StoreReviewDTO {
 	private String sto_re_file;
 	private String sto_re_real_file;
 	
+	public int getSto_re_idx() {
+		return sto_re_idx;
+	}
+	public void setSto_re_idx(int sto_re_idx) {
+		this.sto_re_idx = sto_re_idx;
+	}
 	public String getMem_id() {
 		return mem_id;
 	}
