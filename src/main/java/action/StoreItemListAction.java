@@ -2,8 +2,12 @@ package action;
 
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import svc.StoreItemListService;
 import vo.ActionForward;
@@ -18,6 +22,7 @@ public class StoreItemListAction implements Action {
 		
 		ActionForward forward = null;
 		
+		//------------------------------------------------------------
 		// 페이징 처리를 위한 변수 선언
 		int pageNum = 1; // 현재 페이지 번호->기본값 1 페이지로 설정
 		int listLimit = 9; // 한 페이지 당 표시할 상품 목록 수
