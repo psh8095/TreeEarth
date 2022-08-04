@@ -16,6 +16,11 @@
 	<div>
 		장바구니가 비어있습니다.
 	</div>
+	
+	<div>
+		<input type="button" id="rm_cart" value="삭제">
+	</div>
+	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
