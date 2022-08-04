@@ -9,8 +9,9 @@ import javax.servlet.http.*;
 import action.*;
 import vo.*;
 
+//커뮤니티(캠페인 후기, 반려나무 성장일기, 큐앤에이, 공지사항, 자유게시판) 컨트롤러
 @WebServlet("*.cm")
-public class FreeBoardFrontController extends HttpServlet {
+public class CommunityFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("FreeBoardFrontController");
 		
@@ -40,6 +41,15 @@ public class FreeBoardFrontController extends HttpServlet {
 				e.printStackTrace(); 
 			}
 		} 
+		
+		if(forward != null) { //포워딩 처리
+			if(forward.isRedirect()) { //redirect 방식
+				response.sendRedirect(forward.getPath());
+			} else { //dispatcher 방식
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response);
+			}
+		}
 		
 	}
 	
