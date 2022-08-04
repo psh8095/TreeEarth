@@ -20,8 +20,8 @@
                 <a class="dropbtn box">캠페인</a>
                 <div class="dropdown-content">
                 <ul class="inline">
-                    <li><a href="CampaignRecruList.cp">모집 캠페인</a></li>
-                    <li><a href="CampaignExpiredList.cp">종료 캠페인</a></li>
+                    <li><a href="">모집 캠페인</a></li>
+                    <li><a href="">종료 캠페인</a></li>
                     <li><a href="">캠페인 아이디어 공모</a></li>
                 </ul>
                 </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a class="dropbtn box">스토어</a>
+                <a class="dropbtn box" href="StoreItemList.st">스토어</a> 
                 <div class="dropdown-content">
                 <ul class="inline">
                     <li><a href="">반려나무</a></li>
