@@ -11,14 +11,15 @@
 </head>
 <body>
 	<div id="header">
-		<a href=""><h1 class="title">트리어스</h1></a>
-	    <a href="" class="dropbtn">장바구니</a>
+		<a href="./"><h1 class="title">트리어스</h1></a>
+	    <a href="Cart.my" class="dropbtn">장바구니</a>
 		<div class="dropdown">
 			<a class="dropbtn">마이페이지</a>
 			<div class="dropdown-content">
 				<ul class="inline">
 					<li><a href="">적립금</a></li>
 	                <li><a href="">이름</a></li>
+	                <li><a href="Wishlist.my">위시리스트</a></li>
 	                <li><a href="">회원정보수정</a></li>
 	                <li><a href="">후원금 내역 조회</a></li>
 	                <li><a href="">신청 캠페인 조회</a></li>
