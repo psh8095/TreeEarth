@@ -3,7 +3,7 @@ package vo;
 import java.sql.*;
 
 /*
- * 캠페인 리뷰 글번호, 작성자, 제목, 내용, 조회수, 작성일, 파일*4
+ * 캠페인 리뷰 글번호, 작성자, 제목, 내용, 조회수, 작성일, 상세파일*2, 썸네일 파일*2
 CREATE TABLE campaign_review (
 	cam_re_idx INT PRIMARY KEY,
 	cam_re_id REFERENCES member(mem_id),
