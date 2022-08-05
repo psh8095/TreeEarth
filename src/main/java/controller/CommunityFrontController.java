@@ -40,7 +40,7 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace(); 
 			}
-		}
+		} 
 		
 		if(forward != null) { //포워딩 처리
 			if(forward.isRedirect()) { //redirect 방식
