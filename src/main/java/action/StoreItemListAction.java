@@ -70,7 +70,7 @@ public class StoreItemListAction implements Action {
 		
 		// store_main.jsp 페이지 지정 및 포워딩
 		forward = new ActionForward();
-		forward.setPath("main/store_main.jsp");
+		forward.setPath("store/store_main.jsp");
 		forward.setRedirect(false);
 		
 

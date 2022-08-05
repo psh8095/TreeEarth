@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a class="dropbtn box" href="StoreItemList.st">스토어</a> 
+                <a class="dropbtn box" href="StoreItemImg.st">스토어</a> 
                 <div class="dropdown-content">
                 <ul class="inline">
                     <li><a href="">반려나무</a></li>

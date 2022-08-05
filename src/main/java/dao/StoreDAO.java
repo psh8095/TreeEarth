@@ -105,6 +105,15 @@ public class StoreDAO {
 		
 		return storeList;
 	}
+	
+	public ArrayList<StoreDTO> StoreItemImg() {
+		System.out.println("StoreDTO 왔음");
+		ArrayList<StoreDTO> itemimg = null;
+		
+		
+		
+		return itemimg;
+	}
 
 }
 
