@@ -60,10 +60,6 @@
         <img src="img/2.png" alt="대충 메인 베너1" width="100%">
         <img src="img/3.png" alt="대충 메인 베너2" width="100%">
     </main>
-    	<form action="" method="post" enctype="multipart/form-data">
-			<input type="file">
-			<input type="submit">
-		</form>
     <!-- 푸터 -->
 	<jsp:include page="hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
