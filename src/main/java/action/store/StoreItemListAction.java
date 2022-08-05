@@ -1,4 +1,4 @@
-package action;
+package action.store;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import action.Action;
 import svc.StoreItemListService;
 import vo.ActionForward;
 import vo.StoreDTO;
