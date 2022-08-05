@@ -105,6 +105,43 @@ public class StoreDAO {
 		
 		return storeList;
 	}
+	
+	public ArrayList<StoreDTO> StoreItemImg() {
+		System.out.println("StoreDTO 왔음");
+		ArrayList<StoreDTO> itemimg = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		itemimg = new ArrayList<StoreDTO>();
+		
+		try {
+			String sql = "SELECT * FROM store";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				StoreDTO store = new StoreDTO();
+				store.setSto_idx(rs.getInt("sto_idx"));
+				store.setSto_price(rs.getInt("sto_price"));
+				store.setSto_subject(rs.getString("sto_subject"));
+				store.setSto_content(rs.getString("sto_content"));
+				store.setSto_tag(rs.getString("sto_tag"));
+				store.setSto_category(rs.getString("sto_category"));
+				store.setSto_date(rs.getDate("sto_date"));
+				store.setSto_thum_file(rs.getString("sto_thum_file"));
+				store.setSto_thum_real_file(rs.getString("sto_thum_real_file"));
+				store.setSto_content_file(rs.getString("sto_content_file"));
+				store.setSto_content_real_file(rs.getString("sto_content_real_file"));
+				
+				itemimg.add(store);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return itemimg;
+	}
 
 }
 
