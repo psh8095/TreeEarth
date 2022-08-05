@@ -1,7 +1,8 @@
-package action;
+package action.member;
 
 import javax.servlet.http.*;
 
+import action.Action;
 import vo.*;
 
 public class MemberLogoutAction implements Action {

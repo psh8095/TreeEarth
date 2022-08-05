@@ -1,7 +1,8 @@
-package action;
+package action.community;
 
 import javax.servlet.http.*;
 
+import action.Action;
 import svc.*;
 import vo.*;
 

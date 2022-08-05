@@ -7,6 +7,8 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 import action.*;
+import action.community.FreeBoardListAction;
+import action.community.FreeBoardWriteProAction;
 import vo.*;
 
 //커뮤니티(캠페인 후기, 반려나무 성장일기, 큐앤에이, 공지사항, 자유게시판) 컨트롤러

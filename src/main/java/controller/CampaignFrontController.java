@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.CampaignExpiredListAction;
-import action.CampaignRecruListAction;
+import action.campaign.CampaignExpiredListAction;
+import action.campaign.CampaignRecruListAction;
 import vo.ActionForward;
 
 // 캠페인 컨트롤러

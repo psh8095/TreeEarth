@@ -7,6 +7,8 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 import action.*;
+import action.member.MemberLoginProAction;
+import action.member.MemberLogoutAction;
 import vo.*;
 
 //회원 컨트롤러
