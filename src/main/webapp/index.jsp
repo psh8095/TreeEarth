@@ -30,7 +30,7 @@
                 <a class="dropbtn box">후원</a>
                 <div class="dropdown-content">
                 <ul class="inline">
-                    <li><a href="SupportDetail.su">후원하기</a></li>
+                    <li><a href="SupportList.su">후원하기</a></li>
                 </ul>
                 </div>
             </div>
