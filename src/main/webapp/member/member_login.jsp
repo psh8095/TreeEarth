@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<th>패스워드</th>
-				<td><input type="password" name="passwd"></td>  
+				<td><input type="password" name="passwd"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
