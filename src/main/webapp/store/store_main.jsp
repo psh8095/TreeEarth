@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +20,11 @@
 		width: 1024px;
 		text-align: right;
 	}
+	
+	#tr1 {
+	display: flex;
+	display: inline;
+	}
 </style>
 </head>
 <body>
@@ -26,25 +34,33 @@
 		<h1>TreeEarth 프로젝트_Store Main</h1>
 		<section id="itemWriteForm">
 			<h2>판매 상품 등록</h2>	
+			<div id="tr1">
 			<table>
+			<%
+			for(Object o : itemimg) {
+				StoreDTO itemimg2 = (StoreDTO)o;
+				%>
 				<tr>
-					<td>
-					<img src="upload/plant2.jpg" width="150" height="150">
+					<td><img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="150" height="150">
 					</td>
 				</tr>
 				<tr>
-					<td>상품명 : 아우디라키아!?ㅋㅋㅋㅋ</td>
+					<td>상품명 : <%=itemimg2.getSto_subject() %></td>
 				</tr>
 				<tr>
-					<td>한 줄 설명</td>
+					<td><%=itemimg2.getSto_content() %></td>
 				</tr>
 				<tr>
-					<td>가격</td>
+					<td><%=itemimg2.getSto_price() %></td>
 				</tr>
 				<tr>
-					<td>태그들</td>
+					<td><%=itemimg2.getSto_tag() %></td>
 				</tr>
+			<%	
+			}
+			%>
 			</table>	
+			</div>
 		</section>
 		
 		<section id="pageList">
