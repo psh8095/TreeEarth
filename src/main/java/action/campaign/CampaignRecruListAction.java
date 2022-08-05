@@ -1,15 +1,16 @@
-package action;
+package action.campaign;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import action.Action;
 import vo.ActionForward;
 
-public class CampaignExpiredListAction implements Action {
+public class CampaignRecruListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("CampaignExpiredListAction");
+		System.out.println("CampaignRecruListAction");
 		ActionForward forward = null;
 		
 		
