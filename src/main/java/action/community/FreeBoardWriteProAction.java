@@ -12,7 +12,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import action.Action;
 import svc.community.FreeBoardWriteProService;
 import vo.ActionForward;
-import vo.FreeboardDTO;
+import vo.community.FreeboardDTO;
 
 public class FreeBoardWriteProAction implements Action {
 

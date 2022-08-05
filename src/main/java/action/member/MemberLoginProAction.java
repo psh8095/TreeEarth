@@ -10,7 +10,7 @@ import action.Action;
 import svc.*;
 import svc.member.MemberLoginProService;
 import vo.ActionForward;
-import vo.MemberDTO;
+import vo.member.MemberDTO;
 
 public class MemberLoginProAction implements Action {
 

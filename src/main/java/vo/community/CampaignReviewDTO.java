@@ -1,4 +1,4 @@
-package vo;
+package vo.community;
 
 import java.sql.*;
 

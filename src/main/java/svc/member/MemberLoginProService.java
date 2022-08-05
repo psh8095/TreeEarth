@@ -7,6 +7,7 @@ import java.sql.*;
 
 import dao.*;
 import vo.*;
+import vo.member.MemberDTO;
 
 public class MemberLoginProService {
 

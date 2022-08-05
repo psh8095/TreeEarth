@@ -12,8 +12,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import action.Action;
 import svc.store.StoreItemListService;
 import vo.ActionForward;
-import vo.StoreDTO;
-import vo.StorePageInfo;
+import vo.store.StoreDTO;
+import vo.store.StorePageInfo;
 
 public class StoreItemListAction implements Action {
 

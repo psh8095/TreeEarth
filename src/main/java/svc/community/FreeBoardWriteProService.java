@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import dao.FreeBoardDAO;
 import db.JdbcUtil;
-import vo.FreeboardDTO;
+import vo.community.FreeboardDTO;
 
 public class FreeBoardWriteProService {
 
