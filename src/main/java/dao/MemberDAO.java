@@ -3,6 +3,7 @@ package dao;
 import java.sql.*;
 
 import vo.*;
+import vo.member.MemberDTO;
 
 public class MemberDAO {
 

@@ -4,6 +4,7 @@ import javax.servlet.http.*;
 
 import action.Action;
 import svc.*;
+import svc.community.FreeBoardListService;
 import vo.*;
 
 public class FreeBoardListAction implements Action {

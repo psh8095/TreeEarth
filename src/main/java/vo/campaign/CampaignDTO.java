@@ -1,4 +1,4 @@
-package vo;
+package vo.campaign;
 
 import java.sql.Date;
 

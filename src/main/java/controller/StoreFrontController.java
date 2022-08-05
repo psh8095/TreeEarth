@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.StoreItemListAction;
+import action.store.StoreItemListAction;
 import vo.ActionForward;
 
 // 스토어 컨트롤러

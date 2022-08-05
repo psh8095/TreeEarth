@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import vo.ActionForward;
-import vo.StoreDTO;
+import vo.store.StoreDTO;
 
 public class StoreItemImgAction implements Action {
 

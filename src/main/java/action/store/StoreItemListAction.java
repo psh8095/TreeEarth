@@ -1,4 +1,4 @@
-package action;
+package action.store;
 
 import java.util.ArrayList;
 
@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import svc.StoreItemListService;
+import action.Action;
+import svc.store.StoreItemListService;
 import vo.ActionForward;
-import vo.StoreDTO;
-import vo.StorePageInfo;
+import vo.store.StoreDTO;
+import vo.store.StorePageInfo;
 
 public class StoreItemListAction implements Action {
 
@@ -70,7 +71,7 @@ public class StoreItemListAction implements Action {
 		
 		// store_main.jsp 페이지 지정 및 포워딩
 		forward = new ActionForward();
-		forward.setPath("main/store_main.jsp");
+		forward.setPath("store/store_main.jsp");
 		forward.setRedirect(false);
 		
 
