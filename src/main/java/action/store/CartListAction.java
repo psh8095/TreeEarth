@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.CartListService;
+import svc.store.CartListService;
 import vo.ActionForward;
 
 public class CartListAction implements Action {

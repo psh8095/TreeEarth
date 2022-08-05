@@ -10,7 +10,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
-import svc.StoreItemListService;
+import svc.store.StoreItemListService;
 import vo.ActionForward;
 import vo.StoreDTO;
 import vo.StorePageInfo;

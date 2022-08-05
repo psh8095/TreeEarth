@@ -1,4 +1,4 @@
-package svc;
+package svc.member;
 
 import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;

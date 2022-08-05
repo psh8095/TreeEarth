@@ -1,4 +1,4 @@
-package svc;
+package svc.community;
 
 import java.sql.Connection;
 

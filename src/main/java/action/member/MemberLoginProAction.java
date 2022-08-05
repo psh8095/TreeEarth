@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import svc.*;
+import svc.member.MemberLoginProService;
 import vo.ActionForward;
 import vo.MemberDTO;
 
