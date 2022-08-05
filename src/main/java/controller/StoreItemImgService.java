@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import dao.StoreDAO;
 import db.JdbcUtil;
-import vo.StoreDTO;
+import vo.store.StoreDTO;
 
 public class StoreItemImgService {
 
