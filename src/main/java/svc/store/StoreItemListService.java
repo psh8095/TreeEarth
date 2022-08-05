@@ -1,10 +1,10 @@
-package svc;
+package svc.store;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.StoreDAO;
-import vo.StoreDTO;
+import vo.store.StoreDTO;
 
 import static db.JdbcUtil.*;
 

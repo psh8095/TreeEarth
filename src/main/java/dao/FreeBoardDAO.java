@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static db.JdbcUtil.*;
+import vo.community.FreeboardDTO;
 
-import vo.FreeboardDTO;
+import static db.JdbcUtil.*;
 
 public class FreeBoardDAO {
 

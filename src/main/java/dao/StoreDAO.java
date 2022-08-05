@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import vo.StoreDTO;
+import vo.store.StoreDTO;
 
 import static db.JdbcUtil.*;
 

@@ -1,4 +1,4 @@
-package vo;
+package vo.store;
 
 public class StorePageInfo {
 	
