@@ -19,6 +19,12 @@ public class StoreItemImgAction implements Action {
 		
 		StoreItemImgService service = new StoreItemImgService();
 		ArrayList<StoreDTO> itemimg = service.getItemImg();
+		request.setAttribute("itemimg", itemimg);
+		
+		forward = new ActionForward();
+		System.out.println("Action 돌아옴");
+		forward.setPath("store/store_main.jsp");
+		forward.setRedirect(false);
 		
 		return forward; 
 	}
