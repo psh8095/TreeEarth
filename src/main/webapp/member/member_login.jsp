@@ -22,12 +22,12 @@
 			</tr>
 			<tr>
 				<th>패스워드</th>
-				<td><input type="password" name="passwd"></td>  
+				<td><input type="password" name="passwd"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input type="submit" value="로그인">&nbsp;
-				<input type="submit" value="카카오톡으로 로그인"> 
+				<input type="submit" value="로그인">&nbsp;&nbsp;
+				<input type="submit" value="카카오톡으로 로그인">
 				<br>
 				<span id="searchId">아이디 찾기</span>&nbsp;&nbsp;&nbsp;<span id="searchPass">비밀번호찾기</span>
 				</td>
