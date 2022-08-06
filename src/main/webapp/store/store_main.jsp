@@ -13,7 +13,7 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TreeEarth</title>
-<link href="css/index.css" rel="stylesheet">
+<link href="../css/index.css" rel="stylesheet">
 <style type="text/css">
 	#buttonArea {
 		margin: auto;
@@ -41,7 +41,7 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 				StoreDTO itemimg2 = (StoreDTO)o;
 				%>
 				<tr>
-					<td><img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="150" height="150">
+					<td><img src="../img/store/<%=itemimg2.getSto_thum_file() %>" width="150" height="150">
 					</td>
 				</tr>
 				<tr>
