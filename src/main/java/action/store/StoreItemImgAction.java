@@ -1,4 +1,4 @@
-package controller;
+package action.store;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import svc.store.StoreItemImgService;
 import vo.ActionForward;
 import vo.store.StoreDTO;
 
