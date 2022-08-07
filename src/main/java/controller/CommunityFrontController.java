@@ -7,6 +7,7 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 import action.*;
+import action.campaign.*;
 import action.community.*;
 import vo.*;
 
@@ -40,6 +41,17 @@ public class CommunityFrontController extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace(); 
+			}
+		} else if(command.equals("/CampaignReviewWriteForm.cm")) { //캠페인후기 작성 폼
+			forward = new ActionForward();
+			forward.setPath("../community/campaign_review_write.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/CampaignReviewPro.cm")) { //캠페인후기 작성 동작
+			action = new CampaignReviewWriteProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		} else if(command.equals("/CampaignReviewList.cm")) { //캠페인후기 목록
 			action = new CampaignReviewListAction();
