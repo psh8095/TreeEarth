@@ -1,22 +1,19 @@
 package action.member;
 
-import java.io.PrintWriter;
+import java.io.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 
-import action.Action;
-import svc.*;
-import svc.member.MemberLoginProService;
-import vo.ActionForward;
-import vo.member.MemberDTO;
+import action.*;
+import svc.member.*;
+import vo.*;
+import vo.member.*;
 
 public class MemberLoginProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		System.out.println("MemberLoginProAction");
 		ActionForward forward = null;
 		
 		MemberDTO member = new MemberDTO();
@@ -35,12 +32,13 @@ public class MemberLoginProAction implements Action {
 			out.println("history.back()");
 			out.println("</script>");
 		} else {
+			//세션에 로그인한 아이디 저장
 			HttpSession session = request.getSession();
 			session.setAttribute("sId", member.getMem_id());
 			
 			forward = new ActionForward();
 			forward.setPath("./");
-			forward.setRedirect(true);
+			forward.setRedirect(false);
 		}
 		
 		return forward;

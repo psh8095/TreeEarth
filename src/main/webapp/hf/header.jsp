@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
-<link href="../css/index.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 </head>
 <body>
 	<div id="header">
@@ -28,7 +29,15 @@
 	            </ul>
 			</div>
 		</div>
-		<a href="MemberLoginForm.me" class="dropbtn">로그인</a>
+		<c:choose>
+			<c:when test="${empty sessionScope.sId}">
+				<a href="MemberLoginForm.me">로그인</a>
+			</c:when>
+			<c:otherwise>
+				<a href="">${sessionScope.sId } 님</a>
+				<a href="MemberLogout.me">로그아웃</a>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </body>
 </html>

@@ -6,13 +6,12 @@ import static db.JdbcUtil.getConnection;
 import java.sql.*;
 
 import dao.*;
-import vo.*;
-import vo.member.MemberDTO;
+import vo.member.*;
 
 public class MemberLoginProService {
 
 	public boolean loginMember(MemberDTO member) {
-
+		System.out.println("MemberLoginProService");
 		boolean isLoginSuccess = false;
 		
 		Connection con = getConnection();
