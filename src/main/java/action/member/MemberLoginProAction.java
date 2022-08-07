@@ -23,7 +23,7 @@ public class MemberLoginProAction implements Action {
 		MemberLoginProService service = new MemberLoginProService();
 		boolean isLoginSuccess = service.loginMember(member);
 		
-		if(isLoginSuccess = false) {
+		if(!isLoginSuccess) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			
@@ -38,7 +38,7 @@ public class MemberLoginProAction implements Action {
 			
 			forward = new ActionForward();
 			forward.setPath("./");
-			forward.setRedirect(true);
+			forward.setRedirect(false);
 		}
 		
 		return forward;

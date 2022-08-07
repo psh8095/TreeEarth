@@ -53,6 +53,13 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/CampaignReviewModifyForm.cm")) { //캠페인후기 수정 폼
+			action = new CampaignReviewModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("/CampaignReviewList.cm")) { //캠페인후기 목록
 			action = new CampaignReviewListAction();
 			try {
