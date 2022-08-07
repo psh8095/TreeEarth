@@ -1,15 +1,17 @@
 package dao;
 
+import static db.JdbcUtil.close;
+
 import java.sql.*;
 
-import vo.*;
-import vo.member.MemberDTO;
+import vo.member.*;
 
 public class MemberDAO {
 
-	private MemberDAO() {}
-	
+	//싱글톤 디자인 패턴
 	private static MemberDAO instance = new MemberDAO();
+	
+	private MemberDAO() {}
 	
 	public static MemberDAO getInstance() {
 		return instance;
@@ -21,8 +23,8 @@ public class MemberDAO {
 		this.con = con;
 	}
 
+	//로그인
 	public boolean selectMember(MemberDTO member) {
-
 		boolean isLoginSuccess = false;
 		
 		PreparedStatement pstmt = null;
@@ -43,8 +45,10 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("MemberDAO - selectMember 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
-		
 		return isLoginSuccess;
 	}
 	
