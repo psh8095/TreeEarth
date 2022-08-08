@@ -147,7 +147,7 @@ public class StoreDAO {
 		return itemimg;
 	}
 	
-	
+	// 상품 목록 상세 조회
 	public StoreDTO selectItemDetail(int sto_idx) {
 		
 		StoreDTO store = null;
