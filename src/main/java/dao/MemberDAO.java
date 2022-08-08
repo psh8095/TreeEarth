@@ -46,8 +46,7 @@ public class MemberDAO {
 			e.printStackTrace();
 			System.out.println("MemberDAO - selectMember 오류");
 		} finally {
-			close(rs);
-			close(pstmt);
+			
 		}
 		return isLoginSuccess;
 	}

@@ -19,11 +19,11 @@
 		<table border="1">
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="id"></td>
+				<td><input type="text" name="mem_id"></td>
 			</tr>
 			<tr>
 				<th>패스워드</th>
-				<td><input type="password" name="passwd"></td>
+				<td><input type="password" name="mem_pass"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
