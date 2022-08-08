@@ -21,6 +21,6 @@ Resource 태그를 사용하여 DBCP 정보 설정
 		url="jdbc:mysql://localhost:3306/treeEarth"
 		username="root"
 		password="1234"
-		maxActive="500"
+		maxTotal = "20" maxIdle = "10" maxWaitMillis = "-1"
 	/>
 </Context>

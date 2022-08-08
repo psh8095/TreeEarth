@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>campaign_review_form</title>
+<title>Support 글 수정</title>
 </head>
 <body>
-	
+<jsp:include page="../hf/header.jsp"></jsp:include>
+<h1>서포트 수정</h1>
+
 </body>
 </html>

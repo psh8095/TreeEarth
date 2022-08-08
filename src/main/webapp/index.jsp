@@ -30,7 +30,7 @@
                 <a class="dropbtn box">후원</a>
                 <div class="dropdown-content">
                 <ul class="inline">
-                    <li><a href="SupportDetail.su">후원하기</a></li>
+                    <li><a href="SupportList.su">후원하기</a></li>
                 </ul>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <a class="dropbtn box">커뮤니티</a>
                 <div class="dropdown-content">
                 <ul class="inline">
-                    <li><a href="">캠페인 후기</a></li>
+                    <li><a href="CampaignReviewList.cm">캠페인 후기</a></li>
                     <li><a href="">반려나무 성장일기</a></li>
                     <li><a href="">Q&A</a></li>
                     <li><a href="">공지사항</a></li>
