@@ -42,9 +42,9 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 				%>
 				<tr>
 					<td>
-					<a href="StoreItemDetail.st">
-					<img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="150" height="150">
-					</a>
+						<a href="StoreItemDetail.st?sto_idx=<%=itemimg2.getSto_idx() %>">
+						<img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="150" height="150">
+						</a>
 					</td>
 				</tr>
 				<tr>

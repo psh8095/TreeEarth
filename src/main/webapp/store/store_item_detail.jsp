@@ -1,7 +1,16 @@
+<%@page import="vo.store.StoreDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
+out.println(sto_idx);
+
+// StoreDTO store = new StoreDTO();
+// store.setSto_thum_file("sto_thum_file"); 
+// store.setSto_content_file("sto_content_file");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,19 +38,15 @@
 	<!-- 헤더 -->
 	<section>
 		<h2>상품 상세 내용 보기</h2>
-		<form action="">
-		<input type="hidden" name="sto_idx" value="${param.sto_idx }">
 			<table>
 				<tr>
-					<td>
-<%-- 					<img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="150" height="150"> --%>
-					</td>
+					<td><img src="img/store/${store.sto_thum_file}" width="300" height="500"></td>
 				</tr>
 				<tr>
 					<td>${store.sto_subject }<br></td>
 				</tr>
 				<tr>
-					<td>${store.sto_subject }<br></td>
+					<td>${store.sto_content }<br></td>
 				</tr>
 				<tr>
 					<td>${store.sto_price }<br></td>
@@ -52,7 +57,6 @@
 			<input type="button" value=" + " name="add">
 			<input type="button" value=" - " name="minus"><br>
 			금액 : <input type="text" name="sum" size="11" readonly="readonly">원
-		</form>
 	</section>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
