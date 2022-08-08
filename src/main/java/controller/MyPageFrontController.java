@@ -1,4 +1,4 @@
-package action.mypage;
+package controller;
 
 import java.io.IOException;
 
