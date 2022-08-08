@@ -3,6 +3,7 @@ package action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import svc.FreeBoardListService;
 import vo.ActionForward;
 
 public class FreeBoardListAction implements Action {
