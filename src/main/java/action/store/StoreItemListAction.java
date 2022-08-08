@@ -2,12 +2,8 @@ package action.store;
 
 import java.util.ArrayList;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
 import svc.store.StoreItemListService;
@@ -24,12 +20,11 @@ public class StoreItemListAction implements Action {
 		ActionForward forward = null;
 		
 		// 페이징 처리 없애기!
-		// 페이징 처리를 위한 변수 선언
-		int pageNum = 1; // 현재 페이지 번호->기본값 1 페이지로 설정
-		int listLimit = 9; // 한 페이지 당 표시할 상품 목록 수
-		int pageLimit = 3; // 한 페이지 당 표시할 페이지 목록 수
+		int pageNum = 1; 
+		int listLimit = 9; 
+		int pageLimit = 3;
 		
-		// URL 파라미터로 현재 페이지번호(pageNum)가 전달되었을 경우 가져와서 변수에 저장
+		// 현재 페이지번호(pageNum)가 전달되었을 경우 가져와서 변수에 저장
 		if(request.getParameter("pageNum") != null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
@@ -41,7 +36,6 @@ public class StoreItemListAction implements Action {
 		int itemListCount = service.getItemListCount(); 
 		System.out.println("전체 상품 목록 수 : " + itemListCount);
 		//------------------------------------------------------------------
-		// 페이징 처리를 위한 계산 작업
 		// 1. 현재 페이지에서 표시할 전체 페이지 수 계산
 		int maxPage = (int)Math.ceil((double)itemListCount / listLimit);
 
@@ -69,7 +63,6 @@ public class StoreItemListAction implements Action {
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("storeList", storeList);
 		
-		// store_main.jsp 페이지 지정 및 포워딩
 		forward = new ActionForward();
 		forward.setPath("store/store_main.jsp");
 		forward.setRedirect(false);

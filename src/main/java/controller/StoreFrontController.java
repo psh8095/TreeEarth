@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.store.StoreItemDetailAction;
+import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
 import vo.ActionForward;
 
@@ -31,14 +33,16 @@ public class StoreFrontController extends HttpServlet {
 		ActionForward forward = null;
 		
 		if(command.equals("/StoreItemList.st")) {
-			
+			// 스토어 메인페이지 상품 목록 주소
 			action = new StoreItemListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		} else if(command.equals("/StoreItemImg.st")) {
+			// 상품 이미지 조회 확인
 			action = new StoreItemImgAction();
 			try {
 				forward = action.execute(request, response);
@@ -46,6 +50,14 @@ public class StoreFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		} else if(command.equals("/StoreItemDetail.st")) {
+			// 상품 상세 목록 조회 주소
+			action = new StoreItemDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		

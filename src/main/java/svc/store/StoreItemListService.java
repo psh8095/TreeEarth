@@ -15,11 +15,8 @@ public class StoreItemListService {
 		
 		int itemListCount = 0;
 		
-		// Connection 객체 가져오기
 		Connection con = getConnection();
-		// StoreDAO 객체 가져오기
 		StoreDAO dao = StoreDAO.getInstance();
-		// StoreDAO 객체에 Connection 객체 전달하기
 		dao.setConnection(con);
 		
 		// StoreDAO 객체의 selectItemListCount() 메서드를 호출하여 전체 상품 목록 갯수 조회

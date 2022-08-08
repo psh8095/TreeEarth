@@ -1,4 +1,4 @@
-package controller;
+package svc.store;
 
 import java.sql.Connection;
 import java.util.ArrayList;
