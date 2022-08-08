@@ -14,6 +14,7 @@
 	<!-- 헤더 -->
 	
 	<h1>로그인</h1>
+	<h1><a href="">회원가입</a></h1>
 	<form action="MemberLoginPro.me" method="post">
 		<table border="1">
 			<tr>
