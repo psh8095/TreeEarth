@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.campaign.CampaignApplyProAction;
 import action.campaign.CampaignExpiredListAction;
 import action.campaign.CampaignRecruListAction;
 import vo.ActionForward;
@@ -37,6 +38,19 @@ public class CampaignFrontController extends HttpServlet {
 		} else if(command.equals("/CampaignExpiredList.cp")) {
 			// 종료된 캠페인 서블릿 주소
 			action = new CampaignExpiredListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/CampaignApplyForm.cp")) {
+			// 캠페인 참가 신청서 서블릿 주소
+			forward = new ActionForward();
+			forward.setPath("campaign/campaign_apply.jsp");
+		} else if(command.equals("/CampaignApplyPro.cp")) {
+			// 캠페인 참가 신청서 서블릿 주소
+			action = new CampaignApplyProAction();
+
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

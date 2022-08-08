@@ -42,6 +42,8 @@ public class MyPageFrontController extends HttpServlet {
 			// 위시리스트 서블릿 주소 요청 시 수행
 			forward = new ActionForward();
 			forward.setPath("mypage/wishlist.jsp");
+		} else if(command.equals("/InsertCart.my")) {
+			// 장바구니 담기 서블릿 주소
 		}
 		
 		if(forward != null) {

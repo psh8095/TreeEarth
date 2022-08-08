@@ -54,6 +54,13 @@
 			금액 : <input type="text" name="sum" size="11" readonly="readonly">원
 		</form>
 	</section>
+	
+	
+	
+	<!-- 장바구니 담기 버튼 -->
+	<div>
+		<input type="button" value="장바구니 담기" id="insertCart">
+	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

@@ -4,13 +4,13 @@ import java.sql.Date;
 
 /*
  * [ campaign ]
-	mem_id
 	cam_idx
-	cam_date
-	cam_people(참여인원)
 	cam_subject
 	cam_content
-	cam_readcount
+	cam_date
+	cam_thum_file
+	cam_thum_real_file
+	
  */
 public class CampaignDTO {
 	private int cam_idx;
