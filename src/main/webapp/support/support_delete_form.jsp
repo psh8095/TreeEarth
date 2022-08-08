@@ -33,7 +33,6 @@
 	<section id="passForm">
 		<form action="SupportDeleteProAction.su" name="deleteForm" method="post">
 		<input type="hidden" name ="sup_idx" value="${param.sup_idx}">
-		<input type="hidden" name ="pageNum" value="${param.pageNum}">
 			<table>
 				<tr>
 					<td><label>글 비밀번호</label></td>
@@ -48,5 +47,6 @@
 			</table>
 		</form>
 	</section>
+		<jsp:include page="../hf/footer.jsp"></jsp:include>
 </body>
 </html>

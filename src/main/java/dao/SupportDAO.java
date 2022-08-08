@@ -3,6 +3,7 @@ package dao;
 import static db.JdbcUtil.*;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import db.*;
 import vo.*;
@@ -66,58 +67,119 @@ public class SupportDAO {
 
 	}
 
+	
+	// ----------------------------------------------------------------------------------------
+
+	
 	// 후원 상세 페이지 조회 위한 selectBoard()메서드 정의
 	public SupportDTO selectBoard(int sup_idx) {
-
-		return null;
-	}
-
-	public int insertSupportBoard(SupportDTO dto) {
-		System.out.println("insertSupportBoard");
-		int insertCount = 0; // insert 결과를 확인하기 위한 변수 지정
-
+		System.out.println("5. selectBoard DAO");
+		SupportDTO dto = new SupportDTO();
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
-		int idx = 1; // 글 번호 지정
-
+		String sql = "";
+		
+		
 		try {
-			String sql = "SELECT max(sup_ix) FROM support";
+			// idx 해당하는 데이터 dto에 넣기  
+			sql = "SELECT * FROM support WHERE sup_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sup_idx);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setSup_subject(rs.getString("sup_subject"));
+				dto.setSup_date(rs.getDate("sup_date"));
+				dto.setSup_readcount(rs.getInt("sup_readcount"));
+				dto.setSup_content(rs.getString("sup_content"));
+				dto.setSup_thumbnail_file(rs.getString("sup_thumbnail_file"));
+				dto.setSup_original_file(rs.getString("sup_original_file"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		System.out.println("5-1. 개시물 정보 저장!");
+		return dto;
+	}
+
+	
+	// ----------------------------------------------------------------------------------------
+	
+	
+	//게시판 등록 메서드
+	public int insertSupportBoard(SupportDTO dto) {
+		System.out.println("5. insertSupportBoard DAO");
+		int insertCount = 0; 
+
+		
+		PreparedStatement pstmt = null, pstmt2 = null;
+		ResultSet rs = null;
+		String sql = "", sql2 = "";
+		
+		
+		// 글 번호 지정
+		int idx = 1; 
+
+		
+		try {
+			
+			//제일 높은 글번호 값을 조회
+			sql = "SELECT max(sup_idx) FROM support";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-
+			
+			
+			//기존 글이 있으면
 			if (rs.next()) {
 				idx = rs.getInt(1) + 1;
+				System.out.println("5-1. 글번호 상승");
 			}
 
-			sql = "INSERT INTO support VALUES(?,?,?,?,?,?,?,?,?,?,?,now()) ";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, idx); // 글 번호
-			pstmt.setString(2, dto.getSup_pass()); // 글 비밀번호
-			pstmt.setInt(3, dto.getSup_goal_price());
-			pstmt.setInt(4, dto.getSup_money());
-			pstmt.setString(5, dto.getSup_subject());
-			pstmt.setString(6, dto.getSup_content());
-			pstmt.setString(7, dto.getSup_original_file());
-			pstmt.setString(8, dto.getSup_real_file());
-			pstmt.setString(9, dto.getSup_thumbnail_file());
-			pstmt.setString(10, dto.getSup_thumbnail_real_file());
-			pstmt.setInt(11, 0);// readcount 자리
+			
+			//기존 글이 없으면 
+			//게시글 등록
+			sql2 = "INSERT INTO support VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,now()) ";
+			pstmt2 = con.prepareStatement(sql2);
+			pstmt2.setInt(1, idx); 
+			pstmt2.setInt(2, dto.getSup_goal_price());
+			pstmt2.setString(3, dto.getSup_pass()); 
+			pstmt2.setString(4, dto.getSup_subject());
+			pstmt2.setString(5, dto.getSup_content());
+			pstmt2.setString(6, dto.getSup_thumbnail_real_file());
+			pstmt2.setString(7, dto.getSup_thumbnail_file());
+			pstmt2.setString(8, dto.getSup_original_file());
+			pstmt2.setString(9, dto.getSup_real_file());
+			pstmt2.setInt(10, 0); 
+			pstmt2.setInt(11, 0);
+			pstmt2.setInt(12, 0);
+			pstmt2.setInt(13, 0);
 
-			insertCount = pstmt.executeUpdate();
+			insertCount = pstmt2.executeUpdate();
+			System.out.println("5-2. 개시물 등록!");
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("SQL 구문 오류 발생! - insertSupportBoard()");
 		} finally {
 			JdbcUtil.close(pstmt);
+			JdbcUtil.close(pstmt2);
 			JdbcUtil.close(rs);
 		}
 
+		
 		return insertCount;
 
 	}
 
+	
+	// ----------------------------------------------------------------------------------------
+
+	
 	// 조회수 카운트를 정의하는 updateReadcount() 정의
 	public void updateReadcount(int sup_idx) {
 		System.out.println("updateReadcount");
@@ -215,6 +277,70 @@ public class SupportDAO {
 
 		return deleteCount;
 
+	}
+
+	
+	// ----------------------------------------------------------------------------------------
+	
+	
+	//리스트 
+	public ArrayList<SupportDTO> selectSupportList() {
+		System.out.println("5. selectSupportList DAO");
+		ArrayList<SupportDTO> SupportList = null;
+		
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		//dto객체를 저장할 arraylist객체
+		SupportList = new ArrayList<SupportDTO>();
+		
+		
+		try {
+			//support 게시물 전체 조회
+			String sql = "SELECT * FROM support";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			
+			// 조회된 게시글 수 만큼 반복
+			while(rs.next()) {
+				
+				// 하나의 게시글 정보를 담는 dto객체 인스턴스 생성 
+				SupportDTO dto = new SupportDTO();
+				
+				// 게시물 정보 저장
+				dto.setSup_idx(rs.getInt("sup_idx"));
+				dto.setSup_goal_price(rs.getInt("sup_goal_price"));
+				dto.setSup_pass(rs.getString("sup_pass"));
+				dto.setSup_subject(rs.getString("sup_subject"));
+				dto.setSup_content(rs.getString("sup_content"));
+				dto.setSup_thumbnail_real_file(rs.getString("sup_thumbnail_real_file"));
+				dto.setSup_thumbnail_file(rs.getString("sup_thumbnail_file"));
+				dto.setSup_real_file(rs.getString("sup_real_file"));
+				dto.setSup_original_file(rs.getString("sup_original_file"));
+				dto.setSup_money(rs.getInt("sup_money"));
+				dto.setSup_total(rs.getInt("sup_total"));
+				dto.setSup_now_total(rs.getInt("sup_now_total"));
+				dto.setSup_readcount(rs.getInt("sup_readcount"));
+				dto.setSup_date(rs.getDate("sup_date"));
+				
+				
+				//리스트에 dto객체 저장
+				SupportList.add(dto);
+				
+
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("5-1. 개시물 정보 저장!");
+		return SupportList;
 	}
 
 }
