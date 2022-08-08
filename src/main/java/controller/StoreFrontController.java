@@ -10,28 +10,77 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.AdminStoreWriteProAction;
 import action.StoreItemListAction;
 import vo.ActionForward;
 
-// 스토어 컨트롤러
 @WebServlet("*.st")
-public class StoreFrontController extends HttpServlet {
-	
+public class adminStoreFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("StoreFrontController");
+		System.out.println("adminStoreFrontController");
 		
-		// POST 방식 요청에 대한 한글 처리
 		request.setCharacterEncoding("UTF-8");
 		
-		// 서블릿 주소 추출
 		String command = request.getServletPath();
-		System.out.println("서블릿 주소 : " + command);
+		System.out.println("command : " + command);
 		
-		Action action = null;
-		ActionForward forward = null;
+		Action action = null; // Action 클래스 인스턴스를 관리하는 변수
+		ActionForward forward = null; // 포워딩 정보를 관리하는 변수
 		
-		if(command.equals("/StoreItemList.st")) {
-			
+		if(command.equals("/AdminStoreWriteForm.st")) { // 상품글 등록 페이지로 이동
+			forward = new ActionForward();
+			forward.setPath("store_admin_product/store_write.jsp"); 
+			forward.setRedirect(false);
+		} else if (command.equals("/AdminStoreWritePro.st")) {
+			try {
+				action = new AdminStoreWriteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+//		} else if (command.equals("/AdminStoreList.st")) { // 등록한 상품글 목록으로 이동
+//			try {
+//				action = new AdminStoreListAction();
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if (command.equals("/AdminStoreDetail.st")) { // 등록한 상품글 상세페이지로 이동
+//			try {
+//				action = new AdminStoreDetailAction();
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/AdminStoreDeleteForm.bo")) { // 등록한 상품글 삭제
+//			forward = new ActionForward();
+//			forward.setPath("store_admin_product/store_delete.jsp");
+//			forward.setRedirect(false); // Dispatcher 방식(생략 가능)
+//		} else if(command.equals("/AdminStoreDeletePro.bo")) {
+//			action = new AdminStoreDeleteProAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/AdminStoreModifyForm.bo")) { // 등록한 상품글 수정
+//			action = new AdminStoreModifyFormAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/AdminStoreModifyPro.bo")) {
+//			action = new AdminStoreModifyProAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+		} else if (command.equals("/StoreItemList.st")) {
 			action = new StoreItemListAction();
 			try {
 				forward = action.execute(request, response);
@@ -41,17 +90,15 @@ public class StoreFrontController extends HttpServlet {
 		}
 		
 		
-		// ActionForward 객체에 저장된 포워딩 정보에 따른 포워딩 작업 수행하기 위한 공통코드 작성
 		if(forward != null) {
 			if(forward.isRedirect()) {
-				// 리다이렉트방식
 				response.sendRedirect(forward.getPath());
-			} else {
-				// 디스패처 방식
+			} else { 
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
 		}
+
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
