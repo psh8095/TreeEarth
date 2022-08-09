@@ -122,7 +122,7 @@ public class CampaignReviewDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT COUNT(*) FROM board";
+			String sql = "SELECT COUNT(*) FROM campaign_review";
 			pstmt = con.prepareStatement(sql);
 			
 			rs = pstmt.executeQuery();
@@ -150,7 +150,39 @@ public class CampaignReviewDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "";
+		int startRow = (pageNum - 1) * listLimit;
+		
+		try {
+			String sql = "SELECT * FROM campaign_review ORDER BY cam_re_idx LIMIT ?,?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, listLimit);
+			
+			rs = pstmt.executeQuery();
+			
+			campaignReviewList = new ArrayList<CampaignReviewDTO>();
+			
+			while(rs.next()) {
+				CampaignReviewDTO campaign_review = new CampaignReviewDTO();
+				
+				campaign_review.setCam_re_idx(rs.getInt("cam_re_idx"));
+				campaign_review.setCam_re_id(rs.getString("cam_re_id"));
+				campaign_review.setCam_re_subject(rs.getString("cam_re_subject"));
+				campaign_review.setCam_re_content(rs.getString("cam_re_content"));
+				campaign_review.setCam_re_readcount(rs.getInt("cam_re_readcount"));
+				campaign_review.setCam_re_date(rs.getDate("cam_re_date"));
+				campaign_review.setCam_re_file(rs.getString("cam_re_file"));
+				campaign_review.setCam_re_real_file(rs.getString("cam_re_real_file"));
+				campaign_review.setCam_re_thum_file(rs.getString("cam_re_thum_file"));
+				campaign_review.setCam_re_thum_real_file(rs.getString("cam_re_thum_real_file"));
+				
+				campaignReviewList.add(campaign_review);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("CampaignReviewDAO - selectCampaignReviewList 오류");
+		}
 		
 		return campaignReviewList;
 	}

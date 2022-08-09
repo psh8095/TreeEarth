@@ -13,7 +13,7 @@ public class CampaignReviewListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		System.out.println("CampaignReviewListAction");
 		ActionForward forward = null;
 		
 		//페이징처리 변수
@@ -27,9 +27,9 @@ public class CampaignReviewListAction implements Action {
 		}
 		
 		CampaignReviewListService service = new CampaignReviewListService();
-		int listCount = service.getCampaignReviewListCount();
+		int itemListCount = service.getCampaignReviewListCount();
 		
-		int maxPage = (int)Math.ceil((double)listCount / listLimit);
+		int maxPage = (int)Math.ceil((double)itemListCount / listLimit);
 		int startPage = ((int)((double)pageNum / pageLimit + 0.9) - 1) * pageLimit + 1;
 		int endPage = startPage + pageLimit - 1;
 
@@ -37,17 +37,17 @@ public class CampaignReviewListAction implements Action {
 			endPage = maxPage;
 		}
 		
-		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
+		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, itemListCount);
 		
 		ArrayList<CampaignReviewDTO> campaignReviewList = CampaignReviewListService.getCampaignReviewList(pageNum, listLimit);
 		
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("boardList", campaignReviewList);
+		request.setAttribute("campaignReviewList", campaignReviewList);
 //		System.out.println(pageInfo.getListCount());
 //		System.out.println(boardList);
 		
 		forward = new ActionForward();
-		forward.setPath("campaign_review_list.jsp");
+		forward.setPath("community/campaign_review_list.jsp");
 		forward.setRedirect(false);
 		
 		return forward;
