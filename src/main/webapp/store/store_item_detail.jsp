@@ -6,6 +6,7 @@
 <%
 int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 out.println(sto_idx);
+String sId = session.getAttribute("sId").toString();
 
 // StoreDTO store = new StoreDTO();
 // store.setSto_thum_file("sto_thum_file"); 
@@ -37,6 +38,27 @@ out.println(sto_idx);
 		
 		var price = ${store.sto_price} * quantity.val();
 		$("#quantity_price").val(price);
+
+// 장바구니 담기 버튼 클릭 시 수행되는 작업들
+	$(function() {
+		$("#insertCart").on("click", function() {
+// 			alert("확인용");
+			if(<%=sId %> == null) {
+				alert("로그인이 필요한 기능입니다.");
+			} else {
+				$.ajax({
+					type: "post",
+					url: "InsertCart.my",
+					data: {
+						sto_idx: ${param.sto_idx}
+					},
+					dataType: "text",
+					success: function(response) {
+						alert("장바구니에 담았습니다!");
+					}
+				});
+			}
+		});
 	});
 </script>
 <link href="css/index.css" rel="stylesheet">

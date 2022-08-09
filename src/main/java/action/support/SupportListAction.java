@@ -31,8 +31,9 @@ public class SupportListAction implements Action {
 	// -------------------------------------------------------------------------------------
 		
 		System.out.println("7. 리스트 성공");
+		// 후원 페이지로 이동	
 		forward = new ActionForward();
-		forward.setPath("SupportList.su");
+		forward.setPath("support/support_list.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

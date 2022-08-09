@@ -83,6 +83,7 @@
 	
 		<section id="articleContentArea">
 			<img alt="" src="./upload/<%=dto.getSup_thumbnail_file() %>" width="30%">
+			<img alt="" src="./upload/<%=dto.getSup_original_file() %>" width="30%">
 			<%=dto.getSup_content() %>
 		</section>
 	</section>

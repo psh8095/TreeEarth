@@ -20,17 +20,17 @@ import java.sql.*;
  */
 
 public class MemberDTO {
-	private String mem_id;
-	private String mem_pass;
-	private String mem_name;
-	private Date mem_birth;
-	private String mem_gender;
-	private String mem_address;
-	private String mem_address_detail;
-	private String mem_phone;
-	private String mem_email;
-	private int mem_point;
-	private Date mem_date;
+	private String mem_id;// 1
+	private String mem_pass;// 2
+	private String mem_name;// 3
+	private Date mem_birth;// 4
+	private String mem_gender;// 5
+	private String mem_address;// 6
+	private String mem_address_detail;// 7
+	private String mem_phone;// 8
+	private String mem_email;// 9
+	private int mem_point;// 10
+	private Date mem_date;// 11
 	
 	public String getMem_id() {
 		return mem_id;
