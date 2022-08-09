@@ -31,6 +31,7 @@ public class SupportWriteProAdminAction implements Action {
 		ServletContext context = request.getServletContext();
 		
 		String realPath = context.getRealPath(uploadPath);
+		//업로드 파일이 실질적으로 저장되는 경로
 		
 		MultipartRequest multi = new MultipartRequest(
 			request, 
@@ -51,10 +52,11 @@ public class SupportWriteProAdminAction implements Action {
 		dto.setSup_pass(multi.getParameter("sup_pass"));
 		dto.setSup_subject(multi.getParameter("sup_subject"));
 		dto.setSup_content(multi.getParameter("sup_content"));
-		dto.setSup_thumbnail_real_file(multi.getFilesystemName("sup_thumbnail_file"));
-		dto.setSup_thumbnail_file(multi.getOriginalFileName("sup_thumbnail_file"));
-		dto.setSup_original_file(multi.getFilesystemName("sup_original_file"));
-		dto.setSup_real_file(multi.getOriginalFileName("sup_original_file"));
+		dto.setSup_thumbnail_real_file(multi.getFilesystemName("sup_thumbnail_file"));  
+		dto.setSup_thumbnail_file(multi.getOriginalFileName("sup_thumbnail_file")); //동일파일을 저장위해 같은 명 사용
+		dto.setSup_real_file(multi.getFilesystemName("sup_original_file"));
+		dto.setSup_original_file(multi.getOriginalFileName("sup_original_file"));
+		System.out.println(dto);
 		
 		
 	// ----------------------------------------------------------------------------------------
@@ -80,7 +82,7 @@ public class SupportWriteProAdminAction implements Action {
 		} else {
 			System.out.println("7. 게시물 작성 성공");
 			forward = new ActionForward();
-			forward.setPath("support/support_list.jsp");
+			forward.setPath("SupportListAction.su");
 			forward.setRedirect(true);
 		}
 		

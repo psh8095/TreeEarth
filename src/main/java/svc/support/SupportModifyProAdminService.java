@@ -10,6 +10,8 @@ import static db.JdbcUtil.*;
 public class SupportModifyProAdminService {
 	
 	public boolean isBoardWriter(int sup_idx, String sup_pass) {
+		System.out.println("SupportModifyProAdminService");
+	
 		boolean isBoardWriter = false;
 	
 	Connection con = getConnection();

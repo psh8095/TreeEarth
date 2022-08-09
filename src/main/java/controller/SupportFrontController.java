@@ -104,7 +104,7 @@ public class SupportFrontController extends HttpServlet {
 				action = new SupportModifyProAdminAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				System.out.println("modifypro 오류 챱");
+				System.out.println("modifypro 오류 챱 " + e.getMessage());
 				e.printStackTrace();
 			}
 

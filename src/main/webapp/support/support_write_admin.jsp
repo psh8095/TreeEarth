@@ -73,12 +73,12 @@ table {
 				<tr>
 					<td class="td_left"><label for="sup_thumbnail_file">썸네일 파일 첨부</label></td>
 					<td class="td_right"><input name="sup_thumbnail_file" type="file"
-						id="board_file" required="required"></td>
+						 required="required"></td>
 				</tr>
 					<tr>
 					<td class="td_left"><label for="sup_original_file">파일 첨부</label></td>
 					<td class="td_right"><input name="sup_original_file" type="file"
-						id="board_file" required="required"></td>
+						 required="required"></td>
 				</tr>
 			</table>
 			<section id="commandCell">
