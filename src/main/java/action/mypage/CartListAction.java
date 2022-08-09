@@ -1,10 +1,10 @@
-package action.store;
+package action.mypage;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.store.CartListService;
+import svc.mypage.CartListService;
 import vo.ActionForward;
 
 public class CartListAction implements Action {

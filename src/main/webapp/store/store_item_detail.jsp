@@ -18,6 +18,26 @@ out.println(sto_idx);
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TreeEarth</title>
+<script src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+// 장바구니 담기 버튼 클릭 시 수행되는 작업들
+	$(function() {
+		$("#insertCart").on("click", function() {
+// 			alert("확인용");
+			$.ajax({
+				type: "post",
+				url: "InsertCart.my",
+				data: {
+					sto_idx: ${param.sto_idx}
+				},
+				dataType: "text",
+				success: function(response) {
+					alert("장바구니에 담았습니다!");
+				}
+			});
+		});
+	});
+</script>
 <link href="css/index.css" rel="stylesheet">
 <style type="text/css">
 	#buttonArea {

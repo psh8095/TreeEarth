@@ -146,23 +146,19 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("member/member_login.jsp");
 			forward.setRedirect(false);
-			
-			
-		//로그인 작업	
-		} else if(command.equals("/MemberLoginPro.me")) { 
-			action = new MemberLoginProAction();
+
+		} else if(command.equals("/MemberLoginPro.me")) { //로그인 작업
 			try {
+				action = new MemberLoginProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("MemberFrontController - MemberLoginPro 오류");
 			}
-			
-			
-		// 로그아웃	
-		} else if(command.equals("/MemberLogout.me")) {
-			action = new MemberLogoutAction(); 
+
+		} else if(command.equals("/MemberLogout.me")) { // 로그아웃
 			try {
+				action = new MemberLogoutAction(); 
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
