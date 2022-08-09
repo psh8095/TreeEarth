@@ -8,7 +8,7 @@ import vo.community.*;
 
 public class CampaignReviewWriteProService {
 
-	public boolean registBoard(CampaignReviewDTO cam_re) {
+	public boolean registBoard(CampaignReviewDTO campaign_review) {
 		
 		boolean isWriteSuccess = false;
 		
@@ -17,7 +17,7 @@ public class CampaignReviewWriteProService {
 		CampaignReviewDAO dao = CampaignReviewDAO.getInstance();
 		dao.setConnection(con);
 		
-		int insertCount = dao.insertCampaignReview(cam_re);
+		int insertCount = dao.insertCampaignReview(campaign_review);
 		
 		if(insertCount > 0) { 
 			JdbcUtil.commit(con);
