@@ -43,7 +43,7 @@ String sId = session.getAttribute("sId").toString();
 	$(function() {
 		$("#insertCart").on("click", function() {
 // 			alert("확인용");
-			if(<%=sId %> == null) {
+			if(${empty sessionScope.sId}) {
 				alert("로그인이 필요한 기능입니다.");
 			} else {
 				$.ajax({
