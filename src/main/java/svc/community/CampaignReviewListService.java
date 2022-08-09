@@ -22,6 +22,7 @@ public class CampaignReviewListService {
 		
 		//전체 게시물 목록 조회
 		listCount = dao.selectListCount();
+		System.out.println("listCount : " + listCount);
 		
 		close(con);
 		
@@ -38,6 +39,7 @@ public class CampaignReviewListService {
 		dao.setConnection(con);
 		
 		campaignReviewList = dao.selectCampaignReviewList(pageNum, listLimit);
+		System.out.println(campaignReviewList);
 		
 		close(con);
 
