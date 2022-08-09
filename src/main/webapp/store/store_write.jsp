@@ -15,7 +15,7 @@
 		<form> 태그 속성에 enctype="multipart/form-data" 명시 필수!
 		(생략 시 enctype="application/x-www-form-urlencoded" 속성이 기본값으로 설정됨)
 		-->
-		<form action="AdminStoreWritePro.st" name="boardForm" method="post" enctype="multipart/form-data">
+		<form action="StoreWritePro.st" name="boardForm" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td class="td_left"><label for="sto_idx">상품 번호</label></td>

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%
+    //페이지 번호
+    session.setAttribute("location", 1);
+    %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +15,13 @@
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
 	<h1>로그인</h1>
-	<h1><a href="">회원가입</a></h1>
+	<h1><a href="dirrhks.me">회원가입</a></h1>
 	<form action="MemberLoginPro.me" method="post">
 		<table border="1">
 			<tr>
