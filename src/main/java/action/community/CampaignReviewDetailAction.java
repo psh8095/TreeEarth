@@ -1,18 +1,18 @@
 package action.community;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
-import action.Action;
-import svc.community.CampaignReviewDetailService;
-import vo.ActionForward;
-import vo.community.CampaignReviewDTO;
+import action.*;
+import svc.community.*;
+import vo.*;
+import vo.community.*;
 
 public class CampaignReviewDetailAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		System.out.println("CampaignReviewDetailAction");
+		
 		ActionForward forward = null;
 		
 		//캠페인후기 글번호 가져오기

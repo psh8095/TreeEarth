@@ -13,7 +13,7 @@
 	
 	<section id="writeForm">
 		<h1>캠페인 후기 수정</h1>
-		<form action="CampaignReviewModiifyPro.cm" method="post">
+		<form action="CampaignReviewModifyPro.cm" method="post">
 			<input type="hidden" name="cam_re_idx" value="${param.cam_re_idx }">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
@@ -22,7 +22,7 @@
 					<td><input type="text" name="cam_re_id" required="required"></td>
 				</tr>
 				<tr>
-					<td><label for="board_pass">비밀번호</label></td>
+					<td><label for="mem_pass">비밀번호</label></td>
 					<td>
 						<input type="password" name="mem_pass" required="required">
 					</td>

@@ -6,8 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="../css/index.css" rel="stylesheet">
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
 	<section id="">
 	<h2>캠페인후기 글 목록</h2>
 	<table border="1">
@@ -80,5 +84,8 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>

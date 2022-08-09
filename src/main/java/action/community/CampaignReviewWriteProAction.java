@@ -18,6 +18,7 @@ public class CampaignReviewWriteProAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("CampaignReviewWriteProAction");
+		
 		ActionForward forward = null;
 		
 		//업로드 파일 위치
@@ -31,7 +32,7 @@ public class CampaignReviewWriteProAction implements Action {
 		
 		//실제 경로
 		String realPath = context.getRealPath(uploadPath); 
-		System.out.println(realPath);
+//		System.out.println(realPath);
 		
 		//파일 업로드에 필요한 파라미터
 		MultipartRequest multi = new MultipartRequest(
