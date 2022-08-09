@@ -8,6 +8,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 out.println(sto_idx);
 String sId = session.getAttribute("sId").toString();
 
+
 // StoreDTO store = new StoreDTO();
 // store.setSto_thum_file("sto_thum_file"); 
 // store.setSto_content_file("sto_content_file");
@@ -36,11 +37,7 @@ String sId = session.getAttribute("sId").toString();
 			}
 		});
 		
-		var price = ${store.sto_price} * quantity.val();
-		$("#quantity_price").val(price);
-
-// 장바구니 담기 버튼 클릭 시 수행되는 작업들
-	$(function() {
+		// 장바구니 담기 버튼 클릭 시 수행되는 작업들
 		$("#insertCart").on("click", function() {
 // 			alert("확인용");
 			if(${empty sessionScope.sId}) {
@@ -60,6 +57,9 @@ String sId = session.getAttribute("sId").toString();
 			}
 		});
 	});
+		
+		var price = ${store.sto_price} * quantity.val();
+		$("#quantity_price").val(price);
 </script>
 <link href="css/index.css" rel="stylesheet">
 <style type="text/css">
