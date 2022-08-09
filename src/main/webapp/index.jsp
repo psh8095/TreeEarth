@@ -10,11 +10,14 @@
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
+<header>
 	<!-- 헤더 -->
 	<jsp:include page="hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	    <main>
-        <img src="img/4.png" alt="대충 웅장한 산 사진" width="100%">
+	 <div id="logo">
+	    	<img src="img/main/logo_1.png" alt="트리어스" width="250">
+	 </div>
+     <img src="img/4.png" alt="대충 웅장한 산 사진" width="100%">
         <div class="line">
             <div class="dropdown">
                 <a class="dropbtn box">캠페인</a>
@@ -57,9 +60,10 @@
                 </div>
             </div>
         </div>
+</header>
         <img src="img/2.png" alt="대충 메인 베너1" width="100%">
         <img src="img/3.png" alt="대충 메인 베너2" width="100%">
-    </main>
+
     <!-- 푸터 -->
 	<jsp:include page="hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
