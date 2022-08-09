@@ -8,7 +8,6 @@ import action.*;
 import svc.community.CampaignReviewListService;
 import vo.*;
 import vo.community.CampaignReviewDTO;
-import vo.store.StorePageInfo;
 
 public class CampaignReviewListAction implements Action {
 
