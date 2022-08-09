@@ -49,7 +49,7 @@ public class SupportFrontController extends HttpServlet {
 	// --------------------------------------------------------------------------------------
 	
 		
-		// 후원 리스트 액션으로 이동
+		// 후원 리스트로 이동
 		if (command.equals("/SupportListAction.su")) {
 			try {
 				action = new SupportListAction();
@@ -57,14 +57,8 @@ public class SupportFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-		// 후원 페이지로 이동	
-		} else if (command.equals("/SupportList.su")) {
-			forward = new ActionForward();
-			forward.setPath("support/support_list.jsp");
-			forward.setRedirect(false);
-		
-			
+
+
 		// 후원 상상세 보기 주소 요청 시 수행
 		} else if (command.equals("/SupportDetail.su")) {
 			try {
