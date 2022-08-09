@@ -10,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.AdminStoreWriteProAction;
 import action.StoreItemListAction;
 import vo.ActionForward;
 
 @WebServlet("*.st")
-public class adminStoreFrontController extends HttpServlet {
+public class StoreFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("adminStoreFrontController");
+		System.out.println("StoreFrontController");
 		
 		request.setCharacterEncoding("UTF-8");
 		
@@ -27,67 +26,60 @@ public class adminStoreFrontController extends HttpServlet {
 		Action action = null; // Action 클래스 인스턴스를 관리하는 변수
 		ActionForward forward = null; // 포워딩 정보를 관리하는 변수
 		
-		if(command.equals("/AdminStoreWriteForm.st")) { // 상품글 등록 페이지로 이동
+		if(command.equals("/StoreWriteForm.st")) { // 상품글 등록 페이지로 이동
 			forward = new ActionForward();
 			forward.setPath("store_admin_product/store_write.jsp"); 
 			forward.setRedirect(false);
 		} else if (command.equals("/AdminStoreWritePro.st")) {
 			try {
-				action = new AdminStoreWriteProAction();
+//				action = new StoreWriteProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-//		} else if (command.equals("/AdminStoreList.st")) { // 등록한 상품글 목록으로 이동
-//			try {
-//				action = new AdminStoreListAction();
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		} else if (command.equals("/AdminStoreDetail.st")) { // 등록한 상품글 상세페이지로 이동
-//			try {
-//				action = new AdminStoreDetailAction();
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		} else if(command.equals("/AdminStoreDeleteForm.bo")) { // 등록한 상품글 삭제
-//			forward = new ActionForward();
-//			forward.setPath("store_admin_product/store_delete.jsp");
-//			forward.setRedirect(false); // Dispatcher 방식(생략 가능)
-//		} else if(command.equals("/AdminStoreDeletePro.bo")) {
-//			action = new AdminStoreDeleteProAction();
-//			
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		} else if(command.equals("/AdminStoreModifyForm.bo")) { // 등록한 상품글 수정
-//			action = new AdminStoreModifyFormAction();
-//			
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		} else if(command.equals("/AdminStoreModifyPro.bo")) {
-//			action = new AdminStoreModifyProAction();
-//			
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-		} else if (command.equals("/StoreItemList.st")) {
+		} else if (command.equals("/StoreDetail.st")) { // 등록한 상품글 상세페이지로 이동
+			try {
+//				action = new StoreDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/StoreItemList.st")) {	// 상품 목록으로 이동
 			action = new StoreItemListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} else if(command.equals("/StoreDeleteForm.bo")) { // 등록한 상품글 삭제
+			forward = new ActionForward();
+			forward.setPath("store_admin_product/store_delete.jsp");
+			forward.setRedirect(false); // Dispatcher 방식(생략 가능)
+		} else if(command.equals("/StoreDeletePro.bo")) {
+//			action = new StoreDeleteProAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreModifyForm.bo")) { // 등록한 상품글 수정
+//			action = new StoreModifyFormAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreModifyPro.bo")) {
+//			action = new StoreModifyProAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
 		
 		if(forward != null) {
