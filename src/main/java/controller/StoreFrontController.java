@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.StoreDetailAction;
 import action.StoreItemListAction;
+import action.StoreWriteProAction;
 import vo.ActionForward;
 
 @WebServlet("*.st")
@@ -32,14 +34,14 @@ public class StoreFrontController extends HttpServlet {
 			forward.setRedirect(false);
 		} else if (command.equals("/AdminStoreWritePro.st")) {
 			try {
-//				action = new StoreWriteProAction();
+				action = new StoreWriteProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if (command.equals("/StoreDetail.st")) { // 등록한 상품글 상세페이지로 이동
 			try {
-//				action = new StoreDetailAction();
+				action = new StoreDetailAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
