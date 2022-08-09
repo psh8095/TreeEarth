@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.mypage.CartListAction;
 import action.mypage.InsertCartAction;
-import action.store.CartListAction;
 import vo.ActionForward;
 
 // 마이페이지 컨트롤러
