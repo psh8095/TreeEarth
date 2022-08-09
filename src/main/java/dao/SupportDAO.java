@@ -89,7 +89,9 @@ public class SupportDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
+				dto.setSup_idx(rs.getInt("sup_idx")); // 글번호 확인위한 필수 세팅
 				dto.setSup_subject(rs.getString("sup_subject"));
+				dto.setSup_goal_price(rs.getInt("sup_goal_price"));
 				dto.setSup_date(rs.getDate("sup_date"));
 				dto.setSup_readcount(rs.getInt("sup_readcount"));
 				dto.setSup_content(rs.getString("sup_content"));
@@ -151,8 +153,8 @@ public class SupportDAO {
 			pstmt2.setString(5, dto.getSup_content());
 			pstmt2.setString(6, dto.getSup_thumbnail_real_file());
 			pstmt2.setString(7, dto.getSup_thumbnail_file());
-			pstmt2.setString(8, dto.getSup_original_file());
-			pstmt2.setString(9, dto.getSup_real_file());
+			pstmt2.setString(8, dto.getSup_real_file());
+			pstmt2.setString(9, dto.getSup_original_file());
 			pstmt2.setInt(10, 0); 
 			pstmt2.setInt(11, 0);
 			pstmt2.setInt(12, 0);
@@ -202,7 +204,7 @@ public class SupportDAO {
 
 	// 글수정, 삭제에 사용되는 isBoardWriter() 정의
 	public boolean isBoardWriter(int sup_idx, String sup_pass) {
-		System.out.println("isBoardWriter");
+		System.out.println("4. isBoardWriter");
 		boolean isBoardWriter = false;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -235,16 +237,15 @@ public class SupportDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			String sql = "UPDATE support SET sup_goal_price =?, sup_money = ?, sup_total = ? sup_now_total = ?, sup_subject = ?, sup_content = ?, sup_original_file = ?, sup_thumbnail_file = ? WHERE sup_idx = ? ";
+			String sql = "UPDATE support SET sup_subject = ?, sup_pass = ?, sup_goal_price =?, sup_content =? ,  sup_thumbnail_file = ?,  sup_original_file = ? WHERE sup_idx = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, dto.getSup_goal_price());
-			pstmt.setInt(2, dto.getSup_money());
-			pstmt.setInt(3, dto.getSup_total());
-			pstmt.setInt(4, dto.getSup_now_total());
-			pstmt.setString(5, dto.getSup_subject());
-			pstmt.setString(6, dto.getSup_content());
-			pstmt.setString(7, dto.getSup_original_file());
-			pstmt.setString(8, dto.getSup_thumbnail_file());
+			pstmt.setString(1, dto.getSup_subject());
+			pstmt.setString(2, dto.getSup_pass());
+			pstmt.setInt(3, dto.getSup_goal_price());
+			pstmt.setString(4, dto.getSup_content());
+			pstmt.setString(5, dto.getSup_thumbnail_file());
+			pstmt.setString(6, dto.getSup_original_file());
+			pstmt.setInt(7, dto.getSup_idx());
 
 			updateCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -258,7 +259,7 @@ public class SupportDAO {
 
 	// 후원 삭제에 사용되어지는 deleteBoard() 정의
 	public int deleteBoard(int sup_idx) {
-		System.out.println("deleteBoard");
+		System.out.println("6 .deleteBoard");
 		int deleteCount = 0;
 		PreparedStatement pstmt = null;
 
@@ -339,7 +340,7 @@ public class SupportDAO {
 			e.printStackTrace();
 		}
 		
-		System.out.println("5-1. 개시물 정보 저장!");
+		System.out.println("5-1. 게시물 정보 저장!");
 		return SupportList;
 	}
 

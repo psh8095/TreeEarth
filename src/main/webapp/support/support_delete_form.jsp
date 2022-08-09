@@ -31,7 +31,7 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<h2>후원 게시판 글 삭제</h2>
 	<section id="passForm">
-		<form action="SupportDeleteProAction.su" name="deleteForm" method="post">
+		<form action="SupportDeleteProAdmin.su" name="deleteForm" method="post">
 		<input type="hidden" name ="sup_idx" value="${param.sup_idx}">
 			<table>
 				<tr>

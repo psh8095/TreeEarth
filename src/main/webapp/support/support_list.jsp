@@ -1,5 +1,6 @@
 <%@page import="vo.support.SupportDTO"%>
 <%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -20,20 +21,20 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 해더 -->
 	
-	
 		<h1>후원 리스트</h1>
 		
-		<a href="SupportWriteFormAdmin.su">글쓰기</a>
-		
+<a href="SupportWriteFormAdmin.su">글쓰기</a>
 			
 			<%for(Object o : List){
-				SupportDTO support = (SupportDTO)o; 
+				
+				SupportDTO dto = (SupportDTO)o; 
 			%>
 				
-				<h3><a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">제목 : <%=support.getSup_subject()%></a></h3>
-				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><img alt="썸네일" src="./upload/<%=support.getSup_thumbnail_file()%>" width="30%"></a>
+				<h3><a  href ="SupportDetail.su?sup_idx=<%=dto.getSup_idx() %>">제목 : <%=dto.getSup_subject()%></a></h3>
+				<a  href ="SupportDetail.su?sup_idx=<%=dto.getSup_idx() %>"><img alt="썸네일" src="./upload/<%=dto.getSup_thumbnail_file()%>" width="30%"></a>
 			
 			<%} %>
+
 
 
 	<!-- 푸터 -->

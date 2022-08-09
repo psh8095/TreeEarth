@@ -3,7 +3,6 @@ package action.support;
 import javax.servlet.http.*;
 
 import action.Action;
-import svc.*;
 import svc.support.SupportDetailServiceAdmin;
 import vo.*;
 import vo.support.SupportDTO;
@@ -42,7 +41,7 @@ public class SupportDetailAction implements Action {
 		//데이터 리턴
 		System.out.println("7. SupportWrite성공");
 		forward = new ActionForward();
-		forward.setPath("support/supprot_detail.jsp");//서푸로트 검거
+		forward.setPath("support/support_detail.jsp");//서푸로트 검거
 		forward.setRedirect(false);
 		
 		return forward;

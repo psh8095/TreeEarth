@@ -14,7 +14,9 @@ public class SupportDeleteProAdminAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			ActionForward forward = null;
+			System.out.println("3. SupportDeleteProAdminAction");
 			
+			//글 삭제를 위하여 판별하기 위해 글 번호와 비밀번호 파라미터 가져오기
 			int sup_idx = Integer.parseInt(request.getParameter("sup_idx"));
 			String sup_pass = request.getParameter("sup_pass");
 			
@@ -28,6 +30,7 @@ public class SupportDeleteProAdminAction implements Action {
 			 out.println("history.back()");
 			 out.println("</script>");
 		}else{
+			System.out.println("5. deleteSupport");
 			boolean isDeleteSuccess = service.deleteSupport(sup_idx);
 			if(!isDeleteSuccess) {
 				response.setContentType("text/html; charset=UTF-8" );
@@ -37,8 +40,9 @@ public class SupportDeleteProAdminAction implements Action {
 				out.println("history.back()");
 				out.println("</script>");
 			}else {
+				System.out.println("7. 삭제 성공");
 				forward = new ActionForward();
-				forward.setPath("SupportList.su?pageNum=" + request.getParameter("pageNum"));
+				forward.setPath("SupportListAction.su"); //+ request.getParameter("pageNum")
 				forward.setRedirect(true);
 			}
 		}
