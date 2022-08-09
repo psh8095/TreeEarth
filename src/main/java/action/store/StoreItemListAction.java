@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import svc.store.StoreItemListService;
 import vo.ActionForward;
+import vo.PageInfo;
 import vo.store.StoreDTO;
-import vo.store.StorePageInfo;
 
 public class StoreItemListAction implements Action {
 
@@ -51,7 +51,7 @@ public class StoreItemListAction implements Action {
 		}
 		
 		// 페이징 처리 정보를 StorePageInfo 객체에 저장
-		StorePageInfo pageInfo = new StorePageInfo(pageNum, maxPage, startPage, endPage, itemListCount);
+		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, itemListCount);
 		//-------------------------------------------------------------------
 		// StoreItemListService 객체의 getStoreItemList() 메서드 호출하여 상품 목록 가져오기
 		// 파라미터 : 현재 페이지 번호(pageNum), 페이지 당 상품 목록 수(listLimit)
