@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.mypage.InsertCartAction;
 import action.store.CartListAction;
 import vo.ActionForward;
 
@@ -44,6 +45,13 @@ public class MyPageFrontController extends HttpServlet {
 			forward.setPath("mypage/wishlist.jsp");
 		} else if(command.equals("/InsertCart.my")) {
 			// 장바구니 담기 서블릿 주소
+			action = new InsertCartAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null) {
