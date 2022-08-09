@@ -8,6 +8,7 @@ import dao.StoreDAO;
 import vo.store.StoreDTO;
 
 public class StoreItemDetailService {
+	
 	// 1개 상품 목록 상세 정보 조회
 	public StoreDTO getItemDetail(int sto_idx) {
 		
@@ -23,5 +24,6 @@ public class StoreItemDetailService {
 		
 		return store;
 	}
+
 	
 }

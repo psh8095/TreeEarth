@@ -10,14 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.store.StoreDeleteProAction;
 import action.store.StoreItemDetailAction;
 import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
+import action.store.StoreModifyFormAction;
+import action.store.StoreModifyProAction;
 import action.store.StoreWriteProAction;
 import vo.ActionForward;
 
 // 스토어 컨트롤러
-//제발깃에올라가
 @WebServlet("*.st")
 public class StoreFrontController extends HttpServlet {
 	
@@ -53,7 +55,7 @@ public class StoreFrontController extends HttpServlet {
 			}
 			
 		} else if(command.equals("/StoreItemDetail.st")) {
-			// 상품 상세 목록 조회 주소
+			// 상품 상세 조회 주소
 			action = new StoreItemDetailAction();
 			try {
 				forward = action.execute(request, response);
@@ -78,7 +80,7 @@ public class StoreFrontController extends HttpServlet {
 			forward.setPath("store/store_delete.jsp");
 			forward.setRedirect(false); // Dispatcher 방식(생략 가능)
 		} else if(command.equals("/StoreDeletePro.bo")) {
-//			action = new StoreDeleteProAction();
+			action = new StoreDeleteProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -86,14 +88,14 @@ public class StoreFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/StoreModifyForm.bo")) {
 			// 등록한 상품글 수정
-//			action = new StoreModifyFormAction();
+			action = new StoreModifyFormAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/StoreModifyPro.bo")) {
-//			action = new StoreModifyProAction();
+			action = new StoreModifyProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
