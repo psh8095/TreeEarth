@@ -3,6 +3,7 @@ package dao;
 import static db.JdbcUtil.close;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import vo.community.*;
 
@@ -110,6 +111,48 @@ public class CampaignReviewDAO {
 		}
 		
 		return campaign_review;
+	}
+
+	//전체 게시물 목록 조회
+	public int selectListCount() {
+		
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT COUNT(*) FROM board";
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("CampaignReviewDAO - selectListCount 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+
+	}
+
+	public ArrayList<CampaignReviewDTO> selectCampaignReviewList(int pageNum, int listLimit) {
+		
+		ArrayList<CampaignReviewDTO> campaignReviewList = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "";
+		
+		return campaignReviewList;
 	}
 	
 }
