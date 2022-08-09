@@ -13,9 +13,11 @@ import action.Action;
 import action.store.StoreItemDetailAction;
 import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
+import action.store.StoreWriteProAction;
 import vo.ActionForward;
 
 // 스토어 컨트롤러
+//제발깃에올라가
 @WebServlet("*.st")
 public class StoreFrontController extends HttpServlet {
 	
@@ -58,7 +60,47 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/StoreWriteForm.st")) {
+			// 상품글 등록 페이지로 이동
+			forward = new ActionForward();
+			forward.setPath("store/store_write.jsp"); 
+			forward.setRedirect(false);
+		} else if (command.equals("/StoreWritePro.st")) {
+			try {
+				action = new StoreWriteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+		} else if(command.equals("/StoreDeleteForm.bo")) {
+			// 등록한 상품글 삭제
+			forward = new ActionForward();
+			forward.setPath("store/store_delete.jsp");
+			forward.setRedirect(false); // Dispatcher 방식(생략 가능)
+		} else if(command.equals("/StoreDeletePro.bo")) {
+//			action = new StoreDeleteProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreModifyForm.bo")) {
+			// 등록한 상품글 수정
+//			action = new StoreModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreModifyPro.bo")) {
+//			action = new StoreModifyProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+			
 		
 		
 		// ActionForward 객체에 저장된 포워딩 정보에 따른 포워딩 작업 수행하기 위한 공통코드 작성
