@@ -19,7 +19,7 @@ import vo.ActionForward;
 @WebServlet("*.cp")
 public class CampaignFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("CampaingFrontController");
+		System.out.println("CampaignFrontController");
 		request.setCharacterEncoding("UTF-8");
 		String command = request.getServletPath();
 		System.out.println("서블릿 주소 : " + command);

@@ -31,7 +31,7 @@
 				</tr>
 				<tr>
 					<td><label for="cam_re_file">파일 첨부</label></td>
-					<td><input type="file" name="cam_re_file" required="required"></td>
+					<td><input type="file" name="cam_re_file"></td>
 				</tr>
 			</table>
 			<section id="commandCell">

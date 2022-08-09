@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.store.CartListAction;
+import action.mypage.CartListAction;
+import action.mypage.InsertCartAction;
 import vo.ActionForward;
 
 // 마이페이지 컨트롤러
@@ -28,22 +29,27 @@ public class MyPageFrontController extends HttpServlet {
 		
 		if(command.equals("/Cart.my")) {
 			// 장바구니 서블릿 주소 요청 시 수행
-//			action = new CartListAction();
-//
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
+			action = new CartListAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
-			forward = new ActionForward();
-			forward.setPath("mypage/cart.jsp");
 		} else if(command.equals("/Wishlist.my")) {
 			// 위시리스트 서블릿 주소 요청 시 수행
 			forward = new ActionForward();
 			forward.setPath("mypage/wishlist.jsp");
 		} else if(command.equals("/InsertCart.my")) {
 			// 장바구니 담기 서블릿 주소
+			action = new InsertCartAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null) {
