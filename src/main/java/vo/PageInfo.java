@@ -1,6 +1,6 @@
-package vo.store;
+package vo;
 
-public class StorePageInfo {
+public class PageInfo {
 	
 	private int pageNum; // 현재 페이지 번호
 	private int maxPage; // 최대 페이지 수
@@ -8,7 +8,7 @@ public class StorePageInfo {
 	private int endPage; // 끝 페이지 번호
 	private int itemListCount; // 총 상품 목록 수
 	
-	public StorePageInfo(int pageNum, int maxPage, int startPage, int endPage, int itemListCount) {
+	public PageInfo(int pageNum, int maxPage, int startPage, int endPage, int itemListCount) {
 		super();
 		this.pageNum = pageNum;
 		this.maxPage = maxPage;

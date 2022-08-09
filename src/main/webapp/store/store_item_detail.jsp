@@ -21,6 +21,24 @@ String sId = session.getAttribute("sId").toString();
 <title>TreeEarth</title>
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
+	$(function() { // 수량 버튼 추가, 감소 조작
+		var quantity = $("#quantity_input").val();
+	
+		$("#plus_btn").on("click", function() {
+			$("#quantity_input").val(++quantity);
+		});
+		
+		$("#minus_btn").on("click", function() {
+			if(quantity > 1) {
+				$("#quantity_input").val(--quantity);
+			} else {
+				alert("최소 주문 수량은 1개 이상 입니다.");
+			}
+		});
+		
+		var price = ${store.sto_price} * quantity.val();
+		$("#quantity_price").val(price);
+
 // 장바구니 담기 버튼 클릭 시 수행되는 작업들
 	$(function() {
 		$("#insertCart").on("click", function() {
@@ -55,6 +73,14 @@ String sId = session.getAttribute("sId").toString();
 	display: flex;
 	display: inline;
 	}
+	
+	#quantity_price {
+	font-size: 20px;
+	}
+	
+	#txt {
+	font-size: 16px;
+	}
 </style>
 </head>
 <body>
@@ -68,20 +94,31 @@ String sId = session.getAttribute("sId").toString();
 					<td><img src="img/store/${store.sto_thum_file}" width="300" height="500"></td>
 				</tr>
 				<tr>
-					<td>${store.sto_subject }<br></td>
+					<td>${store.sto_subject }, ${store.sto_content }<br></td>
 				</tr>
 				<tr>
 					<td>${store.sto_content }<br></td>
 				</tr>
 				<tr>
-					<td>${store.sto_price }<br></td>
+					<td>${store.sto_tag }<br></td>
+				</tr>
+				<tr>
+					<td>판매가 : ${store.sto_price }원<br></td>
 				</tr>
 			</table>
-			수량 : <input type="hidden" name="quantity" value="">
-			<input type="text" name="amount" value="1" size="3" max="">
-			<input type="button" value=" + " name="add">
-			<input type="button" value=" - " name="minus"><br>
-			금액 : <input type="text" name="sum" size="11" readonly="readonly">원
+			<div id="button">
+				<div id="button_quantity">
+					<span>
+						<button id="minus_btn">-</button>
+					</span>
+<!-- 					<input type="hidden" name="quantity" value=""> -->
+						<input type="text" id="quantity_input" name="amount" value="1" size="2" readonly="readonly">
+					<span>
+						<button id="plus_btn">+</button>
+					</span><br>
+						<span id="txt">총 상품금액&nbsp;&nbsp;</span><span id="quantity_price">${store.sto_price }</span><span id="txt">원</span>
+				</div>
+			</div>
 	</section>
 	
 	

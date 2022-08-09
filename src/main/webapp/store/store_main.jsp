@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -31,7 +32,14 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-		<h1>TreeEarth 프로젝트_Store Main</h1>
+	
+	<h1>TreeEarth 프로젝트_Store Main</h1>
+	
+	<%if(itemimg.isEmpty()) { %>
+	<hr>
+	<h1>상품이 없습니다.</h1>
+	<%}  %>
+
 		<section id="itemWriteForm">
 			<h2>판매 상품 등록</h2>	
 			<div id="tr1">
@@ -39,11 +47,11 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 			<%
 			for(Object o : itemimg) {
 				StoreDTO itemimg2 = (StoreDTO)o;
-				%>
+			%>
 				<tr>
 					<td>
 						<a href="StoreItemDetail.st?sto_idx=<%=itemimg2.getSto_idx() %>">
-						<img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="150" height="150">
+						<img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="200" height="200">
 						</a>
 					</td>
 				</tr>
@@ -65,7 +73,7 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 			</table>	
 			</div>
 		</section>
-		
+
 		<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
@@ -94,9 +102,19 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 			</c:otherwise>
 		</c:choose>
 	</section>
-	
+
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
