@@ -12,40 +12,78 @@ import javax.servlet.http.HttpServletResponse;
 import action.*;
 import action.support.SupportDeleteProAdminAction;
 import action.support.SupportDetailAction;
+import action.support.SupportListAction;
 import action.support.SupportModifyProAdminAction;
 import action.support.SupportWriteProAdminAction;
 import action.support.SuppotModifyFormAdminAction;
 import vo.*;
 
+
 @WebServlet("*.su")
 public class SupportFrontController extends HttpServlet {
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("SupportFrontController");
+	
+	
+	// --------------------------------------------------------------------------------------
+
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		System.out.println("==============================");
+		System.out.println("1. SupportFrontController 컨트롤러");
+	
+		
+	// --------------------------------------------------------------------------------------
+
+		
+		// 한글 인코딩
 		request.setCharacterEncoding("UTF-8");
-
+		
+		// 서블릿 주소 추출
 		String command = request.getServletPath();
-		System.out.println("command : " + command);
+		System.out.println("2. 입력 주소 = "+ command);
 
+		
 		Action action = null;
 		ActionForward forward = null;
 
-		if (command.equals("/SupportDetail.su")) {
-			// 후원 상상세 보기 주소 요청 시 수행
+		
+	// --------------------------------------------------------------------------------------
+	
+		
+		// 후원 리스트 액션으로 이동
+		if (command.equals("/SupportListAction.su")) {
+			try {
+				action = new SupportListAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		// 후원 페이지로 이동	
+		} else if (command.equals("/SupportList.su")) {
+			forward = new ActionForward();
+			forward.setPath("support/support_list.jsp");
+			forward.setRedirect(false);
+		
+			
+		// 후원 상상세 보기 주소 요청 시 수행
+		} else if (command.equals("/SupportDetail.su")) {
 			try {
 				action = new SupportDetailAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				System.out.println("detail 오류 챱");
 				e.printStackTrace();
 			}
+			
+			
+		//글쓰기 폼 작성	
 		} else if (command.equals("/SupportWriteFormAdmin.su")) {
-			//글쓰기 폼 작성
 			forward = new ActionForward();
-			forward.setPath("support//support_write_admin.jsp");
+			forward.setPath("support/support_write_admin.jsp");
 			forward.setRedirect(false);
+			
+			
+		//글쓰기 실제 수행
 		}else if(command.equals("/SupportWriteProAdmin.su")) {
-//			글쓰기 실제 수행
 			try {
 				action = new SupportWriteProAdminAction();
 				forward = action.execute(request, response);
@@ -53,8 +91,10 @@ public class SupportFrontController extends HttpServlet {
 				System.out.println("writepro 오류 챱");
 				e.printStackTrace();
 			}
+			
+			
+		// 후원 수정 요청 시 수행	
 		} else if (command.equals("/SupportModifyAdmin.su")) {
-			// 후원 수정 요청 시 수행
 			try {
 				action = new SuppotModifyFormAdminAction();
 				forward = action.execute(request, response);
@@ -62,8 +102,10 @@ public class SupportFrontController extends HttpServlet {
 				System.out.println("modifyform 오류 챱");
 				e.printStackTrace();
 			}
+			
+			
+		//후원 수정 실제 액션
 		} else if (command.equals("/SupportModifyProAdmin.su")) {
-//			후원 수정 실제 액션
 			try {
 				action = new SupportModifyProAdminAction();
 				forward = action.execute(request, response);
@@ -72,11 +114,15 @@ public class SupportFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+			
+		//글삭제 폼 작성
 		} else if (command.equals("/SupportDeleteFormAdmin.su")) {
-//			글삭제 폼 작성
 			forward = new ActionForward();
 			forward.setPath("support/support_delete_form.jsp");
 			forward.setRedirect(false);
+			
+			
+		//글 삭제 프로	
 		} else if (command.equals("/SupportDeleteProAdmin.su")) {
 			try {
 				action = new SupportDeleteProAdminAction();
@@ -88,18 +134,32 @@ public class SupportFrontController extends HttpServlet {
 
 		}
 
+		
+		
+	// --------------------------------------------------------------------------------------
+
+		
+		// 포워딩 처리
 		if (forward != null) {
-			if (forward.isRedirect()) { // 파라미터 초기화 해서 들고 감
+			
+			System.out.println("8. 포워딩");
+			System.out.println("==============================");
+			
+			if (forward.isRedirect()) { 
 				response.sendRedirect(forward.getPath());
 			} else {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
 
-		} //
+		} 
 
 	}
 
+	
+	// --------------------------------------------------------------------------------------
+
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doProcess(request, response);

@@ -1,5 +1,13 @@
+<%@page import="vo.support.SupportDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%
+	// dto 객체 어트리뷰트로 받기
+	SupportDTO dto = (SupportDTO)request.getAttribute("dto");
+	
+	%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,23 +65,25 @@
 <jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 게시판 상세내용 보기 -->
 	<section id="articleForm">
-		<h2>글 상세내용 보기</h2>
+		<h2>(깡)철이 해요 미령</h2>
 		<section id="basicInfoArea">
 			<table border="1">
-			<tr><th width="70">제 목</th><td colspan="3" >${dto.sup_subject }</td>
+			<tr><th width="70">제 목</th><td colspan="3" ><%=dto.getSup_subject() %></td>
 			</tr>
 			
 			<tr>
-				<th width="70">작성일</th><td>${dto.date }</td>
+				<th width="70">작성일</th><td><%=dto.getSup_date() %></td>
 			</tr>
 			<tr>
 				<th width="70">조회수</th>
-				<td>${dto.sup_readcount }</td>
+				<td><%=dto.getSup_readcount() %></td>
 			</tr>
 			</table>
 		</section>
+	
 		<section id="articleContentArea">
-			${dto.sup_content }
+			<img alt="" src="./upload/<%=dto.getSup_thumbnail_file() %>" width="30%">
+			<%=dto.getSup_content() %>
 		</section>
 	</section>
 	<section id="commandList">

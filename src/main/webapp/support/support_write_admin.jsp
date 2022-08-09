@@ -50,34 +50,34 @@ table {
 			<table>
 				<tr>
 					<td class="td_left"><label for="sup_subject">제목</label></td>
-					<td class="td_right"><input type="text" name="board_name"
+					<td class="td_right"><input type="text" name="sup_subject"
 						id="board_name" required="required"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="sup_pass">비밀번호</label></td>
-					<td class="td_right"><input type="password" name="board_pass"
+					<td class="td_right"><input type="password" name="sup_pass"
 						id="board_pass" required="required"></td>
 				</tr>
 				<tr>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="board_subject">목표 금액</label></td>
-					<td class="td_right"><input type="text" name="board_subject"
-						id="board_subject" required="required"></td>
-				</tr>
-				<tr>
-					<td class="td_left"><label for="board_subject">금액</label></td>
-					<td class="td_right"><input type="text" name="board_subject"
+					<td class="td_left"><label for="sup_goal_price">목표 금액</label></td>
+					<td class="td_right"><input type="text" name="sup_goal_price"
 						id="board_subject" required="required"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="sup_content">내용</label></td>
-					<td><textarea name="board_content" rows="15" cols="40" required="required"></textarea>
+					<td><textarea name="sup_content" rows="15" cols="40" required="required"></textarea>
 					</td>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="board_file">파일 첨부</label></td>
-					<td class="td_right"><input name="board_file" type="file"
+					<td class="td_left"><label for="sup_thumbnail_file">썸네일 파일 첨부</label></td>
+					<td class="td_right"><input name="sup_thumbnail_file" type="file"
+						id="board_file" required="required"></td>
+				</tr>
+					<tr>
+					<td class="td_left"><label for="sup_original_file">파일 첨부</label></td>
+					<td class="td_right"><input name="sup_original_file" type="file"
 						id="board_file" required="required"></td>
 				</tr>
 			</table>
