@@ -3,6 +3,8 @@ package action.member;
 
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +24,7 @@ public class joinProAction implements Action {
 		
 		
 	// ----------------------------------------------------------------------------------------
-
+		
 		
 		//전송받은 값을 변수에 저장
 		String id = request.getParameter("id");
@@ -37,25 +39,25 @@ public class joinProAction implements Action {
 		
 		
 		//저장된 값 확인
-//		System.out.println("id은 " + id);
-//		System.out.println("pass은 " + pass);
-//		System.out.println("name은 " + name);
-//		System.out.println("birth은 " + birth);
-//		System.out.println("gender은 " + gender);
-//		System.out.println("address은 " + address);
-//		System.out.println("address_detail은 " + address_detail);
-//		System.out.println("phone은" + phone);
-//		System.out.println("email은 " + email);
+		System.out.println("id은 " + id);
+		System.out.println("pass은 " + pass);
+		System.out.println("name은 " + name);
+		System.out.println("birth은 " + birth);
+		System.out.println("gender은 " + gender);
+		System.out.println("address은 " + address);
+		System.out.println("address_detail은 " + address_detail);
+		System.out.println("phone은" + phone);
+		System.out.println("email은 " + email);
 		
 		
 	// ----------------------------------------------------------------------------------------
 	
 		//성별 판별
-		if (gender.equals("1") || gender.equals("3")) {
-			gender = "남자";
-		} else {
-			gender = "여지";
-		}
+//		if (gender.equals("1") || gender.equals("3")) {
+//			gender = "남";
+//		} else {
+//			gender = "여";
+//		}
 		
 		
 	// ----------------------------------------------------------------------------------------
@@ -65,14 +67,17 @@ public class joinProAction implements Action {
 		
 	
 	// ----------------------------------------------------------------------------------------
-
+		
+		//date 형식으로 변환
+		Date dateBrith = Date.valueOf(birth);
+		
 		
 		//dto 객체에 값 저장
 		MemberDTO dto = new MemberDTO();
 		dto.setMem_id(id);
 		dto.setMem_pass(pass);
 		dto.setMem_name(name);
-//		dto.setMem_birth(birth);
+		dto.setMem_birth(dateBrith);
 		dto.setMem_gender(gender);
 		dto.setMem_address(address);
 		dto.setMem_address_detail(address_detail);

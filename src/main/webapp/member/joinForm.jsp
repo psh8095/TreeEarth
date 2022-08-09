@@ -229,15 +229,26 @@
 			
 
 			<tr>
-				<td>주민등록번호</td>
+				<td>생년월일</td>
 				<td>
-					<input id="birth" type="text" name="birth" required="required"> 
-					<input id="gender" type="text" name="gender" required="required"><br>
+					<input id="birth" type="date" name="birth" required="required" > 
 					<span id="birthSpan"></span>
 					<span id="genderSpan"></span>
 					
 				</td>
 			</tr>
+			
+			
+			<tr>
+				<tr>
+				<td>성별</td>
+				<td>
+					<input type="radio" name="gender" value="남">남
+					<input type="radio" name="gender" value="여">여 
+					
+				</td>
+			</tr>
+			
 			
 			<tr>
 				<td>주소</td>
