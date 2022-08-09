@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import vo.store.StoreDTO;
 
 public class CartDAO {
 	// --- 싱글톤 패턴 구현 ---
@@ -57,6 +61,27 @@ public class CartDAO {
 		}
 		
 		return isCart;
+	}
+
+	// 장바구니 조회하는 메서드 정의
+	public List<StoreDTO> selectCartList(String sId) {
+		List<StoreDTO> list = null;
+		
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		String sql = "SELECT sto_idx FROM cart WHERE mem_id=?";
+//		pstmt = con.prepareStatement(sql);
+//		pstmt.setString(1, sId);
+//		rs = pstmt.executeQuery();
+//		
+//		list = new ArrayList<StoreDTO>();
+//		while(rs.next()) {
+//			StoreDTO store = new StoreDTO();
+//			
+//		}
+		
+		return list;
 	}
 	
 }
