@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="header">
-		<a href="./"><h1 class="title">트리어스</h1></a>
+		<a href="./"><h1 class="title"><img src="img/main/logo_1.png" alt="트리어스" width="200"></h1></a>
 	    <a href="Cart.my" class="dropbtn">장바구니</a>
 		<div class="dropdown">
 			<a class="dropbtn">마이페이지</a>
