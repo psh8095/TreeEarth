@@ -20,6 +20,12 @@ public class CampaignReviewModifyFormAction implements Action {
 		CampaignReviewDetailService service = new CampaignReviewDetailService();
 		CampaignReviewDTO campaign_review = service.getCampaignReviewDetail(cam_re_idx);
 		
+		request.setAttribute("campaign_review", campaign_review);
+		
+		forward = new ActionForward();
+		forward.setPath("CampaignReviewList.cm");
+		forward.setRedirect(false);
+		
 		return forward;
 	}
 
