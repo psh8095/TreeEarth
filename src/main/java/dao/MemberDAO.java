@@ -221,17 +221,18 @@ public class MemberDAO {
 		
 		try {
 			//db에 받아온 데이터 넣기
-			sql = "INSERT INTO member VALUES (?,?,?,now(),?,?,?,?,?,?,now())";
+			sql = "INSERT INTO member VALUES (?,?,?,?,?,?,?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getMem_id());
 			pstmt.setString(2, dto.getMem_pass());
 			pstmt.setString(3, dto.getMem_name());
-			pstmt.setString(4, dto.getMem_gender());
-			pstmt.setString(5, dto.getMem_address());
-			pstmt.setString(6, dto.getMem_address_detail());
-			pstmt.setString(7, dto.getMem_phone());
-			pstmt.setString(8, dto.getMem_email());
-			pstmt.setInt(9, 0);
+			pstmt.setDate(4, dto.getMem_birth());
+			pstmt.setString(5, dto.getMem_gender());
+			pstmt.setString(6, dto.getMem_address());
+			pstmt.setString(7, dto.getMem_address_detail());
+			pstmt.setString(8, dto.getMem_phone());
+			pstmt.setString(9, dto.getMem_email());
+			pstmt.setInt(10, 0);
 			
 			insertCount = pstmt.executeUpdate();
 			

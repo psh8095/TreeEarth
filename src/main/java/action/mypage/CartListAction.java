@@ -28,7 +28,7 @@ public class CartListAction implements Action {
 
 		forward = new ActionForward();
 		forward.setPath("mypage/cart.jsp");
-		
+
 		return forward;
 	}
 
