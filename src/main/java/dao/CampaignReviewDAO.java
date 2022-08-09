@@ -212,36 +212,6 @@ public class CampaignReviewDAO {
 		
 	}
 
-	//글 권한 판별
-	public boolean isCampaignReviewWriter(int cam_re_idx) {
-		
-		boolean isCampaignReviewWriter = false;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try {
-			String sql = "SELECT * FROM campaign_review WHERE cam_re_idx=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cam_re_idx);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				isCampaignReviewWriter = true;
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("CampaignReviewDAO - isCampaignReviewWriter 오류");
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return isCampaignReviewWriter;
-	}
-
 	//게시물 수정
 	public int updateCampaignReview(CampaignReviewDTO campaign_review) {
 
@@ -265,6 +235,61 @@ public class CampaignReviewDAO {
 		}
 		
 		return updateCount;
+	}
+
+	//글 권한
+	public boolean isCampaignReviewWriter(int cam_re_idx, String mem_pass) {
+		
+		boolean isCampaignReviewWriter = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM campaign_review c, member m WHERE c.cam_re_id = m.mem_id AND cam_re_idx=? AND mem_pass=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cam_re_idx);
+			pstmt.setString(2, mem_pass);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isCampaignReviewWriter = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("CampaignReviewDAO - isCampaignReviewWriter 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isCampaignReviewWriter;
+	}
+
+	//캠페인후기 글 삭제
+	public int deleteCampaignReview(int cam_re_idx) {
+
+		int deleteCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM campaign_review WHERE cam_re_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cam_re_idx);
+			
+			deleteCount = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("CampaignReviewDAO - deleteCampaignReview 오류");
+		} finally {
+			close(pstmt);
+		}
+		
+		return deleteCount;
 	}
 	
 }

@@ -17,6 +17,9 @@ public class CampaignReviewModifyProAction implements Action {
 		
 		ActionForward forward = null;
 		
+		int cam_re_idx = Integer.parseInt(request.getParameter("cam_re_idx"));
+		String mem_pass = request.getParameter("mem_pass");
+		
 		CampaignReviewDTO campaign_review = new CampaignReviewDTO();
 		campaign_review.setCam_re_idx(Integer.parseInt(request.getParameter("cam_re_idx")));
 		campaign_review.setCam_re_id(request.getParameter("cam_re_id"));
@@ -25,7 +28,7 @@ public class CampaignReviewModifyProAction implements Action {
 		
 		//게시물 수정 권한 판별 요청
 		CampaignReviewModifyProService service = new CampaignReviewModifyProService();
-		boolean isCampaignReviewWriter = service.isCampaignReviewWriter(campaign_review.getCam_re_idx());
+		boolean isCampaignReviewWriter = service.isCampaignReviewWriter(cam_re_idx, mem_pass);
 		
 		if(!isCampaignReviewWriter) {
 			response.setContentType("text/html; charset=UTF-8");

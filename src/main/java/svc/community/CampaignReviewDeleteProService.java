@@ -8,20 +8,19 @@ import java.sql.*;
 
 import dao.*;
 import db.*;
-import vo.community.*;
 
-public class CampaignReviewModifyProService {
+public class CampaignReviewDeleteProService {
 
 	public boolean isCampaignReviewWriter(int cam_re_idx, String mem_pass) {
-
+		
 		boolean isCampaignReviewWriter = false;
 		
-		//싱글톤 디자인 패턴으로 생성된 BoardDAO 인스턴스 활용
+		//싱글톤 디자인 패턴으로 생성된 CampaignReviewDAO 인스턴스 활용
 		Connection con = JdbcUtil.getConnection();
 		CampaignReviewDAO dao = CampaignReviewDAO.getInstance();
 		dao.setConnection(con);
 		
-		//수정 권한 판별 요청
+		//삭제 권한 판별 요청
 		isCampaignReviewWriter = dao.isCampaignReviewWriter(cam_re_idx, mem_pass);
 		
 		close(con);
@@ -29,29 +28,28 @@ public class CampaignReviewModifyProService {
 		return isCampaignReviewWriter;
 	}
 
-	//수정 작업 요청
-	public boolean modifyCampaignReview(CampaignReviewDTO campaign_review) {
-
-		boolean isModifySuccess = false;
+	public boolean deleteCampaignReview(int cam_re_idx) {
 		
-		//싱글톤 디자인 패턴으로 생성된 BoardDAO 인스턴스 활용
+		boolean isDeleteSuccess = false;
+		
+		//싱글톤 디자인 패턴으로 생성된 CampaignReviewDAO 인스턴스 활용
 		Connection con = JdbcUtil.getConnection();
 		CampaignReviewDAO dao = CampaignReviewDAO.getInstance();
 		dao.setConnection(con);
 		
-		//글 수정
-		int updateCount = dao.updateCampaignReview(campaign_review);
+		//삭제 요청
+		int deleteCount = dao.deleteCampaignReview(cam_re_idx);
 		
-		if(updateCount > 0) {
+		if(deleteCount > 0) {
 			commit(con);
-			isModifySuccess = true;
+			isDeleteSuccess = true;
 		} else {
 			rollback(con);
 		}
 		
 		close(con);
 		
-		return isModifySuccess;
+		return isDeleteSuccess;
 	}
 
 }

@@ -17,7 +17,9 @@
 			<table>
 				<tr>
 					<td><label for="cam_re_id">글쓴이</label></td>
-					<td><input type="text" name="cam_re_id" required="required"></td>
+					<td>
+						<input type="text" name="cam_re_id" required="required">
+					</td>
 				</tr>
 				<tr>
 					<td><label for="cam_re_subject">제목</label></td>

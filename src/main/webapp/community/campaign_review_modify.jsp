@@ -22,7 +22,7 @@
 					<td><input type="text" name="cam_re_id" required="required"></td>
 				</tr>
 				<tr>
-					<td><label for="board_pass">비밀번호</label></td>
+					<td><label for="mem_pass">비밀번호</label></td>
 					<td>
 						<input type="password" name="mem_pass" required="required">
 					</td>
