@@ -23,9 +23,12 @@ public class CartListAction implements Action {
 		
 		CartListService service = new CartListService();
 		List<StoreDTO> list = service.selectCartList(sId);
+		
+		request.setAttribute("cart", list);
 
 		forward = new ActionForward();
 		forward.setPath("mypage/cart.jsp");
+		
 		return forward;
 	}
 

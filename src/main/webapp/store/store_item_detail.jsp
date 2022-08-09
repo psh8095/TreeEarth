@@ -6,7 +6,6 @@
 <%
 int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 out.println(sto_idx);
-String sId = session.getAttribute("sId").toString();
 
 // StoreDTO store = new StoreDTO();
 // store.setSto_thum_file("sto_thum_file"); 
@@ -25,7 +24,7 @@ String sId = session.getAttribute("sId").toString();
 	$(function() {
 		$("#insertCart").on("click", function() {
 // 			alert("확인용");
-			if(<%=sId %> == null) {
+			if(${empty sessionScope.sId}) {
 				alert("로그인이 필요한 기능입니다.");
 			} else {
 				$.ajax({

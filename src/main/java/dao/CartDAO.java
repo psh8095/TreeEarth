@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vo.store.StoreDTO;
+import static db.JdbcUtil.*;
 
 public class CartDAO {
 	// --- 싱글톤 패턴 구현 ---
@@ -58,6 +59,10 @@ public class CartDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("SQL 구문 오류 - insertCart()");
+		} finally {
+			close(rs);
+			close(pstmt);
+			close(pstmt2);
 		}
 		
 		return isCart;
@@ -67,19 +72,45 @@ public class CartDAO {
 	public List<StoreDTO> selectCartList(String sId) {
 		List<StoreDTO> list = null;
 		
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		String sql = "SELECT sto_idx FROM cart WHERE mem_id=?";
-//		pstmt = con.prepareStatement(sql);
-//		pstmt.setString(1, sId);
-//		rs = pstmt.executeQuery();
-//		
-//		list = new ArrayList<StoreDTO>();
-//		while(rs.next()) {
-//			StoreDTO store = new StoreDTO();
-//			
-//		}
+		PreparedStatement pstmt = null, pstmt2 = null;
+		ResultSet rs = null, rs2 = null;
+		
+		try {
+			String sql = "SELECT sto_idx FROM cart WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			rs = pstmt.executeQuery();
+			
+			list = new ArrayList<StoreDTO>();
+			while(rs.next()) {
+				StoreDTO store = new StoreDTO();
+				
+				sql = "SELECT * FROM store WHERE sto_idx=?";
+				pstmt2 = con.prepareStatement(sql);
+				pstmt2.setInt(1, rs.getInt(1));
+				rs2 = pstmt2.executeQuery();
+				
+				if(rs2.next()) {
+					store.setSto_idx(rs2.getInt("sto_idx"));
+					store.setSto_price(rs2.getInt("sto_price"));
+					store.setSto_subject(rs2.getString("sto_subject"));
+					store.setSto_tag(rs2.getString("sto_tag"));
+					store.setSto_category(rs2.getString("sto_category"));
+					store.setSto_thum_file(rs2.getString("sto_thum_file"));
+					store.setSto_thum_real_file(rs2.getString("sto_thum_real_file"));
+				}
+				
+				list.add(store);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - selectCartList()");
+		} finally {
+			close(rs);
+			close(rs2);
+			close(pstmt);
+			close(pstmt2);
+		}
 		
 		return list;
 	}
