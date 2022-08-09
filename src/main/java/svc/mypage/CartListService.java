@@ -1,4 +1,4 @@
-package svc.store;
+package svc.mypage;
 
 public class CartListService {
 
