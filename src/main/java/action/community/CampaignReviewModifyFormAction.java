@@ -11,7 +11,8 @@ public class CampaignReviewModifyFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		System.out.println("CampaignReviewModifyFormAction");
+		
 		ActionForward forward = null;
 		
 		//수정할 글 번호 가져오기

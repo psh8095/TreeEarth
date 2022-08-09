@@ -1,13 +1,13 @@
 package svc.community;
 
-import java.sql.Connection;
-import java.util.ArrayList;
+import static db.JdbcUtil.close;
 
-import dao.CampaignReviewDAO;
-import db.JdbcUtil;
-import vo.community.CampaignReviewDTO;
+import java.sql.*;
+import java.util.*;
 
-import static db.JdbcUtil.*;
+import dao.*;
+import db.*;
+import vo.community.*;
 
 public class CampaignReviewListService {
 
@@ -22,7 +22,7 @@ public class CampaignReviewListService {
 		
 		//전체 게시물 목록 조회
 		listCount = dao.selectListCount();
-		System.out.println("listCount : " + listCount);
+//		System.out.println("listCount : " + listCount);
 		
 		close(con);
 		
@@ -39,7 +39,7 @@ public class CampaignReviewListService {
 		dao.setConnection(con);
 		
 		campaignReviewList = dao.selectCampaignReviewList(pageNum, listLimit);
-		System.out.println(campaignReviewList);
+//		System.out.println(campaignReviewList);
 		
 		close(con);
 

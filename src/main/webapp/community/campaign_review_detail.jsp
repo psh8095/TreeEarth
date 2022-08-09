@@ -6,10 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="../css/index.css" rel="stylesheet">
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
 	<section id="">
 		<h2>글 상세내용 보기</h2>
+		
 		<section id="">
 			<table>
 			<tr><th width="70">제 목</th><td colspan="3" >${campaign_review.cam_re_subject }</td></tr>
@@ -34,11 +39,16 @@
 			</table>
 		</section>
 	</section>
+	
 	<section id="">
 		<input type="button" value="댓글" onclick="">
 		<input type="button" value="수정" onclick="location.href='CampaignReviewModifyForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='CampaignReviewDeleteForm.bo?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='CampaignReviewList.cm?pageNum=${param.pageNum}'">
 	</section>
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>

@@ -13,7 +13,7 @@
 	
 	<section id="writeForm">
 		<h1>캠페인 후기 수정</h1>
-		<form action="CampaignReviewModiifyPro.cm" method="post">
+		<form action="CampaignReviewModifyPro.cm" method="post">
 			<input type="hidden" name="cam_re_idx" value="${param.cam_re_idx }">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>

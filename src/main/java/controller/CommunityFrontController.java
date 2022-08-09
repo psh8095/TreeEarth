@@ -7,7 +7,6 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 import action.*;
-import action.campaign.*;
 import action.community.*;
 import vo.*;
 
@@ -15,7 +14,7 @@ import vo.*;
 @WebServlet("*.cm")
 public class CommunityFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("FreeBoardFrontController");
+		System.out.println("CommunityFrontController");
 		
 		request.setCharacterEncoding("UTF-8");
 		
@@ -62,7 +61,7 @@ public class CommunityFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/CampaignReviewModifyPro.cm")) { //캠페인후기 수정 동작
 			try {
-				action = new CampaignReviewModifyFormAction();
+				action = new CampaignReviewModifyProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();

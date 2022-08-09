@@ -3,7 +3,7 @@ package dao;
 import static db.JdbcUtil.close;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
 
 import vo.community.*;
 
@@ -100,7 +100,7 @@ public class CampaignReviewDAO {
 				campaign_review.setCam_re_thum_file(rs.getString("cam_re_thum_file"));
 				campaign_review.setCam_re_thum_real_file(rs.getString("cam_re_thum_real_file"));
 				
-				System.out.println(campaign_review);
+//				System.out.println(campaign_review);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -183,6 +183,9 @@ public class CampaignReviewDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("CampaignReviewDAO - selectCampaignReviewList 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		return campaignReviewList;
@@ -203,8 +206,65 @@ public class CampaignReviewDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("CampaignReviewDAO - updateReadcount 오류");
+		} finally {
+			close(pstmt);
 		}
 		
+	}
+
+	//글 권한 판별
+	public boolean isCampaignReviewWriter(int cam_re_idx) {
+		
+		boolean isCampaignReviewWriter = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM campaign_review WHERE cam_re_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cam_re_idx);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isCampaignReviewWriter = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("CampaignReviewDAO - isCampaignReviewWriter 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isCampaignReviewWriter;
+	}
+
+	//게시물 수정
+	public int updateCampaignReview(CampaignReviewDTO campaign_review) {
+
+		int updateCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "UPDATE campaign_review SET cam_re_subject=?,cam_re_content=? WHERE cam_re_idx=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, campaign_review.getCam_re_subject());
+			pstmt.setString(2, campaign_review.getCam_re_content());
+			pstmt.setInt(3, campaign_review.getCam_re_idx());
+			
+			updateCount = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("CampaignReviewDAO - updateCampaignReview 오류");
+		}
+		
+		return updateCount;
 	}
 	
 }
