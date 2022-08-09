@@ -1,10 +1,14 @@
 package action.community;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.*;
 
 import action.*;
 import svc.community.CampaignReviewListService;
 import vo.*;
+import vo.community.CampaignReviewDTO;
+import vo.store.StorePageInfo;
 
 public class CampaignReviewListAction implements Action {
 
@@ -34,7 +38,18 @@ public class CampaignReviewListAction implements Action {
 			endPage = maxPage;
 		}
 		
-//		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
+		StorePageInfo pageInfo = new StorePageInfo(pageNum, maxPage, startPage, endPage, listCount);
+		
+		ArrayList<CampaignReviewDTO> campaignReviewList = CampaignReviewListService.getCampaignReviewList(pageNum, listLimit);
+		
+		request.setAttribute("pageInfo", pageInfo);
+		request.setAttribute("boardList", campaignReviewList);
+//		System.out.println(pageInfo.getListCount());
+//		System.out.println(boardList);
+		
+		forward = new ActionForward();
+		forward.setPath("campaign_review_list.jsp");
+		forward.setRedirect(false);
 		
 		return forward;
 	}
