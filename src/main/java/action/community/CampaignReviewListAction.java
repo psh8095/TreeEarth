@@ -38,7 +38,7 @@ public class CampaignReviewListAction implements Action {
 			endPage = maxPage;
 		}
 		
-		StorePageInfo pageInfo = new StorePageInfo(pageNum, maxPage, startPage, endPage, listCount);
+		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 		
 		ArrayList<CampaignReviewDTO> campaignReviewList = CampaignReviewListService.getCampaignReviewList(pageNum, listLimit);
 		
