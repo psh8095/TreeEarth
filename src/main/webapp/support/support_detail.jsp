@@ -64,6 +64,34 @@
 		text-align: center;
 	}
 </style>
+<script src="js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		
+	
+		//제이쿼리
+		$(function() {
+			
+			
+
+			
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = ('0' + (today.getMonth() + 1)).slice(-2);
+			var day = ('0' + today.getDate()).slice(-2);
+			
+			//오늘 날짜
+			var todayString = year + month + day;
+			
+			//골 날짜
+			var goalDate = $("#goalDate").html().replace(/-/g, "");
+			
+			var Dday = goalDate - todayString
+			
+			alert(Dday);
+		});
+		
+		
+</script>
 </head>
 <body>
 <jsp:include page="../hf/header.jsp"></jsp:include>
@@ -88,7 +116,7 @@
 			</tr>
 			<tr>
 				<th width="70">D-Day</th>
-				<td><%=dto.getSup_goal_date() %></td>
+				<td id="goalDate"><%=dto.getSup_goal_date() %></td>
 			</tr>
 			</table>
 		</section>

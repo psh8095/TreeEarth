@@ -49,12 +49,20 @@
 			
 			
 		// 인증 코드 발송 ---------------------------------------------------------------------------------
-
+			
+		
+		
+		//인증 타이머 
+			var intervalTime = null;
+			var isStop = false;
+			
+			
 			
 			//인증코드 발송 버튼 클릭
 			$("#sendAuthCode").on("click", function() {
-				
+				isStop = true;
 			
+				
 				//이메일 양식이 맞다면
 				if(isEmail){
 					
@@ -73,41 +81,48 @@
 		// 인증 메일 타이머 ---------------------------------------------------------------------------------
 				
 		
-				var time = 180;
-				var min = "";
-				var sec = "";
-
-				
-					//인증 타이머 
-					var intervalTime = null;
+					var time = 180;
+					var min = "";
+					var sec = "";
+	
 					
 					
-						//클릭시 타이머 종료  @@@@@@@@@@@@@@@@@@@@@@@@제발 멈춰
-						clearInterval(intervalTime);
-						$("#authCodeSpan").html("");
+					//클릭시 타이머 종료  @@@@@@@@@@@@@@@@@@@@@@@@제발 멈춰
+// 					if(intervalTime != null){
+						
+// 						isStop = true;
+// 						$("#authCodeSpan").html("");
+// 					}
 					
+					if(intervalTime == null){
 						
-						//타이머 시작
-						intervalTime = setInterval(function() {
+						isStop = false;
 						
+					}
+	
 						
-						min = parseInt(time/60);
-						sec = time%60;
-						
-						
-						$("#authCodeSpan").html(min + "분" + sec + "초");
-						
-						//갱신될 때마다 실행되는 코드
-						time--;
-						
-						//시간 종료시
-						if(time == 0) {
-							clearInterval(intervalTime);
-							$("#authCodeSpan").html("인증시간초과.");
-
+					//타이머 시작
+					intervalTime = setInterval(function() {
+						if(!isStop){
+							min = parseInt(time/60);
+							sec = time%60;
+							
+							
+							$("#authCodeSpan").html(min + "분" + sec + "초" + isStop);
+							
+							//갱신될 때마다 실행되는 코드
+							time--;
+							
+							//시간 종료시
+							if(time == 0) {
+								clearInterval(intervalTime);
+								$("#authCodeSpan").html("인증시간초과.");
+	
+							}
 						}
 						
 					}, 1000);
+						
 					
 					
 				}    
