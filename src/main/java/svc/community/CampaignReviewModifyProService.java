@@ -13,6 +13,7 @@ import vo.community.*;
 public class CampaignReviewModifyProService {
 
 	public boolean isCampaignReviewWriter(int cam_re_idx, String mem_pass) {
+		System.out.println("CampaignReviewModifyProService");
 
 		boolean isCampaignReviewWriter = false;
 		
@@ -31,6 +32,7 @@ public class CampaignReviewModifyProService {
 
 	//수정 작업 요청
 	public boolean modifyCampaignReview(CampaignReviewDTO campaign_review) {
+		System.out.println("CampaignReviewModifyProService");
 
 		boolean isModifySuccess = false;
 		

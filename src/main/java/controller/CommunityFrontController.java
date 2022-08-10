@@ -80,9 +80,9 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/CampaignReviewDeleteForm.bo")) { //캠페인후기 글 삭제 폼
+		} else if(command.equals("/CampaignReviewDeleteForm.cm")) { //캠페인후기 글 삭제 폼
 			forward = new ActionForward();
-			forward.setPath("community/campaign_review_delete.jsp");
+			forward.setPath("community/campaign_review_detail.jsp");
 			forward.setRedirect(false);
 		} else if(command.equals("/CampaignReviewDeletePro.cm")) { //캠페인후기 글 삭제 동작
 			try {
