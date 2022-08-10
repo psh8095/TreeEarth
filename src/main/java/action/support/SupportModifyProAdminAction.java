@@ -1,6 +1,7 @@
 package action.support;
 
 import java.io.*;
+import java.sql.Date;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -39,21 +40,31 @@ public class SupportModifyProAdminAction implements Action {
 		
 		
 	//수정시 필요한 파라미터를 가져와 변수에 저장
+
+		
+		String date = multi.getParameter("sup_goal_date");
+		Date goalDate = Date.valueOf(date);
+		
 		SupportDTO dto = new SupportDTO();
+		
 		dto.setSup_idx(Integer.parseInt(multi.getParameter("sup_idx")));
 		dto.setSup_pass(multi.getParameter("sup_pass"));
 		dto.setSup_goal_price(Integer.parseInt(multi.getParameter("sup_goal_price")));
 		dto.setSup_subject(multi.getParameter("sup_subject"));
 		dto.setSup_content(multi.getParameter("sup_content"));
-		dto.setSup_thumbnail_file(multi.getOriginalFileName("sup_thumbnail_file"));
+		dto.setSup_thumbnail_file(multi.getFilesystemName("sup_thumbnail_file"));
 		dto.setSup_original_file(multi.getOriginalFileName("sup_original_file"));
-		System.out.println(dto);
-
+		dto.setSup_goal_date(goalDate);
+		
+		
+		
 		//게시물 수정 권한 확인 위해 전달받은 파라미터 중 패스워드를 비교
 		//SupportModifyProAdminService() 클래스의 isBoardWriter() 메서드를 호출
 		//SupportDeleteProAdminService()의 isBoardWriter()와 작업 내용이 같다
 		SupportModifyProAdminService service = new SupportModifyProAdminService();
 		boolean isBoardWriter = service.isBoardWriter(dto.getSup_idx(), dto.getSup_pass());
+		
+		
 		if(!isBoardWriter) {
 			 response.setContentType("text/html; charset=UTF-8" );
 			 PrintWriter out = response.getWriter();
@@ -61,6 +72,8 @@ public class SupportModifyProAdminAction implements Action {
 			 out.println("alert('수정 권한 없음')");
 			 out.println("history.back()");
 			 out.println("</script>");
+			 
+			 
 		}else{
 			boolean isModifySuccess = service.modifySupportBoard(dto);
 			if(!isModifySuccess) {
@@ -70,6 +83,8 @@ public class SupportModifyProAdminAction implements Action {
 			 out.println("alert('글 수정 실패!')");
 			 out.println("history.back()");
 			 out.println("</script>");
+			 
+			 
 			}else {
 				forward = new ActionForward();
 				forward.setPath("SupportDetail.su?sup_idx=" + dto.getSup_idx());

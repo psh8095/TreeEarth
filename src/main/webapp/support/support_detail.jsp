@@ -86,12 +86,16 @@
 				<th width="70">조회수</th>
 				<td><%=dto.getSup_readcount() %></td>
 			</tr>
+			<tr>
+				<th width="70">D-Day</th>
+				<td><%=dto.getSup_goal_date() %></td>
+			</tr>
 			</table>
 		</section>
 	
 		<section id="articleContentArea">
-			<img alt="" src="./upload/<%=dto.getSup_thumbnail_file() %>" width="70%">
-			<img alt="" src="./upload/<%=dto.getSup_original_file() %>" width="70%">
+			<img alt="" src="./img/support/<%=dto.getSup_thumbnail_file() %>" width="70%">
+			<img alt="" src="./img/support/<%=dto.getSup_original_file() %>" width="70%">
 			<%=dto.getSup_content() %>
 		</section>
 	</section>

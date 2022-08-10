@@ -91,6 +91,7 @@ public class SupportDAO {
 			if(rs.next()) {
 				dto.setSup_idx(rs.getInt("sup_idx")); // 글번호 확인위한 필수 세팅
 				dto.setSup_subject(rs.getString("sup_subject"));
+				dto.setSup_goal_date(rs.getDate("sup_goal_date"));
 				dto.setSup_goal_price(rs.getInt("sup_goal_price"));
 				dto.setSup_date(rs.getDate("sup_date"));
 				dto.setSup_readcount(rs.getInt("sup_readcount"));
@@ -144,7 +145,7 @@ public class SupportDAO {
 			
 			//기존 글이 없으면 
 			//게시글 등록
-			sql2 = "INSERT INTO support VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,now()) ";
+			sql2 = "INSERT INTO support VALUES(?,?,?,?,?,?,?,?,?,?,?,?,now())";
 			pstmt2 = con.prepareStatement(sql2);
 			pstmt2.setInt(1, idx); 
 			pstmt2.setInt(2, dto.getSup_goal_price());
@@ -157,8 +158,7 @@ public class SupportDAO {
 			pstmt2.setString(9, dto.getSup_original_file());
 			pstmt2.setInt(10, 0); 
 			pstmt2.setInt(11, 0);
-			pstmt2.setInt(12, 0);
-			pstmt2.setInt(13, 0);
+			pstmt2.setDate(12, dto.getSup_goal_date());
 
 			insertCount = pstmt2.executeUpdate();
 			System.out.println("5-2. 개시물 등록!");
@@ -202,6 +202,10 @@ public class SupportDAO {
 
 	}
 
+	
+	// ----------------------------------------------------------------------------------------
+
+	
 	// 글수정, 삭제에 사용되는 isBoardWriter() 정의
 	public boolean isBoardWriter(int sup_idx, String sup_pass) {
 		System.out.println("4. isBoardWriter");
@@ -237,7 +241,7 @@ public class SupportDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			String sql = "UPDATE support SET sup_subject = ?, sup_pass = ?, sup_goal_price =?, sup_content =? ,  sup_thumbnail_file = ?,  sup_original_file = ? WHERE sup_idx = ?";
+			String sql = "UPDATE support SET sup_subject = ?, sup_pass = ?, sup_goal_price =?, sup_content =? ,  sup_thumbnail_file = ?,  sup_original_file = ?, sup_goal_date = ? WHERE sup_idx = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getSup_subject());
 			pstmt.setString(2, dto.getSup_pass());
@@ -245,7 +249,8 @@ public class SupportDAO {
 			pstmt.setString(4, dto.getSup_content());
 			pstmt.setString(5, dto.getSup_thumbnail_file());
 			pstmt.setString(6, dto.getSup_original_file());
-			pstmt.setInt(7, dto.getSup_idx());
+			pstmt.setDate(7,dto.getSup_goal_date());
+			pstmt.setInt(8, dto.getSup_idx());
 
 			updateCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -322,10 +327,10 @@ public class SupportDAO {
 				dto.setSup_real_file(rs.getString("sup_real_file"));
 				dto.setSup_original_file(rs.getString("sup_original_file"));
 				dto.setSup_money(rs.getInt("sup_money"));
-				dto.setSup_total(rs.getInt("sup_total"));
-				dto.setSup_now_total(rs.getInt("sup_now_total"));
 				dto.setSup_readcount(rs.getInt("sup_readcount"));
+				dto.setSup_goal_date(rs.getDate("sup_goal_date"));
 				dto.setSup_date(rs.getDate("sup_date"));
+				
 				
 				
 				//리스트에 dto객체 저장
