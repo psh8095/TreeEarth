@@ -5,8 +5,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
-out.println(sto_idx);
-String sId = session.getAttribute("sId").toString();
+// out.println(sto_idx);
+// String sId = session.getAttribute("sId").toString();
 
 
 // StoreDTO store = new StoreDTO();
@@ -22,16 +22,33 @@ String sId = session.getAttribute("sId").toString();
 <title>TreeEarth</title>
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-	$(function() { // 수량 버튼 추가, 감소 조작
-		var quantity = $("#quantity_input").val();
+	$(function() { // 수량 버튼 추가, 감소 조작 작업
+		var quantity = $("#quantity_input").val(); // 수량 값
 	
+		var quantity_price = $("#quantity_price").html(); // 상품 가격 값
+		
+		var totalPrice = 0; // 총 금액 합계 변수 선언
+		
 		$("#plus_btn").on("click", function() {
-			$("#quantity_input").val(++quantity);
+			$("#quantity_input").val(++quantity); // 객체이기 때문에
+			var plusBtn = $("#quantity_input").val(); // 변수 선언 후 따로 val 값을 줌(=> 상품 수량 변경 총 금액 합계 계산)
+// 			alert(quantity_price); // 상품 가격 확인용
+
+			totalPrice = quantity_price * plusBtn;
+// 			alert(quantity_price); // 상품 금액 확인
+// 			alert(totalPrice); // 금액 총 합계 확인
+			$("#quantity_price").html(totalPrice); // 총 상품 금액 화면 표시
 		});
 		
 		$("#minus_btn").on("click", function() {
 			if(quantity > 1) {
 				$("#quantity_input").val(--quantity);
+				var minusBtn = $("#quantity_input").val();
+				
+				totalPrice = totalPrice - quantity_price;
+// 				alert(quantity_price);
+// 				alert(totalPrice);
+				$("#quantity_price").html(totalPrice); // 수량 - 버튼 클릭 시 총 상품 금액 화면 표시
 			} else {
 				alert("최소 주문 수량은 1개 이상 입니다.");
 			}
@@ -57,9 +74,6 @@ String sId = session.getAttribute("sId").toString();
 			}
 		});
 	});
-		
-		var price = ${store.sto_price} * quantity.val();
-		$("#quantity_price").val(price);
 </script>
 <link href="css/index.css" rel="stylesheet">
 <style type="text/css">
@@ -78,9 +92,9 @@ String sId = session.getAttribute("sId").toString();
 	font-size: 20px;
 	}
 	
-	#txt {
-	font-size: 16px;
-	}
+/* 	#txt { */
+/* 	font-size: 16px; */
+/* 	} */
 </style>
 </head>
 <body>
@@ -94,7 +108,7 @@ String sId = session.getAttribute("sId").toString();
 					<td><img src="img/store/${store.sto_thum_file}" width="300" height="500"></td>
 				</tr>
 				<tr>
-					<td>${store.sto_subject }, ${store.sto_content }<br></td>
+					<td>${store.sto_subject }<br></td>
 				</tr>
 				<tr>
 					<td>${store.sto_content }<br></td>
@@ -111,16 +125,14 @@ String sId = session.getAttribute("sId").toString();
 					<span>
 						<button id="minus_btn">-</button>
 					</span>
-<!-- 					<input type="hidden" name="quantity" value=""> -->
 						<input type="text" id="quantity_input" name="amount" value="1" size="2" readonly="readonly">
 					<span>
 						<button id="plus_btn">+</button>
 					</span><br>
-						<span id="txt">총 상품금액&nbsp;&nbsp;</span><span id="quantity_price">${store.sto_price }</span><span id="txt">원</span>
+						<span>총 상품금액&nbsp;&nbsp;</span><span id="quantity_price">${store.sto_price }</span><span>원</span>
 				</div>
 			</div>
 	</section>
-	
 	
 	
 	<!-- 장바구니 담기 버튼 -->
