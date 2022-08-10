@@ -12,32 +12,40 @@
 </head>
 <body>
 	<div id="header">
-		<a href="./"><h1 class="title"><img src="img/main/logo_1.png" alt="트리어스" width="200"></h1></a>
-	    <a href="Cart.my" class="dropbtn">장바구니</a>
-		<div class="dropdown">
-			<a class="dropbtn">마이페이지</a>
-			<div class="dropdown-content">
-				<ul class="inline">
-					<li><a href="">적립금</a></li>
-	                <li><a href="">이름</a></li>
-	                <li><a href="Wishlist.my">위시리스트</a></li>
-	                <li><a href="">회원정보수정</a></li>
-	                <li><a href="">후원금 내역 조회</a></li>
-	                <li><a href="">신청 캠페인 조회</a></li>
-	                <li><a href="">작성한 글</a></li>
-	                <li><a href="">작성한 댓글</a></li>
-	            </ul>
-			</div>
-		</div>
+		<a href="./"><h1 class="title"><img src="img/main/logo_1.png" alt="트리어스" width="300"></h1></a>
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<a href="MemberLoginForm.me">로그인</a>
 			</c:when>
 			<c:otherwise>
-				<a href="">${sessionScope.sId } 님</a>
+					<c:choose>
+						<c:when test="${sessionScope.sId eq 'admin'}">
+							<a href="store/admin_page.jsp">${sessionScope.sId } 님</a>
+						</c:when>
+						<c:otherwise>
+						    <a href="Cart.my" class="">장바구니</a>
+						<div class="dropdown">
+							<a class="dropbtn">${sessionScope.sId } 님</a>
+							<div class="dropdown-content">
+								<ul class="inline">
+									<li><a href="">적립금</a></li>
+					                <li><a href="">이름</a></li>
+					                <li><a href="Wishlist.my">위시리스트</a></li>
+					                <li><a href="">회원정보수정</a></li>
+					                <li><a href="">후원금 내역 조회</a></li>
+					                <li><a href="">신청 캠페인 조회</a></li>
+					                <li><a href="">작성한 글</a></li>
+					                <li><a href="">작성한 댓글</a></li>
+					            </ul>
+							</div>
+						</div>
+						</c:otherwise>
+					</c:choose>
 				<a href="MemberLogout.me">로그아웃</a>
 			</c:otherwise>
 		</c:choose>
+		
+		
 		<img src="img/4.png" alt="대충 웅장한 산 사진" width="100%">
         <div class="line">
             <div class="dropdown">
