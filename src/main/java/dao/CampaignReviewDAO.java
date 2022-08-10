@@ -246,10 +246,9 @@ public class CampaignReviewDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM campaign_review c, member m WHERE c.cam_re_id = m.mem_id AND cam_re_idx=? AND mem_pass=?";
+			String sql = "SELECT * FROM campaign_review c, member m WHERE c.cam_re_id = m.mem_id AND mem_pass = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cam_re_idx);
-			pstmt.setString(2, mem_pass);
+			pstmt.setString(1, mem_pass);
 			
 			rs = pstmt.executeQuery();
 			
