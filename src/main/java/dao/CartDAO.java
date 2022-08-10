@@ -37,9 +37,8 @@ public class CartDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT MAX(cart_idx) FROM cart WHERE mem_id=?";
+			String sql = "SELECT MAX(cart_idx) FROM cart";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, sId);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
