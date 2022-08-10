@@ -23,6 +23,8 @@
 			
 		// 아이디 형식 판별 ---------------------------------------------------------------------------------
 			
+			var checkId = false;
+		
 			
 			$("#id").on("change", function() {
 				
@@ -40,10 +42,11 @@
 				//아이디 형식 판별
 				if(!regex.exec(id)){
 					idSpan.html("불가능한 아이디 형식입니다!").css("color","red");
+					checkId = false;
 					
 				} else {
-					idSpan.html("멋진 아이디네요!").css("color","green");
-			
+					idSpan.html("").css("color","green");
+					checkId = true;
 				}
 				
 				
@@ -56,9 +59,21 @@
 			$("#checkId").on("click", function() {
 				
 				
-				//아이디 입력시
-				var id = $("#id").val();
-				location.href="checkIdAction.me?id="+id;
+				//올바른 아이디 형식을 가졌을 때 
+				if(checkId)	{
+					
+					//아이디 입력시
+					var id = $("#id").val();
+					location.href="checkIdAction.me?id="+id;
+				
+					
+				//올바르지 않은 아이디 형식을 가졌을 때
+				} else {
+					//아이디 스팬태그
+					$("#idSpan").html("올바른 아이디 형식을 사용해 주세요!").css("color","red");
+
+				}
+
 				
 				
 			})
@@ -115,61 +130,61 @@
 		// 주민등록번호 판별 ---------------------------------------------------------------------------------
 			
 			
-			$("#gender").on("change", function() {
+// 			$("#gender").on("change", function() {
 				
 				
-				//입력 주민등록번호 뒷 첫자리
-				var gender = $("#gender").val();
+// 				//입력 주민등록번호 뒷 첫자리
+// 				var gender = $("#gender").val();
 				
-				//정규표현식
-				var regex = /^[1-4]$/;
+// 				//정규표현식
+// 				var regex = /^[1-4]$/;
 				
-				//성별 스팬태그
-				var genderSpan = $("#genderSpan");
+// 				//성별 스팬태그
+// 				var genderSpan = $("#genderSpan");
 				
-				//주민등록번호 형식 판별
-				if(!regex.exec(gender)){
-					genderSpan.html("올바르지 않은 주민등록 형식입니다.").css("color","red");
+// 				//주민등록번호 형식 판별
+// 				if(!regex.exec(gender)){
+// 					genderSpan.html("올바르지 않은 주민등록 형식입니다.").css("color","red");
 				
-				//형식이 올바를 떄	
-				} else {
-					genderSpan.html("");
+// 				//형식이 올바를 떄	
+// 				} else {
+// 					genderSpan.html("");
 			
-				}
+// 				}
 				
-			});
+// 			});
 		
 		
 		// 주민등록번호 판별 ---------------------------------------------------------------------------------
 		
 			
-			$("#birth").on("change", function() {
+// 			$("#birth").on("change", function() {
 				
 				
-				//입력 주민등록번호 뒷 첫자리
-				var birth = $("#birth").val();
+// 				//입력 주민등록번호 뒷 첫자리
+// 				var birth = $("#birth").val();
 				
-				//정규표현식
-				var regex = /^[0-9]{6}$/;
+// 				//정규표현식
+// 				var regex = /^[0-9]{6}$/;
 				
-				//성별 스팬태그
-				var birthSpan = $("#birthSpan");
+// 				//성별 스팬태그
+// 				var birthSpan = $("#birthSpan");
 				
-				//주민등록번호 형식 판별
-				if(!regex.exec(birth)){
-					birthSpan.html("올바르지 않은 주민등록 형식입니다.").css("color","red");
+// 				//주민등록번호 형식 판별
+// 				if(!regex.exec(birth)){
+// 					birthSpan.html("올바르지 않은 주민등록 형식입니다.").css("color","red");
 				
-				//형식이 올바를 떄	
-				} else {
-					birthSpan.html("");
+// 				//형식이 올바를 떄	
+// 				} else {
+// 					birthSpan.html("");
 			
-				}
+// 				}
 				
-			});
+// 			});
 		
 		
 		// ---------------------------------------------------------------------------------
-
+			
 			
 		
 		});
@@ -195,7 +210,7 @@
 			<tr>
 				<td>ID</td>
 				<td>
-					<input id="id" type="text" name="id" placeholder="4 ~ 8글자 사이 입력" required="required">
+					<input id="id" type="text" name="id" placeholder="5~20글자 사이 입력" required="required">
 					<input id="checkId" type="button" value="아이디 중복확인."><br>
 					<span id="idSpan"></span>
 				</td>
@@ -269,7 +284,7 @@
 			<tr>
 				<td>핸드폰</td>
 				<td>
-					<input type="text" name="phone" placeholder="숫자로 입력해주세요" required="required">
+					<input id="phone" type="text" name="phone" placeholder="숫자로 입력해주세요" required="required">
 				</td>
 			</tr>
 			

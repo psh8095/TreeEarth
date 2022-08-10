@@ -62,9 +62,12 @@ public class joinProAction implements Action {
 		
 	// ----------------------------------------------------------------------------------------
 		
-		//전화번호 형식 수정
+		//핸드폰 양식 수정
+		String realPhone = phone.replaceAll("-", "");
+//		realPhone = phone.replaceAll(" ", "");
+
 		
-		
+		System.out.println(realPhone);
 	
 	// ----------------------------------------------------------------------------------------
 		
@@ -81,7 +84,7 @@ public class joinProAction implements Action {
 		dto.setMem_gender(gender);
 		dto.setMem_address(address);
 		dto.setMem_address_detail(address_detail);
-		dto.setMem_phone(phone);
+		dto.setMem_phone(realPhone);
 		dto.setMem_email(email);
 		
 	
@@ -109,7 +112,7 @@ public class joinProAction implements Action {
 			System.out.println("7. 회원가입 완료");
 			forward = new ActionForward();
 			forward.setPath("member/joinSuccess.jsp");
-			forward.setRedirect(true);
+			forward.setRedirect(false);
 		}
 		
 	
