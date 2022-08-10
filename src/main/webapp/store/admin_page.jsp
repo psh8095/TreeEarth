@@ -17,7 +17,7 @@
 	<h3>2. 주문 관리</h3>
 		<!-- 배송 전 주문목록 -->
 		<input type="button" value="배송 전인 주문목록" onclick="'#'"><br><br>
-	ㄹ
+	
 		<!-- 배송 중 주문목록 -->
 		<input type="button" value="배송 중인 주문 목록" onclick="'#'"><br><br>
 	
