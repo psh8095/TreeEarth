@@ -77,6 +77,7 @@ public class CartDAO {
 		ResultSet rs = null, rs2 = null;
 		
 		try {
+			// 세션아이디 받아와서 장바구니 테이블에 있는 상품 번호 조회
 			String sql = "SELECT sto_idx FROM cart WHERE mem_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, sId);
@@ -86,6 +87,7 @@ public class CartDAO {
 			while(rs.next()) {
 				StoreDTO store = new StoreDTO();
 				
+				// 조회한 상품 번호에 해당하는 상품 정보 조회
 				sql = "SELECT * FROM store WHERE sto_idx=?";
 				pstmt2 = con.prepareStatement(sql);
 				pstmt2.setInt(1, rs.getInt(1));
