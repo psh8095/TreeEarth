@@ -32,6 +32,8 @@ public class SupportModifyProAdminService {
 	SupportDAO dao = SupportDAO.getInstance();
 	dao.setConnection(con);
 	
+	
+	
 	int updateCount = dao.supportUpdateBoard(dto);
 	if(updateCount > 0) {
 		commit(con);

@@ -1,6 +1,7 @@
 package action.support;
 
 import java.io.*;
+import java.sql.Date;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -24,7 +25,7 @@ public class SupportWriteProAdminAction implements Action {
 	// ----------------------------------------------------------------------------------------
 		
 		//사진 업로드 폴더
-		String uploadPath = "upload";
+		String uploadPath = "img/support";
 		//파일 사이즈
 		int filesize = 1024 * 1024 * 10;
 		
@@ -43,7 +44,12 @@ public class SupportWriteProAdminAction implements Action {
 	
 		
 	// ----------------------------------------------------------------------------------------
-	
+		
+		
+		//데이트 타입 데이터 추가
+		String date = multi.getParameter("sup_goal_date");
+		Date goalDate = Date.valueOf(date);
+		
 		
 		//dto 객체에 값 저장
 		SupportDTO dto = new SupportDTO();
@@ -56,7 +62,7 @@ public class SupportWriteProAdminAction implements Action {
 		dto.setSup_thumbnail_file(multi.getOriginalFileName("sup_thumbnail_file")); //동일파일을 저장위해 같은 명 사용
 		dto.setSup_real_file(multi.getFilesystemName("sup_original_file"));
 		dto.setSup_original_file(multi.getOriginalFileName("sup_original_file"));
-		System.out.println(dto);
+		dto.setSup_goal_date(goalDate);
 		
 		
 	// ----------------------------------------------------------------------------------------

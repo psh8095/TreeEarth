@@ -22,6 +22,8 @@
 				<input type="hidden" name="sup_idx" value="<%=dto.getSup_idx()%>">
 <%-- 			<input type="hidden" name="pageNum" value="${param.pageNum }"> --%>
 			<table>
+			
+			
 				<tr>
 					<td class="td_left"><label for="sup_subject">제목</label></td>
 					<td class="td_right"><input type="text" name="sup_subject"
@@ -32,28 +34,43 @@
 					<td class="td_right"><input type="password" name="sup_pass"
 						id="board_pass" required="required"></td>
 				</tr>
+				
+				
 				<tr>
+					<td class="td_left"><label for="sup_goal_date">목표 날짜</label></td>
+					<td class="td_right"><input type="date" name="sup_goal_date"
+						id="board_subject" value="<%=dto.getSup_goal_date() %>"required="required"></td>
 				</tr>
+				
+				
 				<tr>
 					<td class="td_left"><label for="sup_goal_price">목표 금액</label></td>
 					<td class="td_right"><input type="text" name="sup_goal_price"
 						id="board_subject" value="<%=dto.getSup_goal_price() %>"required="required"></td>
 				</tr>
+				
+				
 				<tr>
 					<td class="td_left"><label for="sup_content">내용</label></td>
 					<td><textarea name="sup_content" rows="15" cols="40" required="required"><%=dto.getSup_content() %></textarea>
 					</td>
 				</tr>
+				
+				
 				<tr>
 					<td class="td_left"><label for="sup_thumbnail_file">썸네일 파일 첨부</label></td>
 					<td class="td_right"><input name="sup_thumbnail_file" type="file"
 						 value="<%=dto.getSup_thumbnail_file() %>"required="required"></td>
 				</tr>
-					<tr>
+				
+				
+				<tr>
 					<td class="td_left"><label for="sup_original_file">파일 첨부</label></td>
 					<td class="td_right"><input name="sup_original_file" type="file"
 						 value="<%=dto.getSup_original_file() %>"required="required"></td>
 				</tr>
+				
+				
 			</table>
 			<section id="commandCell">
 				<input type="submit" value="수정">&nbsp;&nbsp; 

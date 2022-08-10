@@ -31,7 +31,7 @@
 			%>
 				
 				<h3><a  href ="SupportDetail.su?sup_idx=<%=dto.getSup_idx() %>">제목 : <%=dto.getSup_subject()%></a></h3>
-				<a  href ="SupportDetail.su?sup_idx=<%=dto.getSup_idx() %>"><img alt="썸네일" src="./upload/<%=dto.getSup_thumbnail_file()%>" width="30%"></a>
+				<a  href ="SupportDetail.su?sup_idx=<%=dto.getSup_idx() %>"><img alt="썸네일" src="./img/support/<%=dto.getSup_thumbnail_file()%>" width="30%"></a>
 			
 			<%} %>
 

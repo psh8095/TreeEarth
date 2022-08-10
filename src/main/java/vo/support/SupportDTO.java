@@ -15,9 +15,8 @@ import java.sql.Date;
 //		   sup_original_file varchar(100) NOT NULL,
 //		   sup_real_file varchar(100) NOT NULL,
 //		   sup_money  int NOT NULL,
-//		   sup_total  int NOT NULL,
-//		   sup_now_total int NOT NULL,
 //		   sup_readcount  int NOT NULL,
+//		   sup_goal_date Date NOT NULL,
 //		   sup_date Date NOT NULL
 //		);
 
@@ -34,13 +33,21 @@ public class SupportDTO {
 	private String sup_real_file; //8
 	private String sup_original_file; //9
 	private int sup_money; //10
-	private int sup_total; //11
-	private int sup_now_total; //12
-	private int sup_readcount; //13
-	private Date sup_date; //14
+//	private int sup_total; 
+//	private int sup_now_total; 
+	private int sup_readcount; //11
+	private Date sup_goal_date;//12
+	private Date sup_date; //13
+
 	
 	
 	
+	public Date getSup_goal_date() {
+		return sup_goal_date;
+	}
+	public void setSup_goal_date(Date sup_goal_date) {
+		this.sup_goal_date = sup_goal_date;
+	}
 	public int getSup_idx() {
 		return sup_idx;
 	}
@@ -101,18 +108,6 @@ public class SupportDTO {
 	public void setSup_money(int sup_money) {
 		this.sup_money = sup_money;
 	}
-	public int getSup_total() {
-		return sup_total;
-	}
-	public void setSup_total(int sup_total) {
-		this.sup_total = sup_total;
-	}
-	public int getSup_now_total() {
-		return sup_now_total;
-	}
-	public void setSup_now_total(int sup_now_total) {
-		this.sup_now_total = sup_now_total;
-	}
 	public int getSup_readcount() {
 		return sup_readcount;
 	}
@@ -133,8 +128,7 @@ public class SupportDTO {
 				+ ", sup_subject=" + sup_subject + ", sup_content=" + sup_content + ", sup_thumbnail_real_file="
 				+ sup_thumbnail_real_file + ", sup_thumbnail_file=" + sup_thumbnail_file + ", sup_real_file="
 				+ sup_real_file + ", sup_original_file=" + sup_original_file + ", sup_money=" + sup_money
-				+ ", sup_total=" + sup_total + ", sup_now_total=" + sup_now_total + ", sup_readcount=" + sup_readcount
-				+ ", sup_date=" + sup_date + "]";
+				+ ", sup_readcount=" + sup_readcount + ", sup_date=" + sup_date + "]";
 	}
 	
 
