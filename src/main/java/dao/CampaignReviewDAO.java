@@ -16,7 +16,6 @@ public class CampaignReviewDAO {
 	
 	public static CampaignReviewDAO getInstance() {
 		return instance;
-		
 	}	
 	
 	private Connection con;

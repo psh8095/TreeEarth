@@ -34,12 +34,12 @@
 				<tr>
 					<td>신고사유</td>
 					<td>
-						<input type="text" name="cam_re_block_content" required="required">
+						<textarea id="cam_re_block_content" name="cam_re_block_content" cols="40" rows="15" required="required"></textarea>
 					</td>
 				</tr>
 			</table>
 			<section id="commandCell">
-				<input type="submit" value="신고하기" onclick="window.close()">&nbsp;&nbsp;
+				<input type="submit" value="신고하기" onclick="location.href='CampaignReviewBlockPro.cm?cam_re_idx=${campaign_review.cam_re_idx }&cam_re_block_content=${cam_re_block.cam_re_block_content}'">&nbsp;&nbsp;
 				<input type="reset" value="다시쓰기">&nbsp;&nbsp;
 				<input type="button" value="취소" onclick="window.close()">
 			</section>

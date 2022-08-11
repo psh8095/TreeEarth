@@ -57,7 +57,7 @@ public class CampaignReviewWriteProAction implements Action {
 		campaign_review.setCam_re_file(cam_re_file);
 		campaign_review.setCam_re_real_file(cam_re_real_file);
 		
-		System.out.println(campaign_review);
+//		System.out.println(campaign_review);
 		
 		//글쓰기 작업 요청
 		CampaignReviewWriteProService service = new CampaignReviewWriteProService();

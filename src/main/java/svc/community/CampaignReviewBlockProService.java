@@ -10,29 +10,30 @@ import dao.*;
 import db.*;
 import vo.community.*;
 
-public class CampaignReviewWriteProService {
+public class CampaignReviewBlockProService {
 
-	public boolean registBoard(CampaignReviewDTO campaign_review) {
+	public boolean registBlock(CampaignReviewBlockDTO cam_re_block) {
+		System.out.println("CampaignReviewBlockProService");
 		
-		boolean isWriteSuccess = false;
+		boolean isBlockSuccess = false;
 		
 		//싱글톤 디자인 패턴으로 생성된 BoardDAO 인스턴스 활용
 		Connection con = JdbcUtil.getConnection();
-		CampaignReviewDAO dao = CampaignReviewDAO.getInstance();
+		CampaignReviewBlockDAO dao = CampaignReviewBlockDAO.getInstance();
 		dao.setConnection(con);
 		
-		int insertCount = dao.insertCampaignReview(campaign_review);
+		int insertCount = dao.insertCampaignReviewBlock(cam_re_block);
 		
 		if(insertCount > 0) { 
 			commit(con);
-			isWriteSuccess = true;
+			isBlockSuccess = true;
 		} else { 
 			rollback(con);
 		}
 		
 		close(con);
 		
-		return isWriteSuccess;
+		return isBlockSuccess;
 	}
 
 }
