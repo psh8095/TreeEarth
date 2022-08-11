@@ -21,13 +21,36 @@
 		//제이쿼리
 		$(function() {
 			
+			//오늘 날짜
+			var today = new Date();
+			
+			//골 날짜
+			var goalDate = $("#goalDate").html();
+			var dday = new Date(goalDate)
+			
+			//디데이 계산
+			var gap = dday.getTime() - today.getTime();
+			var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+			
+			var day =  1 / result * 100
+			
+			
+			
 			$("#progressBar").css({
-			  width: 100%;
-			  background-color: grey;
-			})
+			  width: "100%",
+			  background: "grey"
+			});
+			
+			$("#myBar ").css({
+			  width: day+"%",
+			  height: "30px",
+			  background: "green"
+			});
 
 		});
 		
+		
+
 		
 </script>
 </head>
@@ -47,11 +70,13 @@
 			%>
 				
 				<h3><a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">제목 : <%=support.getSup_subject()%></a></h3>
-				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><img alt="썸네일" src="./upload/<%=support.getSup_thumbnail_file()%>" width="30%"></a>
+				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="30%"></a>
 				
 				<div id="progressBar">
 			  		<div id="myBar"></div>
 				</div>
+				
+				<div id="goalDate"><%=support.getSup_goal_date() %></div>
 					
 			<%} %>
 

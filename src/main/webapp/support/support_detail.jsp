@@ -76,7 +76,7 @@
 			var today = new Date();
 			
 			//골 날짜
-			var goalDate = $("#goalDate").html()
+			var goalDate = <%=dto.getSup_goal_date() %>
 			var dday = new Date(goalDate)
 			
 			//디데이 계산
@@ -86,6 +86,7 @@
 			//디데이 표시
 			$("#dday").html(result);
 			
+
 		});
 		
 		
@@ -111,10 +112,6 @@
 			<tr>
 				<th width="70">조회수</th>
 				<td><%=dto.getSup_readcount() %></td>
-			</tr>
-			<tr>
-				<th width="70">D-Day</th>
-				<td id="dday"></td>
 			</tr>
 			<tr>
 				<th width="70">D-Day</th>
