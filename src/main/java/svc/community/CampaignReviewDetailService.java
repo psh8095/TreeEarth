@@ -1,6 +1,7 @@
 package svc.community;
 
 import static db.JdbcUtil.close;
+import static db.JdbcUtil.commit;
 
 import java.sql.*;
 
@@ -11,6 +12,7 @@ import vo.community.*;
 public class CampaignReviewDetailService {
 
 	public CampaignReviewDTO getCampaignReviewDetail(int cam_re_idx) {
+		System.out.println("CampaignReviewDetailService");
 
 		CampaignReviewDTO campaign_review = null;
 		
@@ -36,6 +38,8 @@ public class CampaignReviewDetailService {
 		
 		//게시물 조회수 증가
 		dao.updateReadcount(cam_re_idx);
+		
+		commit(con);
 		
 		close(con);
 		

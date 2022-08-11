@@ -22,6 +22,8 @@ public class CommunityFrontController extends HttpServlet {
 		
 		Action action = null; // Action 클래스 인스턴스를 관리하는 변수
 		ActionForward forward = null; // 포워딩 정보를 관리하는 변수
+
+//		=================================================================================================================================
 		
 		if(command.equals("/FreeBoardWriteForm.cm")) { //자유게시판 작성 폼
 			forward = new ActionForward();
@@ -41,7 +43,11 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace(); 
 			}
-		} else if(command.equals("/CampaignReviewWriteForm.cm")) { //캠페인후기 작성 폼
+		}
+		
+//		=================================================================================================================================
+		
+		else if(command.equals("/CampaignReviewWriteForm.cm")) { //캠페인후기 작성 폼
 			forward = new ActionForward();
 			forward.setPath("community/campaign_review_write.jsp");
 			forward.setRedirect(false);
@@ -82,7 +88,7 @@ public class CommunityFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/CampaignReviewDeleteForm.cm")) { //캠페인후기 글 삭제 폼
 			forward = new ActionForward();
-			forward.setPath("community/campaign_review_detail.jsp");
+			forward.setPath("community/campaign_review_delete.jsp");
 			forward.setRedirect(false);
 		} else if(command.equals("/CampaignReviewDeletePro.cm")) { //캠페인후기 글 삭제 동작
 			try {
@@ -91,9 +97,26 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/CampaignReviewBlockForm.cm")) { //캠페인후기 글 신고 폼
+			try {
+				action = new CampaignReviewBlockFormAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/CampaignReviewBlockPro.cm")) { //캠페인후기 글 신고 동작
+			try {
+				action = new CampaignReviewBlockProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
-		if(forward != null) { //포워딩 처리
+//		=================================================================================================================================
+		
+		//포워딩처리
+		if(forward != null) { 
 			if(forward.isRedirect()) { //redirect 방식
 				response.sendRedirect(forward.getPath());
 			} else { //dispatcher 방식
