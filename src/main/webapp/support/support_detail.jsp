@@ -72,22 +72,20 @@
 		$(function() {
 			
 			
-
-			
-			var today = new Date();
-			var year = today.getFullYear();
-			var month = ('0' + (today.getMonth() + 1)).slice(-2);
-			var day = ('0' + today.getDate()).slice(-2);
-			
 			//오늘 날짜
-			var todayString = year + month + day;
+			var today = new Date();
 			
 			//골 날짜
-			var goalDate = $("#goalDate").html().replace(/-/g, "");
+			var goalDate = $("#goalDate").html()
+			var dday = new Date(goalDate)
 			
-			var Dday = goalDate - todayString
+			//디데이 계산
+			var gap = dday.getTime() - today.getTime();
+			var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
 			
-			alert(Dday);
+			//디데이 표시
+			$("#dday").html(result);
+			
 		});
 		
 		
@@ -113,6 +111,10 @@
 			<tr>
 				<th width="70">조회수</th>
 				<td><%=dto.getSup_readcount() %></td>
+			</tr>
+			<tr>
+				<th width="70">D-Day</th>
+				<td id="dday"></td>
 			</tr>
 			<tr>
 				<th width="70">D-Day</th>
