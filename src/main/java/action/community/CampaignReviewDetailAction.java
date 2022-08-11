@@ -19,9 +19,8 @@ public class CampaignReviewDetailAction implements Action {
 		int cam_re_idx = Integer.parseInt(request.getParameter("cam_re_idx"));
 //		System.out.println(board_num);
 		
-		CampaignReviewDetailService service = new CampaignReviewDetailService();
-		
 		//조회수 증가 요청
+		CampaignReviewDetailService service = new CampaignReviewDetailService();
 		service.increaseReadcount(cam_re_idx);
 		
 		//상세내용 조회 요청
