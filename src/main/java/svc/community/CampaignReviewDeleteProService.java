@@ -12,6 +12,7 @@ import db.*;
 public class CampaignReviewDeleteProService {
 
 	public boolean isCampaignReviewWriter(int cam_re_idx, String mem_pass) {
+		System.out.println("CampaignReviewDeleteProService");
 		
 		boolean isCampaignReviewWriter = false;
 		
@@ -29,6 +30,7 @@ public class CampaignReviewDeleteProService {
 	}
 
 	public boolean deleteCampaignReview(int cam_re_idx) {
+		System.out.println("CampaignReviewDeleteProService");
 		
 		boolean isDeleteSuccess = false;
 		
