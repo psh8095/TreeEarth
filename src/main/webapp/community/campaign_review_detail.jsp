@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function blockForm() {
+		window.open("CampaignReviewBlockForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}", 
+				'treeEarth', 'width=450,height=550');
+	}
+</script>
 <link href="../css/index.css" rel="stylesheet">
 </head>
 <body>
@@ -47,7 +53,7 @@
 		<input type="button" value="수정" onclick="location.href='CampaignReviewModifyForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='CampaignReviewDeleteForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='CampaignReviewList.cm?pageNum=${param.pageNum}'">
-		<input type="button" value="신고하기" onclick="">
+		<input type="button" value="신고하기" onclick="blockForm()">
 	</section>
 	
 	<!-- 푸터 -->

@@ -1,10 +1,10 @@
 package vo.community;
 
 /*
- * 캠페인리뷰 신고자, 신고하는 내용, 신고 이유
+ * 캠페인리뷰 신고번호, 신고자, 신고 이유
 CREATE TABLE cam_re_block(
-	cam_re_id VARCHAR(50) REFERENCES member(mem_id),
-	cam_re_content VARCHAR(100) REFERENCES campaign_review(cam_re_content),
+	cam_re_block_idx INT PRIMARY KEY,
+	cam_re_block_id VARCHAR(50) REFERENCES member(mem_id),
 	cam_re_block_reason VARCHAR(200)
 ); 
 */

@@ -12,6 +12,7 @@ import vo.community.*;
 public class CampaignReviewDetailService {
 
 	public CampaignReviewDTO getCampaignReviewDetail(int cam_re_idx) {
+		System.out.println("CampaignReviewDetailService");
 
 		CampaignReviewDTO campaign_review = null;
 		
