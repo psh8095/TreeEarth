@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>treeEarth</title>
 <link href="../css/index.css" rel="stylesheet">
 </head>
 <body>
@@ -14,39 +14,52 @@
 	<!-- 헤더 -->
 	<section id="">
 	<h2>캠페인후기 글 목록</h2>
-	<table border="1">
-		<tr id="tr_top">
-			<td width="100px">번호</td>
-			<td>제목</td>
-			<td width="150px">작성자</td>
-			<td width="150px">날짜</td>
-			<td width="100px">조회수</td>
-		</tr>
-		
 		<c:choose>
 			<c:when test="${not empty campaignReviewList and pageInfo.itemListCount gt 0}">
 				<c:forEach var="campaign_review" items="${campaignReviewList }">
-					<tr>
-						<td>${campaign_review.cam_re_idx }</td>
-						<td id="subject">
-							<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
-								${campaign_review.cam_re_subject }
-							</a>
-						</td>
-						<td>${campaign_review.cam_re_id }</td>
-						<td>${campaign_review.cam_re_date }</td>
-						<td>${campaign_review.cam_re_readcount }</td>
-					</tr>
+					<table>
+						<tr>
+							<td colspan="2">
+								<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
+									<c:choose>
+										<c:when test="${not empty campaign_review.cam_re_file}">
+											<img alt="" src="upload/${campaign_review.cam_re_file }">
+										</c:when>
+										<c:otherwise>
+											<img alt="이미지없음" src="img/community/tree.png" width="500px">
+										</c:otherwise>
+									</c:choose>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
+									<b>${campaign_review.cam_re_subject }</b>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>작성자</td>
+							<td>${campaign_review.cam_re_id }</td>
+						</tr>
+						<tr>
+							<td>작성일</td>
+							<td>${campaign_review.cam_re_date }</td>
+						</tr>
+						<tr>
+							<td>조회수</td>
+							<td>${campaign_review.cam_re_readcount }</td>
+						</tr>
+					</table>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<tr>
-					<td colspan="5">게시물이 존재하지 않습니다.</td>
-				</tr>
+				<h1>게시물이 존재하지 않습니다.</h1>
 			</c:otherwise>
 		</c:choose>
 		
-	</table>
+	
 	</section>
 	
 	<br>
