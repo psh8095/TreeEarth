@@ -11,7 +11,7 @@ CREATE TABLE campaign(
 	cam_people INT NOT NULL,
 	cam_subject VARCHAR(50) NOT NULL, 
 	cam_content VARCHAR(2000) NOT NULL,
-	cam_readcount INT DEFAULT 0,
+	cam_readcount INT,
 	cam_date DATE,
 	cam_thum_file VARCHAR(100),
 	cam_thum_real_file VARCHAR(100),
