@@ -8,25 +8,22 @@ import dao.CartDAO;
 
 public class InsertCartService {
 
-	public boolean insertCart(int sto_idx, String sId) {
+	public void insertCart(int sto_idx, String sId) {
 		System.out.println("InsertCartService");
-		boolean isCart = false;
 		
 		Connection con = getConnection();
 		CartDAO dao = CartDAO.getInstance();
 		dao.setCon(con);
 		
-		isCart = dao.insertCart(sto_idx, sId);
+		boolean isInsert = dao.insertCart(sto_idx, sId);
 		
-		if(isCart) {
+		if(isInsert) {
 			commit(con);
 		} else {
 			rollback(con);
 		}
 		
 		close(con);
-		
-		return isCart;
 	}
 	
 }

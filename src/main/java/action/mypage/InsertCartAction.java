@@ -21,8 +21,7 @@ public class InsertCartAction implements Action {
 //		System.out.println(sto_idx + " " + sId);
 		
 		InsertCartService service = new InsertCartService();
-		boolean isCart = service.insertCart(sto_idx, sId);
-		
+		service.insertCart(sto_idx, sId);
 		
 		return forward;
 	}

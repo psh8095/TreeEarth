@@ -18,38 +18,38 @@
 		}
 		
 		// 클릭 시 수량 감소
-		$("table input[type=button]").on("click", function() {
-// 			alert($("input[type=button]").index(this));
-			if($(".checkCart").eq($("input[type=button]").index(this)).is(":checked")) {
+		$(".minus").on("click", function() {
+// 			alert($(".minus").index(this));
+			if($(".checkCart").eq($(".minus").index(this)).is(":checked")) {
 				alert("선택을 해제 후 다시 시도해주세요.");
 				return;
 			}
 			
-			var amount = $("table input[type=text]").eq($("input[type=button]").index(this)).val();
+			var amount = $(".amount").eq($(".minus").index(this)).val();
 			
 			if(amount > 1) {
 				amount--;
-				$("table input[type=text]").eq($("input[type=button]").index(this)).val(amount);
-				$(".price").eq($("input[type=button]").index(this)).html(price[$("input[type=button]").index(this)] * amount);
+				$(".amount").eq($(".minus").index(this)).val(amount);
+				$(".price").eq($(".minus").index(this)).html(price[$(".minus").index(this)] * amount);
 			} else {
 				alert("최소 수량은 1개입니다.");
 			}
 		});
 		
 		// 클릭 시 수량 증가
-		$("table button").on("click", function() {
+		$(".plus").on("click", function() {
 // 			alert($("button").index(this));
-			if($(".checkCart").eq($("button").index(this)).is(":checked")) {
+			if($(".checkCart").eq($(".plus").index(this)).is(":checked")) {
 				alert("선택을 해제 후 다시 시도해주세요.");
 				return;
 			}
 				
-			var amount = $("table input[type=text]").eq($("button").index(this)).val();
+			var amount = $(".amount").eq($(".plus").index(this)).val();
 			
 			if(amount < 10) {
 				amount++;
-				$("table input[type=text]").eq($("button").index(this)).val(amount);
-				$(".price").eq($("button").index(this)).html(price[$("button").index(this)] * amount);
+				$(".amount").eq($(".plus").index(this)).val(amount);
+				$(".price").eq($(".plus").index(this)).html(price[$(".plus").index(this)] * amount);
 			} else {
 				alert("최대 수량은 10개입니다.");
 			}
@@ -72,20 +72,11 @@
 			}
 		});
 		
-		$("#rm_cart").on("click", function() {
+		// 장바구니에서 삭제
+		$(".rm_cart").on("click", function() {
 			if(confirm("장바구니에서 삭제하시겠습니까?")) {
-// 				$.ajax({
-// 					type: "post",
-// 					url: "DeleteCart.my",
-// 					data: {
-// 						sto_idx: 
-// 					},
-// 					dataType: "text",
-// 					success: function(response) {
-						
-// 					}
-// 				});
-// 				alert("삭제되었습니다");
+				alert("장바구니에서 삭제했습니다.");
+				location.href = "DeleteCart.my?sto_idx=" + $(".sto_idx").eq($(".rm_cart").index(this)).val();
 			}
 		});
 	});
@@ -110,11 +101,13 @@
 						<td>${cart.sto_subject }</td>
 						<td>
 							<!-- 수량 조절 버튼 -->
-							<input type="button" value="-">
+							<input type="button" class="minus" value="-">
 							<input type="text" class="amount" value="1" size="1">
-							<button id="plus">+</button>
+							<input type="button" class="plus" value="+">
 						</td>
 						<td><span class="price">${cart.sto_price }</span> 원</td>
+						<td><input type="button" class="rm_cart" value="삭제하기">
+							<input type="hidden" class="sto_idx" value="${cart.sto_idx }"></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -127,9 +120,8 @@
 	</div>
 	<div>
 		<h3>
-		선택한 상품&nbsp;&nbsp;
-		<input type="button" id="order" value="주문하기">&nbsp;&nbsp;
-		<input type="button" id="rm_cart" value="삭제하기">
+			선택한 상품&nbsp;&nbsp;
+			<input type="button" id="order" value="주문하기">
 		</h3>
 	</div>
 	
