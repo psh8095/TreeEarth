@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.mypage.CartListAction;
+import action.mypage.DeleteCartAction;
 import action.mypage.InsertCartAction;
 import vo.ActionForward;
 
@@ -45,6 +46,15 @@ public class MyPageFrontController extends HttpServlet {
 			// 장바구니 담기 서블릿 주소
 			action = new InsertCartAction();
 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/DeleteCart.my")) {
+			// 장바구니 삭제 서블릿 주소
+			action = new DeleteCartAction();
+			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
