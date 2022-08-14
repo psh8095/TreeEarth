@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<h1>campaign_write.jsp</h1>
+	<!-- 푸더 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
 </body>
 </html>
