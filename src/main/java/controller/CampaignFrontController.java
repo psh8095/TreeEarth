@@ -67,28 +67,28 @@ public class CampaignFrontController extends HttpServlet {
 					e.printStackTrace();
 				}
 		} else if(command.equals("/CampaignList.cp")) {//캠페인 목록
-//				action = new CampaignListAction();
+				action = new CampaignListAction();
 				try {
 					forward = action.execute(request, response);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 		} else if(command.equals("/CampaignDetail.cp")) {//캠페인 상세조회
-//				action = new CampaignDetailAction();
+				action = new CampaignDetailAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/CampaignModifyForm.cp")) {//캠페인 수정 폼
-//				action = new CampaignModifyFormAction();
+				action = new CampaignModifyFormAction();
 				try {
 					forward = action.execute(request, response);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 		} else if(command.equals("/CampaignModifyPro.cp")) {//캠페인 수정 동작
-//				action = new CampaignModifyProAction();
+				action = new CampaignModifyProAction();
 				try {
 					forward = action.execute(request, response);
 				} catch (Exception e) {
@@ -99,7 +99,7 @@ public class CampaignFrontController extends HttpServlet {
 				 forward.setPath("/campaign/campaign_delete.jsp");
 				 forward.setRedirect(false);
 		} else if(command.equals("/CampaignDeletePro.cp")) {//캠페인 삭제 동작
-//				action = new CampaignDeleteProAction();
+				action = new CampaignDeleteProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

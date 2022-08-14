@@ -27,11 +27,11 @@ public class CampaignDAO {
 	//----------------------------------------------------------------------------
 	//글쓰기 작업
 	public int insertCampaign(CampaignDTO campaign) {
-		int insertCount = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
+			int insertCount = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
 		int num = 1;
 		
 		try {
@@ -77,10 +77,10 @@ public class CampaignDAO {
 	
 	//전체 게시물 수 조회
 	public int selectListCount() {
-		int listCount = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+			int listCount = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
 		
 		try {
 				String sql = "SELECT COUNT(*) FROM campaign";
@@ -105,12 +105,12 @@ public class CampaignDAO {
 	
 	//게시물 목록 조회
 	public ArrayList<CampaignDTO> selectCampaignList(int pageNum, int listLimit) {
-		ArrayList<CampaignDTO> campaignList = null;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		int startRow = (pageNum - 1) * listLimit;
+			ArrayList<CampaignDTO> campaignList = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			int startRow = (pageNum - 1) * listLimit;
 		
 		try {
 				String sql = "SELECT * FROM campaign ORDER BY cma_idx LIMIT ?,?";
@@ -151,11 +151,11 @@ public class CampaignDAO {
 	}
 	
 	//게시물 1개 상세 정보 조회
-	public CampaignDTO selectCampaign(int cam_idx) {
-		CampaignDTO campaign = null;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+	public CampaignDTO selectCampaignDetail(int cam_idx) {
+			CampaignDTO campaign = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
 		
 		try {
 			String sql = "SELECT * FROM campaign WHERE cam_dix=?";
@@ -181,7 +181,7 @@ public class CampaignDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("CampaignDAO - selectCampaign 오류");
+			System.out.println("CampaignDAO - selectCampaignDetail 오류");
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -192,7 +192,7 @@ public class CampaignDAO {
 	
 	//조회수 증가
 	public void updateReadcount(int cam_idx) {
-		PreparedStatement pstmt = null;
+			PreparedStatement pstmt = null;
 		
 		try {
 			String sql = "UPDATE campaign SET cam_readcount=cam_readcount+1 WHERE cam_idx=?";
@@ -209,9 +209,9 @@ public class CampaignDAO {
 	
 	//게시물 수정
 	public int updateCampaign(CampaignDTO campaign) {
-		int updateCount = 0;
-		
-		PreparedStatement pstmt = null;
+			int updateCount = 0;
+			
+			PreparedStatement pstmt = null;
 		
 		try {
 				String sql = "UPDATE campaign SET cam_subject=?,cam_content=? WHERE cam_idx=?";
@@ -228,6 +228,35 @@ public class CampaignDAO {
 		} 
 
 		return updateCount;
+	}
+	
+	//게시글 권한 판별
+	public boolean isCampaignWriter(int cam_idx, String mem_pass) {
+			boolean isCampaignWriter = false;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+		try {
+				String sql = "SELECT * FROM campaign c, member m WHERE c.cam_id = m.mem_pass=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_pass);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					isCampaignWriter = true;
+				}
+				
+		} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("CampaignDAO - isCampaignWriter 오류");
+		} finally {
+				close(rs);
+				close(pstmt);
+		}
+			
+		 return isCampaignWriter;
 	}
 	
 	//게시물 삭제
