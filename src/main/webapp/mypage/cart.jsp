@@ -21,7 +21,7 @@
 		$(".minus").on("click", function() {
 // 			alert($(".minus").index(this));
 			if($(".checkCart").eq($(".minus").index(this)).is(":checked")) {
-				alert("선택을 해제 후 다시 시도해주세요.");
+				alert("선택 해제 후 다시 시도해주세요.");
 				return;
 			}
 			
