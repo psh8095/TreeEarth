@@ -77,7 +77,7 @@ public class CartDAO {
 		
 		try {
 			// 세션아이디 받아와서 장바구니 테이블에 있는 상품 번호 조회
-			String sql = "SELECT * FROM cart c JOIN store s ON c.sto_idx = s.sto_idx WHERE mem_id=?";
+			String sql = "SELECT * FROM cart c JOIN store s ON c.sto_idx = s.sto_idx WHERE mem_id=? ORDER BY cart_idx DESC";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, sId);
 			rs = pstmt.executeQuery();
