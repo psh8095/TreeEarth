@@ -134,5 +134,31 @@ public class CartDAO {
 		
 		return isDelete;
 	}
+
+	// 장바구니 전체 삭제
+	public boolean deleteCart(String sId) {
+		boolean isDelete = false;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM cart WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			
+			int deleteCount = pstmt.executeUpdate();
+			
+			if(deleteCount > 0) {
+				isDelete = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - deleteCart()");
+		} finally {
+			close(pstmt);
+		}
+		
+		return isDelete;
+	}
 	
 }

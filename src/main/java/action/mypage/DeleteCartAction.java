@@ -21,7 +21,13 @@ public class DeleteCartAction implements Action {
 //		System.out.println(sto_idx + " " + sId);
 		
 		DeleteCartService service = new DeleteCartService();
-		service.deleteCart(sto_idx, sId);
+		
+		// 상품 번호가 0 이면 장바구니 전체 삭제, 아니면 상품 번호에 해당하는 아이템 삭제
+		if(sto_idx == 0) {
+			service.deleteCart(sId);
+		} else {
+			service.deleteCart(sto_idx, sId);
+		}
 		
 		forward = new ActionForward();
 		
