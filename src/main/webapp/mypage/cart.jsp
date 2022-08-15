@@ -59,16 +59,18 @@
 		var total = 0;
 		
 		// 선택한 상품의 가격을 더해서 총 결제 금액 표시
-		$(".checkCart").on("click", function() {
+		$(".checkCart").on("change", function() {
 			if($(".checkCart").eq($(".checkCart").index(this)).is(":checked")) {
 				total += parseInt($(".price").eq($(".checkCart").index(this)).html());
 // 				alert(total);
 
 				$("#totalPrice").html(total);
 			} else {
-				total -= parseInt($(".price").eq($(".checkCart").index(this)).html());
-
-				$("#totalPrice").html(total);
+				if(total > 0) {
+					total -= parseInt($(".price").eq($(".checkCart").index(this)).html());
+	
+					$("#totalPrice").html(total);
+				}
 			}
 		});
 		
@@ -78,6 +80,38 @@
 				alert("장바구니에서 삭제했습니다.");
 				location.href = "DeleteCart.my?sto_idx=" + $(".sto_idx").eq($(".rm_cart").index(this)).val();
 			}
+		});
+		
+		// 장바구니 전체 삭제
+		$("#deleteAll").on("click", function() {
+			if(confirm("장바구니를 비우시겠습니까?")) {
+				alert("장바구니를 비웠습니다.");
+				location.href = "DeleteCart.my?sto_idx=0";
+			}
+		});
+		
+		// 전체 선택 버튼 클릭 시 동작
+		$("#allCheck").on("click", function() {
+			for(var i = 0; i < ${cart.size()}; i++) {
+				if(!$(".checkCart").eq(i).is(":checked")) {
+					$(".checkCart").eq(i).prop("checked", true);
+					total += parseInt($(".price").eq(i).html());
+				}
+			}
+			
+			$("#totalPrice").html(total);
+		});
+		
+		// 전체 해제 버튼 클릭 시 동작
+		$("#uncheck").on("click", function() {
+			for(var i = 0; i < ${cart.size()}; i++) {
+				if($(".checkCart").eq(i).is(":checked")) {
+					$(".checkCart").eq(i).prop("checked", false);
+					total -= parseInt($(".price").eq(i).html());
+				}
+			}
+			
+			$("#totalPrice").html(total);
 		});
 	});
 </script>
@@ -113,7 +147,12 @@
 			</table>
 		</c:otherwise>	
 	</c:choose>
-	
+	<hr>
+	<div>
+		<input type="button" id="allCheck" value="전체 선택">
+		<input type="button" id="uncheck" value="전체 해제">
+		<input type="button" id="deleteAll" value="장바구니 비우기">
+	</div>
 	<hr>
 	<div>
 		<h2>결제 예정 금액 &nbsp;&nbsp;<span id="totalPrice">0</span>원</h2>

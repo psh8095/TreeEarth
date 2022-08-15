@@ -27,4 +27,22 @@ public class DeleteCartService {
 		
 	}
 
+	public void deleteCart(String sId) {
+		System.out.println("DeleteCartService");
+		
+		Connection con = getConnection();
+		CartDAO dao = CartDAO.getInstance();
+		dao.setCon(con);
+		
+		boolean isDelete = dao.deleteCart(sId);
+		
+		if(isDelete) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+	}
+
 }
