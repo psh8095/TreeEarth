@@ -30,7 +30,7 @@ public class CartDAO {
 
 	// 장바구니에 상품 추가하는 메서드 정의
 	public boolean insertCart(int sto_idx, String sId) {
-		boolean isCart = false;
+		boolean isInsert = false;
 		
 		int num = 1;
 		PreparedStatement pstmt = null, pstmt2 = null;
@@ -54,7 +54,7 @@ public class CartDAO {
 			int insertCount = pstmt2.executeUpdate();
 			
 			if(insertCount > 0) {
-				isCart = true;
+				isInsert = true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -65,7 +65,7 @@ public class CartDAO {
 			close(pstmt2);
 		}
 		
-		return isCart;
+		return isInsert;
 	}
 
 	// 장바구니 조회하는 메서드 정의
@@ -77,7 +77,7 @@ public class CartDAO {
 		
 		try {
 			// 세션아이디 받아와서 장바구니 테이블에 있는 상품 번호 조회
-			String sql = "SELECT * FROM cart c JOIN store s ON c.sto_idx = s.sto_idx WHERE mem_id=?";
+			String sql = "SELECT * FROM cart c JOIN store s ON c.sto_idx = s.sto_idx WHERE mem_id=? ORDER BY cart_idx DESC";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, sId);
 			rs = pstmt.executeQuery();
@@ -106,6 +106,59 @@ public class CartDAO {
 		}
 		
 		return list;
+	}
+
+	// 장바구니에서 단일 품목 삭제
+	public boolean deleteCart(int sto_idx, String sId) {
+		boolean isDelete = false;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM cart WHERE mem_id=? AND sto_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			pstmt.setInt(2, sto_idx);
+			
+			int deleteCount = pstmt.executeUpdate();
+			
+			if(deleteCount > 0) {
+				isDelete = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - deleteCart()");
+		} finally {
+			close(pstmt);
+		}
+		
+		return isDelete;
+	}
+
+	// 장바구니 전체 삭제
+	public boolean deleteCart(String sId) {
+		boolean isDelete = false;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM cart WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			
+			int deleteCount = pstmt.executeUpdate();
+			
+			if(deleteCount > 0) {
+				isDelete = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - deleteCart()");
+		} finally {
+			close(pstmt);
+		}
+		
+		return isDelete;
 	}
 	
 }

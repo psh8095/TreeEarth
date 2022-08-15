@@ -7,12 +7,7 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 import action.*;
-import action.member.MemberLoginProAction;
-import action.member.MemberLogoutAction;
-import action.member.checkAuthCodeAction;
-import action.member.checkIdAction;
-import action.member.joinProAction;
-import action.member.sendAuthCodeAction;
+import action.member.*;
 import vo.*;
 
 //회원 컨트롤러
@@ -166,10 +161,27 @@ public class MemberFrontController extends HttpServlet {
 			}
 		}
 		
+	// @아이디/비밀번호 찾기@--------------------------------------------------------------------------------------
+
+		else if(command.equals("/FindIdForm.me")) { //아이디 찾기 폼
+			forward = new ActionForward();
+			forward.setPath("member/find_id.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/FindIdPhone.me")) { //휴대폰으로 아이디 찾기
+			try {
+				action = new FindIdPhoneAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - FindIdPhone 오류");
+			}
+		} else if(command.equals("/FindIdResult.me")) { //아이디 찾기 결과
+			forward = new ActionForward();
+			forward.setPath("member/find_id_result.jsp");
+			forward.setRedirect(false);
+		}
 		
-		
-	// --------------------------------------------------------------------------------------
-		
+	// --------------------------------------------------------------------------------------		
 		
 		// 포워딩 처리
 		if(forward != null) { 
