@@ -331,5 +331,33 @@ public class MemberDAO {
 		}
 		return isLoginSuccess;
 	}
+
+	//휴대폰으로 id 찾기
+	public MemberDTO isMemberId(String mem_name, String mem_phone) {
+
+		MemberDTO member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_name=? AND mem_phone=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_name);
+			pstmt.setString(2, mem_phone);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new MemberDTO();
+				member.setMem_id(rs.getString("mem_id"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - isMemberId 오류");
+		}
+		
+		return member;
+	}
 	
 }
