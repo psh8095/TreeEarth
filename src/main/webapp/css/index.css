@@ -1,17 +1,47 @@
 @charset "UTF-8";
- 
 
 body{
-    padding: 30px;
+    padding: 0px;
     text-align: center;
 }
- 
 
-#header{ padding: 5px;}
-#header a{text-decoration: none; color: #333333;}
+/*헤더영역 고정*/ 
+header{
+	height: 100px;
+	padding: 5px;
+	color: black;
+	background-color: white;
+	font: bold;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+/*메뉴바 영역(네비게이터)*/
+nav{
+	display: block;
+	width: 100%;
+	font-size: 15px;
+	z-index:1;
+	background-color: white;
+	text-align: center;
+}
 
 
-nav{margin-top: 10px; margin-bottom: 20px;}
+
+
+/*로그인, 장바구니 우측정렬*/
+.login{
+	float: right;
+	
+}
+
+.cart{
+	float: right;	
+}
+
 
  
 /* 매뉴선 */
@@ -68,13 +98,13 @@ ul{
 .dropbtn {
     font-size: 16px;
     border: none;
-  }
+ }
   
-  /* 드롭 다운 기능 */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
+ /* 드롭 다운 기능 */
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
   
   /* 드롭 다운되는 것 */
   .dropdown-content {

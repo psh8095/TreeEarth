@@ -11,11 +11,14 @@
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-	<div id="header">
-		<a href="./"><h1 class="title"><img src="img/main/logo_1.png" alt="트리어스" width="300"></h1></a>
+	<header>
+		<div id="logo">
+			<a href="./"><img src="img/main/logo_treeEarth.png" alt="트리어스" width="300"></a>
+		</div>
+		
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
-				<a href="MemberLoginForm.me">로그인</a>
+				<a href="MemberLoginForm.me" class="login" style="cursor:pointer">로그인</a>
 			</c:when>
 			<c:otherwise>
 					<c:choose>
@@ -23,7 +26,7 @@
 							<a href="store/admin_page.jsp">${sessionScope.sId } 님</a>
 						</c:when>
 						<c:otherwise>
-						    <a href="Cart.my" class="">장바구니</a>
+						    <a href="Cart.my" class="cart" style="cursor:pointer">장바구니</a>
 						<div class="dropdown">
 							<a class="dropbtn">${sessionScope.sId } 님</a>
 							<div class="dropdown-content">
@@ -45,9 +48,7 @@
 			</c:otherwise>
 		</c:choose>
 		
-		
-		<img src="img/4.png" alt="대충 웅장한 산 사진" width="100%">
-        <div class="line">
+      	<nav style="cursor:pointer">
             <div class="dropdown">
                 <a class="dropbtn box">캠페인</a>
                 <div class="dropdown-content">
@@ -88,7 +89,10 @@
                 </ul>
                 </div>
             </div>
-        </div>
-	</div>
+       	 </nav>
+	</header>
+	<section>
+		<img src="img/main/tree_img.jpg" alt="울창한 나무사진" border="0" style="max-width:100%;height:auto;">
+	</section>	
 </body>
 </html>
