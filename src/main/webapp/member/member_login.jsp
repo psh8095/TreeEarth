@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TreeEarth</title>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <link href="css/index.css" rel="stylesheet">
 </head>
@@ -37,7 +37,8 @@
 				<input type="submit" value="로그인">&nbsp;
 				<input type="submit" value="카카오톡으로 로그인">
 				<br>
-				<span id="searchId">아이디 찾기</span>&nbsp;&nbsp;&nbsp;<span id="searchPass">비밀번호찾기</span>
+				<span id="searchId"><a href="FindIdForm.me">아이디 찾기</a></span>&nbsp;&nbsp;&nbsp;
+				<span id="searchPass"><a href="">비밀번호찾기</a></span>
 				</td>
 			</tr>
 		</table>
