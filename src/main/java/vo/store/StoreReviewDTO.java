@@ -66,4 +66,11 @@ public class StoreReviewDTO {
 		this.sto_re_real_file = sto_re_real_file;
 	}
 	
+	@Override
+	public String toString() {
+		return "StoreReviewDTO [sto_re_idx=" + sto_re_idx + ", mem_id=" + mem_id + ", sto_idx="
+				+ sto_idx + ", sto_re_score=" + sto_re_score + ", sto_re_content=" + sto_re_content
+				+ ", sto_re_file=" + sto_re_file + ", sto_re_real_file=" + sto_re_real_file + "]";
+	}
+	
 }
