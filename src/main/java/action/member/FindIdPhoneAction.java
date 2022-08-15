@@ -7,7 +7,6 @@ import javax.servlet.http.*;
 import action.*;
 import svc.member.*;
 import vo.*;
-import vo.member.*;
 
 public class FindIdPhoneAction implements Action {
 
@@ -17,18 +16,14 @@ public class FindIdPhoneAction implements Action {
 		
 		ActionForward forward = null;
 
-//		System.out.println(request.getParameter("name"));
-//		System.out.println(request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3"));
+		String mem_name = request.getParameter("name");
+		String mem_phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
 		
-		MemberDTO member = new MemberDTO();
-		member.setMem_name(request.getParameter("name"));
-		member.setMem_phone(request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3"));
-		
-		//
+		//기존 회원	인지 판별 요청
 		FindIdService service = new FindIdService();
-		boolean isMemberId = service.searchMemberId(member);
+		String mem_id = service.searchMemberId(mem_name, mem_phone);
 		
-		if(!isMemberId) {
+		if(mem_id == null) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			
@@ -37,7 +32,9 @@ public class FindIdPhoneAction implements Action {
 			out.println("history.back()");
 			out.println("</script>");
 		} else {
-			//아이디 검색 요청 -> alert로 출력
+			forward = new ActionForward();
+			forward.setPath("FindIdResult.me?mem_id=" + mem_id);
+			forward.setRedirect(true);
 		}
 		
 		return forward;
