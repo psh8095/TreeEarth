@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>ID : ${param.mem_id }</h1>
+	<button onclick="window.close()">닫기</button>
 </body>
 </html>

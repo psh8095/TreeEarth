@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품관리 - 삭제</title>
+<title>Insert title here</title>
 </head>
 <body>
 

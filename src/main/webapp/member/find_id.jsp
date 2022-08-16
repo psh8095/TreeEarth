@@ -38,7 +38,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="찾기">
-						<input type="button" value="취소" onclick="history.back()">
+						<input type="button" value="취소" onclick="window.close()">
 					</td>
 				</tr>
 			</table>
@@ -69,7 +69,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="찾기">
-						<input type="button" value="취소" onclick="history.back()">
+						<input type="button" value="취소" onclick="window.close()">
 					</td>
 				</tr>
 			</table>

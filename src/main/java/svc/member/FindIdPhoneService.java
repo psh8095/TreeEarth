@@ -8,10 +8,10 @@ import java.sql.*;
 import dao.*;
 import vo.member.*;
 
-public class FindIdService {
+public class FindIdPhoneService {
 
 	public String searchMemberId(String mem_name, String mem_phone) {
-		System.out.println("FindIdService");
+		System.out.println("FindIdPhoneService");
 
 		String mem_id = null;
 		
@@ -19,7 +19,7 @@ public class FindIdService {
 		MemberDAO dao = MemberDAO.getInstance();
 		dao.setConnection(con);
 		
-		MemberDTO member = dao.isMemberId(mem_name, mem_phone);
+		MemberDTO member = dao.isMemberIdPhone(mem_name, mem_phone);
 		
 		mem_id = member.getMem_id();
 		

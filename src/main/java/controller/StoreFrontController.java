@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.store.OrderAction;
 import action.store.StoreDeleteProAction;
 import action.store.StoreItemDetailAction;
 import action.store.StoreItemImgAction;
@@ -82,19 +83,19 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			} 
-		} else if(command.equals("/StoreDeleteForm.bo")) {
+		} else if(command.equals("/StoreDeleteForm.st")) {
 			// 등록한 상품글 삭제
 			forward = new ActionForward();
-			forward.setPath("store/store_delete.jsp");
+			forward.setPath("store/store_deleteAction.jsp");
 			forward.setRedirect(false); // Dispatcher 방식(생략 가능)
-		} else if(command.equals("/StoreDeletePro.bo")) {
+		} else if(command.equals("/StoreDeletePro.st")) {
 			action = new StoreDeleteProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/StoreModifyForm.bo")) {
+		} else if(command.equals("/StoreModifyForm.st")) {
 			// 등록한 상품글 수정
 			action = new StoreModifyFormAction();
 			try {
@@ -102,7 +103,7 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/StoreModifyPro.bo")) {
+		} else if(command.equals("/StoreModifyPro.st")) {
 			action = new StoreModifyProAction();
 			try {
 				forward = action.execute(request, response);
@@ -154,6 +155,11 @@ public class StoreFrontController extends HttpServlet {
 		} else if(command.equals("/StoreReviewModifyPro.st")) {
 			// 상품 구매후기 수정 동작 기능
 			action = new StoreReviewModifyProAction();
+
+		} else if(command.equals("/Order.st")) {
+			// 상품 주문 서블릿 주소
+			action = new OrderAction();
+
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

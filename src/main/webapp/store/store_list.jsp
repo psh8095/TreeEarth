@@ -22,6 +22,7 @@
 	</section>
 	<section id="buttonArea">
 		<input type="button" value="상품 등록" onclick="location.href='store_write.jsp'">
+		<input type="button" value="상품 삭제" onclick="location.href='store_deleteAction.jsp'">
 	</section>
 	<section id="pageList">		
 	</section>

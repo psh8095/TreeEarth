@@ -18,6 +18,7 @@ public class FreeBoardWriteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		ActionForward forward = null; // 포워딩 정보를 저장하는 변수 선언
 		
 		String uploadPath = "upload"; // 가상폴더명

@@ -175,10 +175,30 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 				System.out.println("MemberFrontController - FindIdPhone 오류");
 			}
+		} else if(command.equals("/FindIdEmail.me")) { //휴대폰으로 아이디 찾기
+			try {
+				action = new FindIdEmailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - FindIdEmail 오류");
+			}
 		} else if(command.equals("/FindIdResult.me")) { //아이디 찾기 결과
 			forward = new ActionForward();
 			forward.setPath("member/find_id_result.jsp");
 			forward.setRedirect(false);
+		} else if(command.equals("/FindPassForm.me")) { //비밀번호 찾기 폼
+			forward = new ActionForward();
+			forward.setPath("member/find_pass.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/FindPassAuth.me")) { //비밀번호 인증
+			try {
+				action = new FindPassAuthAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - FindPassAuth 오류");
+			}
 		}
 		
 	// --------------------------------------------------------------------------------------		
