@@ -359,5 +359,34 @@ public class MemberDAO {
 		
 		return member;
 	}
+
+	// 결제에 필요한 회원 1명의 정보 조회
+	public MemberDTO selectMemberInfo(String sId) {
+		MemberDTO member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new MemberDTO();
+				member.setMem_name(rs.getString("mem_name"));
+				member.setMem_address(rs.getString("mem_address"));
+				member.setMem_address_detail(rs.getString("mem_address_detail"));
+				member.setMem_email(rs.getString("mem_email"));
+				member.setMem_phone(rs.getString("mem_phone"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - selectMemberInfo()");
+		}
+		
+		return member;
+	}
 	
 }
