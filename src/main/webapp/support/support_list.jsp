@@ -36,11 +36,13 @@
 			
 			
 			
+			//프로그레스 바
 			$("#progressBar").css({
 			  width: "100%",
 			  background: "grey"
 			});
 			
+			//
 			$("#myBar ").css({
 			  width: day+"%",
 			  height: "30px",
