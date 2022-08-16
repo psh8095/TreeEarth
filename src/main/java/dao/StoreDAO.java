@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.store.StoreDTO;
+import vo.store.StoreReviewDTO;
 
 public class StoreDAO {
 	// 싱글톤 디자인 패턴으로 StoreDAO 인스턴스 생성
@@ -315,6 +316,164 @@ public class StoreDAO {
 
 		
 	}
+		// 상품 구매 후기글 작성 작업 메서드
+		public int insertStoreReview(StoreReviewDTO storeReview) {
+			
+			int insertReviewCount = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			int num = 1; // 새 리뷰 글 번호를 저장할 변수 선언
+			
+			try {
+				String sql = "SELECT MAX(sto_re_idx) FROM store_review";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					num = rs.getInt(1) + 1;
+				}
+				
+				close(pstmt); // 사용 완료된 PreparedStatement 객체를 먼저 반환
+				
+				// 전달받은 데이터를 store_review 테이블에 INSERT
+				sql = "INSERT INTO store_review VALUES (?,?,?,?,?,?,?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, storeReview.getMem_id());
+				pstmt.setInt(2, storeReview.getSto_idx());
+				pstmt.setInt(3, num);
+				pstmt.setInt(4, 1);
+				pstmt.setString(5, storeReview.getSto_re_content());
+				pstmt.setString(6,storeReview.getSto_re_file());
+				pstmt.setString(7, storeReview.getSto_re_real_file());
+				
+				insertReviewCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - insertStoreReview() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return insertReviewCount;
+		}
+		
+		// 전체 상품 구매 후기글 수를 조회할 selectStoreReviewListCount() 메서드
+		// 파라미터 : 없음, 리턴타입 : int
+		public int selectStoreReviewListCount() {
+			
+			int storeReviewListCount  = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT COUNT(*) FROM store_review";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					storeReviewListCount = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreReviewListCount() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return storeReviewListCount;
+		}
+		
+		// 구매 후기 목록을 조회하는 selectStoreReviewList() 메서드
+		public ArrayList<StoreReviewDTO> selectStoreReviewList(int pageNum, int listLimit) {
+			
+			ArrayList<StoreReviewDTO> storeReviewList = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			// 현재 페이지 번호를 활용하여 조회 시 시작행 번호 계산
+			int startRow = (pageNum - 1) * listLimit;
+			
+			try {
+				String sql = "SELECT * FROM store_review ORDER BY sto_re_idx LIMIT ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, listLimit);
+				
+				rs = pstmt.executeQuery();
+				
+				storeReviewList = new ArrayList<StoreReviewDTO>();
+				
+				while(rs.next()) {
+					// 1개 구매 후기 정보를 저장할 StoreReviewDTO 객체 생성
+					StoreReviewDTO store_review = new StoreReviewDTO();
+					// 저장
+					store_review.setMem_id(rs.getString("mem_id"));
+					store_review.setSto_idx(rs.getInt("sto_idx"));
+					store_review.setSto_re_idx(rs.getInt("sto_re_idx"));
+					store_review.setSto_re_score(rs.getInt("sto_re_score"));
+					store_review.setSto_re_content(rs.getString("sto_re_content"));
+					store_review.setSto_re_file(rs.getString("sto_re_file"));
+					store_review.setSto_re_real_file(rs.getString("sto_re_real_file"));
+					// 전체 구매 후기글 정보를 저장하는 ArrayList 객체에 1개 구매 후기 정보 StoreReviewDTO 객체 추가
+					storeReviewList.add(store_review);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreReviewList() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return storeReviewList;
+		}
+		
+		// 구매후기 상세 정보를 조회하는 selectStoreReviewDetail() 메서드
+		// 리턴타입 : StoreReviewDTO 객체 , 파라미터 : int(sto_re_idx)
+		public StoreReviewDTO selectStoreReviewDetail(int sto_re_idx) {
+			
+			StoreReviewDTO store_review = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT * FROM store_review WHERE sto_re_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, sto_re_idx);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					store_review = new StoreReviewDTO();
+					store_review.setMem_id(rs.getString("mem_id"));
+					store_review.setSto_idx(rs.getInt("sto_idx"));
+					store_review.setSto_re_idx(rs.getInt("sto_re_idx"));
+					store_review.setSto_re_score(rs.getInt("sto_re_score"));
+					store_review.setSto_re_content(rs.getString("sto_re_content"));
+					store_review.setSto_re_file(rs.getString("sto_re_file"));
+					store_review.setSto_re_real_file(rs.getString("sto_re_real_file"));
+					
+					System.out.println(store_review); // 확인용
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreReviewDetail() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return store_review;
+		}
+		
+		
 
 }
 

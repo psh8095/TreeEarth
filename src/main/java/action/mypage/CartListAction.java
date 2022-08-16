@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
+import svc.member.MemberInfoService;
 import svc.mypage.CartListService;
 import vo.ActionForward;
+import vo.member.MemberDTO;
 import vo.store.StoreDTO;
 
 public class CartListAction implements Action {
@@ -24,7 +26,12 @@ public class CartListAction implements Action {
 		CartListService service = new CartListService();
 		List<StoreDTO> list = service.selectCartList(sId);
 		
+		// 결제를 위한 회원 1명의 정보 조회
+		MemberInfoService infoService = new MemberInfoService();
+		MemberDTO member = infoService.getMemberInfo(sId);
+		
 		request.setAttribute("cart", list);
+		request.setAttribute("member", member);
 
 		forward = new ActionForward();
 		forward.setPath("mypage/cart.jsp");

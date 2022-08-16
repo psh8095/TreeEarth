@@ -10,12 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.store.OrderAction;
 import action.store.StoreDeleteProAction;
 import action.store.StoreItemDetailAction;
 import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
 import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
+import action.store.StoreReviewDetailAction;
+import action.store.StoreReviewListAction;
+import action.store.StoreReviewWriteFormAction;
+import action.store.StoreReviewWriteProAction;
 import action.store.StoreWriteProAction;
 import vo.ActionForward;
 
@@ -62,7 +67,9 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/StoreWriteForm.st")) {
+		} 
+		//-------------------관리자 영역----------------------------------
+		else if (command.equals("/StoreWriteForm.st")) {
 			// 상품글 등록 페이지로 이동
 			forward = new ActionForward();
 			forward.setPath("store/store_write.jsp"); 
@@ -96,6 +103,49 @@ public class StoreFrontController extends HttpServlet {
 			}
 		} else if(command.equals("/StoreModifyPro.bo")) {
 			action = new StoreModifyProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
+		//----------------사용자 영역------------------------------------
+		else if(command.equals("/StoreReviewWriteForm.st")) {
+			// 회원 상품 구매후기 폼 주소
+			action = new StoreReviewWriteFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreReviewWritePro.st")) {
+			// 회원 상품 구매후기 등록 기능
+			action = new StoreReviewWriteProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreReviewList.st")) {
+			// 상품 구매후기 목록 조회
+			action = new StoreReviewListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreReviewDetail.st")) {
+			// 상품 구매후기 상세 조회
+			action = new StoreReviewDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Order.st")) {
+			// 상품 주문 서블릿 주소
+			action = new OrderAction();
+
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link href="css/index.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
+<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script type="text/javascript">
 	$(function() {
 		// 장바구니에 담긴 상품 각각의 가격을 저장할 배열 선언 및 배열에 가격 저장
@@ -25,12 +26,12 @@
 				return;
 			}
 			
-			var amount = $(".amount").eq($(".minus").index(this)).val();
+			var quantity = $(".quantity").eq($(".minus").index(this)).val();
 			
-			if(amount > 1) {
-				amount--;
-				$(".amount").eq($(".minus").index(this)).val(amount);
-				$(".price").eq($(".minus").index(this)).html(price[$(".minus").index(this)] * amount);
+			if(quantity > 1) {
+				quantity--;
+				$(".quantity").eq($(".minus").index(this)).val(quantity);
+				$(".price").eq($(".minus").index(this)).html(price[$(".minus").index(this)] * quantity);
 			} else {
 				alert("최소 수량은 1개입니다.");
 			}
@@ -44,12 +45,12 @@
 				return;
 			}
 				
-			var amount = $(".amount").eq($(".plus").index(this)).val();
+			var quantity = $(".quantity").eq($(".plus").index(this)).val();
 			
-			if(amount < 10) {
-				amount++;
-				$(".amount").eq($(".plus").index(this)).val(amount);
-				$(".price").eq($(".plus").index(this)).html(price[$(".plus").index(this)] * amount);
+			if(quantity < 10) {
+				quantity++;
+				$(".quantity").eq($(".plus").index(this)).val(quantity);
+				$(".price").eq($(".plus").index(this)).html(price[$(".plus").index(this)] * quantity);
 			} else {
 				alert("최대 수량은 10개입니다.");
 			}
@@ -113,6 +114,53 @@
 			
 			$("#totalPrice").html(total);
 		});
+		
+		
+		// 결제 기능
+		IMP.init("imp73101414");
+		
+		$("#order").on("click", function() {
+			// 결제 기능 - 변수 선언
+			var date = new Date();
+			var today = date.getFullYear() + "" + (date.getMonth()+1) + "" + date.getDate() + "" + 
+						date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
+			var total = parseInt($("#totalPrice").html());
+			
+			IMP.request_pay({
+				pg: "html5_inicis",
+				pay_method: "card",
+				merchant_uid: "order_" + today,
+				name: "트리어스",
+				amount: total,
+				buyer_email: "${member.mem_email}",
+				buyer_name: "${member.mem_name}",
+				buyer_tel: "${member.mem_phone}",
+				buyer_addr: "${member.mem_address}"
+			}, function(rsp) {
+				if(rsp.success) {
+					alert("결제가 정상적으로 완료되었습니다.");
+					$.ajax({
+						type: "post",
+						url: "Order.st",
+						data: {
+							order_id: rsp.merchant_uid,
+							mem_name: rsp.buyer_name,
+							mem_phone: rsp.buyer_tel,
+							mem_email: rsp.buyer_email,
+							amount: total,
+							mem_address: rsp.buyer_addr
+						},
+						dataType: "text",
+						success: function(response) {
+							location.href="./"; // 후에 주문 내역 조회로 이동
+						}
+					});
+				} else {
+					alert("결제에 실패하였습니다.");
+					alert(rsp.error_msg);
+				}
+			});
+		});
 	});
 </script>
 </head>
@@ -136,7 +184,7 @@
 						<td>
 							<!-- 수량 조절 버튼 -->
 							<input type="button" class="minus" value="-">
-							<input type="text" class="amount" value="1" size="1">
+							<input type="text" class="quantity" value="1" size="1" readonly="readonly">
 							<input type="button" class="plus" value="+">
 						</td>
 						<td><span class="price">${cart.sto_price }</span> 원</td>
