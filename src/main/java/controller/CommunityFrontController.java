@@ -8,6 +8,9 @@ import javax.servlet.http.*;
 
 import action.*;
 import action.community.*;
+import action.store.StoreItemDetailAction;
+import action.store.StoreItemListAction;
+import action.store.StoreWriteProAction;
 import vo.*;
 
 //커뮤니티(캠페인 후기, 반려나무 성장일기, 큐앤에이, 공지사항, 자유게시판) 컨트롤러
@@ -27,7 +30,7 @@ public class CommunityFrontController extends HttpServlet {
 		
 		if(command.equals("/FreeBoardWriteForm.cm")) { //자유게시판 작성 폼
 			forward = new ActionForward();
-			forward.setPath("freeboard/freeboard_write.jsp");
+			forward.setPath("community/freeboard_write.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/FreeBoardWritePro.cm")) { //자유게시판 작성 동작
 			try {
@@ -43,7 +46,15 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace(); 
 			}
+		} else if(command.equals("/FreeBoardDetail.cm")) {	//자유게시판 글 상세조회
+			action = new FreeBoardDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+			
 		
 //		=================================================================================================================================
 		
