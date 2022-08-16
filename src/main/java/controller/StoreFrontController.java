@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.store.OrderAction;
 import action.store.StoreDeleteProAction;
 import action.store.StoreItemDetailAction;
 import action.store.StoreItemImgAction;
@@ -136,6 +137,15 @@ public class StoreFrontController extends HttpServlet {
 		} else if(command.equals("/StoreReviewDetail.st")) {
 			// 상품 구매후기 상세 조회
 			action = new StoreReviewDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Order.st")) {
+			// 상품 주문 서블릿 주소
+			action = new OrderAction();
+
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
