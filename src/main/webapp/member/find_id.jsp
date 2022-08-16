@@ -12,10 +12,6 @@
 </script>
 </head>
 <body>
-	<!-- 헤더 -->
-	<jsp:include page="../hf/header.jsp"></jsp:include>
-	<!-- 헤더 -->
-	
 	<h1>아이디 찾기</h1>
 	
 	<section id="findIdPhone">
@@ -42,7 +38,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="찾기">
-						<input type="button" value="취소" onclick="history.back()">
+						<input type="button" value="취소" onclick="window.close()">
 					</td>
 				</tr>
 			</table>
@@ -73,15 +69,11 @@
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="찾기">
-						<input type="button" value="취소" onclick="history.back()">
+						<input type="button" value="취소" onclick="window.close()">
 					</td>
 				</tr>
 			</table>
 		</form>
 	</section>
-	
-	<!-- 푸터 -->
-	<jsp:include page="../hf/footer.jsp"></jsp:include>
-	<!-- 푸터 -->
 </body>
 </html>
