@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link href="css/index.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
+<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script type="text/javascript">
 	$(function() {
 		// 장바구니에 담긴 상품 각각의 가격을 저장할 배열 선언 및 배열에 가격 저장
@@ -21,7 +22,7 @@
 		$(".minus").on("click", function() {
 // 			alert($(".minus").index(this));
 			if($(".checkCart").eq($(".minus").index(this)).is(":checked")) {
-				alert("선택을 해제 후 다시 시도해주세요.");
+				alert("선택 해제 후 다시 시도해주세요.");
 				return;
 			}
 			
@@ -59,16 +60,18 @@
 		var total = 0;
 		
 		// 선택한 상품의 가격을 더해서 총 결제 금액 표시
-		$(".checkCart").on("click", function() {
+		$(".checkCart").on("change", function() {
 			if($(".checkCart").eq($(".checkCart").index(this)).is(":checked")) {
 				total += parseInt($(".price").eq($(".checkCart").index(this)).html());
 // 				alert(total);
 
 				$("#totalPrice").html(total);
 			} else {
-				total -= parseInt($(".price").eq($(".checkCart").index(this)).html());
-
-				$("#totalPrice").html(total);
+				if(total > 0) {
+					total -= parseInt($(".price").eq($(".checkCart").index(this)).html());
+	
+					$("#totalPrice").html(total);
+				}
 			}
 		});
 		
@@ -78,6 +81,67 @@
 				alert("장바구니에서 삭제했습니다.");
 				location.href = "DeleteCart.my?sto_idx=" + $(".sto_idx").eq($(".rm_cart").index(this)).val();
 			}
+		});
+		
+		// 장바구니 전체 삭제
+		$("#deleteAll").on("click", function() {
+			if(confirm("장바구니를 비우시겠습니까?")) {
+				alert("장바구니를 비웠습니다.");
+				location.href = "DeleteCart.my?sto_idx=0";
+			}
+		});
+		
+		// 전체 선택 버튼 클릭 시 동작
+		$("#allCheck").on("click", function() {
+			for(var i = 0; i < ${cart.size()}; i++) {
+				if(!$(".checkCart").eq(i).is(":checked")) {
+					$(".checkCart").eq(i).prop("checked", true);
+					total += parseInt($(".price").eq(i).html());
+				}
+			}
+			
+			$("#totalPrice").html(total);
+		});
+		
+		// 전체 해제 버튼 클릭 시 동작
+		$("#uncheck").on("click", function() {
+			for(var i = 0; i < ${cart.size()}; i++) {
+				if($(".checkCart").eq(i).is(":checked")) {
+					$(".checkCart").eq(i).prop("checked", false);
+					total -= parseInt($(".price").eq(i).html());
+				}
+			}
+			
+			$("#totalPrice").html(total);
+		});
+		
+		
+		// 결제 기능
+		IMP.init("imp73101414");
+		
+		$("#order").on("click", function() {
+			// 결제 기능 - 주문 번호를 위한 변수 선언
+			var date = new Date();
+			var today = date.getFullYear() + "" + (date.getMonth()+1) + "" + date.getDate() + "" + 
+						date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
+			
+			IMP.request_pay({
+				pg: "html5_inicis",
+				pay_method: "card",
+				merchant_uid: "order_" + today,
+				name: "트리어스",
+				amount: $("#totalPrice").html(),
+				buyer_email: ${member.mem_email},
+				buyer_name: ${member.mem_name},
+				buyer_tel: ${member.mem_phone}
+			}, function(rsp) {
+				if(rsp.success) {
+					alert("결제가 정상적으로 완료되었습니다.");
+				} else {
+					alert("결제에 실패하였습니다.");
+					alert(rsp.error_msg);
+				}
+			});
 		});
 	});
 </script>
@@ -113,7 +177,12 @@
 			</table>
 		</c:otherwise>	
 	</c:choose>
-	
+	<hr>
+	<div>
+		<input type="button" id="allCheck" value="전체 선택">
+		<input type="button" id="uncheck" value="전체 해제">
+		<input type="button" id="deleteAll" value="장바구니 비우기">
+	</div>
 	<hr>
 	<div>
 		<h2>결제 예정 금액 &nbsp;&nbsp;<span id="totalPrice">0</span>원</h2>

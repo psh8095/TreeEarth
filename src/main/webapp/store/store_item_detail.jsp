@@ -27,7 +27,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	
 		var quantity_price = $("#quantity_price").html(); // 상품 가격 값
 		
-		var totalPrice = 0; // 총 금액 합계 변수 선언
+		var totalPrice = 0; // 총 금액 합계 변수 선언 및 초기화
 		
 		$("#plus_btn").on("click", function() {
 			$("#quantity_input").val(++quantity); // 객체이기 때문에
@@ -37,7 +37,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 			totalPrice = quantity_price * plusBtn;
 // 			alert(quantity_price); // 상품 금액 확인
 // 			alert(totalPrice); // 금액 총 합계 확인
-			$("#quantity_price").html(totalPrice); // 총 상품 금액 화면 표시
+			$("#quantity_price").html(totalPrice); // 수량 + 버튼 클릭 시 총 상품 금액 화면 표시
 		});
 		
 		$("#minus_btn").on("click", function() {
@@ -103,6 +103,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	<!-- 헤더 -->
 	<section>
 		<h2>상품 상세 내용 보기</h2>
+		<h1>${store.sto_idx }</h1>
 			<table>
 				<tr>
 					<td><img src="img/store/${store.sto_thum_file}" width="300" height="500"></td>
@@ -121,7 +122,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 				</tr>
 			</table>
 			<div id="button">
-				<div id="button_quantity">
+				<div id="button_quantity"> 
 					<span>
 						<button id="minus_btn">-</button>
 					</span>
@@ -134,11 +135,17 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 			</div>
 	</section>
 	
-	
 	<!-- 장바구니 담기 버튼 -->
 	<div>
 		<input type="button" value="장바구니 담기" id="insertCart">
 	</div>
+	<hr>
+	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
+	<div>
+		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><input type="button" value="구매 후기" id="store_review"></a>
+		<a href=""><input type="button" value="상품 문의" id="store_qna"></a>
+	</div>
+	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

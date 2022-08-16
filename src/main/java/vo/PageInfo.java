@@ -7,6 +7,7 @@ public class PageInfo {
 	private int startPage; // 시작 페이지 번호
 	private int endPage; // 끝 페이지 번호
 	private int itemListCount; // 총 상품 목록 수
+//	private int storeReviewListCount; // 스토어 구매 후기 목록 수
 	
 	public PageInfo(int pageNum, int maxPage, int startPage, int endPage, int itemListCount) {
 		super();
@@ -15,6 +16,7 @@ public class PageInfo {
 		this.startPage = startPage;
 		this.endPage = endPage;
 		this.itemListCount = itemListCount;
+//		this.storeReviewListCount = storeReviewListCount;
 	}
 
 	public int getPageNum() {
@@ -56,5 +58,13 @@ public class PageInfo {
 	public void setItemListCount(int itemListCount) {
 		this.itemListCount = itemListCount;
 	}
+	
+//	public int getStoreReviewListCount() {
+//		return storeReviewListCount;
+//	}
+//
+//	public void setStoreReviewListCount(int storeReviewListCount) {
+//		this.storeReviewListCount = storeReviewListCount;
+//	}
 	
 }
