@@ -395,6 +395,36 @@ public class MemberDAO {
 		return member;
 	}
 
+	//id, email 일치하는 회원 조회
+	public boolean isMemberEmail(String mem_id, String mem_email) {
+		
+		boolean isMemberEmail = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_id=? AND mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			pstmt.setString(2, mem_email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isMemberEmail = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - isMemberEmail 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isMemberEmail;
+	}
+	
 	// 결제에 필요한 회원 1명의 정보 조회
 	public MemberDTO selectMemberInfo(String sId) {
 		MemberDTO member = null;
@@ -426,5 +456,5 @@ public class MemberDAO {
 		
 		return member;
 	}
-	
+
 }

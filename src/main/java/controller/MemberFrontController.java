@@ -191,10 +191,14 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("member/find_pass.jsp");
 			forward.setRedirect(false);
-		} else if(command.equals("/findPassAuth.me")) { //비밀번호 찾기 이메일 인증
-			forward = new ActionForward();
-			forward.setPath("member/find_pass_auth.jsp");
-			forward.setRedirect(false);
+		} else if(command.equals("/FindPassAuth.me")) { //비밀번호 인증
+			try {
+				action = new FindPassAuthAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - FindPassAuth 오류");
+			}
 		}
 		
 	// --------------------------------------------------------------------------------------		

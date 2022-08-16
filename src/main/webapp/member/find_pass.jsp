@@ -10,13 +10,27 @@
 	function changeDomain() {
 		document.findPass.email2.value = document.findPass.emailDomain.value;
 	}
+	
+	$(function() {
+		$("#sendAuthCode").on("click", function() {
+			 $.ajax({
+		         type: "post",
+		         url: "FindPassAuth.me",
+		         data: $("form").serialize(),
+		         dataType: "text",
+		         success: function() {
+		        	 
+		         }
+		      });
+		});
+	});
 </script>
 </head>
 <body>
 	
 	<h1>비밀번호 찾기</h1>
 	
-	<form name="findPass" action="findPassAuth.me" method="get">
+	<form name="findPass" action="findPassResult.me" method="get">
 			<table>
 				<tr>
 					<th>ID</th>
