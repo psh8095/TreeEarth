@@ -11,8 +11,13 @@
 </head>
 <body>
 	<div id="footer">
-	트리케라톱스
-    <h6>made by 'jessi'</h6>
+		<ul>
+			<li class="ft">회사소개</li>
+			<li>입점상담</li>
+			<li>제휴문의</li>
+			<li>고객센터</li>
+			<li>이용약관</li>
+		</ul>
     </div>
 </body>
 </html>

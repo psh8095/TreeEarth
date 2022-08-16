@@ -5,15 +5,14 @@ body{
     text-align: center;
 }
 
-/*헤더영역 고정*/ 
-header{
-	height: 100px;
+/* 헤더영역 */ 
+#header{
+	height: 80px;
 	padding: 5px;
-	color: black;
+	margin-bottom: 0;
 	background-color: white;
-	font: bold;
-	align-items: center;
-	position: fixed;
+	/*align-items: center;*/
+	position: fixed; /* 고정 */
 	top: 0;
 	left: 0;
 	right: 0;
@@ -21,25 +20,35 @@ header{
 
 /*메뉴바 영역(네비게이터)*/
 nav{
+	background-color: white;
+	margin-top: 0px;
 	display: block;
 	width: 100%;
-	font-size: 15px;
-	z-index:1;
-	background-color: white;
-	text-align: center;
+	line-height: 30px;
+	font-size: 18px;
 }
 
+nav .dropbtn_box{
+	display: inline-block;
+	/*border-left: 1px solid; */
+	padding: 0px 50px 0px 50px; /*자간 간격*/
+	margin: 5px 0px 5px 0px;
+}
 
-
+nav ul .inline{
+	font-size: 15px;
+}
 
 /*로그인, 장바구니 우측정렬*/
 .login{
 	float: right;
-	
+	line-height: 50px;
+	margin-right: 50px;
 }
 
 .cart{
-	float: right;	
+	float: right;
+	line-height: 100px;
 }
 
 
@@ -55,7 +64,7 @@ nav{
  /*메뉴 */
 .box{
     display: inline;
-    margin-right: 20px;
+    margin-right: 10px;
 }
  
  /*메뉴 링크선 제거  */
@@ -65,15 +74,28 @@ nav ul li a{
     line-height: 3em;
     text-transform: uppercase;
 }
-  
 
-/* 푸터  */
+/* 푸터영역 */
 #footer {
     clear: both;
     background-color: #333333;
     color: white;
-    text-align: center;
-    padding: 1em
+    top: 0;
+	left: 0;
+	right: 0;
+	padding: 10px;
+}
+
+#footer li{
+	display: inline-block;
+	border-left: 1px solid; /* 구분선 */
+	padding: 0px 40px 0px 40px; /*자간 간격*/
+	margin: 15px 0px 15px 0px;
+	word-spacing: 10px; /*자간 간격*/
+}
+
+#footer .ft{
+	border-left: none;
 }
 
 .inline {
@@ -112,8 +134,6 @@ ul{
     position: absolute;
     min-width: 150px;
     text-align: left;
-   
-
   }
   
   /* 드롭 다운되는 링크 css*/

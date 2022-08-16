@@ -11,11 +11,8 @@
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-	<header>
-		<div id="logo">
-			<a href="./"><img src="img/main/logo_treeEarth.png" alt="트리어스" width="300"></a>
-		</div>
-		
+	<header id="header">
+		<a href="./"><img src="img/main/logo_treeEarth.png" alt="트리어스" width="220"></a>
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<a href="MemberLoginForm.me" class="login" style="cursor:pointer">로그인</a>
@@ -50,7 +47,7 @@
 		
       	<nav style="cursor:pointer">
             <div class="dropdown">
-                <a class="dropbtn box">캠페인</a>
+                <a class="dropbtn_box">캠페인</a>
                 <div class="dropdown-content">
                 <ul class="inline">
                     <li><a href="CampaignRecruList.cp">모집 캠페인</a></li>
@@ -60,7 +57,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a class="dropbtn box">후원</a>
+                <a class="dropbtn_box">후원</a>
                 <div class="dropdown-content">
                 <ul class="inline">
                     <li><a href="SupportListAction.su">후원하기</a></li>
@@ -68,7 +65,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a class="dropbtn box">스토어</a> 
+              	<a class="dropbtn_box">스토어</a> 
                 <div class="dropdown-content">
                 <ul class="inline">
                     <li><a href="">반려나무</a></li>
@@ -78,7 +75,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a class="dropbtn box">커뮤니티</a>
+                <a class="dropbtn_box">커뮤니티</a>
                 <div class="dropdown-content">
                 <ul class="inline">
                     <li><a href="CampaignReviewList.cm">캠페인 후기</a></li>
@@ -92,7 +89,7 @@
        	 </nav>
 	</header>
 	<section>
-		<img src="img/main/tree_img.jpg" alt="울창한 나무사진" border="0" style="max-width:100%;height:auto;">
+		<img src="img/main/tree_img01.jpg" alt="울창한 나무사진" border="0" style="max-width:100%;height:auto;">
 	</section>	
 </body>
 </html>
