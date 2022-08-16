@@ -51,9 +51,9 @@ public class MemberFrontController extends HttpServlet {
 		
 		
 		// 1. 약관 폼
-		if(command.equals("/dirrhks.me")) {
+		if(command.equals("/requiredTerms.me")) {
 			forward = new ActionForward();
-			forward.setPath("member/dirrhks.jsp");
+			forward.setPath("member/requiredTerms.jsp");
 			forward.setRedirect(false);
 			
 			
@@ -61,9 +61,9 @@ public class MemberFrontController extends HttpServlet {
 		
 		
 		// 2. 본인인증 폼
-		} else if(command.equals("/qhsdlsdlswmd.me")) {
+		} else if(command.equals("/identification.me")) {
 			forward = new ActionForward();
-			forward.setPath("member/qhsdlsdlswmd.jsp");
+			forward.setPath("member/identification.jsp");
 			forward.setRedirect(false);
 			
 		

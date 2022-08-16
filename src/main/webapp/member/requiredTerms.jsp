@@ -56,7 +56,7 @@
 				
 				//체크 상태가 모두 true 일 경우 
 				if($(".check").length == $(".check:checked").length){
-					location.href="qhsdlsdlswmd.me"
+					location.href="identification.me"
 				
 				//체크상테가 모두 true가 아닐 경우	
 				} else {

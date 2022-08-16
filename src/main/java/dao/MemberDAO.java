@@ -116,7 +116,13 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("MemberDAO - registAuthCode() 메서드 오류 : " + e.getMessage());
-		} 
+		} finally {
+//			close(pstmt4);
+//			close(pstmt3);
+//			close(rs);
+//			close(pstmt2);
+//			close(pstmt);
+		}
 				
 				
 		return registCount;
@@ -135,7 +141,7 @@ public class MemberDAO {
 		
 		
 		PreparedStatement pstmt = null, pstmt2 = null;
-		ResultSet rs = null, rs2 = null, rs3 = null;
+		ResultSet rs = null, rs2 = null;
 		String sql = "", sql2 = "";
 		
 	
@@ -190,7 +196,8 @@ public class MemberDAO {
 					
 						
 					}
-					
+				
+				//어스 코드가 없다면
 				} else {
 
 				}
@@ -199,6 +206,11 @@ public class MemberDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println("MemberDAO - checkAuthCode() 메서드 오류 : " + e.getMessage());
+			} finally {
+				close(rs2);
+				close(pstmt2);
+				close(rs);
+				close(pstmt);
 			}
 		
 		return checkAuthCode;
@@ -253,6 +265,7 @@ public class MemberDAO {
 			e.printStackTrace();
 			System.out.println("MemberDAO - insertMember() 메서드 오류 : " + e.getMessage());
 		} finally {
+			close(pstmt2);
 			close(pstmt);
 		}
 		
@@ -295,6 +308,9 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		
