@@ -6,6 +6,7 @@ CREATE TABLE order_detail (
     order_detail_idx INT PRIMARY KEY,
     order_id VARCHAR(30),
     sto_idx INT,
+    quantity INT NOT NULL,
     FOREIGN KEY (order_id) REFERENCES order_info(order_id),
     FOREIGN KEY (sto_idx) REFERENCES store(sto_idx)
 );
