@@ -12,6 +12,7 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
 	<section id="">
 	<h2>캠페인후기 글 목록</h2>
 		<c:choose>
@@ -58,8 +59,6 @@
 				<h1>게시물이 존재하지 않습니다.</h1>
 			</c:otherwise>
 		</c:choose>
-		
-	
 	</section>
 	
 	<br>
@@ -97,6 +96,7 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
+	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

@@ -8,20 +8,22 @@ import action.*;
 import svc.member.*;
 import vo.*;
 
-public class FindIdPhoneAction implements Action {
+public class FindIdEmailAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("FindIdPhoneAction");
+		System.out.println("FindIdEmailAction");
 		
 		ActionForward forward = null;
 
 		String mem_name = request.getParameter("name");
-		String mem_phone = request.getParameter("phone1") + request.getParameter("phone2") + request.getParameter("phone3");
+		String mem_email = request.getParameter("email1") + "@" + request.getParameter("email2");
+//		System.out.println(mem_name + mem_email);
 		
 		//기존 회원	인지 판별 요청
-		FindIdPhoneService service = new FindIdPhoneService();
-		String mem_id = service.searchMemberId(mem_name, mem_phone);
+		FindIdEmailService service = new FindIdEmailService();
+		String mem_id = service.searchMemberId(mem_name, mem_email);
+		System.out.println(mem_id);
 		
 		if(mem_id == null) {
 			response.setContentType("text/html; charset=UTF-8");
