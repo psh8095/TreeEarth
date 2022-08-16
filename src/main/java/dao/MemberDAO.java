@@ -327,13 +327,14 @@ public class MemberDAO {
 			e.printStackTrace();
 			System.out.println("MemberDAO - selectMember 오류");
 		} finally {
-			
+			close(rs);
+			close(pstmt);
 		}
 		return isLoginSuccess;
 	}
 
 	//휴대폰으로 id 찾기
-	public MemberDTO isMemberId(String mem_name, String mem_phone) {
+	public MemberDTO isMemberIdPhone(String mem_name, String mem_phone) {
 
 		MemberDTO member = null;
 		
@@ -355,6 +356,40 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("MemberDAO - isMemberId 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return member;
+	}
+	
+	//이메일로 id 찾기
+	public MemberDTO isMemberIdEmail(String mem_name, String mem_email) {
+		
+		MemberDTO member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_name=? AND mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_name);
+			pstmt.setString(2, mem_email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new MemberDTO();
+				member.setMem_id(rs.getString("mem_id"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - isMemberId 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		return member;
@@ -384,6 +419,9 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("SQL 구문 오류 - selectMemberInfo()");
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		return member;
