@@ -3,6 +3,7 @@ import java.sql.Date;
 
 public class FreeboardDTO {
 	private int free_idx;
+	private String free_userID;
 	private String free_name;
 	private String free_pass;
 	private String free_subject;
@@ -18,6 +19,12 @@ public class FreeboardDTO {
 	}
 	public void setFree_idx(int free_idx) {
 		this.free_idx = free_idx;
+	}
+	public String getFree_userID() {
+		return free_userID;
+	}
+	public void setFree_userID(String free_userID) {
+		this.free_userID = free_userID;
 	}
 	public String getFree_name() {
 		return free_name;
@@ -76,10 +83,10 @@ public class FreeboardDTO {
 	
 	@Override
 	public String toString() {
-		return "FreeboardDTO [free_idx=" + free_idx + ", free_name=" + free_name + ", free_pass=" + free_pass
-				+ ", free_subject=" + free_subject + ", free_content=" + free_content + ", free_img=" + free_img
-				+ ", free_original_img=" + free_original_img + ", free_readcount=" + free_readcount + ", free_block="
-				+ free_block + ", free_date=" + free_date + "]";
+		return "FreeboardDTO [free_idx=" + free_idx + ", free_userID=" + free_userID + ", free_name=" + free_name
+				+ ", free_pass=" + free_pass + ", free_subject=" + free_subject + ", free_content=" + free_content
+				+ ", free_img=" + free_img + ", free_original_img=" + free_original_img + ", free_readcount="
+				+ free_readcount + ", free_block=" + free_block + ", free_date=" + free_date + "]";
 	}
 
 	
