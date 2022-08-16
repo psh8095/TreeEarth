@@ -19,6 +19,8 @@ import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
 import action.store.StoreReviewDetailAction;
 import action.store.StoreReviewListAction;
+import action.store.StoreReviewModifyFormAction;
+import action.store.StoreReviewModifyProAction;
 import action.store.StoreReviewWriteFormAction;
 import action.store.StoreReviewWriteProAction;
 import action.store.StoreWriteProAction;
@@ -142,6 +144,18 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/StoreReviewModifyForm.st")) {
+			// 상품 구매후기 수정 폼 주소
+			action = new StoreReviewModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreReviewModifyPro.st")) {
+			// 상품 구매후기 수정 동작 기능
+			action = new StoreReviewModifyProAction();
+
 		} else if(command.equals("/Order.st")) {
 			// 상품 주문 서블릿 주소
 			action = new OrderAction();
