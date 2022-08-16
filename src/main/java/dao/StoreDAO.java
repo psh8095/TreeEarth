@@ -473,8 +473,60 @@ public class StoreDAO {
 			return store_review;
 		}
 		
+		// 구매후기 글 수정 권한 메서드
+		public boolean isStoreReviewWrite(int sto_re_idx, String mem_pass) {
+			
+			boolean isStoreReviewWrite = false;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT * FROM store_review s, member m WHERE s.mem_id = m.mem_id AND mem_pass = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_pass);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					isStoreReviewWrite = true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - isStoreReviewWrite() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return isStoreReviewWrite;
+		}
 		
-
+		// 구매후기 글 수정 작업 메서드
+		public int updateStoreReview(StoreReviewDTO store_review) {
+			
+			int updateCount = 0;
+			
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "UPDATE store_review SET sto_re_content=?,sto_re_file=? WHERE sto_re_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, store_review.getSto_re_content());
+				pstmt.setString(2, store_review.getSto_re_file());
+				pstmt.setInt(3, store_review.getSto_re_idx());
+				
+				updateCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - updateStoreReview() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			
+			return updateCount;
+		}
+		
 }
 
 

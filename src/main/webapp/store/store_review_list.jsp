@@ -14,30 +14,37 @@
 	<!-- 헤더 -->
 	<section id="">
 		<h3>상품후기 목록</h3> 
-		<h1>${store.sto_idx }</h1>
+		<h1>${store.sto_idx }</h1> <!-- 확인용 - 나중에 삭제!! -->
 			<c:choose>
 				<c:when test="${not empty storeReviewList and pageInfo.itemListCount gt 0}">
 					<c:forEach var="store_review" items="${storeReviewList }">
 						<table>
 						<tr>
 							<td colspan="3">
-								<span onclick="location.href='StoreReviewDetail.st?sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}'" style="cursor: pointer;" onfocus="blur();"></span>
 									<c:choose>
 										<c:when test="${not empty store_review.sto_re_file}"> 
-											<img alt="" src="upload/${store_review.sto_re_file }"> 
+											<img alt="" src="upload/${store_review.sto_re_file }" width="300" height="250"> 
 										</c:when>
+<%-- 										<c:otherwise> --%>
+<%-- 											<img alt="상품 이미지" src="img/store/${store.sto_thum_file}" width="100" height="100"> --%>
+<%-- 										</c:otherwise> --%>
 									</c:choose>
 							</td>
 						</tr>
 						<tr>
-							<td>${store_review.mem_id }</td><td>&nbsp;&nbsp;&nbsp;&nbsp;작성 날짜</td>
+							<td>${store_review.mem_id }님의 후기입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;작성 날짜</td>
 						</tr>
 						<tr>
-							<td><b>${store_review.sto_re_content }</b></td>
 							<td>
-							<input type="button" value="수정">
-							<input type="button" value="삭제">
+							<b>${store_review.sto_re_content }</b>
 							</td>
+							<td>
+							<span onclick="location.href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}'" style="cursor: pointer;">후기 상세보기</span>
+							</td>
+<!-- 							<td> -->
+<%-- 							<input type="button" value="수정" onclick="location.href='StoreReviewModifyForm.st?sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'"> --%>
+<%-- 							<input type="button" value="삭제" onclick="location.href='StoreReviewDeleteForm.st?sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'"> --%>
+<!-- 							</td> -->
 						</tr>
 						</table>
 					</c:forEach>
@@ -50,7 +57,7 @@
 	</section>
 	<br>
 	<section id="buttonArea">
-		<input type="button" value="후기 작성하기" onclick="location.href='StoreReviewWriteForm.st?sto_idx=${store.sto_idx }'">
+		<input type="button" value="후기 작성하기" onclick="location.href='StoreReviewWriteForm.st?sto_idx=${store.sto_idx}'">
 	</section>
 	<section id="pageList">
 		<c:choose>

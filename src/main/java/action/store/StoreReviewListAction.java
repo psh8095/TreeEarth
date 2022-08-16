@@ -51,8 +51,21 @@ public class StoreReviewListAction implements Action {
 		// request 객체의 setAttribute() 메서드를 호출하여 객체 저장
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("storeReviewList", storeReviewList);
-		System.out.println(pageInfo.getItemListCount()); // 확인용
-		System.out.println(storeReviewList); // 확인용
+//		System.out.println(pageInfo.getItemListCount()); // 확인용
+//		System.out.println(storeReviewList); // 확인용
+		
+//		int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
+//		System.out.println(sto_idx);
+//		request.setAttribute("sto_idx", sto_idx);
+		
+		StoreDTO store = new StoreDTO();
+		store.setSto_idx(Integer.parseInt(request.getParameter("sto_idx")));
+		store.setSto_subject(request.getParameter("sto_subject"));
+		store.setSto_thum_file(request.getParameter("sto_thum_file"));
+		store.setSto_thum_real_file(request.getParameter("sto_thum_real_file"));
+//		System.out.println(store); // 확인용
+		request.setAttribute("store", store);
+		
 		
 		forward = new ActionForward();
 		forward.setPath("store/store_review_list.jsp");

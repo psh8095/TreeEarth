@@ -17,31 +17,27 @@
 		<h3>구매후기 상세내용</h3>
 		<section id="">
 		 	<table>
-		 		<tr><th width="70">${store_review.mem_id } 님의 후기입니다.</th></tr>
-<!-- 		 		<tr> -->
-<!-- 		 			<th width="70">후기사진 첨부파일</th> -->
-<!-- 		 			<td> -->
-<%-- 		 				<a href="upload/${store_review.sto_re_real_file }" download="${store_review.sto_re_file }"> --%>
-<%-- 		 				${store_review.sto_re_file } --%>
-<!-- 		 				</a> -->
-<!-- 		 			</td> -->
-<!-- 		 		</tr> -->
+		 		<tr><th width="300">${store_review.mem_id }님의 후기입니다.</th></tr>
+		 		<tr><th>작성일</th><td></td></tr>
+		 		<tr>
+		 			<th width="70">첨부 사진</th>
+		 		</tr>
+		 		<tr>
+		 		<td><img alt="" src="upload/${store_review.sto_re_file }" width="300" height="250"></td>
+		 		</tr>
 		 		<tr>
 		 			<th width="70">후기 내용</th>
-		 			<td>
-		 				<img alt="${store_review.sto_re_file }" src="upload/${store_review.sto_re_real_file }"><br>
-		 			</td>
+		 		</tr>
+		 		<tr>
+		 		<td>${store_review.sto_re_content }</td>
 		 		</tr>
 		 	</table>
-			 <section id="">
-			 	${store_review.sto_re_content }
-			 </section>
 		 </section>
 	</section>
 	<section id="">
 		<input type="button" value="수정" onclick="location.href='StoreReviewModifyForm.st?sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='StoreReviewDeleteForm.st?sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'">
-		<input type="button" value="목록" onclick="location.href='StoreReviewList.st?pageNum=${param.pageNum}'">
+		<input type="button" value="목록" onclick="location.href='StoreReviewList.st?sto_idx=${param.sto_idx }&pageNum=${param.pageNum}'">
 	</section>
 	
 	<!-- 푸터 -->

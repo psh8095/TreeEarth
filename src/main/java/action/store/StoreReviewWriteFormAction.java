@@ -8,8 +8,9 @@ import svc.store.StoreItemDetailService;
 import vo.ActionForward;
 import vo.store.StoreDTO;
 
+//상품 구매후기 작성폼에서 보여주는 구매 상품 관련 액션
 public class StoreReviewWriteFormAction implements Action {
-
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("StoreReviewWriteFormAction");
