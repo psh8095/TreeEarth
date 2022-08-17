@@ -170,6 +170,28 @@ public class CommunityFrontController extends HttpServlet {
 		
 //		=================================================================================================================================
 		
+		else if(command.equals("/QnaFaqWriteForm.cm")) { //FAQ 작성 폼
+			forward = new ActionForward();
+			forward.setPath("community/qna_faq_write.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/QnaFaqWritePro.cm")) { //FAQ 작성 동작
+			try {
+				action = new QnaFaqWriteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/QnaFaqList.cm")) { //FAQ 목록
+			try {
+				action = new QnaFaqListAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
+		
+//		=================================================================================================================================
+		
 		//포워딩처리
 		System.out.println("8. 포워딩");
 		if(forward != null) { 
