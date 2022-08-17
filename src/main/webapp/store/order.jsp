@@ -50,7 +50,7 @@
 						},
 						dataType: "text",
 						success: function(response) {
-							location.href="./"; // 후에 주문 내역 조회로 이동
+							location.href="OrderList.my"; // 후에 주문 내역 조회로 이동
 						}
 					});
 				} else {
