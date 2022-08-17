@@ -13,20 +13,20 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	<section id="">
-	<h2>캠페인후기 글 목록</h2>
+	<h2>반려나무 성장일지</h2>
 		<c:choose>
-			<c:when test="${not empty campaignReviewList and pageInfo.itemListCount gt 0}">
-				<c:forEach var="campaign_review" items="${campaignReviewList }">
+			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}">
+				<c:forEach var="diary" items="${diaryList }">
 					<table>
 						<tr>
 							<td colspan="2">
-								<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
+								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
 									<c:choose>
-										<c:when test="${not empty campaign_review.cam_re_file}">
-											<img alt="" src="upload/${campaign_review.cam_re_file }">
+										<c:when test="${not empty diary.diary_img}">
+											<img alt="" src="upload/${diary.diary_img }">
 										</c:when>
 										<c:otherwise>
-											<img alt="이미지없음" src="img/community/tree.png" width="500px">
+											<img alt="썸네일없음" src="img/community/treediary.png" width="550px">
 										</c:otherwise>
 									</c:choose>
 								</a>
@@ -34,22 +34,22 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-								<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
-									<b>${campaign_review.cam_re_subject }</b>
+								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
+									<b>${diary.diary_subject }</b>
 								</a>
 							</td>
 						</tr>
 						<tr>
 							<td>작성자</td>
-							<td>${campaign_review.cam_re_id }</td>
+							<td>${diary.diary_id }</td>
 						</tr>
 						<tr>
 							<td>작성일</td>
-							<td>${campaign_review.cam_re_date }</td>
+							<td>${diary.diary_date }</td>
 						</tr>
 						<tr>
 							<td>조회수</td>
-							<td>${campaign_review.cam_re_readcount }</td>
+							<td>${diary.diary_readcount }</td>
 						</tr>
 					</table>
 				</c:forEach>
@@ -65,12 +65,12 @@
 	<br>
 	
 	<section id="buttonArea">
-		<input type="button" value="글쓰기" onclick="location.href='CampaignReviewWriteForm.cm'" />
+		<input type="button" value="글쓰기" onclick="location.href='DiaryWriteForm.cm'" />
 	</section>
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum - 1}'">
+				<input type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="이전">
@@ -83,14 +83,14 @@
 					${i }
 				</c:when>
 				<c:otherwise>
-					<a href="CampaignReviewList.cm?page=${i }">${i }</a>
+					<a href="DiaryList.cm?page=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum + 1}'">
+				<input type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">
