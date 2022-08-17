@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import vo.store.OrderDTO;
 import vo.store.OrderDetailDTO;
@@ -90,6 +92,67 @@ public class OrderDAO {
 		}
 		
 		return insertCount;
+	}
+
+	// 주문 내역 출력에 필요한 주문 정보 조회
+	public List<OrderDTO> selectOrderInfo(String sId) {
+		List<OrderDTO> orderList = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM order_info WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			rs = pstmt.executeQuery();
+			
+			orderList = new ArrayList<OrderDTO>();
+			
+			while(rs.next()) {
+				OrderDTO order = new OrderDTO();
+				order.setOrder_id(rs.getString("order_id"));
+				order.setAmount(rs.getInt("amount"));
+				order.setOrder_date(rs.getDate("order_date"));
+				
+				orderList.add(order);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return orderList;
+	}
+
+	// 주문 내역 출력에 필요한 주문 상세 정보 조회
+	public OrderDetailDTO selectOrderDetail(String order_id) {
+		OrderDetailDTO orderDetail = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM order_detail WHERE order_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, order_id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				orderDetail = new OrderDetailDTO();
+				orderDetail.setSto_idx(rs.getInt("sto_idx"));
+				orderDetail.setQuantity(rs.getInt("quantity"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return orderDetail;
 	}
 	
 	
