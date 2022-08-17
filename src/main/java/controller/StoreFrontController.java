@@ -17,6 +17,7 @@ import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
 import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
+import action.store.StoreReviewDeleteProAction;
 import action.store.StoreReviewDetailAction;
 import action.store.StoreReviewListAction;
 import action.store.StoreReviewModifyFormAction;
@@ -155,11 +156,28 @@ public class StoreFrontController extends HttpServlet {
 		} else if(command.equals("/StoreReviewModifyPro.st")) {
 			// 상품 구매후기 수정 동작 기능
 			action = new StoreReviewModifyProAction();
-
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("/Order.st")) {
 			// 상품 주문 서블릿 주소
 			action = new OrderAction();
 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreReviewDeleteForm.st")) {
+			// 상품 구매후기 삭제 폼 작성
+			forward = new ActionForward();
+			forward.setPath("store/store_review_delete.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/StoreReviewDeletePro.st")) {
+			// 상품 구매후기 삭제 동작 기능
+			action = new StoreReviewDeleteProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

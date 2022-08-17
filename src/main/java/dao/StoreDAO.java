@@ -389,7 +389,7 @@ public class StoreDAO {
 		}
 		
 		// 구매 후기 목록을 조회하는 selectStoreReviewList() 메서드
-		public ArrayList<StoreReviewDTO> selectStoreReviewList(int pageNum, int listLimit) {
+		public ArrayList<StoreReviewDTO> selectStoreReviewList(int pageNum, int listLimit, StoreDTO store) {
 			
 			ArrayList<StoreReviewDTO> storeReviewList = null;
 			
@@ -400,11 +400,12 @@ public class StoreDAO {
 			int startRow = (pageNum - 1) * listLimit;
 			
 			try {
-				String sql = "SELECT * FROM store_review ORDER BY sto_re_idx LIMIT ?,?";
+				String sql = "SELECT * FROM store_review WHERE sto_idx=? ORDER BY sto_re_idx LIMIT ?,?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, startRow);
-				pstmt.setInt(2, listLimit);
-				
+				pstmt.setInt(1, store.getSto_idx());
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, listLimit);
+
 				rs = pstmt.executeQuery();
 				
 				storeReviewList = new ArrayList<StoreReviewDTO>();
@@ -510,11 +511,12 @@ public class StoreDAO {
 			PreparedStatement pstmt = null;
 			
 			try {
-				String sql = "UPDATE store_review SET sto_re_content=?,sto_re_file=? WHERE sto_re_idx=?";
+				String sql = "UPDATE store_review SET mem_id=?,sto_idx=?,sto_re_content=? WHERE sto_re_idx=?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, store_review.getSto_re_content());
-				pstmt.setString(2, store_review.getSto_re_file());
-				pstmt.setInt(3, store_review.getSto_re_idx());
+				pstmt.setString(1, store_review.getMem_id());
+				pstmt.setInt(2, store_review.getSto_idx());
+				pstmt.setString(3, store_review.getSto_re_content());
+				pstmt.setInt(4, store_review.getSto_re_idx());
 				
 				updateCount = pstmt.executeUpdate();
 			} catch (SQLException e) {
@@ -525,6 +527,29 @@ public class StoreDAO {
 			}
 			
 			return updateCount;
+		}
+		
+		// 구매후기 글 삭제 작업 메서드
+		public int deleteStoreReview(int sto_re_idx) {
+			
+			int deleteCount = 0;
+			
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "DELETE FROM store_review WHERE sto_re_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, sto_re_idx);
+				
+				deleteCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - deleteStoreReview() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			
+			return deleteCount;
 		}
 		
 }
