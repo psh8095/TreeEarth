@@ -4,11 +4,13 @@ body{
     padding: 0px;
     text-align: center;
 }
-
+.logo{
+	text-align: center;
+}
 /* 헤더영역 */ 
 #header{
-	height: 80px;
-	padding: 5px;
+	height: 110px;
+	padding: 3px;
 	margin-bottom: 0;
 	background-color: white;
 	/*align-items: center;*/
@@ -24,31 +26,29 @@ nav{
 	margin-top: 0px;
 	display: block;
 	width: 100%;
-	line-height: 30px;
-	font-size: 18px;
+	line-height: 10px;
+	font-size: 16px;
 }
 
 nav .dropbtn_box{
+	text-align: center;
 	display: inline-block;
 	/*border-left: 1px solid; */
 	padding: 0px 50px 0px 50px; /*자간 간격*/
 	margin: 5px 0px 5px 0px;
 }
 
-nav ul .inline{
-	font-size: 15px;
-}
 
 /*로그인, 장바구니 우측정렬*/
 .login{
 	float: right;
-	line-height: 50px;
+/*	line-height: 80px; */
 	margin-right: 50px;
 }
 
 .cart{
 	float: right;
-	line-height: 100px;
+	/* line-height: 100px; */
 }
 
 
@@ -83,15 +83,15 @@ nav ul li a{
     top: 0;
 	left: 0;
 	right: 0;
-	padding: 10px;
+	padding: 1px;
 }
 
 #footer li{
 	display: inline-block;
 	border-left: 1px solid; /* 구분선 */
-	padding: 0px 40px 0px 40px; /*자간 간격*/
+	padding: 0px 15px 0px 15px; /*자간 간격*/
 	margin: 15px 0px 15px 0px;
-	word-spacing: 10px; /*자간 간격*/
+	
 }
 
 #footer .ft{
