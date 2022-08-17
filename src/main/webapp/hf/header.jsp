@@ -22,38 +22,37 @@
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<a href="MemberLoginForm.me" class="login" style="cursor:pointer">로그인</a>
+				<a href="MemberLogout.me" class="login">로그아웃</a>
 			</c:when>
 			<c:otherwise>
-					<c:choose>
-						<c:when test="${sessionScope.sId eq 'admin'}">
-							<div class="login">
-							<a href="store/admin_page.jsp">${sessionScope.sId } 님</a>
-							</div>
-						</c:when>
-						<c:otherwise>
-							<div class="login">
+				<c:choose>
+					<c:when test="${sessionScope.sId eq 'admin'}">
+						<a href="store/admin_page.jsp" class="login">${sessionScope.sId } 님</a>
+						<a href="MemberLogout.me" class="login">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<div class="login">
 						    <a href="Cart.my" style="cursor:pointer">장바구니</a>
-						    </div>
-						<div class="dropdown">
-							<div class="login">
-							<a class="dropbtn">${sessionScope.sId } 님</a>
+							<div class="dropdown">
+								<a class="dropbtn">${sessionScope.sId } 님</a>
+								<div class="dropdown-content" style="cursor:pointer">
+									<ul class="inline">
+										<li><a href="">적립금</a></li>
+						                <li><a href="">이름</a></li>
+						                <li><a href="Wishlist.my">위시리스트</a></li>
+						                <li><a href="">회원정보수정</a></li>
+						                <li><a href="">후원금 내역 조회</a></li>
+						                <li><a href="">신청 캠페인 조회</a></li>
+						                <li><a href="">작성한 글</a></li>
+						                <li><a href="">작성한 댓글</a></li>
+						                <li><a href="OrderList.my">주문내역 조회</a></li>
+						            </ul>
+				        		 </div>   
 							</div>
-							<div class="dropdown-content" style="cursor:pointer">
-								<ul class="inline">
-									<li><a href="">적립금</a></li>
-					                <li><a href="">이름</a></li>
-					                <li><a href="Wishlist.my">위시리스트</a></li>
-					                <li><a href="">회원정보수정</a></li>
-					                <li><a href="">후원금 내역 조회</a></li>
-					                <li><a href="">신청 캠페인 조회</a></li>
-					                <li><a href="">작성한 글</a></li>
-					                <li><a href="">작성한 댓글</a></li>
-					            </ul>
-							</div>
+							<a href="MemberLogout.me">로그아웃</a>
 						</div>
-						</c:otherwise>
-					</c:choose>
-				<a href="MemberLogout.me" class="login">로그아웃</a>
+					</c:otherwise>
+				</c:choose>
 			</c:otherwise>
 		</c:choose>
 		
