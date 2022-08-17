@@ -199,7 +199,7 @@ public class MemberDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println("MemberDAO - checkAuthCode() 메서드 오류 : " + e.getMessage());
-			}
+			} 
 		
 		return checkAuthCode;
 	}
@@ -333,7 +333,7 @@ public class MemberDAO {
 		return isLoginSuccess;
 	}
 
-	//휴대폰으로 id 찾기
+	//이름, 휴대폰으로 id 찾기
 	public MemberDTO isMemberIdPhone(String mem_name, String mem_phone) {
 
 		MemberDTO member = null;
@@ -364,7 +364,7 @@ public class MemberDAO {
 		return member;
 	}
 	
-	//이메일로 id 찾기
+	//이름, 이메일로 id 찾기
 	public MemberDTO isMemberIdEmail(String mem_name, String mem_email) {
 		
 		MemberDTO member = null;
@@ -423,6 +423,37 @@ public class MemberDAO {
 		}
 		
 		return isMemberEmail;
+	}
+
+	//아이디, 이메일로 pass 찾기
+	public MemberDTO isMemberPass(String mem_id, String mem_email) {
+		
+		MemberDTO member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_id=? AND mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			pstmt.setString(2, mem_email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new MemberDTO();
+				member.setMem_pass(rs.getString("mem_pass"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - isMemberPass 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return member;
 	}
 	
 	// 결제에 필요한 회원 1명의 정보 조회

@@ -73,6 +73,11 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 				});
 			}
 		});
+		
+		// 구매하기
+		$("#order").on("click", function() {
+			location.href="Order.st?sto_idx=" + ${param.sto_idx} + "&quantity=" + $("#quantity_input").val();
+		});
 	});
 </script>
 <link href="css/index.css" rel="stylesheet">
@@ -138,6 +143,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	<!-- 장바구니 담기 버튼 -->
 	<div>
 		<input type="button" value="장바구니 담기" id="insertCart">
+		<input type="button" value="구매하기" id="order">
 	</div>
 	<hr>
 	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->

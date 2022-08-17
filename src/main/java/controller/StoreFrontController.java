@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.store.InsertOrderAction;
 import action.store.OrderAction;
 import action.store.StoreDeleteProAction;
 import action.store.StoreItemDetailAction;
@@ -162,7 +163,7 @@ public class StoreFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/Order.st")) {
-			// 상품 주문 서블릿 주소
+			// 주문 페이지 서블릿 주소
 			action = new OrderAction();
 
 			try {
@@ -170,6 +171,7 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 		} else if(command.equals("/StoreReviewDeleteForm.st")) {
 			// 상품 구매후기 삭제 폼 작성
 			forward = new ActionForward();
@@ -178,6 +180,16 @@ public class StoreFrontController extends HttpServlet {
 		} else if(command.equals("/StoreReviewDeletePro.st")) {
 			// 상품 구매후기 삭제 동작 기능
 			action = new StoreReviewDeleteProAction();
+
+      try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/InsertOrder.st")) {
+			// 상품 주문 서블릿 주소
+			action = new InsertOrderAction();
+
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

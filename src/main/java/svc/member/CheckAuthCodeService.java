@@ -42,8 +42,8 @@ public class CheckAuthCodeService {
 		} else {
 			rollback(con);
 		}
-		close(con);
 		
+		close(con);
 		
 		return checkAuthCode;
 	}
