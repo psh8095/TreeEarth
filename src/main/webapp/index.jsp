@@ -14,8 +14,12 @@
 	<jsp:include page="hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
     <main>
-        <img src="img/2.png" alt="대충 메인 베너1" width="100%">
-        <img src="img/3.png" alt="대충 메인 베너2" width="100%">
+    	<section>
+	        <img src="img/2.png" alt="대충 메인 베너1" width="80%">
+    	</section>
+    	<section>
+       		<img src="img/3.png" alt="대충 메인 베너2" width="80%">
+        </section>
     </main>
     <!-- 푸터 -->
 	<jsp:include page="hf/footer.jsp"></jsp:include>
