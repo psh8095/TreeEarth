@@ -84,14 +84,14 @@
 					${i }
 				</c:when>
 				<c:otherwise>
-					<a href="CampaignReviewList.bo?page=${i }">${i }</a>
+					<a href="CampaignReviewList.cm?page=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='CampaignReviewList.bo?pageNum=${pageNum + 1}'">
+				<input type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">
