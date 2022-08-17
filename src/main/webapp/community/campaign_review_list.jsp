@@ -18,7 +18,7 @@
 		<c:choose>
 			<c:when test="${not empty campaignReviewList and pageInfo.itemListCount gt 0}">
 				<c:forEach var="campaign_review" items="${campaignReviewList }">
-					<div style="float: left; width: 33%;">
+					<div style="float: left; width: 30%; padding: 20px;">
 						<table>
 							<tr>
 								<td colspan="2">
@@ -65,39 +65,41 @@
 	
 	<br>
 	
-	<section id="buttonArea">
-		<input type="button" value="글쓰기" onclick="location.href='CampaignReviewWriteForm.cm'" />
-	</section>
-	<section id="pageList">
-		<c:choose>
-			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum - 1}'">
-			</c:when>
-			<c:otherwise>
-				<input type="button" value="이전">
-			</c:otherwise>
-		</c:choose>
-			
-		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
+	<div style="clear: both;">
+		<section id="buttonArea">
+			<input type="button" value="글쓰기" onclick="location.href='CampaignReviewWriteForm.cm'" />
+		</section>
+		<section id="pageList">
 			<c:choose>
-				<c:when test="${pageInfo.pageNum eq i}">
-					${i }
+				<c:when test="${pageInfo.pageNum > 1}">
+					<input type="button" value="이전" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum - 1}'">
 				</c:when>
 				<c:otherwise>
-					<a href="CampaignReviewList.cm?page=${i }">${i }</a>
+					<input type="button" value="이전">
 				</c:otherwise>
 			</c:choose>
-		</c:forEach>
-
-		<c:choose>
-			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum + 1}'">
-			</c:when>
-			<c:otherwise>
-				<input type="button" value="다음">
-			</c:otherwise>
-		</c:choose>
-	</section>
+				
+			<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
+				<c:choose>
+					<c:when test="${pageInfo.pageNum eq i}">
+						${i }
+					</c:when>
+					<c:otherwise>
+						<a href="CampaignReviewList.cm?page=${i }">${i }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+	
+			<c:choose>
+				<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
+					<input type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum + 1}'">
+				</c:when>
+				<c:otherwise>
+					<input type="button" value="다음">
+				</c:otherwise>
+			</c:choose>
+		</section>
+	</div>
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
