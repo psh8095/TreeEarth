@@ -16,6 +16,7 @@ public class OrderDetailDTO {
 	private int order_detail_idx;
 	private String order_id;
 	private int sto_idx;
+	private int quantity;
 	
 	public int getOrder_detail_idx() {
 		return order_detail_idx;
@@ -34,5 +35,11 @@ public class OrderDetailDTO {
 	}
 	public void setSto_idx(int sto_idx) {
 		this.sto_idx = sto_idx;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 }
