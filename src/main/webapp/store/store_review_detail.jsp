@@ -35,8 +35,8 @@
 		 </section>
 	</section>
 	<section id="">
-		<input type="button" value="수정" onclick="location.href='StoreReviewModifyForm.st?sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'">
-		<input type="button" value="삭제" onclick="location.href='StoreReviewDeleteForm.st?sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'">
+		<input type="button" value="수정" onclick="location.href='StoreReviewModifyForm.st?sto_idx=${store_review.sto_idx}&sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'">
+		<input type="button" value="삭제" onclick="location.href='StoreReviewDeleteForm.st?sto_idx=${store_review.sto_idx}&sto_re_idx=${store_review.sto_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='StoreReviewList.st?sto_idx=${param.sto_idx }&pageNum=${param.pageNum}'">
 	</section>
 	
