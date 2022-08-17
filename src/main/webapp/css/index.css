@@ -3,21 +3,26 @@
 body{
     padding: 0px;
     text-align: center;
+    margin: auto;
 }
 .logo{
 	text-align: center;
 }
 /* 헤더영역 */ 
 #header{
-	height: 110px;
-	padding: 3px;
-	margin-bottom: 0;
+	height: 150px;
+	padding: 1px;
+	margin-bottom: 1px;
 	background-color: white;
 	/*align-items: center;*/
 	position: fixed; /* 고정 */
 	top: 0;
 	left: 0;
 	right: 0;
+}
+
+#header nav .dropbtn_box{
+	font: bold;
 }
 
 /*메뉴바 영역(네비게이터)*/
@@ -34,21 +39,17 @@ nav .dropbtn_box{
 	text-align: center;
 	display: inline-block;
 	/*border-left: 1px solid; */
-	padding: 0px 50px 0px 50px; /*자간 간격*/
-	margin: 5px 0px 5px 0px;
+	padding: 0px 20px 0px 20px; /*자간 간격*/
+	margin: 15px 0px 15px 0px;
 }
 
 
 /*로그인, 장바구니 우측정렬*/
 .login{
 	float: right;
-/*	line-height: 80px; */
-	margin-right: 50px;
-}
-
-.cart{
-	float: right;
-	/* line-height: 100px; */
+	/*line-height: 80px;*/
+	margin-right: 5px;
+	
 }
 
 
