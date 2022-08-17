@@ -23,7 +23,12 @@
 		
 		//제이쿼리
 		$(function() {		
-			
+			var passPasswd = false;
+			var passCheckPasswd = false;
+			var passName = false;
+			var passBirth = false;
+			var passGender = false;
+			var passAddress = false;
 			
 		// 아이디 형식 판별 ---------------------------------------------------------------------------------
 			
@@ -88,27 +93,72 @@
 			
 			$("#passwd").on("change", function() {
 				
-				
 				//입력 비밀번호 
 				var passwd = $("#passwd").val();
-				
-				//정규표현식
-				var regex = /[A-Za-z0-9-_\.@]{8,16}$/
-
-				
 				
 				//비밀번호 스팬태그
 				var passwdSpan = $("#passwdSpan");
 				
 				
-				//비밀번호 형식 판별
-				if(!regex.exec(passwd)){
-					passwdSpan.html("올바르지 않은 비밀번호 형식입니다!").css("color","red");
 				
-				//형식이 올바를 떄	
-				} else {
-					passwdSpan.html("");
-			
+				//정규표현식
+				var regex = /[A-Za-z0-9-_\.@]{8,16}$/
+				// 2. 영문 대문자 규칙
+				var engUpperRegex = /[A-Z]/;
+				// 3. 영문 소문자 규칙
+				var engLowerRegex = /[a-z]/;
+				// 4. 숫자 규칙
+				var numRegex = /[0-9]/;
+				// 5. 특수문자 규칙
+				var specRegex = /[!@#$%]/;
+				
+
+				
+				//비밀번호 형식 판별
+				if(regex.exec(passwd)){
+					var count = 0; // 포인트
+					
+					
+					//포인트 적용 코드
+					if(engUpperRegex.exec(passwd)) { // 대문자 검사
+						count++;
+					}
+					
+					if(engLowerRegex.exec(passwd)) { // 소문자 검사
+						count++;
+					}
+					
+					if(numRegex.exec(passwd)) { // 숫자 검사
+						count++;
+					}
+					
+					if(specRegex.exec(passwd)) { // 특수문자 검사
+						count++;
+					}
+					
+					
+					//포인트 체크 코드
+					if(count == 4) {
+						passwdSpan.html("비밀번호 안전도 | 높음" + "<br>" + "예측하기 힘든 비밀번호로 더욱 안전합니다.").css("color","GREEN");
+						passPasswd = true;
+							
+					} else if(count == 3) {
+						passwdSpan.html("비밀번호 안전도 | 적정" + "<br>" + "안전하게 사용하실 수 있는 비밀번호입니다.").css("color","ORANGE");
+						passPasswd = true;
+
+						
+					} else if(count == 2) {
+						passwdSpan.html("비밀번호 안전도 | 낮음" + "<br>" + "안전도가 높은 비밀번호를 권장합니다.").css("color","ORANGE");
+						passPasswd = true;
+
+					} else {
+						passwdSpan.html("사용불가:비밀번호 재작성 필요" + "<br>" + "8~16 자의 영문 대소문자, 숫자 및 특수문자 사용").css("color","RED");
+
+					}
+					
+				} else { // 패스워드 길이 또는 사용 가능 문자 체크 부적합 시
+					passwdSpan.html("사용불가:비밀번호 재작성 필요" + "<br>" + "8~16 자의 영문 대소문자, 숫자 및 특수문자 사용").css("color","RED");
+
 				}
 				
 				
@@ -127,6 +177,7 @@
 					$("#checkPasswdSpan").html("비밀번호가 일치하지 않습니다!").css("color","red");
 				} else {
 					$("#checkPasswdSpan").html("비밀번호가 일치합니다.").css("color","green");
+					passCheckPasswd = true;
 				}
 				
 			});	
@@ -189,7 +240,78 @@
 // 			});
 		
 		
+		
+		//이름 체크
+		$("#name").on("change", function() {
+			//왜 밖으로 빼면 얼럿에서 인식을 못하는 건지
+			var passNameVal = $("#name").val();
+			
+			alert(passNameVal)
+			
+			if(passNameVal != ""){
+				passName = true;
+			} else {
+				passName = false;
+			}
+			
+		})
+		
+		//생일 체크
+		
 
+		$("#birth").on("change", function() {
+			var passBirthVal = $("#birth").val();
+			
+			if(passBirthVal != ""){
+				passBirth = true;
+			}  else {
+				passBirth = false;
+			}
+		})
+		
+		
+
+
+		
+		// 가입 버튼 ---------------------------------------------------------------------------------
+
+		
+			//가입 버튼 클릭
+			$("#join").on("click", function() {
+				
+				var allCheck = 0;
+				
+				if(passPasswd){
+					allCheck++
+					alert(passPasswd)
+				}
+				
+				if(passCheckPasswd){
+					allCheck++
+					alert(passCheckPasswd)
+				}
+				
+				if(passName){
+					allCheck++
+					alert(passName)
+				}
+				
+				if(passBirth){
+					allCheck++
+					alert(passBirth)
+				}
+				
+				
+				alert(allCheck);
+				
+				
+				// 조인으로 이동
+				if(allCheck == 4){
+	 				$("form").submit();
+				}
+				
+			});
+			
 		
 		});
 		
@@ -276,7 +398,7 @@
 			<tr>
 				<td>이름</td>
 				<td>
-					<input type="text" name="name" required="required">
+					<input id="name" type="text" name="name" required="required">
 				</td>
 			</tr>
 			
@@ -285,8 +407,6 @@
 				<td>생년월일</td>
 				<td>
 					<input id="birth" type="date" name="birth" required="required" > 
-					<span id="birthSpan"></span>
-					<span id="genderSpan"></span>
 					
 				</td>
 			</tr>
@@ -296,7 +416,7 @@
 				<tr>
 				<td>성별</td>
 				<td>
-					<input type="radio" name="gender" value="남">남
+					<input type="radio" name="gender" value="남" checked="checked">남
 					<input type="radio" name="gender" value="여">여 
 					
 				</td>
@@ -334,7 +454,7 @@
 			
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="가입">
+					<input type="button" id="join" value="가입">
 					<input type="reset" value="초기화">
 					<input type="button" value="돌아가기" onclick="history.back()">
 				</td>

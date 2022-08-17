@@ -207,10 +207,10 @@ public class MemberDAO {
 				e.printStackTrace();
 				System.out.println("MemberDAO - checkAuthCode() 메서드 오류 : " + e.getMessage());
 			} finally {
-				close(rs2);
-				close(pstmt2);
-				close(rs);
-				close(pstmt);
+//				close(rs2);
+//				close(pstmt2);
+//				close(rs);
+//				close(pstmt);
 			}
 		
 		return checkAuthCode;
@@ -265,8 +265,8 @@ public class MemberDAO {
 			e.printStackTrace();
 			System.out.println("MemberDAO - insertMember() 메서드 오류 : " + e.getMessage());
 		} finally {
-			close(pstmt2);
-			close(pstmt);
+//			close(pstmt2);
+//			close(pstmt);
 		}
 		
 		
@@ -309,8 +309,8 @@ public class MemberDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(rs);
-			close(pstmt);
+//			close(rs);
+//			close(pstmt);
 		}
 		
 		
