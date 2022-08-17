@@ -26,13 +26,19 @@
 			<c:otherwise>
 					<c:choose>
 						<c:when test="${sessionScope.sId eq 'admin'}">
+							<div class="login">
 							<a href="store/admin_page.jsp">${sessionScope.sId } 님</a>
+							</div>
 						</c:when>
 						<c:otherwise>
-						    <a href="Cart.my" class="cart" style="cursor:pointer">장바구니</a>
+							<div class="login">
+						    <a href="Cart.my" style="cursor:pointer">장바구니</a>
+						    </div>
 						<div class="dropdown">
+							<div class="login">
 							<a class="dropbtn">${sessionScope.sId } 님</a>
-							<div class="dropdown-content">
+							</div>
+							<div class="dropdown-content" style="cursor:pointer">
 								<ul class="inline">
 									<li><a href="">적립금</a></li>
 					                <li><a href="">이름</a></li>
@@ -47,14 +53,11 @@
 						</div>
 						</c:otherwise>
 					</c:choose>
-				<a href="MemberLogout.me">로그아웃</a>
+				<a href="MemberLogout.me" class="login">로그아웃</a>
 			</c:otherwise>
 		</c:choose>
 		
-      	<nav>
-      	<!-- <div class="font_img_holder">
-      	<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">
-      	</div> -->
+      	<nav style="cursor:pointer">
             <div class="dropdown">
                 <a class="dropbtn_box">캠페인</a>
                 <div class="dropdown-content">
