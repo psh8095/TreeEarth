@@ -12,7 +12,13 @@
 </head>
 <body>
 	<header id="header">
-		<a href="./"><img src="img/main/logo_treeEarth.png" alt="트리어스" width="220"></a>
+		<div class="logo">
+			<a href="./"><img src="img/main/logo_treeEarth.png" alt="트리어스" width="250"></a>
+		</div>
+		<div class="font_img_holder">
+      		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">
+      	</div>
+		 
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<a href="MemberLoginForm.me" class="login" style="cursor:pointer">로그인</a>
@@ -45,7 +51,10 @@
 			</c:otherwise>
 		</c:choose>
 		
-      	<nav style="cursor:pointer">
+      	<nav>
+      	<!-- <div class="font_img_holder">
+      	<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">
+      	</div> -->
             <div class="dropdown">
                 <a class="dropbtn_box">캠페인</a>
                 <div class="dropdown-content">
@@ -89,7 +98,7 @@
        	 </nav>
 	</header>
 	<section>
-		<img src="img/main/tree_img01.jpg" alt="울창한 나무사진" border="0" style="max-width:100%;height:auto;">
+		<img src="img/main/tree_img01.jpg" alt="스위스같은나무사진" border="0" style="max-width:100%; height:auto;">
 	</section>	
 </body>
 </html>
