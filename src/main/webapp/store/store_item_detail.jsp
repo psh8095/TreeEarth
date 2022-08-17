@@ -149,7 +149,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
 	<div>
 		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><input type="button" value="구매 후기" id="store_review"></a>
-		<a href=""><input type="button" value="상품 문의" id="store_qna"></a>
+		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }"><input type="button" value="상품 문의" id="store_qna"></a>
 	</div>
 	
 	<!-- 푸터 -->
