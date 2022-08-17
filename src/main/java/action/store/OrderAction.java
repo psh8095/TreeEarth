@@ -5,9 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
-import svc.store.OrderService;
+import svc.member.MemberInfoService;
+import svc.store.insertOrderService;
+import svc.store.StoreItemDetailService;
 import vo.ActionForward;
+import vo.member.MemberDTO;
 import vo.store.OrderDTO;
+import vo.store.StoreDTO;
 
 public class OrderAction implements Action {
 
@@ -18,25 +22,19 @@ public class OrderAction implements Action {
 		
 		HttpSession session = request.getSession();
 		String sId = session.getAttribute("sId").toString();
-//		System.out.println(request.getParameter("order_id"));
-//		System.out.println(request.getParameter("mem_name"));
-//		System.out.println(request.getParameter("mem_phone"));
-//		System.out.println(request.getParameter("mem_email"));
-//		System.out.println(Integer.parseInt(request.getParameter("amount")));
-//		System.out.println(request.getParameter("mem_address"));
 		
-		OrderDTO order = new OrderDTO();
-		order.setOrder_id(request.getParameter("order_id"));
-		order.setMem_id(sId);
-		order.setMem_name(request.getParameter("mem_name"));
-		order.setMem_phone(request.getParameter("mem_phone"));
-		order.setMem_email(request.getParameter("mem_email"));
-		order.setAmount(Integer.parseInt(request.getParameter("amount")));
-		order.setMem_address(request.getParameter("mem_address"));
+		StoreItemDetailService service = new StoreItemDetailService();
+		StoreDTO store = service.getItemDetail(Integer.parseInt(request.getParameter("sto_idx")));
 		
-		OrderService service = new OrderService();
-		service.insertOrder(order);
+		// 결제를 위한 회원 1명의 정보 조회
+		MemberInfoService infoService = new MemberInfoService();
+		MemberDTO member = infoService.getMemberInfo(sId);
 		
+		request.setAttribute("store", store);
+		request.setAttribute("member", member);
+		
+		forward = new ActionForward();
+		forward.setPath("store/order.jsp");
 		return forward;
 	}
 
