@@ -21,7 +21,12 @@ public class SupportDetailAction implements Action {
 		//글 번호 받아오기
 		int sup_idx = Integer.parseInt(request.getParameter("sup_idx"));
 		
+		SupportDetailServiceAdmin service = new SupportDetailServiceAdmin();
+		service.increaseReadCount(sup_idx);
+		
 		//dto 객체에 값 저장
+		
+	
 		
 		
 		
@@ -30,7 +35,6 @@ public class SupportDetailAction implements Action {
 
 		
 		//서비스 호출(데이터 조회)
-		SupportDetailServiceAdmin service = new SupportDetailServiceAdmin();
 		SupportDTO dto = service.getBoard(sup_idx);
 		
 		
