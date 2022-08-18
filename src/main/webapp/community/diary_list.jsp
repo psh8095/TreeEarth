@@ -12,22 +12,23 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
 	<section id="">
 	<h2>반려나무 성장일지</h2>
 		<c:choose>
 			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}">
 				<c:forEach var="diary" items="${diaryList }">
-				<div style="float: left; width: 30%;">
+				<div style="float: left; width: 30%; padding: 20px;">
 					<table>
 						<tr>
 							<td colspan="2">
 								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
 									<c:choose>
 										<c:when test="${not empty diary.diary_img}">
-											<img alt="" src="upload/${diary.diary_img }" width="40%">
+											<img alt="" src="upload/${diary.diary_img }" width="500px">
 										</c:when>
 										<c:otherwise>
-											<img alt="썸네일없음" src="img/community/treediary.png" width="550px">
+											<img alt="썸네일없음" src="img/community/treediary.png" width="500px">
 										</c:otherwise>
 									</c:choose>
 								</a>
@@ -66,6 +67,7 @@
 	
 	<br>
 	
+	<div style="clear: both;">
 	<section id="buttonArea">
 		<input type="button" value="글쓰기" onclick="location.href='DiaryWriteForm.cm'" />
 	</section>
@@ -99,6 +101,7 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
+	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

@@ -34,7 +34,7 @@ $(document).ready(function(){
 			qnaNum = -1;
 		}
 	});
-});    
+});   
 
 </script>
 </head>
@@ -51,19 +51,23 @@ $(document).ready(function(){
 	<ul class="listWrap">
 		<c:choose>
 			<c:when test="${not empty qnaFaqList and pageInfo.itemListCount gt 0 }">
-				<c:forEach var="qnaFaq" items="${qnaFaqList }">
+				<c:forEach var="qnafaq" items="${qnaFaqList }">
 					<li class="qa_li">
 						<div class="question">
-				            <p class="tit">${qnaFaq.faq_subject }</p>
+				            <p class="tit">${qnafaq.faq_subject }</p>
 				            <p class="iconDiv"><img src="https://happyjung.diskn.com/data/lecture/icon_jquery_faq2_icon_arrow.png"></p>
 				        </div>
-				        <div class="answer">${qnaFaq.faq_content }</div>
+				        <div class="answer">
+				        	${qnafaq.faq_content }
+				        	<c:choose>
+				        		<c:when test="${sessionScope.sId eq 'admin'}">
+					        		<input id="deleteBtn" type="button" value="삭제" onclick="location.href='QnaFaqDeleteForm.cm?faq_idx=${qnafaq.faq_idx}'">
+				        		</c:when>
+				        	</c:choose>
+				        </div>
 					</li>
 				</c:forEach>
 			</c:when>
-			<c:otherwise>
-				<h2>게시물이 존재하지 않습니다.</h2>
-			</c:otherwise>
 		</c:choose>
 	</ul>
 	
