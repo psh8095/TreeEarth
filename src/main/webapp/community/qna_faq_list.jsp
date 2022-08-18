@@ -68,9 +68,6 @@ $(document).ready(function(){
 					</li>
 				</c:forEach>
 			</c:when>
-			<c:otherwise>
-				<h2>게시물이 존재하지 않습니다.</h2>
-			</c:otherwise>
 		</c:choose>
 	</ul>
 	
