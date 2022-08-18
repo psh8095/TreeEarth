@@ -12,7 +12,7 @@
 		<!-- 등록한 상품 목록 -->
 		<input type="button" value="등록 된 상품 목록" onclick="location.href='store_list.jsp'"><br><br>
 		<!-- 상품 등록 -->
-		<input type="button" value="상품 등록" onclick="location.href='store_write.jsp'"><br>
+		<input type="button" value="상품 등록" onclick="location.href='StoreWriteForm.st'"><br>
 	
 	<h3>2. 주문 관리</h3>
 		<!-- 배송 전 주문목록 -->
