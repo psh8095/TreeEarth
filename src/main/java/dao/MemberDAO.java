@@ -540,9 +540,33 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("SQL 구문 오류 - updateMemberInfo()");
+		} finally {
+			close(pstmt);
 		}
 		
 		return updateCount;
+	}
+
+	// 회원 탈퇴 메서드
+	public int deleteMember(String sId) {
+		int deleteCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM member WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			
+			deleteCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - deleteMember()");
+		} finally {
+			close(pstmt);
+		}
+		
+		return deleteCount;
 	}
 
 }
