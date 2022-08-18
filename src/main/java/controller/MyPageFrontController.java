@@ -69,6 +69,9 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/Admin.my")) {
+			forward = new ActionForward();
+			forward.setPath("mypage/admin.jsp");
 		}
 		
 		if(forward != null) {
