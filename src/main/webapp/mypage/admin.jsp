@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>스토어 관리자 페이지</title>
+<title>관리자 페이지</title>
 </head>
 <body>
-	<h1>스토어 관리자 페이지</h1>
+	<h1>관리자 페이지</h1>
 	<h3>1. 상품 관리</h3>
 		<!-- 등록한 상품 목록 -->
 		<input type="button" value="등록 된 상품 목록" onclick="location.href='store_list.jsp'"><br><br>
