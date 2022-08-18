@@ -28,7 +28,7 @@
 				<c:choose>
 					<c:when test="${sessionScope.sId eq 'admin'}">
 						<div class="login">
-							<a href="store/admin_page.jsp">${sessionScope.sId } 님</a>
+							<a href="Admin.my">${sessionScope.sId } 님</a>
 						 	<a href="MemberLogout.me">로그아웃</a>
 					 	</div>
 					</c:when>
