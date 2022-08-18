@@ -22,7 +22,7 @@
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<a href="MemberLoginForm.me" class="login" style="cursor:pointer">로그인</a>
-				<a href="MemberLogout.me" class="login">로그아웃</a>
+				<!--  <a href="MemberLogout.me" class="login">로그아웃</a> -->
 			</c:when>
 			<c:otherwise>
 				<c:choose>
@@ -49,7 +49,7 @@
 						            </ul>
 				        		 </div>   
 							</div>
-							<a href="MemberLogout.me">로그아웃</a>
+						 <a href="MemberLogout.me" class="logout">로그아웃</a> 
 						</div>
 					</c:otherwise>
 				</c:choose>

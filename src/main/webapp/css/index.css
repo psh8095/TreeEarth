@@ -5,6 +5,7 @@ body{
     text-align: center;
     margin: auto;
 }
+
 .logo{
 	text-align: center;
 }
@@ -29,10 +30,10 @@ body{
 nav{
 	background-color: white;
 	margin-top: 0px;
-	display: block;
+	/*display: block;*/
 	width: 100%;
 	line-height: 10px;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 nav .dropbtn_box{
@@ -41,19 +42,20 @@ nav .dropbtn_box{
 	/*border-left: 1px solid; */
 	padding: 0px 20px 0px 20px; /*자간 간격*/
 	margin: 15px 0px 15px 0px;
+	margin-left: 50px;
 }
 
 
 /*로그인, 장바구니 우측정렬*/
 .login{
 	float: right;
+	font-size: 15px;
 	/*line-height: 80px;*/
-	margin-right: 5px;
+	margin-right: 10px;
+}
 	
 }
 
-
- 
 /* 매뉴선 */
 .line{
     list-style: none;
@@ -65,7 +67,7 @@ nav .dropbtn_box{
  /*메뉴 */
 .box{
     display: inline;
-    margin-right: 10px;
+    margin-right: 60px;
 }
  
  /*메뉴 링크선 제거  */

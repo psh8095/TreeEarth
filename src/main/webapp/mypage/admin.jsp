@@ -25,9 +25,17 @@
 		<input type="button" value="배송완료 된 주문 목록" onclick="'#'"><br><br>
 	
 	<h3>3. 간단 리뷰/문의 답변</h3>
+
 		<!-- 간단 리뷰 답변 -->
 		<input type="button" value="간단리뷰 답변하기" onclick="'#'"><br><br>
 		<!-- 회원문의 답변 -->
 		<input type="button" value="회원문의 답변하기" onclick="'#'"><br><br>
+	<h3>캠페인</h3>
+		<!-- 캠페인 등록 -->
+		<input type="button" value="캠페인 공고 작성" onclick="location.href='CampaignWriteForm.cp'"><br><br>
+	<h3>후원</h3>
+		<!-- 후원 글 작성하기 -->
+		<input type="button" value="후원 등록하기" onclick="location.href='SupportWriteFormAdmin.su'"><br><br>
+	<h3>커뮤니티</h3>
 </body>
 </html>

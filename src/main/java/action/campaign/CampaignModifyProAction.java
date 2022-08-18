@@ -22,7 +22,6 @@ public class CampaignModifyProAction implements Action {
 		
 		CampaignDTO campaign = new CampaignDTO();
 		campaign.setCam_idx(Integer.parseInt(request.getParameter("cam_idx")));
-		campaign.setCam_id(request.getParameter("cam_id"));
 		campaign.setCam_subject(request.getParameter("cam_subject"));
 		campaign.setCam_content(request.getParameter("cam_content"));
 		

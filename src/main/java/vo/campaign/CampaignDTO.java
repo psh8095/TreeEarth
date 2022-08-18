@@ -6,7 +6,6 @@ import java.sql.Date;
 *캠페인 아이디, 글번호, 참여인원, 제목, 내용, 조회수, 작성일, 썸네일파일*2, 이미지파일*2 
 
 CREATE TABLE campaign(
-	cam_id VARCHAR(50) REFERENCES member(mem_id),
 	cam_idx INT PRIMARY KEY,
 	cam_people INT NOT NULL,
 	cam_subject VARCHAR(50) NOT NULL, 
@@ -22,7 +21,6 @@ CREATE TABLE campaign(
 
 
 public class CampaignDTO{
-	private String cam_id;
 	private int cam_idx;
 	private int cam_people;
 	private String cam_subject;
@@ -34,12 +32,6 @@ public class CampaignDTO{
 	private String cam_img;
 	private String cam_original_img;
 	
-	public String getCam_id() {
-		return cam_id;
-	}
-	public void setCam_id(String cam_id) {
-		this.cam_id = cam_id;
-	}
 	public int getCam_idx() {
 		return cam_idx;
 	}
@@ -103,7 +95,7 @@ public class CampaignDTO{
 	
 	@Override
 	public String toString() {
-		return "CampaignDTO [cam_id=" + cam_id + ", cam_idx=" + cam_idx + ", cam_people=" + cam_people
+		return "CampaignDTO [cam_idx=" + cam_idx + ", cam_people=" + cam_people
 				+ ", cam_subject=" + cam_subject + ", cam_content=" + cam_content + ", cam_readcount=" + cam_readcount
 				+ ", cam_date=" + cam_date + ", cam_thum_file=" + cam_thum_file + ", cam_thum_real_file="
 				+ cam_thum_real_file + ", cam_img=" + cam_img + ", cam_original_img=" + cam_original_img + "]";

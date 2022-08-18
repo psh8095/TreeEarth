@@ -54,6 +54,7 @@ public class FaqDAO {
 			
 			//데이터 insert
 			sql = "INSERT INTO qnafaq VALUES (?,'admin',?,?,now())";
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, qnafaq.getFaq_subject());
@@ -139,7 +140,7 @@ public class FaqDAO {
 		
 		return qnaFaqList;
 	}
-
+  
 	//삭제 권한 판별
 	public boolean isQnaFaqWriter(int faq_idx, String mem_pass) {
 		
