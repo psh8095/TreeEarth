@@ -40,7 +40,7 @@
 										<li><a href="">적립금</a></li>
 						                <li><a href="">이름</a></li>
 						                <li><a href="Wishlist.my">위시리스트</a></li>
-						                <li><a href="">회원정보수정</a></li>
+						                <li><a href="UpdateMemberInfoForm.my">회원정보수정</a></li>
 						                <li><a href="">후원금 내역 조회</a></li>
 						                <li><a href="">신청 캠페인 조회</a></li>
 						                <li><a href="">작성한 글</a></li>

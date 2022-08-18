@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.mypage.CartListAction;
+import action.mypage.CheckPassAction;
 import action.mypage.DeleteCartAction;
 import action.mypage.InsertCartAction;
 import action.mypage.OrderListAction;
+import action.mypage.UpdateMemberInfoAction;
 import vo.ActionForward;
 
 // 마이페이지 컨트롤러
@@ -62,6 +65,7 @@ public class MyPageFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/OrderList.my")) {
+			// 주문 내역 조회 서블릿 주소
 			action = new OrderListAction();
 			
 			try {
@@ -70,8 +74,31 @@ public class MyPageFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/Admin.my")) {
+			// 관리자 페이지 서블릿 주소
 			forward = new ActionForward();
 			forward.setPath("mypage/admin.jsp");
+		} else if(command.equals("/UpdateMemberInfoForm.my")) {
+			// 회원 정보 수정 폼 서블릿 주소
+			forward = new ActionForward();
+			forward.setPath("mypage/update_info.jsp");
+		} else if(command.equals("/CheckPass.my")) {
+			// 회원 정보 수정 시 비밀번호 체크
+			action = new CheckPassAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/UpdateMemberInfo.my")) {
+			// 회원 정보 수정 작업 서블릿 주소
+			action = new UpdateMemberInfoAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null) {
