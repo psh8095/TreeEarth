@@ -298,6 +298,8 @@ public class CampaignDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("SQL 구문 오류 - insertCampaignApply()");
+		} finally {
+			close(pstmt);
 		}
 		
 		return insertCount;

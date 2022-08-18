@@ -488,4 +488,55 @@ public class MemberDAO {
 		return member;
 	}
 
+	public boolean checkPass(String sId, String mem_pass) {
+		boolean isPass = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_id=? AND mem_pass=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			pstmt.setString(2, mem_pass);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isPass = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - checkPass()");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isPass;
+	}
+
+	public int updateMemberInfo(String sId, MemberDTO member) {
+		int updateCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "UPDATE member SET mem_pass=?, mem_phone=?, mem_address=?, mem_address_detail=? WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getMem_pass());
+			pstmt.setString(2, member.getMem_phone());
+			pstmt.setString(3, member.getMem_address());
+			pstmt.setString(4, member.getMem_address_detail());
+			pstmt.setString(5, sId);
+			
+			updateCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - updateMemberInfo()");
+		}
+		
+		return updateCount;
+	}
+
 }
