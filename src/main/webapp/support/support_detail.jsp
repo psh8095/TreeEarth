@@ -1,6 +1,7 @@
 <%@page import="vo.support.SupportDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     <%
 	// dto 객체 어트리뷰트로 받기
@@ -13,11 +14,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="css/button.css" rel="stylesheet">
+<script>
+function giveMoney(sup_idx) {
+	window.open("GiveMoneyForm.su", "giveMoney", "width=600,height=450");
+// 	window.open(url, name, specs, replace);
+}
+</script>
 <style type="text/css">
 	#articleForm {
 		width: 1000px;
 		height: 550px;
-		border: 1px solid red;
 		margin: auto;
 	}
 	
@@ -44,12 +51,12 @@
 	}
 	
 	#basicInfoArea {
-		height: 70px;
+		height: auto;
 		text-align: center;
 	}
 	
 	#articleContentArea {
-		background: orange;
+/* 		background: orange; */
 		margin-top: 20px;
 		width:auto;
 		height: 350px;
@@ -59,8 +66,8 @@
 	}
 	
 	#commandList {
-		margin: auto;
-		width: 500px;
+		margin-top: 50px;
+		width: auto;
 		text-align: center;
 	}
 </style>
@@ -117,7 +124,14 @@
 				<th width="70">D-Day</th>
 				<td id="goalDate"><%=dto.getSup_goal_date() %></td>
 			</tr>
+				<tr>
+				<th width="70">목표 금액</th>
+				<td><%=dto.getSup_goal_price() %></td>
+			</tr>
 			</table>
+				   <button class="w-btn-outline w-btn-green-outline" type="button" onclick="giveMoney()">
+        후원
+    </button>
 		</section>
 	
 		<section id="articleContentArea">
@@ -127,9 +141,11 @@
 		</section>
 	</section>
 	<section id="commandList">
-	<input type="button" value="수정" onclick="location.href='SupportModifyAdmin.su?sup_idx=<%=dto.getSup_idx() %><%-- &pageNum=${param.pageNum}  --%>'">
+	<input type="button" value="수정" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">
-		<input type="button" value="목록" onclick="location.href='SupportList.su?sup_idx=<%=dto.getSup_idx() %><%-- &pageNum=${param.pageNum}  --%>''">
+<%-- 		<input type="button" value="목록" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '"> --%>
+		<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">
+        목록</button>
 	</section>
 </body>
 </html>
