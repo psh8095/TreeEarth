@@ -575,7 +575,7 @@ public class StoreDAO {
 				close(pstmt); // 사용 완료된 PreparedStatement 객체를 먼저 반환
 				
 				// 전달받은 데이터를 store_review 테이블에 INSERT
-				sql = "INSERT INTO store_qna VALUES (?,?,?,?)";
+				sql = "INSERT INTO store_qna VALUES (?,?,?,?,now())";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, storeQna.getMem_id());
 				pstmt.setInt(2, storeQna.getSto_idx());
@@ -651,6 +651,7 @@ public class StoreDAO {
 					store_qna.setSto_idx(rs.getInt("sto_idx"));
 					store_qna.setSto_qna_idx(rs.getInt("sto_qna_idx"));
 					store_qna.setSto_qna_content(rs.getString("sto_qna_content"));
+					store_qna.setSto_qna_date(rs.getDate("sto_qna_date"));
 					// 전체 구매 후기글 정보를 저장하는 ArrayList 객체에 1개 구매 후기 정보 StoreQnaDTO 객체 추가
 					storeQnaList.add(store_qna);
 				}
@@ -687,6 +688,7 @@ public class StoreDAO {
 					store_qna.setSto_idx(rs.getInt("sto_idx"));
 					store_qna.setSto_qna_idx(rs.getInt("sto_qna_idx"));
 					store_qna.setSto_qna_content(rs.getString("sto_qna_content"));
+					store_qna.setSto_qna_date(rs.getDate("sto_qna_date"));
 					
 					System.out.println(store_qna); // 확인용
 				}
@@ -699,6 +701,84 @@ public class StoreDAO {
 			}
 			
 			return store_qna;
+		}
+		
+		// 문의글 수정 권한 작업 메서드
+		public boolean isStoreQnaWrite(int sto_qna_idx, String mem_pass) {
+			
+			boolean isStoreQnaWrite = false;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT * FROM store_qna q, member m WHERE q.mem_id = m.mem_id AND mem_pass = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_pass);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					isStoreQnaWrite = true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - isStoreQnaWrite() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return isStoreQnaWrite;
+		}
+		
+		// 문의글 수정 작업 메서드
+		public int updateStoreQna(StoreQnaDTO store_qna) {
+			
+			int updateQnaCount = 0;
+			
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "UPDATE store_qna SET mem_id=?,sto_idx=?,sto_qna_content=? WHERE sto_qna_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, store_qna.getMem_id());
+				pstmt.setInt(2, store_qna.getSto_idx());
+				pstmt.setString(3, store_qna.getSto_qna_content());
+				pstmt.setInt(4, store_qna.getSto_qna_idx());
+				
+				updateQnaCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - updateStoreQna() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			
+			return updateQnaCount;
+		}
+		
+		// 문의글 삭제 작업 메서드
+		public int deleteStoreQna(int sto_qna_idx) {
+			
+			int storeQnaDeleteCount = 0;
+			
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "DELETE FROM store_qna WHERE sto_qna_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, sto_qna_idx);
+				
+				storeQnaDeleteCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - deleteStoreQna() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			
+			return storeQnaDeleteCount;
 		}
 		
 }

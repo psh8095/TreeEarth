@@ -1,5 +1,7 @@
 package vo.store;
 
+import java.sql.Date;
+
 /*
 아이디, 상품 번호, 문의글 번호, 상품 문의 내용,
 CREATE TABLE store_qna (
@@ -7,6 +9,7 @@ CREATE TABLE store_qna (
 	sto_idx INT,
 	sto_qna_idx INT PRIMARY KEY,
 	sto_qna_content VARCHAR(300) NOT NULL,
+	sto_qna_date DATE NOT NULL,
 	FOREIGN KEY (mem_id) REFERENCES member (mem_id),
 	FOREIGN KEY (sto_idx) REFERENCES store (sto_idx)
 );
@@ -16,6 +19,7 @@ public class StoreQnaDTO {
 	private String mem_id;
 	private int sto_idx;
 	private String sto_qna_content;
+	private Date sto_qna_date;
 	
 	public int getSto_qna_idx() {
 		return sto_qna_idx;
@@ -41,11 +45,17 @@ public class StoreQnaDTO {
 	public void setSto_qna_content(String sto_qna_content) {
 		this.sto_qna_content = sto_qna_content;
 	}
+	public Date getSto_qna_date() {
+		return sto_qna_date;
+	}
+	public void setSto_qna_date(Date sto_qna_date) {
+		this.sto_qna_date = sto_qna_date;
+	}
 	
 	@Override
 	public String toString() {
 		return "StoreQnaDTO [sto_qna_idx=" + sto_qna_idx + ", mem_id=" + mem_id + ", sto_idx="
-				+ sto_idx + ", sto_qna_content=" + sto_qna_content + "]";
+				+ sto_idx + ", sto_qna_content=" + sto_qna_content + ", sto_qna_date" + sto_qna_date + "]";
 	}
 		
 }

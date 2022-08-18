@@ -26,7 +26,7 @@ public class StoreReviewDeleteProService {
 	}
 
 	public boolean deleteStoreReview(int sto_re_idx) {
-		System.out.println("deleteStoreReview 메서드");
+//		System.out.println("deleteStoreReview 메서드"); // 확인용
 		
 		boolean isReviewDeleteSuccess = false;
 		

@@ -18,8 +18,11 @@ import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
 import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
+import action.store.StoreQnaDeleteProAction;
 import action.store.StoreQnaDetailAction;
 import action.store.StoreQnaListAction;
+import action.store.StoreQnaModifyFormAction;
+import action.store.StoreQnaModifyProAction;
 import action.store.StoreQnaWriteProAction;
 import action.store.StoreReviewDeleteProAction;
 import action.store.StoreReviewDetailAction;
@@ -222,6 +225,35 @@ public class StoreFrontController extends HttpServlet {
 		} else if(command.equals("/StoreQnaDetail.st")) {
 			// 상품 문의글 상세 조회 주소
 			action = new StoreQnaDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaModifyForm.st")) {
+			// 상품 문의글 수정 폼 주소
+			action = new StoreQnaModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaModifyPro.st")) {
+			// 상품 문의글 수정 동작 기능
+			action = new StoreQnaModifyProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaDeleteForm.st")) {
+			// 상품 문의글 삭제 폼 작성
+			forward = new ActionForward();
+			forward.setPath("store/store_qna_delete.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/StoreQnaDeletePro.st")) {
+			// 상품 문의글 삭제 동작 기능
+			action = new StoreQnaDeleteProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

@@ -24,13 +24,12 @@
 				<tr>
 					<td><label for="mem_id">작성자</label></td>
 					<td>
-						<input type="text" name="mem_id" value="${sessionScope.sId }" id="mem_id" required="required" readonly="readonly">
+						<input type="text" name="mem_id" value="${sessionScope.sId }" id="mem_id" size="7" required="required" readonly="readonly">
 					</td>
-				</tr>
 				<tr>
 					<td><label for="sto_qna_content">문의 내용</label></td>
 					<td>
-						<textarea cols="50" rows="15" id="sto_qna_content" name="sto_qna_content" required="required"></textarea>
+						<textarea cols="50" rows="10" id="sto_qna_content" name="sto_qna_content" required="required"></textarea>
 					</td>
 				</tr>
 			</table>
