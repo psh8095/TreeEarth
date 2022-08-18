@@ -48,18 +48,17 @@ public class CampaignDAO {
 			close(pstmt);
 			
 			//새 글 DB에 저장
-			sql = "INSERT INTO campaign VALUES(?,?,?,?,?,?,now(),?,?,?,?)";
+			sql = "INSERT INTO campaign VALUES(?,?,?,?,?,now(),?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, campaign.getCam_id());
-			pstmt.setInt(2, num);
-			pstmt.setInt(3, campaign.getCam_people());
-			pstmt.setString(4, campaign.getCam_subject());
-			pstmt.setString(5, campaign.getCam_content());
-			pstmt.setInt(6, campaign.getCam_readcount());
-			pstmt.setString(7, campaign.getCam_thum_file());
-			pstmt.setString(8, campaign.getCam_thum_real_file());
-			pstmt.setString(9, campaign.getCam_img());
-			pstmt.setString(10, campaign.getCam_original_img());
+			pstmt.setInt(1, num);
+			pstmt.setInt(2, campaign.getCam_people());
+			pstmt.setString(3, campaign.getCam_subject());
+			pstmt.setString(4, campaign.getCam_content());
+			pstmt.setInt(5, campaign.getCam_readcount());
+			pstmt.setString(6, campaign.getCam_thum_file());
+			pstmt.setString(7, campaign.getCam_thum_real_file());
+			pstmt.setString(8, campaign.getCam_img());
+			pstmt.setString(9, campaign.getCam_original_img());
 			
 			insertCount = pstmt.executeUpdate();
 			
@@ -125,7 +124,6 @@ public class CampaignDAO {
 				while(rs.next()) {
 					CampaignDTO campaign = new CampaignDTO();
 					
-					campaign.setCam_id(rs.getString("cam_id"));
 					campaign.setCam_idx(rs.getInt("cam_idx"));
 					campaign.setCam_people(rs.getInt("cam_people"));
 					campaign.setCam_subject(rs.getString("cam_subject"));
@@ -165,7 +163,6 @@ public class CampaignDAO {
 			
 			if(rs.next()) {
 				campaign = new CampaignDTO();
-				campaign.setCam_id(rs.getString("cam_id"));
 				campaign.setCam_idx(rs.getInt("cam_idx"));
 				campaign.setCam_people(rs.getInt("cam_people"));
 				campaign.setCam_subject(rs.getString("cam_subject"));
