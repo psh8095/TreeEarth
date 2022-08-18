@@ -277,5 +277,30 @@ public class CampaignDAO {
 		
 		return deleteCount;
 	}
+
+	// 캠페인 참가 신청 데이터 저장
+	public int insertCampaignApply(CampaignApplyDTO apply) {
+		int insertCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "INSERT INTO campaign_apply VALUES(?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, apply.getCam_idx());
+			pstmt.setString(2, apply.getMem_id());
+			pstmt.setString(3, apply.getMem_name());
+			pstmt.setString(4, apply.getMem_phone());
+			pstmt.setString(5, apply.getMem_email());
+			pstmt.setInt(6, apply.getApply_people());
+			pstmt.setString(7, apply.getApply_etc());
+			insertCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - insertCampaignApply()");
+		}
+		
+		return insertCount;
+	}
 	
 }

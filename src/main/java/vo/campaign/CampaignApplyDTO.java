@@ -7,17 +7,22 @@ CREATE TABLE campaign_apply (
 	mem_id VARCHAR(50),
 	mem_phone VARCHAR(15) NOT NULL,
 	mem_email VARCHAR(50) NOT NULL,
+	mem_name VARCHAR(20) NOT NULL,
 	apply_people INT NOT NULL,
+	apply_etc VARCHAR(100) DEFAULT '-',
 	FOREIGN KEY (cam_idx) REFERENCES campaign(cam_idx),
 	FOREIGN KEY (mem_id) REFERENCES member(mem_id)
 );
  */
+
 public class CampaignApplyDTO {
 	private int cam_idx;
 	private String mem_id;
+	private String mem_name;
 	private String mem_phone;
 	private String mem_email;
 	private int apply_people;
+	private String apply_etc;
 	
 	public int getCam_idx() {
 		return cam_idx;
@@ -30,6 +35,12 @@ public class CampaignApplyDTO {
 	}
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
+	}
+	public String getMem_name() {
+		return mem_name;
+	}
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
 	}
 	public String getMem_phone() {
 		return mem_phone;
@@ -48,6 +59,12 @@ public class CampaignApplyDTO {
 	}
 	public void setApply_people(int apply_people) {
 		this.apply_people = apply_people;
+	}
+	public String getApply_etc() {
+		return apply_etc;
+	}
+	public void setApply_etc(String apply_etc) {
+		this.apply_etc = apply_etc;
 	}
 	
 }
