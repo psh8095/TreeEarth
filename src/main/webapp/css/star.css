@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#reviewModifyForm fieldset {
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
+     width: 100%;
+     text-align: left; 
+     margin:10px 0;
+     padding-left: 30px;
+}
+
+#reviewModifyForm input[type=radio] {
+    display: none;
+}
+
+#reviewModifyForm .st {
+    font-size: 1em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+
+#reviewModifyForm .st:hover {
+    text-shadow: 0 0 0 rgba(255, 150, 0, 0.99); /* 마우스 호버 */
+}
+
+#reviewModifyForm .st:hover ~ .st {
+    text-shadow: 0 0 0 rgba(255, 150, 0, 0.99); /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+#reviewModifyForm input[type=radio]:checked ~ .st {
+    text-shadow: 0 0 0 rgba(255, 150, 0, 0.99); /* 마우스 클릭 체크 */
+}
+
+#reviewModifyForm fieldset legend {
+	text-align: left;
+}

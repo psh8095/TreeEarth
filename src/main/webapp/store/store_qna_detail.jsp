@@ -19,7 +19,7 @@
 		<section id="">
 		 	<table>
 		 		<tr><th width="300">${store_qna.mem_id }님의 문의입니다.</th></tr>
-		 		<tr><th>작성일</th><td></td></tr>
+		 		<tr><td>${store_qna.sto_qna_date }</td></tr>
 		 		<tr>
 		 			<th width="70">문의 내용</th>
 		 		</tr>
