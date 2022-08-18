@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TreeEarth</title>
 <script type="text/javascript">
 	function blockForm() {
 		window.open("CampaignReviewBlockForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}", 

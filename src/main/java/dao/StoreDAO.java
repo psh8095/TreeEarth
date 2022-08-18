@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.store.StoreDTO;
+import vo.store.StoreQnaDTO;
 import vo.store.StoreReviewDTO;
 
 public class StoreDAO {
@@ -389,7 +390,7 @@ public class StoreDAO {
 		}
 		
 		// 구매 후기 목록을 조회하는 selectStoreReviewList() 메서드
-		public ArrayList<StoreReviewDTO> selectStoreReviewList(int pageNum, int listLimit) {
+		public ArrayList<StoreReviewDTO> selectStoreReviewList(int pageNum, int listLimit, StoreDTO store) {
 			
 			ArrayList<StoreReviewDTO> storeReviewList = null;
 			
@@ -400,11 +401,12 @@ public class StoreDAO {
 			int startRow = (pageNum - 1) * listLimit;
 			
 			try {
-				String sql = "SELECT * FROM store_review ORDER BY sto_re_idx LIMIT ?,?";
+				String sql = "SELECT * FROM store_review WHERE sto_idx=? ORDER BY sto_re_idx LIMIT ?,?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, startRow);
-				pstmt.setInt(2, listLimit);
-				
+				pstmt.setInt(1, store.getSto_idx());
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, listLimit);
+
 				rs = pstmt.executeQuery();
 				
 				storeReviewList = new ArrayList<StoreReviewDTO>();
@@ -473,8 +475,232 @@ public class StoreDAO {
 			return store_review;
 		}
 		
+		// 구매후기 글 수정 권한 메서드
+		public boolean isStoreReviewWrite(int sto_re_idx, String mem_pass) {
+			
+			boolean isStoreReviewWrite = false;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT * FROM store_review s, member m WHERE s.mem_id = m.mem_id AND mem_pass = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_pass);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					isStoreReviewWrite = true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - isStoreReviewWrite() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return isStoreReviewWrite;
+		}
 		
+		// 구매후기 글 수정 작업 메서드
+		public int updateStoreReview(StoreReviewDTO store_review) {
+			
+			int updateCount = 0;
+			
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "UPDATE store_review SET mem_id=?,sto_idx=?,sto_re_content=? WHERE sto_re_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, store_review.getMem_id());
+				pstmt.setInt(2, store_review.getSto_idx());
+				pstmt.setString(3, store_review.getSto_re_content());
+				pstmt.setInt(4, store_review.getSto_re_idx());
+				
+				updateCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - updateStoreReview() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			
+			return updateCount;
+		}
+		
+		// 구매후기 글 삭제 작업 메서드
+		public int deleteStoreReview(int sto_re_idx) {
+			
+			int deleteCount = 0;
+			
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "DELETE FROM store_review WHERE sto_re_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, sto_re_idx);
+				
+				deleteCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - deleteStoreReview() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			
+			return deleteCount;
+		}
+		
+		// 상품 문의글 작성 작업 메서드
+		public int insertStoreQna(StoreQnaDTO storeQna) {
+			
+			int insertQnaCount = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			int num = 1; // 새 문의글 번호를 저장할 변수 선언
+			
+			try {
+				String sql = "SELECT MAX(sto_qna_idx) FROM store_qna";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					num = rs.getInt(1) + 1;
+				}
+				
+				close(pstmt); // 사용 완료된 PreparedStatement 객체를 먼저 반환
+				
+				// 전달받은 데이터를 store_review 테이블에 INSERT
+				sql = "INSERT INTO store_qna VALUES (?,?,?,?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, storeQna.getMem_id());
+				pstmt.setInt(2, storeQna.getSto_idx());
+				pstmt.setInt(3, num);
+				pstmt.setString(4, storeQna.getSto_qna_content());
+				
+				insertQnaCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - insertStoreQna() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			return insertQnaCount;
+		}
+		
+		// 전체 상품 문의글 수를 조회할 selectStoreQnaListCount() 메서드
+		// 파라미터 : 없음, 리턴타입 : int
+		public int selectStoreQnaListCount() {
+			
+			int storeQnaListCount  = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT COUNT(*) FROM store_qna";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					storeQnaListCount = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreQnaListCount() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return storeQnaListCount;
+		}
+		
+		// 전체 상품 문의글 목록을 조회하는 selectStoreQnaList() 메서드
+		public ArrayList<StoreQnaDTO> selectStoreQnaList(int pageNum, int listLimit, StoreDTO store) {
+			
+			ArrayList<StoreQnaDTO> storeQnaList = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			// 현재 페이지 번호를 활용하여 조회 시 시작행 번호 계산
+			int startRow = (pageNum - 1) * listLimit;
+			
+			try {
+				String sql = "SELECT * FROM store_qna WHERE sto_idx=? ORDER BY sto_qna_idx LIMIT ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, store.getSto_idx());
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, listLimit);
 
+				rs = pstmt.executeQuery();
+				
+				storeQnaList = new ArrayList<StoreQnaDTO>();
+				
+				while(rs.next()) {
+					// 1개 문의글 정보를 저장할 StoreReviewDTO 객체 생성
+					StoreQnaDTO store_qna = new StoreQnaDTO();
+					// 저장
+					store_qna.setMem_id(rs.getString("mem_id"));
+					store_qna.setSto_idx(rs.getInt("sto_idx"));
+					store_qna.setSto_qna_idx(rs.getInt("sto_qna_idx"));
+					store_qna.setSto_qna_content(rs.getString("sto_qna_content"));
+					// 전체 구매 후기글 정보를 저장하는 ArrayList 객체에 1개 구매 후기 정보 StoreQnaDTO 객체 추가
+					storeQnaList.add(store_qna);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreQnaList() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return storeQnaList;
+		}
+		
+		// 상품 간단 문의글 상세 정보를 조회하는 selectStoreQnaDetail() 메서드
+		// 리턴타입 : StoreQnaDTO 객체 , 파라미터 : int(sto_qna_idx)
+		public StoreQnaDTO selectStoreQnaDetail(int sto_qna_idx) {
+			
+			StoreQnaDTO store_qna = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT * FROM store_qna WHERE sto_qna_idx=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, sto_qna_idx);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					store_qna = new StoreQnaDTO();
+					store_qna.setMem_id(rs.getString("mem_id"));
+					store_qna.setSto_idx(rs.getInt("sto_idx"));
+					store_qna.setSto_qna_idx(rs.getInt("sto_qna_idx"));
+					store_qna.setSto_qna_content(rs.getString("sto_qna_content"));
+					
+					System.out.println(store_qna); // 확인용
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreQnaDetail() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return store_qna;
+		}
+		
 }
 
 

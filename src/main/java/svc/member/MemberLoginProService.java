@@ -11,7 +11,7 @@ import vo.member.*;
 public class MemberLoginProService {
 
 	public boolean loginMember(MemberDTO member) {
-//		System.out.println("MemberLoginProService");
+		System.out.println("MemberLoginProService");
 		boolean isLoginSuccess = false;
 		
 		Connection con = getConnection();

@@ -116,7 +116,9 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("MemberDAO - registAuthCode() 메서드 오류 : " + e.getMessage());
-		} 
+		} finally {
+	
+		}
 				
 				
 		return registCount;
@@ -199,6 +201,8 @@ public class MemberDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println("MemberDAO - checkAuthCode() 메서드 오류 : " + e.getMessage());
+			} finally {
+				
 			}
 		
 		return checkAuthCode;
@@ -253,7 +257,7 @@ public class MemberDAO {
 			e.printStackTrace();
 			System.out.println("MemberDAO - insertMember() 메서드 오류 : " + e.getMessage());
 		} finally {
-			close(pstmt);
+	
 		}
 		
 		
@@ -295,6 +299,8 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+	
 		}
 		
 		
@@ -327,13 +333,14 @@ public class MemberDAO {
 			e.printStackTrace();
 			System.out.println("MemberDAO - selectMember 오류");
 		} finally {
-			
+			close(rs);
+			close(pstmt);
 		}
 		return isLoginSuccess;
 	}
 
-	//휴대폰으로 id 찾기
-	public MemberDTO isMemberId(String mem_name, String mem_phone) {
+	//이름, 휴대폰으로 id 찾기
+	public MemberDTO isMemberIdPhone(String mem_name, String mem_phone) {
 
 		MemberDTO member = null;
 		
@@ -355,11 +362,106 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("MemberDAO - isMemberId 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return member;
+	}
+	
+	//이름, 이메일로 id 찾기
+	public MemberDTO isMemberIdEmail(String mem_name, String mem_email) {
+		
+		MemberDTO member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_name=? AND mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_name);
+			pstmt.setString(2, mem_email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new MemberDTO();
+				member.setMem_id(rs.getString("mem_id"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - isMemberId 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		return member;
 	}
 
+	//id, email 일치하는 회원 조회
+	public boolean isMemberEmail(String mem_id, String mem_email) {
+		
+		boolean isMemberEmail = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_id=? AND mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			pstmt.setString(2, mem_email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isMemberEmail = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - isMemberEmail 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isMemberEmail;
+	}
+
+	//아이디, 이메일로 pass 찾기
+	public MemberDTO isMemberPass(String mem_id, String mem_email) {
+		
+		MemberDTO member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_id=? AND mem_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			pstmt.setString(2, mem_email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new MemberDTO();
+				member.setMem_pass(rs.getString("mem_pass"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("MemberDAO - isMemberPass 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return member;
+	}
+	
 	// 결제에 필요한 회원 1명의 정보 조회
 	public MemberDTO selectMemberInfo(String sId) {
 		MemberDTO member = null;
@@ -384,9 +486,63 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("SQL 구문 오류 - selectMemberInfo()");
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		return member;
 	}
-	
+
+	public boolean checkPass(String sId, String mem_pass) {
+		boolean isPass = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member WHERE mem_id=? AND mem_pass=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			pstmt.setString(2, mem_pass);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isPass = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - checkPass()");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isPass;
+	}
+
+	public int updateMemberInfo(String sId, MemberDTO member) {
+		int updateCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "UPDATE member SET mem_pass=?, mem_phone=?, mem_address=?, mem_address_detail=? WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getMem_pass());
+			pstmt.setString(2, member.getMem_phone());
+			pstmt.setString(3, member.getMem_address());
+			pstmt.setString(4, member.getMem_address_detail());
+			pstmt.setString(5, sId);
+			
+			updateCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - updateMemberInfo()");
+		}
+		
+		return updateCount;
+	}
+
 }

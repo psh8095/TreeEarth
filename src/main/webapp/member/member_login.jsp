@@ -12,6 +12,16 @@
 <meta charset="UTF-8">
 <title>TreeEarth</title>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+
+	function findId() {
+		window.open("FindIdForm.me", "findId", "width=700, height=450");
+	}
+
+	function findPass() {
+		window.open("FindPassForm.me", "findPass", "width=700, height=300");
+	}
+</script>
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
@@ -21,7 +31,7 @@
 	<!-- 헤더 -->
 	
 	<h1>로그인</h1>
-	<h1><a href="dirrhks.me">회원가입</a></h1>
+	<h1><a href="requiredTerms.me">회원가입</a></h1>
 	<form action="MemberLoginPro.me" method="post">
 		<table border="1">
 			<tr>
@@ -34,11 +44,11 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input type="submit" value="로그인">&nbsp;
+				<input type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
 				<input type="submit" value="카카오톡으로 로그인">
 				<br>
-				<span id="searchId"><a href="FindIdForm.me">아이디 찾기</a></span>&nbsp;&nbsp;&nbsp;
-				<span id="searchPass"><a href="">비밀번호찾기</a></span>
+				<span id="searchId" onclick="findId()">아이디 찾기</span>&nbsp;&nbsp;&nbsp;
+				<span id="searchPass" onclick="findPass()">비밀번호찾기</span>
 				</td>
 			</tr>
 		</table>

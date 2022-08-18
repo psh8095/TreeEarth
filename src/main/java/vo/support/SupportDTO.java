@@ -3,41 +3,53 @@ package vo.support;
 import java.sql.Date;
 
 
-//서포트 테이블 
-//CREATE TABLE support (
-//		   sup_idx int primary key,
-//		   sup_goal_price int NOT NULL,
-//		   sup_pass varchar(20) not null,
-//		   sup_subject VARCHAR(50) NOT NULL,
-//		   sup_content VARCHAR(1000) NOT NULL,
-//		   sup_thumbnail_file varchar(100) not null,
-//		   sup_thumbnail_real_file  varchar(100) not null,
-//		   sup_original_file varchar(100) NOT NULL,
-//		   sup_real_file varchar(100) NOT NULL,
-//		   sup_money  int NOT NULL,
-//		   sup_readcount  int NOT NULL,
-//		   sup_goal_date Date NOT NULL,
-//		   sup_date Date NOT NULL
-//		);
-
+//서포트 테이블
+/*
+CREATE TABLE support (
+		   sup_idx int primary key,
+		   sup_subject VARCHAR(50) NOT NULL,
+		   sup_pass varchar(20) not null,
+		   sup_goal_price int NOT NULL,
+		   sup_goal_date Date NOT NULL,
+		   sup_content VARCHAR(1000) NOT NULL,
+		   sup_thumbnail_file varchar(100) not null,
+		   sup_thumbnail_real_file  varchar(100) not null,
+		   sup_original_file varchar(100) NOT NULL,
+		   sup_real_file varchar(100) NOT NULL,
+		   sup_readcount  int NOT NULL,
+		   sup_total int NOT NULL,
+		   sup_money int NOT NULL,
+		   sup_date Date NOT NULL
+		);
+*/
 
 public class SupportDTO {
 	
 	private int sup_idx; //1
-	private int sup_goal_price; //2
+	private String sup_subject; //2
 	private String sup_pass; //3
-	private String sup_subject; //4
-	private String sup_content; //5
-	private String sup_thumbnail_real_file; //6
+	private int sup_goal_price; //4
+	private Date sup_goal_date;//5
+	private String sup_content; //6
 	private String sup_thumbnail_file; //7
-	private String sup_real_file; //8
-	private String sup_original_file; //9
-	private int sup_money; //10
-//	private int sup_total; 
-//	private int sup_now_total; 
+	private String sup_thumbnail_real_file; //8
+	private String sup_real_file; //9
+	private String sup_original_file; //10
 	private int sup_readcount; //11
-	private Date sup_goal_date;//12
-	private Date sup_date; //13
+	private int sup_total; //12
+	private int sup_money; //14
+	private Date sup_date; //14
+	
+	
+	
+	public int getSup_total() {
+		return sup_total;
+	}
+	public void setSup_total(int sup_total) {
+		this.sup_total = sup_total;
+	}
+
+
 
 	
 	

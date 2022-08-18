@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     <%
 	// 리스트 객체 어트리뷰트로 받기
@@ -14,6 +15,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- <link href="style.css" rel="stylesheet"> -->
+<link href="css/button.css" rel="stylesheet">
+<script>
+function giveMoney() {
+	window.open("GiveMoneyForm.su", "giveMoney", "width=600,height=400");
+// 	window.open(url, name, specs, replace);
+}
+</script>
 <script src="js/jquery-3.6.0.js"></script>
 	<script type="text/javascript">
 		
@@ -60,11 +69,11 @@
 	<!-- 해더 -->
 	
 	
-		<h1>후원 리스트</h1>
+		<h1>후원 목록</h1>
+		<div style="float: left; width: 30%;">
+<!-- 		<a href="SupportWriteFormAdmin.su">글쓰기</a> -->
 		
-		<a href="SupportWriteFormAdmin.su">글쓰기</a>
-		
-			
+			<section id="listForm">
 			<%for(Object o : List){
 				SupportDTO support = (SupportDTO)o; 
 			%>
@@ -79,8 +88,43 @@
 				<div id="goalDate"><%=support.getSup_goal_date() %></div>
 					
 			<%} %>
-
-
+<!-- 			   <button class="w-btn-outline w-btn-green-outline" type="button" onclick="giveMoney()"> -->
+<!--         후원 -->
+<!--     </button> -->
+			</section>
+<!-- 			<input type="submit" value="후원" onclick="giveMoney()"> -->
+			</div>
+			
+			<div style="clear: both;">
+			<section id="pageList">
+		<c:choose>
+			<c:when test="${pageInfo.pageNum > 1}">
+				<input type="button" value="이전" onclick="location.href='SupportListAction.su?pageNum=${pageInfo.pageNum - 1}'">
+			</c:when>
+			<c:otherwise>
+				<input type="button" value="이전">
+			</c:otherwise>
+		</c:choose>
+		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
+			<c:choose>
+				<c:when test="${pageInfo.pageNum eq i}">
+					${i }
+				</c:when>
+				<c:otherwise>
+					<a href="SupportListAction.su?pageNum=${i }">${i }</a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:choose>
+			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
+				<input type="button" value="다음" onclick="location.href='SupportListAction.su?pageNum=${pageInfo.pageNum + 1}'">
+			</c:when>
+			<c:otherwise>
+				<input type="button" value="다음">
+			</c:otherwise>
+		</c:choose>
+	</section>
+</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

@@ -17,10 +17,10 @@ public class FindIdPhoneAction implements Action {
 		ActionForward forward = null;
 
 		String mem_name = request.getParameter("name");
-		String mem_phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
+		String mem_phone = request.getParameter("phone1") + request.getParameter("phone2") + request.getParameter("phone3");
 		
 		//기존 회원	인지 판별 요청
-		FindIdService service = new FindIdService();
+		FindIdPhoneService service = new FindIdPhoneService();
 		String mem_id = service.searchMemberId(mem_name, mem_phone);
 		
 		if(mem_id == null) {

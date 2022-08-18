@@ -73,6 +73,11 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 				});
 			}
 		});
+		
+		// 구매하기
+		$("#order").on("click", function() {
+			location.href="Order.st?sto_idx=" + ${param.sto_idx} + "&quantity=" + $("#quantity_input").val();
+		});
 	});
 </script>
 <link href="css/index.css" rel="stylesheet">
@@ -138,12 +143,13 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	<!-- 장바구니 담기 버튼 -->
 	<div>
 		<input type="button" value="장바구니 담기" id="insertCart">
+		<input type="button" value="구매하기" id="order">
 	</div>
 	<hr>
 	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
 	<div>
 		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><input type="button" value="구매 후기" id="store_review"></a>
-		<a href=""><input type="button" value="상품 문의" id="store_qna"></a>
+		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }"><input type="button" value="상품 문의" id="store_qna"></a>
 	</div>
 	
 	<!-- 푸터 -->

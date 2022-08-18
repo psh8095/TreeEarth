@@ -46,9 +46,9 @@ public class MemberFrontController extends HttpServlet {
 		
 		
 		// 1. 약관 폼
-		if(command.equals("/dirrhks.me")) {
+		if(command.equals("/requiredTerms.me")) {
 			forward = new ActionForward();
-			forward.setPath("member/dirrhks.jsp");
+			forward.setPath("member/requiredTerms.jsp");
 			forward.setRedirect(false);
 			
 			
@@ -56,9 +56,9 @@ public class MemberFrontController extends HttpServlet {
 		
 		
 		// 2. 본인인증 폼
-		} else if(command.equals("/qhsdlsdlswmd.me")) {
+		} else if(command.equals("/identification.me")) {
 			forward = new ActionForward();
-			forward.setPath("member/qhsdlsdlswmd.jsp");
+			forward.setPath("member/identification.jsp");
 			forward.setRedirect(false);
 			
 		
@@ -175,9 +175,41 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 				System.out.println("MemberFrontController - FindIdPhone 오류");
 			}
+		} else if(command.equals("/FindIdEmail.me")) { //휴대폰으로 아이디 찾기
+			try {
+				action = new FindIdEmailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - FindIdEmail 오류");
+			}
 		} else if(command.equals("/FindIdResult.me")) { //아이디 찾기 결과
 			forward = new ActionForward();
 			forward.setPath("member/find_id_result.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/FindPassForm.me")) { //비밀번호 찾기 폼
+			forward = new ActionForward();
+			forward.setPath("member/find_pass.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/FindPassAuth.me")) { //비밀번호 인증
+			try {
+				action = new FindPassAuthAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - FindPassAuth 오류");
+			}
+		} else if(command.equals("/CheckPassResult.me")) { //비밀번호 인증 메일 확인
+			try {
+				action = new CheckPassResultAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - CheckPassResult 오류");
+			}
+		} else if(command.equals("/FindPassResult.me")) { //아이디 찾기 결과
+			forward = new ActionForward();
+			forward.setPath("member/find_pass_result.jsp");
 			forward.setRedirect(false);
 		}
 		

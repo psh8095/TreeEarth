@@ -51,7 +51,6 @@ Exception {
 			String cam_original_img = multi.getParameter("cam_original_img");
 			
 			CampaignDTO campaign = new CampaignDTO();
-			campaign.setCam_id(cam_id);
 			campaign.setCam_subject(cam_subject);
 			campaign.setCam_content(cam_content);
 			campaign.setCam_img(cam_img);

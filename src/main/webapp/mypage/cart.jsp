@@ -115,51 +115,27 @@
 			$("#totalPrice").html(total);
 		});
 		
-		
-		// 결제 기능
-		IMP.init("imp73101414");
-		
+		// 주문하기 버튼 클릭 시 결제 페이지로 이동
 		$("#order").on("click", function() {
-			// 결제 기능 - 변수 선언
-			var date = new Date();
-			var today = date.getFullYear() + "" + (date.getMonth()+1) + "" + date.getDate() + "" + 
-						date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
-			var total = parseInt($("#totalPrice").html());
+			var sto_idxs = [];
+			var quantities = [];
+			var amount = parseInt($("#totalPrice").html());
 			
-			IMP.request_pay({
-				pg: "html5_inicis",
-				pay_method: "card",
-				merchant_uid: "order_" + today,
-				name: "트리어스",
-				amount: total,
-				buyer_email: "${member.mem_email}",
-				buyer_name: "${member.mem_name}",
-				buyer_tel: "${member.mem_phone}",
-				buyer_addr: "${member.mem_address}"
-			}, function(rsp) {
-				if(rsp.success) {
-					alert("결제가 정상적으로 완료되었습니다.");
-					$.ajax({
-						type: "post",
-						url: "Order.st",
-						data: {
-							order_id: rsp.merchant_uid,
-							mem_name: rsp.buyer_name,
-							mem_phone: rsp.buyer_tel,
-							mem_email: rsp.buyer_email,
-							amount: total,
-							mem_address: rsp.buyer_addr
-						},
-						dataType: "text",
-						success: function(response) {
-							location.href="./"; // 후에 주문 내역 조회로 이동
-						}
-					});
-				} else {
-					alert("결제에 실패하였습니다.");
-					alert(rsp.error_msg);
+			for(var i = 0; i < ${cart.size()}; i++) {
+				if($(".checkCart").eq(i).is(":checked")) {
+// 					alert($(".sto_idx").eq(i).val());
+// 					alert($(".quantity").eq(i).val());
+// 					alert(parseInt($("#totalPrice").html()));
+					sto_idxs.push($(".sto_idx").eq(i).val());
+					quantities.push($(".quantity").eq(i).val());
 				}
-			});
+			}
+			
+			if(parseInt($("#totalPrice").html()) > 0) {
+				location.href="Payment.st";
+			} else {
+				alert("결제할 금액이 없습니다.");
+			}
 		});
 	});
 </script>

@@ -25,7 +25,7 @@
 				<tr>
 					<td><label for="sto_re_mem_id">작성자</label></td>
 					<td>
-						<input type="text" name="sto_re_mem_id" value="${sessionScope.sId }" id="sto_re_mem_id" required="required">
+						<input type="text" name="sto_re_mem_id" value="${sessionScope.sId }" id="sto_re_mem_id" required="required" readonly="readonly">
 					</td>
 				</tr>
 				<tr>

@@ -14,11 +14,12 @@ import vo.*;
 @WebServlet("*.cm")
 public class CommunityFrontController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("CommunityFrontController");
+		System.out.println("1.CommunityFrontController");
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		String command = request.getServletPath();
+		System.out.println("2.command : " + command);
 		
 		Action action = null; // Action 클래스 인스턴스를 관리하는 변수
 		ActionForward forward = null; // 포워딩 정보를 관리하는 변수
@@ -115,7 +116,96 @@ public class CommunityFrontController extends HttpServlet {
 		
 //		=================================================================================================================================
 		
+		else if(command.equals("/DiaryList.cm")) { //반려나무 성장일지 목록
+			try {
+				action = new DiaryListAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/DiaryBoardDetail.cm")) { //성장일지 상세 조회
+			try {
+				action = new DiaryBoardDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/DiaryWriteForm.cm")) { //성장일지 작성 폼
+			forward = new ActionForward();
+			forward.setPath("community/diary_write.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/DiaryWritePro.cm")) { //성장일지 작성 동작
+			try {
+				action = new DiaryWriteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/DiaryModifyForm.cm")) { //성장일지 수정 폼
+			try {
+				action = new DiaryModifyFormAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/DiaryModifyPro.cm")) { //성장일지 수정 동작
+			try {
+				action = new DiaryModifyProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/DiaryDeleteForm.cm")) { //성장일지 삭제 폼
+			forward = new ActionForward();
+			forward.setPath("community/diary_delete.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/DiaryDeletePro.cm")) { //성장일지 삭제 동작
+			try {
+				action = new DiaryDeleteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+//		=================================================================================================================================
+		
+		else if(command.equals("/QnaFaqWriteForm.cm")) { //FAQ 작성 폼
+			forward = new ActionForward();
+			forward.setPath("community/qna_faq_write.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/QnaFaqWritePro.cm")) { //FAQ 작성 동작
+			try {
+				action = new QnaFaqWriteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/QnaFaqList.cm")) { //FAQ 목록
+			try {
+				action = new QnaFaqListAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/QnaFaqDeleteForm.cm")) { //FAQ 삭제 폼
+			forward = new ActionForward();
+			forward.setPath("community/qna_faq_delete.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/QnaFaqDeletePro.cm")) { //FAQ 삭제 동작
+			try {
+				action = new QnaFaqDeleteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		
+//		=================================================================================================================================
+		
 		//포워딩처리
+		System.out.println("8. 포워딩");
 		if(forward != null) { 
 			if(forward.isRedirect()) { //redirect 방식
 				response.sendRedirect(forward.getPath());
