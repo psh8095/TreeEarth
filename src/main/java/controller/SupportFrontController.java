@@ -10,12 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.*;
-import action.support.SupportDeleteProAdminAction;
-import action.support.SupportDetailAction;
-import action.support.SupportListAction;
-import action.support.SupportModifyProAdminAction;
-import action.support.SupportWriteProAdminAction;
-import action.support.SuppotModifyFormAdminAction;
+import action.support.*;
 import vo.*;
 
 
@@ -31,102 +26,122 @@ public class SupportFrontController extends HttpServlet {
 		System.out.println("1. SupportFrontController 컨트롤러");
 	
 		
-	// --------------------------------------------------------------------------------------
+		// --------------------------------------------------------------------------------------
 
 		
-		// 한글 인코딩
-		request.setCharacterEncoding("UTF-8");
-		
-		// 서블릿 주소 추출
-		String command = request.getServletPath();
-		System.out.println("2. 입력 주소 = "+ command);
+				// 한글 인코딩
+				request.setCharacterEncoding("UTF-8");
+				
+				// 서블릿 주소 추출
+				String command = request.getServletPath();
+				System.out.println("2. 입력 주소 = "+ command);
 
-		
-		Action action = null;
-		ActionForward forward = null;
+				
+				Action action = null;
+				ActionForward forward = null;
 
-		
-	// --------------------------------------------------------------------------------------
-	
-		
-		// 후원 리스트로 이동
-		if (command.equals("/SupportListAction.su")) {
-			try {
-				action = new SupportListAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				
+			// --------------------------------------------------------------------------------------
+			
+				
+				// 후원 리스트로 이동
+				if (command.equals("/SupportListAction.su")) {
+					try {
+						action = new SupportListAction();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
 
-		// 후원 상상세 보기 주소 요청 시 수행
-		} else if (command.equals("/SupportDetail.su")) {
-			try {
-				action = new SupportDetailAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			
-		//글쓰기 폼 작성	
-		} else if (command.equals("/SupportWriteFormAdmin.su")) {
-			forward = new ActionForward();
-			forward.setPath("support/support_write_admin.jsp");
-			forward.setRedirect(false);
-			
-			
-		//글쓰기 실제 수행
-		}else if(command.equals("/SupportWriteProAdmin.su")) {
-			try {
-				action = new SupportWriteProAdminAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				System.out.println("writepro 오류 챱");
-				e.printStackTrace();
-			}
-			
-			
-		// 후원 수정 요청 시 수행	
-		} else if (command.equals("/SupportModifyAdmin.su")) {
-			try {
-				action = new SuppotModifyFormAdminAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				System.out.println("modifyform 오류 챱");
-				e.printStackTrace();
-			}
-			
-			
-		//후원 수정 실제 액션
-		} else if (command.equals("/SupportModifyProAdmin.su")) {
-			try {
-				action = new SupportModifyProAdminAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				System.out.println("modifypro 오류 챱 " + e.getMessage());
-				e.printStackTrace();
-			}
+				// 후원 상세 보기 주소 요청 시 수행
+				} else if (command.equals("/SupportDetail.su")) {
+					try {
+						action = new SupportDetailAction();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+					
+				//글쓰기 폼 작성	
+				} else if (command.equals("/SupportWriteFormAdmin.su")) {
+					forward = new ActionForward();
+					forward.setPath("support/support_write_admin.jsp");
+					forward.setRedirect(false);
+					
+					
+				//글쓰기 실제 수행
+				}else if(command.equals("/SupportWriteProAdmin.su")) {
+					try {
+						action = new SupportWriteProAdminAction();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						System.out.println("writepro 오류 챱");
+						e.printStackTrace();
+					}
+					
+					
+				// 후원 수정 요청 시 수행	
+				} else if (command.equals("/SupportModifyAdmin.su")) {
+					try {
+						action = new SuppotModifyFormAdminAction();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						System.out.println("modifyform 오류 챱");
+						e.printStackTrace();
+					}
+					
+					
+				//후원 수정 실제 액션
+				} else if (command.equals("/SupportModifyProAdmin.su")) {
+					try {
+						action = new SupportModifyProAdminAction();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						System.out.println("modifypro 오류 챱 " + e.getMessage());
+						e.printStackTrace();
+					}
 
-			
-		//글삭제 폼 작성
-		} else if (command.equals("/SupportDeleteFormAdmin.su")) {
-			forward = new ActionForward();
-			forward.setPath("support/support_delete_form.jsp");
-			forward.setRedirect(false);
-			
-			
-		//글 삭제 프로	
-		} else if (command.equals("/SupportDeleteProAdmin.su")) {
-			try {
-				action = new SupportDeleteProAdminAction();
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				System.out.println("deletepro 오류 챱");
-				e.printStackTrace();
-			}
+					
+				//글삭제 폼 작성
+				} else if (command.equals("/SupportDeleteFormAdmin.su")) {
+					forward = new ActionForward();
+					forward.setPath("support/support_delete_form.jsp");
+					forward.setRedirect(false);
+					
+					
+				//글 삭제 프로	
+				} else if (command.equals("/SupportDeleteProAdmin.su")) {
+					try {
+						action = new SupportDeleteProAdminAction();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						System.out.println("deletepro 오류 챱");
+						e.printStackTrace();
+					}
+				
+					
+			// --------------------------------------------------------------------------------------
+				
+					
+				//후원금 확인창 이동 
+				} else if (command.equals("/GiveMoneyForm.su")) {
+					forward = new ActionForward();
+					forward.setPath("support/support_give_money.jsp");
+					forward.setRedirect(false);
+					
+					
+				} else if (command.equals("/GiveMoneyPro.su")) {
+					try {
+						action = new MoneyCheckProAction();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						System.out.println("moneycheck 오류 챱");
+						e.printStackTrace();
+					}
+				}
 
-		}
 
 		
 		
