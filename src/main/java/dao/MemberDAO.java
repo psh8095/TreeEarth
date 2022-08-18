@@ -116,7 +116,9 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("MemberDAO - registAuthCode() 메서드 오류 : " + e.getMessage());
-		} 
+		} finally {
+	
+		}
 				
 				
 		return registCount;
@@ -199,7 +201,9 @@ public class MemberDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				System.out.println("MemberDAO - checkAuthCode() 메서드 오류 : " + e.getMessage());
-			} 
+			} finally {
+				
+			}
 		
 		return checkAuthCode;
 	}
@@ -253,7 +257,7 @@ public class MemberDAO {
 			e.printStackTrace();
 			System.out.println("MemberDAO - insertMember() 메서드 오류 : " + e.getMessage());
 		} finally {
-			close(pstmt);
+	
 		}
 		
 		
@@ -295,6 +299,8 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+	
 		}
 		
 		
