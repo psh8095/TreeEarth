@@ -9,11 +9,11 @@ import svc.community.*;
 import vo.*;
 import vo.community.*;
 
-public class QnaFaqListAction implements Action {
+public class QnaListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("QnaFaqListAction");
+		System.out.println("QnaListAction");
 		ActionForward forward = null;
 		
 		//페이징처리 변수
@@ -26,10 +26,15 @@ public class QnaFaqListAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum")); 
 		}
 		
+		String qna_tag = request.getParameter("qna_tag");
+		
+		QnaDTO qna = new QnaDTO();
+		qna.setQna_tag(qna_tag);
+		
 		//전체 게시물 개수 조회 요청
-		QnaFaqListService service = new QnaFaqListService();
-		int itemlistCount = service.getListCount();
-//		System.out.println(itemlistCount);
+		QnaListService service = new QnaListService();
+		int itemlistCount = service.getListCount(qna_tag);
+		System.out.println("listCount: " + itemlistCount);
 		
 		//페이징처리
 		int maxPage = (int)Math.ceil((double)itemlistCount / listLimit);
@@ -43,13 +48,13 @@ public class QnaFaqListAction implements Action {
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, itemlistCount);
 		
 		//게시물 목록
-		ArrayList<QnaFaqDTO> qnaFaqList = service.getFaqList(pageNum, listLimit);
+		ArrayList<QnaDTO> qnaList = service.getQnaList(pageNum, listLimit, qna_tag);
 		
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("qnaFaqList", qnaFaqList);
+		request.setAttribute("qnaList", qnaList);
 		
 		forward = new ActionForward();
-		forward.setPath("community/qna_faq_list.jsp");
+		forward.setPath("QnaList.cm");
 		forward.setRedirect(false);
 		
 		return forward;

@@ -1,41 +1,40 @@
 package action.community;
 
-import java.io.PrintWriter;
+import java.io.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
-import action.Action;
-import svc.community.QnaFaqDeleteProService;
-import vo.ActionForward;
+import action.*;
+import svc.community.*;
+import vo.*;
 
-public class QnaFaqDeleteProAction implements Action {
+public class QnaDeleteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("QnaFaqDeleteProAction");
+		System.out.println("QnaDeleteProAction");
 		
 		ActionForward forward = null;
 		
-		int faq_idx = Integer.parseInt(request.getParameter("faq_idx"));
+		int qna_idx = Integer.parseInt(request.getParameter("qna_idx"));
 		String mem_pass = request.getParameter("mem_pass");
-//		System.out.println(faq_idx + mem_pass);
+		System.out.println(qna_idx + mem_pass);
 		
 		//삭제 권한 판별
-		QnaFaqDeleteProService service = new QnaFaqDeleteProService();
-		boolean isQnaFaqWriter = service.isQnaFaqWriter(faq_idx, mem_pass);
-		
-		if(!isQnaFaqWriter) {
+		QnaDeleteProService service = new QnaDeleteProService();
+		boolean isQnaWriter = service.isQnaWriter(qna_idx, mem_pass);
+
+		if(!isQnaWriter) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('삭제 권한이 없습니다!')");
 			out.println("history.back()");
 			out.println("</script>");
-			
+
 		} else { 
-			boolean isDeleteSuccess = service.deleteQnaFaq(faq_idx);
-			
+			boolean isDeleteSuccess = service.deleteQna(qna_idx);
+
 			if(!isDeleteSuccess) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
@@ -45,10 +44,12 @@ public class QnaFaqDeleteProAction implements Action {
 				out.println("</script>");
 			} else {
 				forward = new ActionForward();
-				forward.setPath("QnaFaqList.cm");
+				forward.setPath("QnaList.cm");
 				forward.setRedirect(true);
 			}
 		}
+
+	
 		
 		return forward;
 	}
