@@ -53,7 +53,8 @@ public class FaqDAO {
 			close(pstmt);
 			
 			//데이터 insert
-			sql = "INSERT INTO qnafaq VALUES (?,?,?,now())";
+			sql = "INSERT INTO qnafaq VALUES (?,'admin',?,?,now())";
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, qnafaq.getFaq_subject());
@@ -138,6 +139,61 @@ public class FaqDAO {
 		}
 		
 		return qnaFaqList;
+	}
+  
+	//삭제 권한 판별
+	public boolean isQnaFaqWriter(int faq_idx, String mem_pass) {
+		
+		boolean isQnaFaqWriter = false;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM qnafaq q, member m WHERE q.faq_id = m.mem_id AND faq_idx=? AND mem_pass = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, faq_idx);
+			pstmt.setString(2, mem_pass);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				isQnaFaqWriter = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("FaqDAO - isQnaFaqWriter 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return isQnaFaqWriter;
+	}
+
+	//
+	public int deleteQnaFaq(int faq_idx) {
+		
+		int deleteCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM qnafaq WHERE faq_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, faq_idx);
+			
+			deleteCount = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("FaqDAO - deleteQnaFaq 오류");
+		} finally {
+			close(pstmt);
+		}
+		
+		return deleteCount;
 	}
 	
 }

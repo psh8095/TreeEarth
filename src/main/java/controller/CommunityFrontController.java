@@ -188,7 +188,19 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
+		} else if(command.equals("/QnaFaqDeleteForm.cm")) { //FAQ 삭제 폼
+			forward = new ActionForward();
+			forward.setPath("community/qna_faq_delete.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/QnaFaqDeletePro.cm")) { //FAQ 삭제 동작
+			try {
+				action = new QnaFaqDeleteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		
 //		=================================================================================================================================
 		

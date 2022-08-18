@@ -87,3 +87,8 @@ ul, li, p
 	bottom:30px; 
 	color:#e82b2b; 
 }
+
+#deleteBtn
+{
+	float: right;
+}

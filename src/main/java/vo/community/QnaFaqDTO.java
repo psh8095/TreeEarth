@@ -6,6 +6,7 @@ import java.sql.*;
  *자주묻는질문. 글번호, 제목(질문), 내용(답변), 작성일
 CREATE TABLE QnaFaq(
 	faq_idx int PRIMARY KEY,
+	faq_id VARCHAR(50) REFERENCES member(mem_id),
 	faq_subject VARCHAR(50) NOT NULL,
 	faq_content VARCHAR(100) NOT NULL,
 	faq_date DATE NOT NULL
