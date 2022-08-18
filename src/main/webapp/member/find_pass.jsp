@@ -14,17 +14,16 @@
 	$(function() {
 		//인증번호 발송
 		$("#sendAuthCode").on("click", function() {
-			 $.ajax({
-		         type: "post",
-		         url: "FindPassAuth.me",
-		         data: $("form").serialize(),
-		         dataType: "text",
-		         success: function() {
-		        	 
-		         }
-		      });
+			$.ajax({
+				type: "post",
+				url: "FindPassAuth.me",
+				data: $("form").serialize(),
+				dataType: "text",
+				success: function() {
+					
+				}
+			});
 		});
-		
 	});
 </script>
 </head>
