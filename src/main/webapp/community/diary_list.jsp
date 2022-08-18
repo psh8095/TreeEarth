@@ -12,6 +12,7 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
 	<section id="">
 	<h2>반려나무 성장일지</h2>
 		<c:choose>
