@@ -25,7 +25,7 @@
 									<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
 										<c:choose>
 											<c:when test="${not empty campaign_review.cam_re_file}">
-												<img alt="" src="upload/${campaign_review.cam_re_file }">
+												<img alt="" src="upload/${campaign_review.cam_re_file }" width="500px">
 											</c:when>
 											<c:otherwise>
 												<img alt="이미지없음" src="img/community/tree.png" width="500px">
