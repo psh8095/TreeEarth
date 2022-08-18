@@ -199,6 +199,18 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 				System.out.println("MemberFrontController - FindPassAuth 오류");
 			}
+		} else if(command.equals("/CheckPassResult.me")) { //비밀번호 인증 메일 확인
+			try {
+				action = new CheckPassResultAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - CheckPassResult 오류");
+			}
+		} else if(command.equals("/FindPassResult.me")) { //아이디 찾기 결과
+			forward = new ActionForward();
+			forward.setPath("member/find_pass_result.jsp");
+			forward.setRedirect(false);
 		}
 		
 	// --------------------------------------------------------------------------------------		

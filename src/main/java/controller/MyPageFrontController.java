@@ -13,6 +13,7 @@ import action.Action;
 import action.mypage.CartListAction;
 import action.mypage.DeleteCartAction;
 import action.mypage.InsertCartAction;
+import action.mypage.OrderListAction;
 import vo.ActionForward;
 
 // 마이페이지 컨트롤러
@@ -60,6 +61,17 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/OrderList.my")) {
+			action = new OrderListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Admin.my")) {
+			forward = new ActionForward();
+			forward.setPath("mypage/admin.jsp");
 		}
 		
 		if(forward != null) {

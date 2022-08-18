@@ -18,6 +18,10 @@ import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
 import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
+import action.store.StoreQnaDetailAction;
+import action.store.StoreQnaListAction;
+import action.store.StoreQnaWriteProAction;
+import action.store.StoreReviewDeleteProAction;
 import action.store.StoreReviewDetailAction;
 import action.store.StoreReviewListAction;
 import action.store.StoreReviewModifyFormAction;
@@ -156,7 +160,11 @@ public class StoreFrontController extends HttpServlet {
 		} else if(command.equals("/StoreReviewModifyPro.st")) {
 			// 상품 구매후기 수정 동작 기능
 			action = new StoreReviewModifyProAction();
-
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("/Order.st")) {
 			// 주문 페이지 서블릿 주소
 			action = new OrderAction();
@@ -166,10 +174,54 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
+		} else if(command.equals("/StoreReviewDeleteForm.st")) {
+			// 상품 구매후기 삭제 폼 작성
+			forward = new ActionForward();
+			forward.setPath("store/store_review_delete.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/StoreReviewDeletePro.st")) {
+			// 상품 구매후기 삭제 동작 기능
+			action = new StoreReviewDeleteProAction();
+
+      try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if(command.equals("/InsertOrder.st")) {
 			// 상품 주문 서블릿 주소
 			action = new InsertOrderAction();
 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaWriteForm.st")) {
+			// 상품 간단 문의 폼 주소
+			forward = new ActionForward();
+			forward.setPath("store/store_qna_write.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/StoreQnaWritePro.st")) {
+			// 상품 간단 문의 등록 기능 주소
+			action = new StoreQnaWriteProAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaList.st")) {
+			// 상품 문의 목록 조회 주소
+			action = new StoreQnaListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaDetail.st")) {
+			// 상품 문의글 상세 조회 주소
+			action = new StoreQnaDetailAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

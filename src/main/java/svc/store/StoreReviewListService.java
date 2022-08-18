@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.StoreDAO;
+import vo.store.StoreDTO;
 import vo.store.StoreReviewDTO;
 
 public class StoreReviewListService {
@@ -29,7 +30,7 @@ public class StoreReviewListService {
 	}
 
 	// 전체 구매 후기 목록 조회 작업을 요청할 getStoreReviewList() 메서드 정의
-	public ArrayList<StoreReviewDTO> getStoreReviewList(int pageNum, int listLimit) {
+	public ArrayList<StoreReviewDTO> getStoreReviewList(int pageNum, int listLimit, StoreDTO store) {
 		
 		ArrayList<StoreReviewDTO> storeReviewList = null;
 		
@@ -37,7 +38,7 @@ public class StoreReviewListService {
 		StoreDAO dao = StoreDAO.getInstance();
 		dao.setConnection(con);
 		
-		storeReviewList = dao.selectStoreReviewList(pageNum, listLimit);
+		storeReviewList = dao.selectStoreReviewList(pageNum, listLimit, store);
 		System.out.println("storeReviewList"); // 확인용
 		
 		close(con);

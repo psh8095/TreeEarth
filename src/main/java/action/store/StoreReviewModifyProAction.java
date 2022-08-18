@@ -22,42 +22,20 @@ public class StoreReviewModifyProAction implements Action {
 		
 		ActionForward forward = null;
 		
-		// 상품 후기 사진 업로드 파일 경로
-		String uploadPath = "upload";
-		
-		// 파일 크기 제한 -> 10MB
-		int fileSize = 1024 * 1024 * 10;
-		// 현재 프로젝트(서블릿)를 처리하는 객체인 서블릿 컨텍스트 객체 얻어오기
-		ServletContext context = request.getServletContext();
-		// 업로드 파일이 저장되는 실제 경로
-		String realPath = context.getRealPath(uploadPath);
-		System.out.println(realPath);
-		
-		// MultipartRequest 객체 생성 -> 파일 업로드에 필요한 각종 파라미터 전달
-		MultipartRequest multi = new MultipartRequest(
-				request, 
-				realPath, 
-				fileSize, 
-				"UTF-8",
-				new DefaultFileRenamePolicy()
-				);
-		
-		int sto_re_idx = Integer.parseInt(request.getParameter("sto_re_idx"));
+//		int sto_re_idx = Integer.parseInt(request.getParameter("sto_re_idx"));
 		String mem_pass = request.getParameter("mem_pass");
 		
 		StoreReviewDTO store_review = new StoreReviewDTO();
-		store_review.setMem_id(multi.getParameter("sto_re_mem_id"));
-		store_review.setSto_idx(Integer.parseInt(multi.getParameter("sto_idx")));
-		store_review.setSto_re_idx(Integer.parseInt(multi.getParameter("sto_re_idx")));
-		store_review.setSto_re_content(multi.getParameter("sto_re_content"));
-		store_review.setSto_re_file(multi.getOriginalFileName("sto_re_file"));
-		store_review.setSto_re_real_file(multi.getFilesystemName("sto_re_file"));
+		store_review.setMem_id(request.getParameter("mem_id"));
+		store_review.setSto_idx(Integer.parseInt(request.getParameter("sto_idx")));
+		store_review.setSto_re_idx(Integer.parseInt(request.getParameter("sto_re_idx")));
+		store_review.setSto_re_content(request.getParameter("sto_re_content"));
 		
 		request.setAttribute("store_review", store_review);
 		
 		// 후기 수정 권한 판별 요청
 		StoreReviewModifyProService service = new StoreReviewModifyProService();
-		boolean isStoreReviewWrite = service.isStoreReviewWrite(sto_re_idx, mem_pass);
+		boolean isStoreReviewWrite = service.isStoreReviewWrite(store_review.getSto_re_idx(), mem_pass);
 		
 		if(!isStoreReviewWrite) { // 실패할 경우
 			response.setContentType("text/html; charset=UTF-8");

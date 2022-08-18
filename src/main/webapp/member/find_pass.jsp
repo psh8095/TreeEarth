@@ -12,6 +12,7 @@
 	}
 	
 	$(function() {
+		//인증번호 발송
 		$("#sendAuthCode").on("click", function() {
 			 $.ajax({
 		         type: "post",
@@ -23,6 +24,7 @@
 		         }
 		      });
 		});
+		
 	});
 </script>
 </head>
@@ -30,7 +32,7 @@
 	
 	<h1>비밀번호 찾기</h1>
 	
-	<form name="findPass" action="findPassResult.me" method="get">
+	<form name="findPass" action="CheckPassResult.me" method="get">
 			<table>
 				<tr>
 					<th>ID</th>

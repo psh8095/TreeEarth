@@ -92,8 +92,8 @@
                 <div class="dropdown-content">
                 <ul class="inline">
                     <li><a href="CampaignReviewList.cm">캠페인 후기</a></li>
-                    <li><a href="">반려나무 성장일기</a></li>
-                    <li><a href="">Q&A</a></li>
+                    <li><a href="DiaryList.cm">반려나무 성장일기</a></li>
+                    <li><a href="QnaFaqList.cm">Q&A</a></li>
                     <li><a href="">공지사항</a></li>
                     <li><a href="">자유게시판</a></li>
                 </ul>

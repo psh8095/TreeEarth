@@ -14,15 +14,15 @@
 	
 	<section id="writeModifyForm">
 		<h1>상품 구매후기 수정</h1>
-		<form action="StoreReviewModifyPro.st" method="post" enctype="multipart/form-data">
+		<form action="StoreReviewModifyPro.st" name="reviewModifyForm" method="post">
 			<input type="hidden" name="sto_idx" value="${param.sto_idx }">
 			<input type="hidden" name="sto_re_idx" value="${param.sto_re_idx }">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
 				<tr>
-					<td><label for="sto_re_mem_id">작성자</label></td>
+					<td><label for="mem_id">작성자</label></td>
 					<td>
-						<input type="text" name="sto_re_mem_id" value="${sessionScope.sId }" id="sto_re_mem_id" required="required" readonly="readonly">
+						<input type="text" name="mem_id" value="${sessionScope.sId }" id="mem_id" required="required" readonly="readonly">
 					</td>
 				</tr>
 				<tr>
@@ -39,12 +39,11 @@
 				</tr>
 				<tr>
 					<td><label for="sto_re_file">사진 첨부</label></td>
-					<td><img src="upload/${store_review.sto_re_file }" width="300" height="250"></td>
-					<td><input type="file" id="sto_re_file" name="sto_re_file"></td>
+					<td>${store_review.sto_re_file }</td>
 				</tr>
 			</table>
 			<section id="commandCell">
-				<input type="submit" value="수정" onclick="location.href='StoreReviewList.st?sto_re_idx=${param.sto_re_idx }&pageNum=${param.pageNum}'">&nbsp;&nbsp;
+				<input type="submit" value="수정">&nbsp;&nbsp;
 				<input type="reset" value="다시쓰기">&nbsp;&nbsp;
 				<input type="button" value="취소" onclick="history.back()">
 			</section>
