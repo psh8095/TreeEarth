@@ -20,7 +20,7 @@
 					<c:forEach var="store_qna" items="${storeQnaList }">
 						<table>
 						<tr>
-							<td>${store_qna.mem_id }님의 문의입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;작성 날짜</td>
+							<td>${store_qna.mem_id }님의 문의입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${store_qna.sto_qna_date }</td>
 						</tr>
 						<tr>
 <!-- 							<td> -->

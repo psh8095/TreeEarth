@@ -8,15 +8,15 @@
 <link href="../css/index.css" rel="stylesheet">
 </head>
 <body>
-	<!-- 헤더 -->
+		<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
-	<section id="writeModifyForm">
-		<h1>상품 구매후기 수정</h1>
-		<form action="StoreReviewModifyPro.st" method="post">
+	<section id="qna_writeModifyForm">
+		<h1>상품 문의글 수정</h1>
+		<form action="StoreQnaModifyPro.st" name="qnaModifyForm" method="post">
 			<input type="hidden" name="sto_idx" value="${param.sto_idx }">
-			<input type="hidden" name="sto_re_idx" value="${param.sto_re_idx }">
+			<input type="hidden" name="sto_qna_idx" value="${param.sto_qna_idx }">
 			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
 				<tr>
@@ -26,24 +26,24 @@
 					</td>
 				</tr>
 				<tr>
+					<td>작성일</td>
+					<td>${store_qna.sto_qna_date }</td>
+				</tr>
+				<tr>
 					<td><label for="mem_pass">비밀번호</label></td>
 					<td>
 						<input type="password" name="mem_pass" required="required">
 					</td>
 				</tr>
 				<tr>
-					<td><label for="sto_re_content">내용</label></td>
+					<td><label for="sto_qna_content">문의 내용</label></td>
 					<td>
-						<textarea cols="50" rows="15" id="sto_re_content" name="sto_re_content" required="required">${store_review.sto_re_content }</textarea>
+						<textarea cols="50" rows="15" id="sto_qna_content" name="sto_qna_content" required="required">${store_qna.sto_qna_content }</textarea>
 					</td>
-				</tr>
-				<tr>
-					<td><label for="sto_re_file">사진 첨부</label></td>
-					<td>${store_review.sto_re_file }</td>
 				</tr>
 			</table>
 			<section id="commandCell">
-				<input type="submit" value="수정">&nbsp;&nbsp;
+				<input type="submit" value="수정하기">&nbsp;&nbsp;
 				<input type="reset" value="다시쓰기">&nbsp;&nbsp;
 				<input type="button" value="취소" onclick="history.back()">
 			</section>

@@ -30,14 +30,18 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		var totalPrice = 0; // 총 금액 합계 변수 선언 및 초기화
 		
 		$("#plus_btn").on("click", function() {
-			$("#quantity_input").val(++quantity); // 객체이기 때문에
-			var plusBtn = $("#quantity_input").val(); // 변수 선언 후 따로 val 값을 줌(=> 상품 수량 변경 총 금액 합계 계산)
-// 			alert(quantity_price); // 상품 가격 확인용
-
-			totalPrice = quantity_price * plusBtn;
-// 			alert(quantity_price); // 상품 금액 확인
-// 			alert(totalPrice); // 금액 총 합계 확인
-			$("#quantity_price").html(totalPrice); // 수량 + 버튼 클릭 시 총 상품 금액 화면 표시
+			if(quantity < 10) {
+				$("#quantity_input").val(++quantity); // 객체이기 때문에
+				var plusBtn = $("#quantity_input").val(); // 변수 선언 후 따로 val 값을 줌(=> 상품 수량 변경 총 금액 합계 계산)
+	// 			alert(quantity_price); // 상품 가격 확인용
+	
+				totalPrice = quantity_price * plusBtn;
+	// 			alert(quantity_price); // 상품 금액 확인
+	// 			alert(totalPrice); // 금액 총 합계 확인
+				$("#quantity_price").html(totalPrice); // 수량 + 버튼 클릭 시 총 상품 금액 화면 표시	
+			} else {
+				alert("최대 주문 수량은 10개 이상 입니다.");
+			}
 		});
 		
 		$("#minus_btn").on("click", function() {
