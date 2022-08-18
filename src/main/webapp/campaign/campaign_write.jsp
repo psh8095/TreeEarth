@@ -12,7 +12,7 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	<section id=""></section>
-	<h1>캠페인 글 작성</h1>
+	<h2>캠페인 게시글 작성</h2>
 	
 	
 	

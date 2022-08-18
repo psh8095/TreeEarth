@@ -3,7 +3,7 @@ package vo.campaign;
 import java.sql.Date;
 
 /*
-*캠페인 아이디, 글번호, 참여인원, 제목, 내용, 조회수, 작성일, 썸네일파일*2, 이미지파일*2 
+*캠페인 글번호, 참여인원, 제목, 내용, 조회수, 작성일, 썸네일파일*2, 이미지파일*2 
 
 CREATE TABLE campaign(
 	cam_idx INT PRIMARY KEY,
