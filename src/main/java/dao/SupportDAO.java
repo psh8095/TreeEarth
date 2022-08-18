@@ -349,5 +349,29 @@ public class SupportDAO {
 		System.out.println("5-1. 게시물 정보 저장!");
 		return SupportList;
 	}
+	// ----------------------------------------------------------------------------------------
+
+		//후원금
+		public int updateMoney(SupportDTO dto) {
+			System.out.println("5.updateMoney");
+			int updateCount = 0;
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "UPDATE support SET sup_money = sup_money + ? WHERE sup_idx = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, dto.getSup_money());
+				pstmt.setInt(2, dto.getSup_idx());
+				
+				updateCount =pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("SQL 구문 오류 - updateMoney() : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			return updateCount;
+		}
+
 
 }

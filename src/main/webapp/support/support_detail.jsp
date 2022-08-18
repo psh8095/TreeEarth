@@ -15,12 +15,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/button.css" rel="stylesheet">
-<script>
-function giveMoney(sup_idx) {
-	window.open("GiveMoneyForm.su", "giveMoney", "width=600,height=450");
-// 	window.open(url, name, specs, replace);
-}
-</script>
+
 <style type="text/css">
 	#articleForm {
 		width: 1000px;
@@ -71,6 +66,8 @@ function giveMoney(sup_idx) {
 		text-align: center;
 	}
 </style>
+
+
 <script src="js/jquery-3.6.0.js"></script>
 	<script type="text/javascript">
 		
@@ -98,12 +95,23 @@ function giveMoney(sup_idx) {
 		
 		
 </script>
+
+
+<script>
+// 기브머니
+function giveMoney() {
+	window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx()%>, "giveMoney", "width=600,height=450");
+// 	window.open(url, name, specs, replace);
+}
+</script>
+
+
 </head>
 <body>
 <jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 게시판 상세내용 보기 -->
 	<section id="articleForm">
-		<h2>(깡)철이 해요 미령</h2>
+		<h2>후원 작성</h2>
 		<section id="basicInfoArea">
 			<table border="1">
 			
@@ -143,7 +151,6 @@ function giveMoney(sup_idx) {
 	<section id="commandList">
 	<input type="button" value="수정" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">
-<%-- 		<input type="button" value="목록" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '"> --%>
 		<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">
         목록</button>
 	</section>

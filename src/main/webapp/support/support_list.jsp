@@ -44,7 +44,7 @@ function giveMoney() {
 			var day =  1 / result * 100
 			
 			
-			
+			//디데이 진행도
 			$("#progressBar").css({
 			  width: "100%",
 			  background: "grey"
@@ -73,6 +73,7 @@ function giveMoney() {
 		<div style="float: left; width: 30%;">
 <!-- 		<a href="SupportWriteFormAdmin.su">글쓰기</a> -->
 		
+<!-- 		글 목록 -->
 			<section id="listForm">
 			<%for(Object o : List){
 				SupportDTO support = (SupportDTO)o; 
@@ -88,13 +89,10 @@ function giveMoney() {
 				<div id="goalDate"><%=support.getSup_goal_date() %></div>
 					
 			<%} %>
-<!-- 			   <button class="w-btn-outline w-btn-green-outline" type="button" onclick="giveMoney()"> -->
-<!--         후원 -->
-<!--     </button> -->
 			</section>
-<!-- 			<input type="submit" value="후원" onclick="giveMoney()"> -->
 			</div>
 			
+<!-- 			앨범형 -->
 			<div style="clear: both;">
 			<section id="pageList">
 		<c:choose>
