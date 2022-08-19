@@ -10,18 +10,18 @@ import dao.*;
 import db.*;
 import vo.community.*;
 
-public class QnaFaqWriteProService {
+public class QnaWriteProService {
 
-	public boolean registFaq(QnaFaqDTO qnafaq) {
-		System.out.println("QnaFaqWriteProService - registFaq");
+	public boolean registQna(QnaDTO qna) {
+		System.out.println("QnaWriteProService - registQna");
 		
 		boolean isWriteSuccess = false;
 		
 		Connection con = JdbcUtil.getConnection();
-		FaqDAO dao = FaqDAO.getInstance();
+		QnaDAO dao = QnaDAO.getInstance();
 		dao.setConnection(con);
 		
-		int insertCount = dao.insertFaq(qnafaq);
+		int insertCount = dao.insertQna(qna);
 		
 		if(insertCount > 0) {
 			commit(con);

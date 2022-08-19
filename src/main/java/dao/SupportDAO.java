@@ -91,10 +91,10 @@ public class SupportDAO {
 			if(rs.next()) {
 				dto.setSup_idx(rs.getInt("sup_idx")); // 글번호 확인위한 필수 세팅
 				dto.setSup_subject(rs.getString("sup_subject"));
-				dto.setSup_goal_date(rs.getDate("sup_goal_date"));
-				dto.setSup_goal_price(rs.getInt("sup_goal_price"));
 				dto.setSup_date(rs.getDate("sup_date"));
 				dto.setSup_readcount(rs.getInt("sup_readcount"));
+				dto.setSup_goal_date(rs.getDate("sup_goal_date"));
+				dto.setSup_goal_price(rs.getInt("sup_goal_price"));
 				dto.setSup_content(rs.getString("sup_content"));
 				dto.setSup_thumbnail_file(rs.getString("sup_thumbnail_file"));
 				dto.setSup_original_file(rs.getString("sup_original_file"));
@@ -145,23 +145,24 @@ public class SupportDAO {
 			
 			//기존 글이 없으면 
 			//게시글 등록
-			sql2 = "INSERT INTO support VALUES(?,?,?,?,?,?,?,?,?,?,?,?,now())";
+			sql2 = "INSERT INTO support VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 			pstmt2 = con.prepareStatement(sql2);
 			pstmt2.setInt(1, idx); 
-			pstmt2.setInt(2, dto.getSup_goal_price());
+			pstmt2.setString(2, dto.getSup_subject());
 			pstmt2.setString(3, dto.getSup_pass()); 
-			pstmt2.setString(4, dto.getSup_subject());
-			pstmt2.setString(5, dto.getSup_content());
-			pstmt2.setString(6, dto.getSup_thumbnail_real_file());
+			pstmt2.setInt(4, dto.getSup_goal_price());
+			pstmt2.setDate(5, dto.getSup_goal_date());
+			pstmt2.setString(6, dto.getSup_content());
 			pstmt2.setString(7, dto.getSup_thumbnail_file());
-			pstmt2.setString(8, dto.getSup_real_file());
+			pstmt2.setString(8, dto.getSup_thumbnail_real_file());
 			pstmt2.setString(9, dto.getSup_original_file());
-			pstmt2.setInt(10, 0); 
-			pstmt2.setInt(11, 0);
-			pstmt2.setDate(12, dto.getSup_goal_date());
+			pstmt2.setString(10, dto.getSup_real_file());
+			pstmt2.setInt(11, 0); 
+			pstmt2.setInt(12, 0);
+			pstmt2.setInt(13, 0);
 
 			insertCount = pstmt2.executeUpdate();
-			System.out.println("5-2. 개시물 등록!");
+			System.out.println("5-2. 게시물 등록!");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -348,5 +349,29 @@ public class SupportDAO {
 		System.out.println("5-1. 게시물 정보 저장!");
 		return SupportList;
 	}
+	// ----------------------------------------------------------------------------------------
+
+		//후원금
+		public int updateMoney(SupportDTO dto) {
+			System.out.println("5.updateMoney");
+			int updateCount = 0;
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "UPDATE support SET sup_money = sup_money + ? WHERE sup_idx = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, dto.getSup_money());
+				pstmt.setInt(2, dto.getSup_idx());
+				
+				updateCount =pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("SQL 구문 오류 - updateMoney() : " + e.getMessage());
+			} finally {
+				close(pstmt);
+			}
+			return updateCount;
+		}
+
 
 }

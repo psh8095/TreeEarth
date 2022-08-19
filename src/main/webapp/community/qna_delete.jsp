@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TreeEarth</title>
 </head>
 <body>
 	<h2>게시판 글 삭제</h2>
 	<section id="">
-		<form action="QnaFaqDeletePro.cm" method="post">
-			<input type="hidden" name="faq_idx" value="${param.faq_idx }">
+		<form action="QnaDeletePro.cm" method="post">
+			<input type="hidden" name="qna_idx" value="${param.qna_idx }">
 			<table>
 				<tr>
 					<td><label>글 비밀번호</label></td>

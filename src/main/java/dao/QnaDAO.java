@@ -7,21 +7,21 @@ import java.util.*;
 
 import vo.community.*;
 
-public class FaqDAO {
+public class QnaDAO {
 	
 	//인스턴스 생성
-	private static FaqDAO instance = new FaqDAO();
+	private static QnaDAO instance = new QnaDAO();
 	
 	//생성자
-	private FaqDAO() {}
+	private QnaDAO() {}
 
 	//getter
-	public static FaqDAO getInstance() {
+	public static QnaDAO getInstance() {
 		return instance;
 	}
 
-	public static void setInstance(FaqDAO instance) {
-		FaqDAO.instance = instance;
+	public static void setInstance(QnaDAO instance) {
+		QnaDAO.instance = instance;
 	}
 
 	//con
@@ -30,8 +30,8 @@ public class FaqDAO {
 		this.con = con;
 	}
 
-	//Faq 글쓰기 작업
-	public int insertFaq(QnaFaqDTO qnafaq) {
+	//글쓰기 작업
+	public int insertQna(QnaDTO qna) {
 		
 		int insertCount = 0;
 		
@@ -42,7 +42,7 @@ public class FaqDAO {
 		
 		try {
 			//글 번호 설정
-			String sql = "SELECT MAX(faq_idx) FROM qnafaq";
+			String sql = "SELECT MAX(qna_idx) FROM qna";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -53,18 +53,20 @@ public class FaqDAO {
 			close(pstmt);
 			
 			//데이터 insert
-			sql = "INSERT INTO qnafaq VALUES (?,'admin',?,?,now())";
+			sql = "INSERT INTO qna VALUES (?,?,?,?,?,now())";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setString(2, qnafaq.getFaq_subject());
-			pstmt.setString(3, qnafaq.getFaq_content());
+			pstmt.setString(2, qna.getQna_id());
+			pstmt.setString(3, qna.getQna_tag());
+			pstmt.setString(4, qna.getQna_subject());
+			pstmt.setString(5, qna.getQna_content());
 			
 			insertCount = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("FaqDAO - insertFaq 오류");
+			System.out.println("QnaDAO - insertQna 오류");
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -74,7 +76,7 @@ public class FaqDAO {
 	}
 
 	//전체 게시물 수 조회
-	public int selectListCount() {
+	public int selectListCount(String qna_tag) {
 		
 		int itemlistCount = 0;
 		
@@ -82,8 +84,9 @@ public class FaqDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT COUNT(*) FROM qnafaq";
+			String sql = "SELECT COUNT(*) FROM qna WHERE qna_tag=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, qna_tag);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -101,9 +104,9 @@ public class FaqDAO {
 	}
 
 	//게시물 목록 조회
-	public ArrayList<QnaFaqDTO> selectFaqList(int pageNum, int listLimit) {
+	public ArrayList<QnaDTO> selectQnaList(int pageNum, int listLimit, String qna_tag) {
 		
-		ArrayList<QnaFaqDTO> qnaFaqList = null;
+		ArrayList<QnaDTO> qnaList = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -111,38 +114,42 @@ public class FaqDAO {
 		int startRow = (pageNum - 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM qnafaq LIMIT ?,?";
+			String sql = "SELECT * FROM qna WHERE qna_tag=? LIMIT ?,?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, listLimit);
+			pstmt.setString(1, qna_tag);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, listLimit);
 			
 			rs = pstmt.executeQuery();
 			
-			qnaFaqList = new ArrayList<QnaFaqDTO>();
+			qnaList = new ArrayList<QnaDTO>();
 			
 			while(rs.next()) {
-				QnaFaqDTO qnafaq = new QnaFaqDTO();
-				qnafaq.setFaq_idx(rs.getInt("faq_idx"));
-				qnafaq.setFaq_subject(rs.getString("faq_subject"));
-				qnafaq.setFaq_content(rs.getString("faq_content"));
-				qnafaq.setFaq_date(rs.getDate("faq_date"));
+				QnaDTO qna = new QnaDTO();
+				qna.setQna_idx(rs.getInt("qna_idx"));
+				qna.setQna_id(rs.getString("qna_id"));
+				qna.setQna_tag(rs.getString("qna_tag"));
+				qna.setQna_subject(rs.getString("qna_subject"));
+				qna.setQna_content(rs.getString("qna_content"));
+				qna.setQna_date(rs.getDate("qna_date"));
 				
-				qnaFaqList.add(qnafaq);
+				qnaList.add(qna);
+				System.out.println(qna);
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("FaqDAO - selectFaqList 오류");
+			System.out.println("FaqDAO - selectQnaList 오류");
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
 		
-		return qnaFaqList;
+		return qnaList;
 	}
   
 	//삭제 권한 판별
-	public boolean isQnaFaqWriter(int faq_idx, String mem_pass) {
+	public boolean isQnaWriter(int qna_idx, String mem_pass) {
 		
 		boolean isQnaFaqWriter = false;
 		
@@ -150,9 +157,9 @@ public class FaqDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM qnafaq q, member m WHERE q.faq_id = m.mem_id AND faq_idx=? AND mem_pass = ?";
+			String sql = "SELECT * FROM qna q, member m WHERE q.qna_id = m.mem_id AND qna_idx=? AND mem_pass =?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, faq_idx);
+			pstmt.setInt(1, qna_idx);
 			pstmt.setString(2, mem_pass);
 			
 			rs = pstmt.executeQuery();
@@ -163,7 +170,7 @@ public class FaqDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("FaqDAO - isQnaFaqWriter 오류");
+			System.out.println("QnaDAO - isQnaWriter 오류");
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -173,22 +180,22 @@ public class FaqDAO {
 	}
 
 	//
-	public int deleteQnaFaq(int faq_idx) {
+	public int deleteQna(int qna_idx) {
 		
 		int deleteCount = 0;
 		
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "DELETE FROM qnafaq WHERE faq_idx=?";
+			String sql = "DELETE FROM qna WHERE qna_idx=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, faq_idx);
+			pstmt.setInt(1, qna_idx);
 			
 			deleteCount = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("FaqDAO - deleteQnaFaq 오류");
+			System.out.println("QnaDAO - deleteQna 오류");
 		} finally {
 			close(pstmt);
 		}
