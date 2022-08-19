@@ -6,7 +6,50 @@
 <head>
 <meta charset="UTF-8">
 <title>treeEarth</title>
+<script src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var i = $(".score").html();
+// 		alert(i);
+		if(i == 4) {
+			$(".rate5").css({
+				color: "transparent"
+			});
+		} 
+		if(i == 3) {
+			$(".rate4").css({
+				color: "transparent"
+			});
+			$(".rate5").css({
+				color: "transparent"
+			});
+		}
+		if(i == 2) {
+			$(".rate3").css({
+				color: "transparent"
+			});
+			$(".rate4").css({
+				color: "transparent"
+			});
+		}
+		if(i == 1) {
+			$(".rate2").css({
+				color: "transparent"
+			});
+			$(".rate3").css({
+				color: "transparent"
+			});
+			$(".rate4").css({
+				color: "transparent"
+			});
+			$(".rate5").css({
+				color: "transparent"
+			});
+		}
+	});
+</script>
 <link href="../css/index.css" rel="stylesheet">
+<link rel="stylesheet" href="css/star.css">
 </head>
 <body>
 	<!-- 헤더 -->
@@ -34,6 +77,18 @@
 						<tr>
 							<td>${store_review.mem_id }님의 후기입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;작성 날짜</td>
 						</tr>
+						<tr>
+							<td class="score">${store_review.sto_re_score }</td>
+						</tr>
+						</table>
+						<fieldset>
+							<span class="rate1">⭐</span>
+							<span class="rate2">⭐</span>
+							<span class="rate3">⭐</span>
+							<span class="rate4">⭐</span>
+							<span class="rate5">⭐</span>
+						</fieldset>
+						<table>
 						<tr>
 							<td>
 							<b>${store_review.sto_re_content }</b>

@@ -344,7 +344,7 @@ public class StoreDAO {
 				pstmt.setString(1, storeReview.getMem_id());
 				pstmt.setInt(2, storeReview.getSto_idx());
 				pstmt.setInt(3, num);
-				pstmt.setInt(4, 1);
+				pstmt.setInt(4, storeReview.getSto_re_score()); // 별점
 				pstmt.setString(5, storeReview.getSto_re_content());
 				pstmt.setString(6,storeReview.getSto_re_file());
 				pstmt.setString(7, storeReview.getSto_re_real_file());
