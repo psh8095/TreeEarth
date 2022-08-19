@@ -50,11 +50,11 @@ public class StoreReviewWriteProAction implements Action {
 //		storeReview.setSto_re_idx(Integer.parseInt(multi.getParameter("sto_re_idx")));
 		storeReview.setMem_id(multi.getParameter("sto_re_mem_id"));
 		storeReview.setSto_idx(Integer.parseInt(multi.getParameter("sto_idx")));
-//		storeReview.setSto_re_score(Integer.parseInt(multi.getParameter("sto_re_score")));
+		storeReview.setSto_re_score(Integer.parseInt(multi.getParameter("reviewStar")));
 		storeReview.setSto_re_content(multi.getParameter("sto_re_content"));
 		storeReview.setSto_re_file(multi.getOriginalFileName("sto_re_file")); // 원본 파일명
 		storeReview.setSto_re_real_file(multi.getFilesystemName("sto_re_file")); // 실제 업로드 파일명
-//		System.out.println(storeReview);
+		System.out.println(Integer.parseInt(multi.getParameter("reviewStar")));
 		
 		System.out.println(storeReview.getSto_idx());
 		
