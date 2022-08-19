@@ -9,9 +9,8 @@ CREATE TABLE store_qna (
 	sto_idx INT,
 	sto_qna_idx INT PRIMARY KEY,
 	sto_qna_content VARCHAR(300) NOT NULL,
-	sto_qna_date DATE NOT NULL,
-	FOREIGN KEY (mem_id) REFERENCES member (mem_id),
-	FOREIGN KEY (sto_idx) REFERENCES store (sto_idx)
+	FOREIGN KEY (mem_id) REFERENCES member (mem_id) ON DELETE CASCADE,
+	FOREIGN KEY (sto_idx) REFERENCES store (sto_idx) ON DELETE CASCADE
 );
  */
 public class StoreQnaDTO {
