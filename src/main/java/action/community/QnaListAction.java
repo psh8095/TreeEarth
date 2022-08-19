@@ -26,7 +26,11 @@ public class QnaListAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum")); 
 		}
 		
-		String qna_tag = request.getParameter("qna_tag");
+		String qna_tag = "faq"; 
+				
+		if(request.getParameter("qna_tag") != null) {
+			qna_tag = request.getParameter("qna_tag");
+		}
 		
 		QnaDTO qna = new QnaDTO();
 		qna.setQna_tag(qna_tag);
