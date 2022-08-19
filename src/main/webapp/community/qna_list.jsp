@@ -93,7 +93,11 @@
 		</ul>
 	</div>
 	
-	<input type="button" value="글쓰기" id="writeBtn" onclick="location.href='QnaWriteForm.cm'">
+	<c:choose>
+		<c:when test="${not empty sessionScope.sId}">
+			<input type="button" value="글쓰기" id="writeBtn" onclick="location.href='QnaWriteForm.cm'">
+		</c:when>
+	</c:choose>
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
