@@ -22,13 +22,13 @@
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<a href="MemberLoginForm.me" class="login" style="cursor:pointer">로그인</a>
-				<!--  <a href="MemberLogout.me" class="login">로그아웃</a> -->
+				<a href="MemberLogout.me" class="login">로그아웃</a>
 			</c:when>
 			<c:otherwise>
 				<c:choose>
 					<c:when test="${sessionScope.sId eq 'admin'}">
 						<a href="Admin.my" class="login">${sessionScope.sId } 님</a>
-						<a href="MemberLogout.me" class="login">로그아웃</a>
+						<!--<a href="MemberLogout.me" class="login">로그아웃</a> -->	
 					</c:when>
 					<c:otherwise>
 						<div class="login">
@@ -99,8 +99,6 @@
             </div>
        	 </nav>
 	</header>
-	<section>
-		<img src="img/main/tree_img01.jpg" alt="스위스같은나무사진" border="0" style="max-width:100%; height:auto;">
-	</section>	
+	
 </body>
 </html>
