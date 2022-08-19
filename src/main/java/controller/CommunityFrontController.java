@@ -170,38 +170,37 @@ public class CommunityFrontController extends HttpServlet {
 		
 //		=================================================================================================================================
 		
-		else if(command.equals("/QnaFaqWriteForm.cm")) { //FAQ 작성 폼
+		else if(command.equals("/QnaWriteForm.cm")) { //qna 작성 폼
 			forward = new ActionForward();
-			forward.setPath("community/qna_faq_write.jsp");
+			forward.setPath("community/qna_write.jsp");
 			forward.setRedirect(false);
-		} else if(command.equals("/QnaFaqWritePro.cm")) { //FAQ 작성 동작
+		} else if(command.equals("/QnaWritePro.cm")) { //qna 작성 동작
 			try {
-				action = new QnaFaqWriteProAction();
+				action = new QnaWriteProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/QnaFaqList.cm")) { //FAQ 목록
+		} else if(command.equals("/QnaList.cm")) { //qna 목록
 			try {
-				action = new QnaFaqListAction();
+				action = new QnaListAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/QnaFaqDeleteForm.cm")) { //FAQ 삭제 폼
+		} else if(command.equals("/QnaDeleteForm.cm")) { //qna 삭제 폼
 			forward = new ActionForward();
-			forward.setPath("community/qna_faq_delete.jsp");
+			forward.setPath("community/qna_delete.jsp");
 			forward.setRedirect(false);
-		} else if(command.equals("/QnaFaqDeletePro.cm")) { //FAQ 삭제 동작
+		} else if(command.equals("/QnaDeletePro.cm")) { //qna 삭제 동작
 			try {
-				action = new QnaFaqDeleteProAction();
+				action = new QnaDeleteProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		
 //		=================================================================================================================================
 		
 		//포워딩처리
