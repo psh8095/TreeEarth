@@ -80,7 +80,8 @@ function giveMoney() {
 			%>
 				
 				<h3><a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">제목 : <%=support.getSup_subject()%></a></h3>
-				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="30%"></a>
+				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
+				<img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="30%"></a>
 				
 				<div id="progressBar">
 			  		<div id="myBar"></div>
