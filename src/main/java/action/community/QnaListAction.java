@@ -54,7 +54,7 @@ public class QnaListAction implements Action {
 		request.setAttribute("qnaList", qnaList);
 		
 		forward = new ActionForward();
-		forward.setPath("QnaList.cm");
+		forward.setPath("community/qna_list.jsp?qna_tag=" + qna_tag);
 		forward.setRedirect(false);
 		
 		return forward;
