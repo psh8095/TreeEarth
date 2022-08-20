@@ -1,13 +1,13 @@
 package action.community;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import javax.servlet.http.*;
 
 import action.*;
-import svc.community.CampaignReviewListService;
+import svc.community.*;
 import vo.*;
-import vo.community.CampaignReviewDTO;
+import vo.community.*;
 
 public class CampaignReviewListAction implements Action {
 
@@ -26,6 +26,7 @@ public class CampaignReviewListAction implements Action {
 			pageNum = Integer.parseInt(request.getParameter("pageNum")); 
 		}
 		
+		//전체 게시물 수 조회
 		CampaignReviewListService service = new CampaignReviewListService();
 		int itemListCount = service.getCampaignReviewListCount();
 		

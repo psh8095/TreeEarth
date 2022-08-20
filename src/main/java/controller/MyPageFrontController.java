@@ -1,23 +1,14 @@
 package controller;
 
-import java.io.IOException;
-import java.util.Iterator;
+import java.io.*;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
 
-import action.Action;
-import action.mypage.CartListAction;
-import action.mypage.CheckPassAction;
-import action.mypage.DeleteCartAction;
-import action.mypage.InsertCartAction;
-import action.mypage.OrderListAction;
-import action.mypage.UpdateMemberInfoAction;
-import vo.ActionForward;
+import action.*;
+import action.mypage.*;
+import vo.*;
 
 // 마이페이지 컨트롤러
 @WebServlet("*.my")
@@ -93,6 +84,26 @@ public class MyPageFrontController extends HttpServlet {
 		} else if(command.equals("/UpdateMemberInfo.my")) {
 			// 회원 정보 수정 작업 서블릿 주소
 			action = new UpdateMemberInfoAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
+//		========================================================================================================================
+		else if(command.equals("/CampaignReviewBlockList.my")) { 
+			//신고글 목록 조회
+			action = new CampaignReviewBlockListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/CampaignReviewBlockDetail.my")) { 
+			//신고글 목록 상세조회
+			action = new CampaignReviewBlockDetailAction();
 			
 			try {
 				forward = action.execute(request, response);

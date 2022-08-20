@@ -3,6 +3,7 @@ package dao;
 import static db.JdbcUtil.close;
 
 import java.sql.*;
+import java.util.*;
 
 import vo.community.*;
 
@@ -64,6 +65,46 @@ public class CampaignReviewBlockDAO {
 		}
 		
 		return insertCount;
+	}
+
+	//신고글 조회
+	public ArrayList<CampaignReviewBlockDTO> getBlockList() {
+		
+		ArrayList<CampaignReviewBlockDTO> blockList = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM cam_re_block ORDER BY cam_re_block_ref";
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			blockList = new ArrayList<CampaignReviewBlockDTO>();
+			
+			while(rs.next()) {
+				CampaignReviewBlockDTO cam_re_block = new CampaignReviewBlockDTO();
+				cam_re_block.setCam_re_block_idx(rs.getInt("cam_re_block_idx"));
+				cam_re_block.setCam_re_block_ref(rs.getInt("cam_re_block_ref"));
+				cam_re_block.setCam_re_block_id(rs.getString("cam_re_block_id"));
+				cam_re_block.setCam_re_block_reason(rs.getString("cam_re_block_reason"));
+				cam_re_block.setCam_re_block_date(rs.getDate("cam_re_block_date"));
+				
+				blockList.add(cam_re_block);
+			}
+			
+			System.out.println(blockList.toString());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("CampaignReviewBlockDAO - getBlockList 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return blockList;
 	}
 	
 }
