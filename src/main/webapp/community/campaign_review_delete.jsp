@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TreeEarth</title>
 </head>
 <body>
 	<h2>게시판 글 삭제</h2>
