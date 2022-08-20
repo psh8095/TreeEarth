@@ -24,44 +24,7 @@ function giveMoney() {
 }
 </script>
 <script src="js/jquery-3.6.0.js"></script>
-	<script type="text/javascript">
-		
 	
-		//제이쿼리
-		$(function() {
-			
-			//오늘 날짜
-			var today = new Date();
-			
-			//골 날짜
-			var goalDate = $("#goalDate").html();
-			var dday = new Date(goalDate)
-			
-			//디데이 계산
-			var gap = dday.getTime() - today.getTime();
-			var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
-			
-			var day =  1 / result * 100
-			
-			
-			//디데이 진행도
-			$("#progressBar").css({
-			  width: "100%",
-			  background: "grey"
-			});
-			
-			$("#myBar ").css({
-			  width: day+"%",
-			  height: "30px",
-			  background: "green"
-			});
-
-		});
-		
-		
-
-		
-</script>
 </head>
 <body>
 	<!-- 해더 -->
@@ -83,11 +46,52 @@ function giveMoney() {
 				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
 				<img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="30%"></a>
 				
-				<div id="progressBar">
-			  		<div id="myBar"></div>
+				<div class="progressBar<%=support.getSup_idx() %>">
+			  		<div class="myBar<%=support.getSup_idx() %>"></div>
 				</div>
 				
-				<div id="goalDate"><%=support.getSup_goal_date() %></div>
+				<div class="goalDate<%=support.getSup_idx() %>"><%=support.getSup_goal_date() %></div>
+				
+				<script type="text/javascript">
+		
+	
+				
+		//제이쿼리
+		$(function() {
+			
+			//오늘 날짜
+			var today = new Date();
+			
+			//골 날짜
+			var goalDate = $(".goalDate<%=support.getSup_idx() %>").html();
+			var dday = new Date(goalDate)
+			
+			//디데이 계산
+			var gap = dday.getTime() - today.getTime();
+			var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+			
+			var day =  1 / result * 100
+			
+			
+			//디데이 진행도
+			$(".progressBar<%=support.getSup_idx() %>").css({
+			  width: "100%",
+			  background: "grey"
+			});
+			
+			$(".myBar<%=support.getSup_idx() %>").css({
+			  width: day+"%",
+			  height: "30px",
+			  background: "skyblue"
+			});
+
+			$(".myBar<%=support.getSup_idx() %>").html(Math.round(day)+"%");
+		});
+		
+		
+
+		
+</script>
 					
 			<%} %>
 			</section>
