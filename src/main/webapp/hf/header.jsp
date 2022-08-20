@@ -1,41 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="css/index.css" rel="stylesheet">
-</head>
-<body>
-	<header id="header">
-		<div class="logo">
-			<a href="./"><img src="img/main/logo_treeEarth.png" alt="트리어스" width="250"></a>
-		</div>
-		<div class="font_img_holder">
-      		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">
-      	</div>
-		 
+
+<header>
+	<div id="logo">
+		<h1></h1>
+		<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="400"></a>
+	</div>
+	<div id="font_img_holder">
+		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">
+	</div>
+		<!-- 로그인/마이페이지/장바구니 영역-->
+	<section>
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
-				<a href="MemberLoginForm.me" class="login" style="cursor:pointer">로그인</a>
-				<a href="MemberLogout.me" class="login">로그아웃</a>
+				<div class="login">
+					<a href="MemberLoginForm.me">로그인</a>
+				</div>
 			</c:when>
 			<c:otherwise>
 				<c:choose>
 					<c:when test="${sessionScope.sId eq 'admin'}">
-						<a href="Admin.my" class="login">${sessionScope.sId } 님</a>
-						<!--<a href="MemberLogout.me" class="login">로그아웃</a> -->	
+						<div class="login">
+							<a href="Admin.my">${sessionScope.sId }님</a>
+							<a href="MemberLogout.me">로그아웃</a>
+						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="login">
-						    <a href="Cart.my" style="cursor:pointer">장바구니</a>
+						    <a href="Cart.my">장바구니</a>
 							<div class="dropdown">
 								<a class="dropbtn">${sessionScope.sId } 님</a>
-								<div class="dropdown-content" style="cursor:pointer">
+								<div class="dropdown-content">
 									<ul class="inline">
 										<li><a href="">적립금</a></li>
 						                <li><a href="">이름</a></li>
@@ -49,56 +46,48 @@
 						            </ul>
 				        		 </div>   
 							</div>
-						 <a href="MemberLogout.me" class="logout">로그아웃</a> 
+						 <a href="MemberLogout.me">로그아웃</a>
 						</div>
 					</c:otherwise>
 				</c:choose>
 			</c:otherwise>
 		</c:choose>
-		
-      	<nav style="cursor:pointer">
-            <div class="dropdown">
-                <a class="dropbtn_box">캠페인</a>
-                <div class="dropdown-content">
-                <ul class="inline">
-                    <li><a href="CampaignRecruList.cp">모집 캠페인</a></li>
-                    <li><a href="CampaignExpiredList.cp">종료 캠페인</a></li>
-                    <li><a href="">캠페인 아이디어 공모</a></li>
-                </ul>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a class="dropbtn_box">후원</a>
-                <div class="dropdown-content">
-                <ul class="inline">
-                    <li><a href="SupportListAction.su">후원하기</a></li>
-                </ul>
-                </div>
-            </div>
-            <div class="dropdown">
-              	<a class="dropbtn_box">스토어</a> 
-                <div class="dropdown-content">
-                <ul class="inline">
-                    <li><a href="">반려나무</a></li>
-                    <li><a href="StoreItemImg.st">식물</a></li>
-                    <li><a href="">부자재</a></li>
-                </ul>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a class="dropbtn_box">커뮤니티</a>
-                <div class="dropdown-content">
-                <ul class="inline">
-                    <li><a href="CampaignReviewList.cm">캠페인 후기</a></li>
-                    <li><a href="DiaryList.cm">반려나무 성장일기</a></li>
-                    <li><a href="QnaList.cm">Q&A</a></li>
-                    <li><a href="">공지사항</a></li>
-                    <li><a href="">자유게시판</a></li>
-                </ul>
-                </div>
-            </div>
-       	 </nav>
-	</header>
+	</section>
+</header>
 	
-</body>
-</html>
+		<!-- 메뉴바 영역 -->
+	<nav>
+		<ul>
+			<li class="dropdown">
+            	<div class="dropbtn_menu">캠페인</div>
+            	<div class="dropdown-content">
+                	<a href="CampaignRecruList.cp">진행중인 캠페인</a>
+                	<a href="CampaignExpiredList.cp">종료된 캠페인</a>
+                </div>	
+             </li>   
+			<li class="dropdown">
+                <div class="dropbtn_menu">후원하기</div>
+                <div class="dropdown-content">
+                	<a href="SupportListAction.su">진행중인 후원</a>
+                </div>
+            </li> 	
+            <li class="dropdown">
+              	<div class="dropbtn_menu">스토어</div> 
+                <div class="dropdown-content">
+                	<a href="">반려나무</a>
+                    <a href="StoreItemImg.st">반려식물</a>
+                    <a href="">부자재</a>
+            	</div>
+            </li>	
+            <li class="dropdown">
+                <div class="dropbtn_menu">커뮤니티</div>
+                <div class="dropdown-content">
+                    <a href="">공지사항</a>
+                    <a href="CampaignReviewList.cm">캠페인 참여후기</a>
+                    <a href="DiaryList.cm">반려나무 성장일기</a>
+                    <a href="FreeBoardList.cm">자유게시판</a>
+                    <a href="QnaFaqList.cm">Q & A</a>
+               </div>
+        	</li>
+		</ul>
+	</nav>
