@@ -14,7 +14,7 @@ CREATE TABLE order_info (
     mem_email VARCHAR(50) NOT NULL,
     amount INT NOT NULL,
     order_date DATE NOT NULL,
-    FOREIGN KEY (mem_id) REFERENCES member(mem_id)
+    FOREIGN KEY (mem_id) REFERENCES member(mem_id) ON DELETE CASCADE
 );
  */
 

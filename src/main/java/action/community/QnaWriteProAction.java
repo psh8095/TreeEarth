@@ -9,21 +9,26 @@ import svc.community.*;
 import vo.*;
 import vo.community.*;
 
-public class QnaFaqWriteProAction implements Action {
+public class QnaWriteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("QnaFaqWriteProAction");
+		System.out.println("QnaWriteProAction");
 		
 		ActionForward forward = null;
 		
-		//파라미터 qnafaq에 저장
-		QnaFaqDTO qnafaq = new QnaFaqDTO();
-		qnafaq.setFaq_subject(request.getParameter("faq_subject"));
-		qnafaq.setFaq_content(request.getParameter("faq_content"));
+		String qna_tag = request.getParameter("qna_tag");
 		
-		QnaFaqWriteProService service = new QnaFaqWriteProService();
-		boolean isWriteSuccess = service.registFaq(qnafaq);
+		//파라미터 qna에 저장
+		QnaDTO qna = new QnaDTO();
+		qna.setQna_id(request.getParameter("qna_id"));
+		qna.setQna_tag(qna_tag);
+		qna.setQna_subject(request.getParameter("qna_subject"));
+		qna.setQna_content(request.getParameter("qna_content"));
+		System.out.println(qna);
+		
+		QnaWriteProService service = new QnaWriteProService();
+		boolean isWriteSuccess = service.registQna(qna);
 		
 		if(!isWriteSuccess) {
 			response.setContentType("text/html; charset=UTF-8");
@@ -34,7 +39,7 @@ public class QnaFaqWriteProAction implements Action {
 			out.println("</script>");
 		} else {
 			forward = new ActionForward();
-			forward.setPath("QnaFaqList.cm");
+			forward.setPath("QnaList.cm?qna_tag=" + qna_tag);
 			forward.setRedirect(true);
 		}
 		

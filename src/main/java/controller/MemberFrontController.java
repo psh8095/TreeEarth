@@ -211,6 +211,15 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("member/find_pass_result.jsp");
 			forward.setRedirect(false);
+		} else if(command.equals("/UnregisterMember.me")) {
+			// 회원 탈퇴
+			action = new UnregisterMemberAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 	// --------------------------------------------------------------------------------------		

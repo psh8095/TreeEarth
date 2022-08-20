@@ -10,8 +10,8 @@ CREATE TABLE campaign_apply (
 	mem_name VARCHAR(20) NOT NULL,
 	apply_people INT NOT NULL,
 	apply_etc VARCHAR(100) DEFAULT '-',
-	FOREIGN KEY (cam_idx) REFERENCES campaign(cam_idx),
-	FOREIGN KEY (mem_id) REFERENCES member(mem_id)
+	FOREIGN KEY (cam_idx) REFERENCES campaign(cam_idx) ON DELETE CASCADE,
+	FOREIGN KEY (mem_id) REFERENCES member(mem_id) ON DELETE CASCADE
 );
  */
 

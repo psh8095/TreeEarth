@@ -6,8 +6,8 @@ CREATE TABLE cart (
   cart_idx INT PRIMARY KEY,
   mem_id VARCHAR(50),
   sto_idx INT,
-  FOREIGN KEY (mem_id) REFERENCES member(mem_id),
-  FOREIGN KEY (sto_idx) REFERENCES store(sto_idx)
+  FOREIGN KEY (mem_id) REFERENCES member(mem_id) ON DELETE CASCADE,
+  FOREIGN KEY (sto_idx) REFERENCES store(sto_idx) ON DELETE CASCADE
 );
  */
 public class CartDTO {

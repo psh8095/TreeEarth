@@ -10,8 +10,8 @@ CREATE TABLE store_review (
    sto_re_content VARCHAR(300) NOT NULL,
    sto_re_file VARCHAR(30) NOT NULL,
    sto_re_real_file VARCHAR(30) NOT NULL,
-   FOREIGN KEY (mem_id) REFERENCES member (mem_id),
-   FOREIGN KEY (sto_idx) REFERENCES store (sto_idx)
+   FOREIGN KEY (mem_id) REFERENCES member (mem_id) ON DELETE CASCADE,
+   FOREIGN KEY (sto_idx) REFERENCES store (sto_idx) ON DELETE CASCADE
 );
  */
 public class StoreReviewDTO {

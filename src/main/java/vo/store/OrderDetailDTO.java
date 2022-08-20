@@ -8,7 +8,7 @@ CREATE TABLE order_detail (
     sto_idx INT,
     quantity INT NOT NULL,
     FOREIGN KEY (order_id) REFERENCES order_info(order_id),
-    FOREIGN KEY (sto_idx) REFERENCES store(sto_idx)
+    FOREIGN KEY (sto_idx) REFERENCES store(sto_idx) ON DELETE CASCADE
 );
  */
 
