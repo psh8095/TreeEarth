@@ -24,6 +24,7 @@ public class CampaignReviewBlockDAO {
 		this.con = con;
 	}
 
+	//게시글 신고
 	public int insertCampaignReviewBlock(CampaignReviewBlockDTO cam_re_block) {
 		System.out.println("CampaignReviewBlockDAO");
 		
