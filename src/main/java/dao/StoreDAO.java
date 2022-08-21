@@ -154,7 +154,7 @@ public class StoreDAO {
 	}
 	
 	public ArrayList<StoreDTO> StoreItemImg() {
-		System.out.println("StoreDAO 왔음");
+//		System.out.println("StoreDAO 왔음");
 		ArrayList<StoreDTO> itemimg = null;
 		
 		PreparedStatement pstmt = null;
@@ -401,7 +401,7 @@ public class StoreDAO {
 			int startRow = (pageNum - 1) * listLimit;
 			
 			try {
-				String sql = "SELECT * FROM store_review WHERE sto_idx=? ORDER BY sto_re_idx LIMIT ?,?";
+				String sql = "SELECT * FROM store_review WHERE sto_idx=? ORDER BY sto_re_idx DESC LIMIT ?,?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, store.getSto_idx());
 				pstmt.setInt(2, startRow);

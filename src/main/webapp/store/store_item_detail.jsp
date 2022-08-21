@@ -40,7 +40,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	// 			alert(totalPrice); // 금액 총 합계 확인
 				$("#quantity_price").html(totalPrice); // 수량 + 버튼 클릭 시 총 상품 금액 화면 표시	
 			} else {
-				alert("최대 주문 수량은 10개 이상 입니다.");
+				alert("최대 주문 수량은 10개 이하 입니다.");
 			}
 		});
 		
