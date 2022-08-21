@@ -5,13 +5,14 @@
 
 <header>
 	<div id="logo">
-		<h1>트리어스</h1>
+		<h1></h1>
 		<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="350"></a>
 	</div>
 	<div id="font_img_holder">
 		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">
 	</div>
-		<!-- 로그인/마이페이지/장바구니 영역-->
+	
+	<!-- 로그인/마이페이지/장바구니 영역-->
 	<section>
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
@@ -54,8 +55,8 @@
 		</c:choose>
 	</section>
 </header>
-	
-		<!-- 메뉴바 영역 -->
+
+	<!-- 메뉴바 영역 -->
 	<nav>
 		<ul>
 			<li class="dropdown">

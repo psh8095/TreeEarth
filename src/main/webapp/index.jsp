@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +15,8 @@
 	<jsp:include page="hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
     <main>
-    	<section>
-    		<img src="img/1.png" alt="트리ㅋ" width="80%">
+    	<section class="main_cam">
+    		<img src="img/campaign.png" alt="나무">
     	</section>
     	<section>
 	        <img src="img/2.png" alt="대충 메인 베너1" width="80%">
