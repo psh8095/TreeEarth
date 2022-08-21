@@ -6,7 +6,7 @@ import java.sql.Date;
 반려나무 성장일지 테이블 생성
 CREATE TABLE diary (
 	diary_idx int PRIMARY KEY,
-	diary_id VARCHAR(50) REFERENCES member(mem_id), 
+	diary_id VARCHAR(50), 
 	diary_subject VARCHAR(30) NOT NULL,
 	diary_content VARCHAR(70) NOT NULL,
 	diary_img  VARCHAR(100),
@@ -14,7 +14,8 @@ CREATE TABLE diary (
 	diary_thumb_img VARCHAR(100),
 	diary_thumb_real_img VARCHAR(100),
 	diary_readcount INT NOT NULL,
-	diary_date date
+	diary_date date,
+	FOREIGN KEY (diary_id) REFERENCES member(mem_id) ON DELETE CASCADE 
 	);
 */
 
