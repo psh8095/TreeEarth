@@ -2,7 +2,7 @@
 
 header{
 	width: 100%;
-	height: 150px;
+	height: 100px;
 	margin: 0px;
 	padding: 0px;
 /*	background-color: #9ABB43; */
@@ -11,7 +11,7 @@ header{
 header #logo{
 	position: relative;
 	left: 150px;
-	bottom: 50px;
+	bottom: 150px;
 }
 
 header #font_img_holder{
@@ -36,17 +36,17 @@ header .login{
 nav ul{
 	text-align: center;
 	width: 100%;
-/*	background-color: #9ABB43; */
+	background-color: #046B39; 
 	list-style-type: none;
 	margin: 0;
 	padding: 0px;
+	color: white;
 	font: bold;
 }
 
 nav ul li{
 	padding: 14px 16px;
 	display: inline-block;
-	font: bold;
 }
 
 .dropdown{
@@ -55,9 +55,10 @@ nav ul li{
 
 .dropdown-menu{
 	color: white;
-	padding: 16px;
-	font-size: 18px;
+	padding: 20px; 
+	font-size: 20px;
 	cursor: pointer;
+	word-spacing: 10px;
 }
 
 .dropdown-content{
@@ -95,9 +96,9 @@ footer{
    	height:60px; 
 	margin: 50px 0 0 0; 
 	height: 80px;
-	background-color: white;
+	/*background-color: #046B39;*/
 	background-position: 40px center;
-	font-size: 0.75em; 
+	font-size: 0.85em; 
 }
 
 footer hr{

@@ -3,8 +3,8 @@
 <footer po="relative" bottom="0">
 <hr>
 <div id="copy">
-All contents Copyright 2022 treeEarth 2022 treeEarth Inc. all rights reserved<br>
-Contact mail:treeEarth@treeEarthiz.com Tel +82 64 123 4315 Fax +82 64 123 4321
+All contents Copyright 2022 1team 2022 1team Inc. all rights reserved<br>
+Contact mail:1team@1teamiz.com Tel +82 64 123 4315 Fax +82 64 123 4321
 </div>
 <div id="social">
 	<img src="img/main/facebook.gif" alt="Facebook">
