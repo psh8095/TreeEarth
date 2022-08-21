@@ -9,42 +9,47 @@
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var i = $(".score").html();
-// 		alert(i);
-		if(i == 4) {
-			$(".rate5").css({
-				color: "transparent"
-			});
-		} 
-		if(i == 3) {
-			$(".rate4").css({
-				color: "transparent"
-			});
-			$(".rate5").css({
-				color: "transparent"
-			});
-		}
-		if(i == 2) {
-			$(".rate3").css({
-				color: "transparent"
-			});
-			$(".rate4").css({
-				color: "transparent"
-			});
-		}
-		if(i == 1) {
-			$(".rate2").css({
-				color: "transparent"
-			});
-			$(".rate3").css({
-				color: "transparent"
-			});
-			$(".rate4").css({
-				color: "transparent"
-			});
-			$(".rate5").css({
-				color: "transparent"
-			});
+		for(var k = 0; k < ${storeReviewList.size()}; k++) {
+			var i = $(".score").eq(k).html();
+// 			alert(i);
+			if(i == 4) {
+				$(".rate5").eq(k).css({
+					color: "transparent"
+				});
+			} 
+			if(i == 3) {
+				$(".rate4").eq(k).css({
+					color: "transparent"
+				});
+				$(".rate5").eq(k).css({
+					color: "transparent"
+				});
+			}
+			if(i == 2) {
+				$(".rate3").eq(k).css({
+					color: "transparent"
+				});
+				$(".rate4").eq(k).css({
+					color: "transparent"
+				});
+				$(".rate5").eq(k).css({
+					color: "transparent"
+				});
+			}
+			if(i == 1) {
+				$(".rate2").eq(k).css({
+					color: "transparent"
+				});
+				$(".rate3").eq(k).css({
+					color: "transparent"
+				});
+				$(".rate4").eq(k).css({
+					color: "transparent"
+				});
+				$(".rate5").eq(k).css({
+					color: "transparent"
+				});
+			}
 		}
 	});
 </script>
