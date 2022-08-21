@@ -5,8 +5,8 @@
 
 <header>
 	<div id="logo">
-		<h1></h1>
-		<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="330"></a>
+		<h1>트리어스</h1>
+		<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="350"></a>
 	</div>
 	<div id="font_img_holder">
 		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">

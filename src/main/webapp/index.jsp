@@ -15,6 +15,9 @@
 	<!-- 헤더 -->
     <main>
     	<section>
+    		<img src="img/1.png" alt="트리ㅋ" width="80%">
+    	</section>
+    	<section>
 	        <img src="img/2.png" alt="대충 메인 베너1" width="80%">
     	</section>
     	<section>
