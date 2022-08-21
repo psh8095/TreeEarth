@@ -6,7 +6,8 @@
     <%
 	// dto 객체 어트리뷰트로 받기
 	SupportDTO dto = (SupportDTO)request.getAttribute("dto");
-	
+	String sId = (String)session.getAttribute("sId");
+
 	%>
 	
 <!DOCTYPE html>
@@ -90,19 +91,21 @@
 			//디데이 표시
 			$("#dday").html(result);
 			
+			
+			
+			//후원 버튼
+			$("#giveMoney").on("click", function() {
+<%-- 				if(<%=sId%> != null){ --%>
+// 				// 회원만 잡성하게 만드세요
+					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=600,height=450");
+// 				} else {
+// 					alert("로그인 이후 사용해 주세요");
+// 				}
+			});
 
 		});
 		
 		
-</script>
-
-
-<script>
-// 기브머니
-function giveMoney() {
-	window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx()%>, "giveMoney", "width=600,height=450");
-// 	window.open(url, name, specs, replace);
-}
 </script>
 
 
@@ -137,10 +140,12 @@ function giveMoney() {
 				<td><%=dto.getSup_goal_price() %></td>
 			</tr>
 			</table>
-				   <button class="w-btn-outline w-btn-green-outline" type="button" onclick="giveMoney()">
-        후원
-    </button>
+			
+			
+ 			<button id="giveMoney" class="w-btn-outline w-btn-green-outline" type="button" >후원</button>
 		</section>
+	
+	
 	
 		<section id="articleContentArea">
 			<img alt="" src="./img/support/<%=dto.getSup_thumbnail_file() %>" width="70%">
@@ -148,11 +153,22 @@ function giveMoney() {
 			<%=dto.getSup_content() %>
 		</section>
 	</section>
-	<section id="commandList">
-	<input type="button" value="수정" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">
-		<input type="button" value="삭제" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">
-		<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">
-        목록</button>
-	</section>
+	
+	
+	<%if(sId != null){
+		if(sId.equals("admin")){%>
+			<section id="commandList">
+				<input type="button" value="수정" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">
+				<input type="button" value="삭제" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">
+<%-- 			<input type="button" value="목록" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '"> --%>
+		
+			</section>
+			
+		<%} 
+	}%>	
+	
+
+	
+	<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>
 </body>
 </html>

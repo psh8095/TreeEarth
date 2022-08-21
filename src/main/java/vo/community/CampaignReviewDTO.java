@@ -6,7 +6,7 @@ import java.sql.*;
  * 캠페인 리뷰 글번호, 작성자, 제목, 내용, 조회수, 작성일, 상세파일*2, 썸네일 파일*2 
 CREATE TABLE campaign_review (
 	cam_re_idx INT PRIMARY KEY,
-	cam_re_id VARCHAR(50) REFERENCES member(mem_id),
+	cam_re_id VARCHAR(50),
 	cam_re_subject VARCHAR(30) NOT NULL,
 	cam_re_content VARCHAR(100) NOT NULL,
 	cam_re_readcount INT NOT NULL,
@@ -14,7 +14,8 @@ CREATE TABLE campaign_review (
 	cam_re_file VARCHAR(100),
 	cam_re_real_file VARCHAR(100),
 	cam_re_thum_file VARCHAR(100),
-	cam_re_thum_real_file VARCHAR(100)
+	cam_re_thum_real_file VARCHAR(100),
+	FOREIGN KEY (cam_re_id) REFERENCES member(mem_id) ON DELETE CASCADE
 );
  */
 

@@ -62,7 +62,7 @@
 			<li class="dropdown">
             	<div class="dropbtn_menu">캠페인</div>
             	<div class="dropdown-content">
-                	<a href="CampaignRecruList.cp">진행중인 캠페인</a>
+                	<a href="CampaignList.cp">진행중인 캠페인</a>
                 	<a href="CampaignExpiredList.cp">종료된 캠페인</a>
                 </div>	
              </li>   
@@ -87,7 +87,7 @@
                     <a href="CampaignReviewList.cm">캠페인 참여후기</a>
                     <a href="DiaryList.cm">반려나무 성장일기</a>
                     <a href="FreeBoardList.cm">자유게시판</a>
-                    <a href="QnaFaqList.cm">Q & A</a>
+                    <a href="QnaList.cm">Q & A</a>
                </div>
         	</li>
 		</ul>

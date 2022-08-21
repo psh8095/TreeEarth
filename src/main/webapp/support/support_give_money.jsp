@@ -5,7 +5,7 @@
 <%
 	
 	int idx = Integer.parseInt(request.getParameter("idx"));
-
+	out.print(idx);
 %>
 
 <!DOCTYPE html>
@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 <link href="css/button.css" rel="stylesheet">
 
+<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script src="js/jquery-3.6.0.js"></script>
 
 <script type="text/javascript">
@@ -70,11 +71,36 @@ $(function() {
 	});
 	
 	
-	//후원하기
+	
+	//이미 결제가 이루어진 건입니다??
+	// 결제 기능
+	IMP.init("imp73101414");
+	
 	$("#donate").on("click", function() {
-		location.href="GiveMoneyPro.su?total_money="+total_money+"&idx="+<%=idx%>;
-		
+
+		IMP.request_pay({
+			pg: "html5_inicis",
+			pay_method: "card",
+			merchant_uid: "order_" + <%=idx%>,
+			name: "트리어스",
+			amount: total_money,
+			buyer_email: "${member.mem_email}",
+			buyer_name: "${member.mem_name}",
+			buyer_tel: "${member.mem_phone}",
+			buyer_addr: "${member.mem_address}"
+		}, function(rsp) {
+			if(rsp.success) {
+				alert("결제가 정상적으로 완료되었습니다.");
+				location.href="GiveMoneyPro.su?total_money="+total_money+"&idx="+<%=idx%>;
+
+			} else {
+				alert("결제에 실패하였습니다.");
+				alert(rsp.error_msg);
+			}
+		});
 	});
+
+	
 	
 });
 	

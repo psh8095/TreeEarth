@@ -6,10 +6,12 @@ import java.sql.*;
  * 캠페인리뷰 신고번호, 원글, 신고자, 신고 이유, 신고일
 CREATE TABLE cam_re_block(
 	cam_re_block_idx INT PRIMARY KEY,
-	cam_re_block_ref INT REFERENCES campaign_review(cam_re_idx),
-	cam_re_block_id VARCHAR(50) REFERENCES member(mem_id),
+	cam_re_block_ref INT,
+	cam_re_block_id VARCHAR(50),
 	cam_re_block_reason VARCHAR(200),
-	cam_re_block_date DATE
+	cam_re_block_date DATE,
+	FOREIGN KEY (cam_re_block_ref) REFERENCES campaign_review(cam_re_idx) ON DELETE CASCADE,
+	FOREIGN KEY (cam_re_block_id) REFERENCES member(mem_id) ON DELETE CASCADE
 ); 
 */
 

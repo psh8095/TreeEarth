@@ -41,21 +41,22 @@ table {
 <body>
 	<section id="writeForm">
 	<h2>캠페인 게시글 작성</h2>
-		<form action="CampaignWritePro.cp" method="post">
-			<input type="hidden" value="${param.cam_idx }">
-			<input type="hidden" value="${param.pageNum }">
+		<form action="CampaignWritePro.cp" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td class="td_left"><label for="cam_subject">제목</label></td>
-					<td class="td_right"><input type="text" value="${campaign.cam_subject }"></td>
+					<td class="td_right"><input type="text" name="cam_subject"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="cam_content">내용</label></td>
-					<td class="td_right"><textarea rows="15" cols="40" required="required">${campaign.cam_content }</textarea>
+					<td class="td_right"><textarea rows="15" cols="40" required="required" name="cam_content"></textarea>
+				</tr>
+				<tr>
+					<td class="td_left"><label for="cam_thum_file">썸네일 파일 첨부</label></td>
+					<td class="td_right"><input type="file" name="cam_thum_file"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="cam_img">파일 첨부</label></td>
-					<!-- 파일 수정 기능은 제외(파일명만 표시) -->
 					<td class="td_right"><input type="file" name="cam_img"></td>
 				</tr>
 			</table>

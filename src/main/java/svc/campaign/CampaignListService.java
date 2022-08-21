@@ -29,7 +29,7 @@ public class CampaignListService {
 		return listCount;
 	}
 	
-	public static ArrayList<CampaignDTO> getCampaignList(int pageNum, int listLimit) {
+	public static ArrayList<CampaignDTO> getCampaignList() {
 		
 		ArrayList<CampaignDTO> campaignList = null;
 		
@@ -39,7 +39,7 @@ public class CampaignListService {
 		dao.setConnection(con);
 		
 		//게시물 목록 조회
-		campaignList = dao.selectCampaignList(pageNum, listLimit);
+		campaignList = dao.selectCampaignList();
 //		System.out.println(campaignList);
 		
 		close(con);

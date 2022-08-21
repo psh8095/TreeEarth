@@ -23,7 +23,7 @@ Exception {
 			ActionForward forward = null;
 			
 			//업로드 파일 위치
-			String uploadPath = "upload"; 
+			String uploadPath = "img/campaign"; 
 			
 			//업로드 파일 크기 제한(10MB)
 			int fileSize = 1024 * 1024 * 10; 
@@ -44,17 +44,13 @@ Exception {
 				new DefaultFileRenamePolicy()
 			);
 			
-			String cam_id = multi.getParameter("cam_id");
-			String cam_subject = multi.getParameter("cam_subject");
-			String cam_content = multi.getParameter("cam_content");
-			String cam_img = multi.getParameter("cam_img");
-			String cam_original_img = multi.getParameter("cam_original_img");
-			
 			CampaignDTO campaign = new CampaignDTO();
-			campaign.setCam_subject(cam_subject);
-			campaign.setCam_content(cam_content);
-			campaign.setCam_img(cam_img);
-			campaign.setCam_original_img(cam_original_img);
+			campaign.setCam_subject(multi.getParameter("cam_subject"));
+			campaign.setCam_content(multi.getParameter("cam_content"));
+			campaign.setCam_thum_file(multi.getOriginalFileName("cam_thum_file"));
+			campaign.setCam_thum_real_file(multi.getFilesystemName("cam_thum_file"));
+			campaign.setCam_img(multi.getOriginalFileName("cam_img"));
+			campaign.setCam_real_img(multi.getFilesystemName("cam_img"));
 			
 //			System.out.println(campaign);
 			

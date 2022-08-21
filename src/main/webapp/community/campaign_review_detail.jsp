@@ -41,8 +41,8 @@
 			<tr>
 				<th width="70">내용</th>
 				<td>
-					<img alt="${campaign_review.cam_re_file }" src="upload/${campaign_review.cam_re_real_file }"><br>
-					${campaign_review.cam_re_content }
+					${campaign_review.cam_re_content }<br><br>
+					<img alt="${campaign_review.cam_re_file }" src="upload/${campaign_review.cam_re_real_file }">
 				</td>
 			</tr>
 			</table>
@@ -53,7 +53,10 @@
 		<input type="button" value="수정" onclick="location.href='CampaignReviewModifyForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="삭제" onclick="location.href='CampaignReviewDeleteForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='CampaignReviewList.cm?pageNum=${param.pageNum}'">
-		<input type="button" value="신고하기" onclick="blockForm()">
+		
+		<c:if test="${not empty sessionScope.sId}">
+			<input type="button" value="신고하기" onclick="blockForm()">
+		</c:if>
 	</section>
 	
 	<!-- 푸터 -->
