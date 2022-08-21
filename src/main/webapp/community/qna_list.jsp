@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>TreeEarth</title>
 <link href="css/qna.css" rel="stylesheet">
-<link href="css/qna_menu.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/TweenMax.js"></script>
 <script type="text/javascript">
