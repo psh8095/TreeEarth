@@ -62,7 +62,7 @@
 			<li class="dropdown">
             	<div class="dropbtn_menu">캠페인</div>
             	<div class="dropdown-content">
-                	<a href="CampaignRecruList.cp">진행중인 캠페인</a>
+                	<a href="CampaignList.cp">진행중인 캠페인</a>
                 	<a href="CampaignExpiredList.cp">종료된 캠페인</a>
                 </div>	
              </li>   

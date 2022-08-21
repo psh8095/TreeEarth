@@ -11,25 +11,6 @@ import db.*;
 
 public class CampaignDeleteProService {
 	
-		//삭제 권한 판별 요청
-		public boolean isCampaignWriter(int cam_idx, String mem_pass) {
-				System.out.println("CampaignDeleteProService");
-				
-				boolean isCampaignWriter = false;
-				
-				//싱글톤 디자인 패턴으로 생성된 CampaignDAO 인스턴스 활용
-				Connection con = JdbcUtil.getConnection();
-				CampaignDAO dao = CampaignDAO.getInstance();
-				dao.setConnection(con);
-				
-				//삭제 권한 판별
-				isCampaignWriter = dao.isCampaignWriter(cam_idx, mem_pass);
-				 
-				close(con);
-				
-				return isCampaignWriter;
-		}
-		
 		//삭제 요청을 수행
 		public boolean deleteCampaign(int cam_idx) {
 				System.out.println("CampaignDeleteProService");

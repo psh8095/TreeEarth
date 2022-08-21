@@ -25,10 +25,10 @@ public class CampaignWriteProSerive {
 		int insertCount = dao.insertCampaign(campaign);
 		
 		if(insertCount > 0) {
-				commit(con);
-				isWriteSuccess = true;
+			commit(con);
+			isWriteSuccess = true;
 		} else {
-				rollback(con);
+			rollback(con);
 		}
 		
 		close(con);
