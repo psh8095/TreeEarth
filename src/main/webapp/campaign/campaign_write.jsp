@@ -60,7 +60,7 @@ table {
 				</tr>
 			</table>
 			<section id="commandCell">
-				<input type="submit" value="수정">&nbsp;&nbsp;
+				<input type="submit" value="등록">&nbsp;&nbsp;
 				<input type="reset" value="다시쓰기">&nbsp;&nbsp;
 				<input type="button" value="취소" onclick="history.back()">
 			</section>
