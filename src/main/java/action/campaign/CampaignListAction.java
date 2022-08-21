@@ -40,13 +40,13 @@ public class CampaignListAction implements Action {
 			}
 			
 			//페이지 정보를 PageInfo 객체에 저장
-			PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
+//			PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
 			
 			//---------------------------------------------------------------------------------
 			//게시물 목록 가져오기
-			ArrayList<CampaignDTO> campaignList = CampaignListService.getCampaignList(pageNum, listLimit);
+			ArrayList<CampaignDTO> campaignList = CampaignListService.getCampaignList();
 			
-			request.setAttribute("pageInfo", "pageInfo");
+//			request.setAttribute("pageInfo", "pageInfo");
 			request.setAttribute("campaignList", campaignList);
 			
 			forward = new ActionForward();

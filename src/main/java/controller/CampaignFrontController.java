@@ -80,20 +80,6 @@ public class CampaignFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/CampaignModifyForm.cp")) {//캠페인 수정 폼
-				action = new CampaignModifyFormAction();
-				try {
-					forward = action.execute(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-		} else if(command.equals("/CampaignModifyPro.cp")) {//캠페인 수정 동작
-				action = new CampaignModifyProAction();
-				try {
-					forward = action.execute(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 		} else if(command.equals("/CampaignDeleteForm.cp")) {//캠페인 삭제 폼
 				 forward = new ActionForward();
 				 forward.setPath("/campaign/campaign_delete.jsp");

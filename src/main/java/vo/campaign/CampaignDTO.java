@@ -15,7 +15,7 @@ CREATE TABLE campaign(
 	cam_thum_file VARCHAR(100),
 	cam_thum_real_file VARCHAR(100),
 	cam_img VARCHAR(100),
-	cam_original_img VARCHAR(100)
+	cam_real_img VARCHAR(100)
 );
  */
 
@@ -30,7 +30,7 @@ public class CampaignDTO{
 	private String cam_thum_file;
 	private String cam_thum_real_file;
 	private String cam_img;
-	private String cam_original_img;
+	private String cam_real_img;
 	
 	public int getCam_idx() {
 		return cam_idx;
@@ -86,11 +86,11 @@ public class CampaignDTO{
 	public void setCam_img(String cam_img) {
 		this.cam_img = cam_img;
 	}
-	public String getCam_original_img() {
-		return cam_original_img;
+	public String getCam_real_img() {
+		return cam_real_img;
 	}
-	public void setCam_original_img(String cam_original_img) {
-		this.cam_original_img = cam_original_img;
+	public void setCam_real_img(String cam_real_img) {
+		this.cam_real_img = cam_real_img;
 	}
 	
 	@Override
@@ -98,7 +98,7 @@ public class CampaignDTO{
 		return "CampaignDTO [cam_idx=" + cam_idx + ", cam_people=" + cam_people
 				+ ", cam_subject=" + cam_subject + ", cam_content=" + cam_content + ", cam_readcount=" + cam_readcount
 				+ ", cam_date=" + cam_date + ", cam_thum_file=" + cam_thum_file + ", cam_thum_real_file="
-				+ cam_thum_real_file + ", cam_img=" + cam_img + ", cam_original_img=" + cam_original_img + "]";
+				+ cam_thum_real_file + ", cam_img=" + cam_img + "]";
 	}
 	
 }
