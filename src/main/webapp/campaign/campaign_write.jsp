@@ -53,6 +53,11 @@ table {
 					<td class="td_left"><label for="cam_content">내용</label></td>
 					<td class="td_right"><textarea rows="15" cols="40" required="required">${campaign.cam_content }</textarea>
 				</tr>
+				<tr>
+					<td class="td_left"><label for="cam_img">파일 첨부</label></td>
+					<!-- 파일 수정 기능은 제외(파일명만 표시) -->
+					<td class="td_right"><input type="file" name="cam_img"></td>
+				</tr>
 			</table>
 			<section id="commandCell">
 				<input type="submit" value="수정">&nbsp;&nbsp;
