@@ -14,7 +14,6 @@ import action.store.InsertOrderAction;
 import action.store.OrderAction;
 import action.store.StoreDeleteProAction;
 import action.store.StoreItemDetailAction;
-import action.store.StoreItemImgAction;
 import action.store.StoreItemListAction;
 import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
@@ -60,16 +59,8 @@ public class StoreFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		} else if(command.equals("/StoreItemImg.st")) {
-			// 상품 이미지 조회 확인
-			action = new StoreItemImgAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		} else if(command.equals("/StoreItemDetail.st")) {
+		} 
+		else if(command.equals("/StoreItemDetail.st")) {
 			// 상품 상세 조회 주소
 			action = new StoreItemDetailAction();
 			try {

@@ -18,6 +18,7 @@
 		<h1>상품 구매 후기 작성</h1>
 		<form action="StoreReviewWritePro.st"  name="reviewModifyForm" id="reviewModifyForm" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="sto_idx" value="${param.sto_idx }">
+		<input type="hidden" name="sto_subject" value="${param.sto_subject }">
 			<table>
 				<tr>
 					<td><img src="img/store/${store.sto_thum_file}" width="100" height="110"></td>

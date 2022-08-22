@@ -17,6 +17,8 @@ public class StoreItemListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("StoreItemListAction");
 		
+		String sto = request.getParameter("sto_category");
+		
 		ActionForward forward = null;
 		
 		// 페이징 처리 없애기!
@@ -33,7 +35,7 @@ public class StoreItemListAction implements Action {
 		// StoreItemListService 클래스 인스턴스 생성 후 getItemListCount() 메서드 호출하여 총 상품 목록 갯수 조회
 		// 파라미터 : 없음, 리턴타입 : int(itemListCount)
 		StoreItemListService service = new StoreItemListService();
-		int itemListCount = service.getItemListCount(); 
+		int itemListCount = service.getItemListCount(sto);
 		System.out.println("전체 상품 목록 수 : " + itemListCount);
 		//------------------------------------------------------------------
 		// 1. 현재 페이지에서 표시할 전체 페이지 수 계산
@@ -52,11 +54,11 @@ public class StoreItemListAction implements Action {
 		
 		// 페이징 처리 정보를 StorePageInfo 객체에 저장
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, itemListCount);
-		//-------------------------------------------------------------------
+		
 		// StoreItemListService 객체의 getStoreItemList() 메서드 호출하여 상품 목록 가져오기
 		// 파라미터 : 현재 페이지 번호(pageNum), 페이지 당 상품 목록 수(listLimit)
 		// 리턴타입 : ArrayList<StoreDTO>(storeList)
-		ArrayList<StoreDTO> storeList = service.getStoreItemList(pageNum, listLimit);
+		ArrayList<StoreDTO> storeList = service.getStoreItemList(pageNum, listLimit, sto);
 		
 //		System.out.println(pageInfo.getItemListCount());
 //		System.out.println(storeList); // 잠시 주석 처리
