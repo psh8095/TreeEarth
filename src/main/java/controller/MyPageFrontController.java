@@ -90,9 +90,7 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
-//		========================================================================================================================
-		else if(command.equals("/CampaignReviewBlockList.my")) { 
+		} else if(command.equals("/CampaignReviewBlockList.my")) { 
 			//신고글 목록 조회
 			action = new CampaignReviewBlockListAction();
 			
@@ -110,8 +108,19 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/CampaignReviewBlockDelete.my")) { 
+			//신고글 삭제
+			action = new CampaignReviewBlockDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
+//		========================================================================================================================
+	
 		if(forward != null) {
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
