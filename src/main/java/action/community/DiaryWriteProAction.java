@@ -22,7 +22,7 @@ public class DiaryWriteProAction implements Action {
 		ActionForward forward = null;
 		
 		//사진 업로드 폴더
-		String uploadPath = "upload"; 
+		String uploadPath = "img/community"; 
 		
 		//업로드 파일 크기 제한(10MB)
 		int fileSize = 1024 * 1024 * 10; 

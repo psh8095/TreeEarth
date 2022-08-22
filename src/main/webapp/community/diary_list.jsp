@@ -25,7 +25,7 @@
 								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
 									<c:choose>
 										<c:when test="${not empty diary.diary_img}">
-											<img alt="" src="upload/${diary.diary_img }" width="500px">
+											<img alt="" src="img/community/${diary.diary_img }" width="500px">
 										</c:when>
 										<c:otherwise>
 											<img alt="썸네일없음" src="img/community/treediary.png" width="500px">

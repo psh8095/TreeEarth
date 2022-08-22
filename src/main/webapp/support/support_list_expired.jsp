@@ -43,8 +43,8 @@ function giveMoney() {
 				SupportDTO support = (SupportDTO)o; 
 			%>
 				
-				<h3><a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">제목 : <%=support.getSup_subject()%></a></h3>
-				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
+				<h3><a  href ="SupportDetailExpired.su?sup_idx=<%=support.getSup_idx() %>">제목 : <%=support.getSup_subject()%></a></h3>
+				<a  href ="SupportDetailExpired.su?sup_idx=<%=support.getSup_idx() %>">
 				<img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="50%"></a>
 				
 				<div class="progressBar<%=support.getSup_idx() %>">
@@ -103,7 +103,7 @@ function giveMoney() {
 			<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='SupportList.su?pageNum=${pageInfo.pageNum - 1}'">
+				<input type="button" value="이전" onclick="location.href='SupportListExpired.su?pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="이전">
@@ -121,7 +121,7 @@ function giveMoney() {
 		</c:forEach>
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='SupportList.su?pageNum=${pageInfo.pageNum + 1}'">
+				<input type="button" value="다음" onclick="location.href='SupportListExpired.su?pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">

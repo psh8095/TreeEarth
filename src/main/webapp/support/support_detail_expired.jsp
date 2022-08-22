@@ -16,7 +16,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/button.css" rel="stylesheet">
-<link href="../css/index.css" rel="stylesheet" > 
 
 <style type="text/css">
 	#articleForm {
@@ -62,10 +61,7 @@
 		text-align: center;
 		overflow: auto;
 		white-space: pre-line;
-	}
-	
-	#buttons{
-	margin-top: 200px;
+		filter: grayscale(100%);
 	}
 	
 	#commandList {
@@ -76,7 +72,6 @@
 	
 	#list{
 		margin-top: 100px;
-		text-align: center;
 	}
 	
 </style>
@@ -127,7 +122,7 @@
 <jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 게시판 상세내용 보기 -->
 	<section id="articleForm">
-		<h2>진행 중 후원</h2>
+		<h2>이 후원은 종료되었습니다.</h2>
 		<section id="basicInfoArea">
 			<table border="1">
 			
@@ -153,13 +148,8 @@
 				<td><%=dto.getSup_goal_price() %></td>
 			</tr>
 			</table>
+			</section>
 			
-			
- 			<button id="giveMoney" class="w-btn-outline w-btn-green-outline" type="button" >후원</button>
-		</section>
-	
-	
-	
 		<section id="articleContentArea">
 			<img alt="" src="./img/support/<%=dto.getSup_thumbnail_file() %>" width="70%">
 			<img alt="" src="./img/support/<%=dto.getSup_original_file() %>" width="70%">
@@ -167,27 +157,15 @@
 		</section>
 	</section>
 	
-	<section id ="buttons">
-	<%if(sId != null){
-		if(sId.equals("admin")){%>
 			<section id="commandList">
-				<button class="w-btn w-btn-gra2 w-btn-gra-anim"  type="button" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">수정</button>
-				<button class="w-btn w-btn-gra2 w-btn-gra-anim" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">삭제</button>
-				<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>
-<%-- 			<input type="button" value="목록" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '"> --%>
+				<input type="button" value="목록" onclick="location.href='SupportListExpired.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">
+		
 			</section>
+			
+	
+	<h2>성원에 감사합니다.</h2>
+	
 
-		<%}else{%>
-		<section id="List">
-		<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>	
-		</section>
-		
-		<%}%>	
-		
-	<%}%>	
-	</section>
-<!-- 	<section id="commandList"> -->
-<%-- 		<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '">목록</button> --%>
-<!-- 	</section> -->
+	
 </body>
 </html>

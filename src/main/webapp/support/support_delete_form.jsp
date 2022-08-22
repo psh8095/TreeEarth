@@ -10,7 +10,6 @@
 	#passForm {
 		width: 300px;
 		margin: auto;
-		border: 1px solid green;
 		text-align: center;
 	}
 	

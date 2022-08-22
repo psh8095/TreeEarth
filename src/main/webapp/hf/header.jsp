@@ -69,7 +69,8 @@
 			<li class="dropdown">
                 <div class="dropbtn_menu">후원하기</div>
                 <div class="dropdown-content">
-                	<a href="SupportListAction.su">진행중인 후원</a>
+                	<a href="SupportList.su">진행중인 후원</a>
+                	<a href="SupportListExpired.su">종료된 후원</a>
                 </div>
             </li> 	
             <li class="dropdown">
