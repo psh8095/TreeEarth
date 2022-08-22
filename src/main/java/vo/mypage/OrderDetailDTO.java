@@ -1,4 +1,4 @@
-package vo.store;
+package vo.mypage;
 
 /*
  * 주문 상세 번호, 주문 아이디, 상품 번호 

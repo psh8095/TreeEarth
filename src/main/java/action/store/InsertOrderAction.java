@@ -7,8 +7,8 @@ import javax.servlet.http.HttpSession;
 import action.Action;
 import svc.store.insertOrderService;
 import vo.ActionForward;
-import vo.store.OrderDTO;
-import vo.store.OrderDetailDTO;
+import vo.mypage.OrderDTO;
+import vo.mypage.OrderDetailDTO;
 
 public class InsertOrderAction implements Action {
 

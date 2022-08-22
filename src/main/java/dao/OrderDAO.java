@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import vo.store.OrderDTO;
-import vo.store.OrderDetailDTO;
+import vo.mypage.OrderDTO;
+import vo.mypage.OrderDetailDTO;
 
 import static db.JdbcUtil.*;
 

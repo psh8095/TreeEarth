@@ -1,14 +1,13 @@
 package svc.mypage;
 
-import vo.store.OrderDTO;
-import vo.store.OrderDetailDTO;
-
 import static db.JdbcUtil.*;
 
 import java.sql.Connection;
 import java.util.List;
 
 import dao.OrderDAO;
+import vo.mypage.OrderDTO;
+import vo.mypage.OrderDetailDTO;
 
 public class OrderListService {
 

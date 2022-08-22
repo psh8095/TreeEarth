@@ -1,4 +1,4 @@
-package vo.store;
+package vo.mypage;
 
 /*
  * 장바구니 목록 번호, 회원 아이디, 상품 번호

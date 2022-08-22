@@ -78,6 +78,26 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 			}
 		});
 		
+		// 위시리스트 담기 버튼 클릭 시 수행되는 작업들
+		$("#insertWishlist").on("click", function() {
+// 			alert("확인용");
+			if(${empty sessionScope.sId}) {
+				alert("로그인이 필요한 기능입니다.");
+			} else {
+				$.ajax({
+					type: "post",
+					url: "InsertWishlist.my",
+					data: {
+						sto_idx: ${param.sto_idx}
+					},
+					dataType: "text",
+					success: function(response) {
+						alert("위시리스트에 담았습니다!");
+					}
+				});
+			}
+		});
+		
 		// 구매하기
 		$("#order").on("click", function() {
 			location.href="Order.st?sto_idx=" + ${param.sto_idx} + "&quantity=" + $("#quantity_input").val();
@@ -146,6 +166,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	
 	<!-- 장바구니 담기 버튼 -->
 	<div>
+		<input type="button" value="위시리스트 담기" id="insertWishlist">
 		<input type="button" value="장바구니 담기" id="insertCart">
 		<input type="button" value="구매하기" id="order">
 	</div>
