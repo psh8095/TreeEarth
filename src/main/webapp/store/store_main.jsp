@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg");
+ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("storeList");
 
 %>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 	
 	<h1>TreeEarth 프로젝트_Store Main</h1>
 	
-	<%if(itemimg.isEmpty()) { %>
+	<%if(storeList.isEmpty()) { %>
 	<hr>
 	<h1>상품이 없습니다.</h1>
 	<%}  %>
@@ -45,27 +45,27 @@ ArrayList<StoreDTO> itemimg = (ArrayList<StoreDTO>)request.getAttribute("itemimg
 			<div id="tr1">
 			<table>
 			<%
-			for(Object o : itemimg) {
-				StoreDTO itemimg2 = (StoreDTO)o;
+			for(Object o : storeList) {
+				StoreDTO dto = (StoreDTO)o;
 			%>
 				<tr>
 					<td>
-						<a href="StoreItemDetail.st?sto_idx=<%=itemimg2.getSto_idx() %>">
-						<img src="img/store/<%=itemimg2.getSto_thum_file() %>" width="200" height="200">
+						<a href="StoreItemDetail.st?sto_idx=<%=dto.getSto_idx() %>">
+						<img src="img/store/<%=dto.getSto_thum_file() %>" width="200" height="200">
 						</a>
 					</td>
 				</tr>
 				<tr>
-					<td>상품명 : <%=itemimg2.getSto_subject() %></td>
+					<td>상품명 : <%=dto.getSto_subject() %></td>
 				</tr>
 				<tr>
-					<td><%=itemimg2.getSto_content() %></td>
+					<td><%=dto.getSto_content() %></td>
 				</tr>
 				<tr>
-					<td><%=itemimg2.getSto_price() %></td>
+					<td><%=dto.getSto_price() %></td>
 				</tr>
 				<tr>
-					<td><%=itemimg2.getSto_tag() %></td>
+					<td><%=dto.getSto_tag() %></td>
 				</tr>
 			<%	
 			}

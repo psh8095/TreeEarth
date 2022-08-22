@@ -9,11 +9,12 @@
 <title>treeEarth</title>
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
+	// 후기 별점 출력
 	$(function() {
 		for(var k = 0; k < ${storeReviewList.size()}; k++) {
 			var i = $(".score").eq(k).html();
 // 			alert(i);
-			if(i == 4) {
+			if(i == 4) { // 별점이 4점일 경우 class명이 rate5인 별 하나 숨김처리
 				$(".rate5").eq(k).css({
 					color: "transparent"
 				});
