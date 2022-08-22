@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Support</title>
+<link href="css/button.css" rel="stylesheet">
 <style>
 	#passForm {
-		width: 300px;
+		width: 1000px;
 		margin: auto;
-		border: 1px solid green;
 		text-align: center;
 	}
 	
@@ -19,7 +19,7 @@
 	}
 	
 	table {
-		width: 300px;
+		width: 1000px;
 		margin: auto;
 		text-align: center;
 	}
@@ -41,8 +41,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="삭제">&nbsp;&nbsp;
-						<input type="button" value="돌아가기" onclick="javascript:history.back()">
+						<button class="w-btn-outline w-btn-red-outline" type="submit" >삭제</button>
+						<button class="w-btn-outline w-btn-indigo-outline"type="button" onclick="javascript:history.back()">돌아가기</button>
 					</td>
 				</tr>
 			</table>
