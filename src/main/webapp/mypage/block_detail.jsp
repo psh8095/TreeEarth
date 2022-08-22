@@ -23,10 +23,14 @@
 				<img alt="${campaign_review.cam_re_file }" src="upload/${campaign_review.cam_re_real_file }">
 			</td>
 		</tr>
+		<tr>
+			<th>신고이유</th>
+			<td>${cam_re_block.cam_re_block_reason }</td>
+		</tr>
 	</table>
 
 	<input type="button" value="신고취소" onclick="">
-	<input type="button" value="신고글삭제" onclick="">
+	<input type="button" value="신고글삭제" onclick="location.href='CampaignReviewBlockDelete.my?cam_re_ref=${cam_re_block.cam_re_block_ref}'">
 
 </body>
 </html>
