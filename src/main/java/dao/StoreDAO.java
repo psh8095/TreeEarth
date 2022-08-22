@@ -105,7 +105,7 @@ public class StoreDAO {
 	}
 	
 	// 상품 목록을 조회하는 selectStoreItemList() 메서드 정의
-	public ArrayList<StoreDTO> selectStoreItemList(int pageNum, int listLimit) {
+	public ArrayList<StoreDTO> selectStoreItemList(int pageNum, int listLimit, String sto_category) {
 		
 		ArrayList<StoreDTO> storeList = null;
 		
@@ -116,10 +116,11 @@ public class StoreDAO {
 		int startRow = (pageNum - 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM store ORDER BY sto_idx DESC LIMIT ?,?";
+			String sql = "SELECT * FROM store WHERE sto_category=? ORDER BY sto_idx DESC LIMIT ?,?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, listLimit);
+			pstmt.setString(1, sto_category);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, listLimit);
 			
 			rs = pstmt.executeQuery();
 			
@@ -153,46 +154,46 @@ public class StoreDAO {
 		return storeList;
 	}
 	
-	public ArrayList<StoreDTO> StoreItemImg() {
-		System.out.println("StoreDAO 왔음");
-		ArrayList<StoreDTO> itemimg = null;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		itemimg = new ArrayList<StoreDTO>();
-		
-		try {
-			String sql = "SELECT * FROM store";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				StoreDTO store = new StoreDTO();
-				store.setSto_idx(rs.getInt("sto_idx"));
-				store.setSto_price(rs.getInt("sto_price"));
-				store.setSto_subject(rs.getString("sto_subject"));
-				store.setSto_content(rs.getString("sto_content"));
-				store.setSto_tag(rs.getString("sto_tag"));
-				store.setSto_category(rs.getString("sto_category"));
-				store.setSto_date(rs.getDate("sto_date"));
-				store.setSto_thum_file(rs.getString("sto_thum_file"));
-				store.setSto_thum_real_file(rs.getString("sto_thum_real_file"));
-				store.setSto_content_file(rs.getString("sto_content_file"));
-				store.setSto_content_real_file(rs.getString("sto_content_real_file"));
-				
-				itemimg.add(store);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("StoreDAO - StoreItemImg() 메서드 오류 발생 : " + e.getMessage());
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return itemimg;
-	}
+//	public ArrayList<StoreDTO> StoreItemImg(String sto) {
+////		System.out.println("StoreDAO 왔음");
+//		ArrayList<StoreDTO> itemimg = null;
+//		
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		itemimg = new ArrayList<StoreDTO>();
+//		
+//		try {
+//			String sql = "SELECT * FROM store";
+//			pstmt = con.prepareStatement(sql);
+//			rs = pstmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				StoreDTO store = new StoreDTO();
+//				store.setSto_idx(rs.getInt("sto_idx"));
+//				store.setSto_price(rs.getInt("sto_price"));
+//				store.setSto_subject(rs.getString("sto_subject"));
+//				store.setSto_content(rs.getString("sto_content"));
+//				store.setSto_tag(rs.getString("sto_tag"));
+//				store.setSto_category(rs.getString("sto_category"));
+//				store.setSto_date(rs.getDate("sto_date"));
+//				store.setSto_thum_file(rs.getString("sto_thum_file"));
+//				store.setSto_thum_real_file(rs.getString("sto_thum_real_file"));
+//				store.setSto_content_file(rs.getString("sto_content_file"));
+//				store.setSto_content_real_file(rs.getString("sto_content_real_file"));
+//				
+//				itemimg.add(store);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("StoreDAO - StoreItemImg() 메서드 오류 발생 : " + e.getMessage());
+//		} finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//		
+//		return itemimg;
+//	}
 	
 	// 상품 목록 상세 조회
 	public StoreDTO selectItemDetail(int sto_idx) {
@@ -401,7 +402,7 @@ public class StoreDAO {
 			int startRow = (pageNum - 1) * listLimit;
 			
 			try {
-				String sql = "SELECT * FROM store_review WHERE sto_idx=? ORDER BY sto_re_idx LIMIT ?,?";
+				String sql = "SELECT * FROM store_review WHERE sto_idx=? ORDER BY sto_re_idx DESC LIMIT ?,?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, store.getSto_idx());
 				pstmt.setInt(2, startRow);
@@ -779,6 +780,33 @@ public class StoreDAO {
 			}
 			
 			return storeQnaDeleteCount;
+		}
+
+		public int selectItemListCount(String sto) {
+			
+			int itemListCount = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT COUNT(*) FROM store WHERE sto_category=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, sto);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					itemListCount = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectItemListCount() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return itemListCount;
 		}
 		
 }

@@ -5,8 +5,8 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 
 import dao.OrderDAO;
-import vo.store.OrderDTO;
-import vo.store.OrderDetailDTO;
+import vo.mypage.OrderDTO;
+import vo.mypage.OrderDetailDTO;
 
 public class insertOrderService {
 

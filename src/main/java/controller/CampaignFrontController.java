@@ -27,23 +27,7 @@ public class CampaignFrontController extends HttpServlet {
 			ActionForward forward = new ActionForward();
 			
 		//-------------------------------------------------------------------------------------
-		if(command.equals("/CampaignRecruList.cp")) {
-				// 모집중인 캠페인 서블릿 주소
-				action = new CampaignRecruListAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/CampaignExpiredList.cp")) {
-				// 종료된 캠페인 서블릿 주소
-				action = new CampaignExpiredListAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/CampaignApplyForm.cp")) {
+		if(command.equals("/CampaignApplyForm.cp")) {
 				// 캠페인 참가 신청서 서블릿 주소
 				forward = new ActionForward();
 				forward.setPath("campaign/campaign_apply.jsp");

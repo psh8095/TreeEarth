@@ -45,6 +45,8 @@ public class StoreReviewWriteProAction implements Action {
 		
 //		System.out.println(Integer.parseInt(request.getParameter("sto_re_idx")));
 		
+		System.out.println(request.getParameter("sto_subject"));
+		
 		// 폼 파라미터 데이터 store_reviewDTO 객체에 저장
 		StoreReviewDTO storeReview = new StoreReviewDTO();
 //		storeReview.setSto_re_idx(Integer.parseInt(multi.getParameter("sto_re_idx")));

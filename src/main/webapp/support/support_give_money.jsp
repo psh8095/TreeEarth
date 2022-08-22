@@ -5,7 +5,7 @@
 <%
 	
 	int idx = Integer.parseInt(request.getParameter("idx"));
-	out.print(idx);
+// 	out.print(idx);
 %>
 
 <!DOCTYPE html>
@@ -115,7 +115,7 @@ $(function() {
 	<form action="GiveMoneyPro.su">
 		
 		<!-- 금액 직접 입력 -->
-		<input type="text" id="text_money" name="sup_money" placeholder="한푼만줍쇼">
+		<input type="text" id="text_money" name="sup_money" placeholder="후원금">
 		<!-- 금액 버튼 -->
 	    <button id="button_money_10000" class="w-btn w-btn-yellow" type="button"> 10000원  </button>
 	    <button id="button_money_20000" class="w-btn w-btn-yellow" type="button"> 20000원  </button>
@@ -129,7 +129,7 @@ $(function() {
 		<!-- 후원 버튼 -->
 		<button id="donate" class="w-btn w-btn-gra2"  type="button"> 후원 </button><br>
 		
-		<div id="CheckMoneyResult">기부금 제세 혜택은 최대 10만원입니다.</div>
+		<div id="CheckMoneyResult"></div>
 		
 	</form>
 	

@@ -22,7 +22,7 @@ public class CampaignReviewWriteProAction implements Action {
 		ActionForward forward = null;
 		
 		//업로드 파일 위치
-		String uploadPath = "upload"; 
+		String uploadPath = "img/community"; 
 		
 		//업로드 파일 크기 제한(10MB)
 		int fileSize = 1024 * 1024 * 10; 

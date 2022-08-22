@@ -75,9 +75,9 @@
             <li class="dropdown">
               	<div class="dropbtn_menu">스토어</div> 
                 <div class="dropdown-content">
-                	<a href="">반려나무</a>
-                    <a href="StoreItemImg.st">반려식물</a>
-                    <a href="">부자재</a>
+                	<a href="StoreItemList.st?sto_category=반려나무">반려나무</a>
+                    <a href="StoreItemList.st?sto_category=식물">반려식물</a>
+                    <a href="StoreItemList.st?sto_category=부자재">부자재</a>
             	</div>
             </li>	
             <li class="dropdown">

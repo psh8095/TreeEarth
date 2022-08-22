@@ -31,7 +31,7 @@
 			<tr>
 				<th width="70">첨부파일</th>
 				<td>
-					<a href="upload/${campaign_review.cam_re_real_file }" download="${campaign_review.cam_re_file }">
+					<a href="img/community/${campaign_review.cam_re_real_file }">
 						${campaign_review.cam_re_file }
 					</a>
 				</td>
@@ -42,7 +42,7 @@
 				<th width="70">내용</th>
 				<td>
 					${campaign_review.cam_re_content }<br><br>
-					<img alt="${campaign_review.cam_re_file }" src="upload/${campaign_review.cam_re_real_file }">
+					<img alt="${campaign_review.cam_re_file }" src="img/community/${campaign_review.cam_re_real_file }">
 				</td>
 			</tr>
 			</table>

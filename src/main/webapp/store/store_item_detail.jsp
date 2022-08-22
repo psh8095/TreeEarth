@@ -40,7 +40,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	// 			alert(totalPrice); // 금액 총 합계 확인
 				$("#quantity_price").html(totalPrice); // 수량 + 버튼 클릭 시 총 상품 금액 화면 표시	
 			} else {
-				alert("최대 주문 수량은 10개 이상 입니다.");
+				alert("최대 주문 수량은 10개 이하 입니다.");
 			}
 		});
 		
@@ -73,6 +73,26 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 					dataType: "text",
 					success: function(response) {
 						alert("장바구니에 담았습니다!");
+					}
+				});
+			}
+		});
+		
+		// 위시리스트 담기 버튼 클릭 시 수행되는 작업들
+		$("#insertWishlist").on("click", function() {
+// 			alert("확인용");
+			if(${empty sessionScope.sId}) {
+				alert("로그인이 필요한 기능입니다.");
+			} else {
+				$.ajax({
+					type: "post",
+					url: "InsertWishlist.my",
+					data: {
+						sto_idx: ${param.sto_idx}
+					},
+					dataType: "text",
+					success: function(response) {
+						alert("위시리스트에 담았습니다!");
 					}
 				});
 			}
@@ -146,13 +166,14 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	
 	<!-- 장바구니 담기 버튼 -->
 	<div>
+		<input type="button" value="위시리스트 담기" id="insertWishlist">
 		<input type="button" value="장바구니 담기" id="insertCart">
 		<input type="button" value="구매하기" id="order">
 	</div>
 	<hr>
 	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
 	<div>
-		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><input type="button" value="구매 후기" id="store_review"></a>
+		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }&sto_subject=${store.sto_subject}"><input type="button" value="구매 후기" id="store_review"></a>
 		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }"><input type="button" value="상품 문의" id="store_qna"></a>
 	</div>
 	

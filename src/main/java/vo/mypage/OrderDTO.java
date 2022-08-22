@@ -1,4 +1,4 @@
-package vo.store;
+package vo.mypage;
 
 import java.sql.Date;
 

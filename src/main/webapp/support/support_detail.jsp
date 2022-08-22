@@ -22,6 +22,8 @@
 		width: 1000px;
 		height: 550px;
 		margin: auto;
+		margin-left:auto;
+		margin-right:auto;
 	}
 	
 	h2 {
@@ -62,10 +64,15 @@
 	}
 	
 	#commandList {
-		margin-top: 50px;
-		width: auto;
+		margin-top: 100px;
+/* 		width: auto; */
 		text-align: center;
 	}
+	
+	#list{
+		margin-top: 100px;
+	}
+	
 </style>
 
 
@@ -97,7 +104,7 @@
 			$("#giveMoney").on("click", function() {
 <%-- 				if(<%=sId%> != null){ --%>
 // 				// 회원만 잡성하게 만드세요
-					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=600,height=450");
+					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=600,height=650");
 // 				} else {
 // 					alert("로그인 이후 사용해 주세요");
 // 				}
@@ -167,8 +174,10 @@
 		<%} 
 	}%>	
 	
+	<section id="list">
+	<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>
+	</section>
 
 	
-	<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>
 </body>
 </html>
