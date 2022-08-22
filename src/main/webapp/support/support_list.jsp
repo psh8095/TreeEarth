@@ -17,6 +17,7 @@
 <title>Insert title here</title>
 <!-- <link href="style.css" rel="stylesheet"> -->
 <link href="css/button.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 <script>
 function giveMoney() {
 	window.open("GiveMoneyForm.su", "giveMoney", "width=600,height=400");

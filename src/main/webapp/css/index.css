@@ -9,9 +9,10 @@ header{
 	height: 50px;
 }
 
-hearder #logo{
+header #logo{
 	position: absolute;
-	right: 30px;
+	top: 30px;
+	left: 30px;
 }
 
 header #font_img_holder{
@@ -41,6 +42,8 @@ nav ul{
 	padding: 0px;
 	font-weight:bold;
 	font-size: 16px;
+	position: absolute;
+	top: 100px;
 }
 
 nav ul li{
