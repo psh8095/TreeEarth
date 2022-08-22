@@ -15,12 +15,12 @@
 	<jsp:include page="hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
     <main>
-    	<section class="main_cam">
+    	<div class="container">
     		<img src="img/campaign.png" alt="나무">
-    	</section>
-    	<section>
+    	</div>
+    	<div>
 	        <img src="img/2.png" alt="대충 메인 베너1" width="80%">
-    	</section>
+    	</div>
     	<section>
        		<img src="img/3.png" alt="대충 메인 베너2" width="80%">
         </section>
