@@ -10,7 +10,7 @@ import svc.store.insertOrderService;
 import svc.store.StoreItemDetailService;
 import vo.ActionForward;
 import vo.member.MemberDTO;
-import vo.store.OrderDTO;
+import vo.mypage.OrderDTO;
 import vo.store.StoreDTO;
 
 public class OrderAction implements Action {

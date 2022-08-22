@@ -11,8 +11,8 @@ import action.Action;
 import svc.mypage.OrderListService;
 import svc.store.StoreItemDetailService;
 import vo.ActionForward;
-import vo.store.OrderDTO;
-import vo.store.OrderDetailDTO;
+import vo.mypage.OrderDTO;
+import vo.mypage.OrderDetailDTO;
 import vo.store.StoreDTO;
 
 public class OrderListAction implements Action {

@@ -1,14 +1,27 @@
 package controller;
 
-import java.io.*;
+import java.io.IOException;
 
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import action.*;
-import action.mypage.*;
-import vo.*;
+import action.Action;
+import action.mypage.CampaignReviewBlockDetailAction;
+import action.mypage.CampaignReviewBlockListAction;
+import action.mypage.CartListAction;
+import action.mypage.CheckPassAction;
+import action.mypage.DeleteCartAction;
+import action.mypage.DeleteWishlistAction;
+import action.mypage.InsertCartAction;
+import action.mypage.InsertWishlistAction;
+import action.mypage.OrderListAction;
+import action.mypage.UpdateMemberInfoAction;
+import action.mypage.WishlistAction;
+import vo.ActionForward;
 
 // 마이페이지 컨트롤러
 @WebServlet("*.my")
@@ -23,7 +36,34 @@ public class MyPageFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		
-		if(command.equals("/Cart.my")) {
+		if(command.equals("/Wishlist.my")) {
+			// 위시리스트 조회 서블릿 주소 요청 시 수행
+			action = new WishlistAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/InsertWishlist.my")) {
+			// 위시리스트 추가 서블릿 주소 요청 시 수행
+			action = new InsertWishlistAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("DeleteWishlist.my")) {
+			// 위시리스트 삭제 서블릿 주소 요청 시 수행
+			action = new DeleteWishlistAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Cart.my")) {
 			// 장바구니 서블릿 주소 요청 시 수행
 			action = new CartListAction();
 
@@ -33,10 +73,6 @@ public class MyPageFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		} else if(command.equals("/Wishlist.my")) {
-			// 위시리스트 서블릿 주소 요청 시 수행
-			forward = new ActionForward();
-			forward.setPath("mypage/wishlist.jsp");
 		} else if(command.equals("/InsertCart.my")) {
 			// 장바구니 담기 서블릿 주소
 			action = new InsertCartAction();
