@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-*{ margin: 0; padding: 0; /* css초기화(기본 여백 제거) */
+body{
+	margin: 0;
+	padding: 0;
 }
 
 header{
@@ -24,11 +26,15 @@ header #font_img_holder{
 header .login{
 	position: absolute;
 	top: 20px;
-	right: 30px;
+	right: 50px;
 	padding: 3px;
 	font-size: 15px;
 	word-spacing: 5px;
 	cursor: pointer;
+}
+
+.dropdown{
+	list-style-type: none;
 }
 
 /* 메뉴바 */
@@ -62,6 +68,10 @@ nav ul li{
 	position: absolute;
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.inline{
+	display: inline-block;
 }
 
 .dropdown-content a{
