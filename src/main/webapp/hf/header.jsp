@@ -55,40 +55,38 @@
 		</c:choose>
 	</section>
 </header>
-
-	<!-- 메뉴바 영역 -->
-	<nav>
-		<ul>
-			<li class="dropdown">
-            	<div class="dropbtn_menu">캠페인</div>
-            	<div class="dropdown-content">
-                	<a href="CampaignList.cp">진행중인 캠페인</a>
-                	<a href="CampaignExpiredList.cp">종료된 캠페인</a>
-                </div>	
-             </li>   
-			<li class="dropdown">
-                <div class="dropbtn_menu">후원하기</div>
-                <div class="dropdown-content">
-                	<a href="SupportListAction.su">진행중인 후원</a>
-                </div>
-            </li> 	
-            <li class="dropdown">
-              	<div class="dropbtn_menu">스토어</div> 
-                <div class="dropdown-content">
-                	<a href="StoreItemList.st?sto_category=반려나무">반려나무</a>
-                    <a href="StoreItemList.st?sto_category=식물">반려식물</a>
-                    <a href="StoreItemList.st?sto_category=부자재">부자재</a>
-            	</div>
-            </li>	
-            <li class="dropdown">
-                <div class="dropbtn_menu">커뮤니티</div>
-                <div class="dropdown-content">
-                    <a href="">공지사항</a>
-                    <a href="CampaignReviewList.cm">캠페인 참여후기</a>
-                    <a href="DiaryList.cm">반려나무 성장일기</a>
-                    <a href="FreeBoardList.cm">자유게시판</a>
-                    <a href="QnaList.cm">Q & A</a>
-               </div>
-        	</li>
+	
+ 	<!-- 메뉴바 영역 -->
+	<div id="menu">
+		<ul class="main1">
+			<li>캠페인
+				<div>
+					<ul class="main2">
+						<li><a href="CampaignList.cp">진행중인 캠페인</a></li>
+						<li><a href="CampaignExpiredList.cp">종료된 캠페인</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>후원하기
+				<ul class="main2">
+					<li><a href="SupportListAction.su">진행중인 후원</a></li>
+				</ul>
+			</li>
+			<li>스토어
+				<ul class="main2">
+					<li><a href="StoreItemList.st?sto_category=반려나무">반려나무</a></li>
+					<li><a href="StoreItemList.st?sto_category=식물">반려식물</a></li>
+					<li><a href="StoreItemList.st?sto_category=부자재">부자재</a></li>
+				</ul>
+			</li>
+			<li>커뮤니티
+				<ul class="main2">
+					<li><a href="">공지사항</a></li>
+					<li><a href="CampaignReviewList.cm">캠페인 참여후기</a></li>
+					<li><a href="DiaryList.cm">반려나무 성장일기</a></li>
+					<li><a href="FreeBoardList.cm">자유게시판</a></li>
+					<li><a href="QnaList.cm">Q & A</a></li>
+				</ul>
+			</li>
 		</ul>
-	</nav>
+	</div>
