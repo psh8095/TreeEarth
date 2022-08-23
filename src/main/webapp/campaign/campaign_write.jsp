@@ -52,10 +52,6 @@ table {
 					<td class="td_right"><textarea rows="15" cols="40" required="required" name="cam_content"></textarea>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="cam_thum_file">썸네일 파일 첨부</label></td>
-					<td class="td_right"><input type="file" name="cam_thum_file"></td>
-				</tr>
-				<tr>
 					<td class="td_left"><label for="cam_img">파일 첨부</label></td>
 					<td class="td_right"><input type="file" name="cam_img"></td>
 				</tr>

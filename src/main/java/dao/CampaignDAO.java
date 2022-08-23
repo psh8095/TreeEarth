@@ -48,15 +48,13 @@ public class CampaignDAO {
 			close(pstmt);
 			
 			//새 글 DB에 저장
-			sql = "INSERT INTO campaign VALUES(?,0,?,?,0,now(),?,?,?,?)";
+			sql = "INSERT INTO campaign VALUES(?,0,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, campaign.getCam_subject());
 			pstmt.setString(3, campaign.getCam_content());
-			pstmt.setString(4, campaign.getCam_thum_file());
-			pstmt.setString(5, campaign.getCam_thum_real_file());
-			pstmt.setString(6, campaign.getCam_img());
-			pstmt.setString(7, campaign.getCam_real_img());
+			pstmt.setString(4, campaign.getCam_img());
+			pstmt.setString(5, campaign.getCam_real_img());
 			
 			insertCount = pstmt.executeUpdate();
 			
@@ -122,10 +120,6 @@ public class CampaignDAO {
 				campaign.setCam_people(rs.getInt("cam_people"));
 				campaign.setCam_subject(rs.getString("cam_subject"));
 				campaign.setCam_content(rs.getString("cam_content"));
-				campaign.setCam_readcount(rs.getInt("cam_readcount"));
-				campaign.setCam_date(rs.getDate("cam_date"));
-				campaign.setCam_thum_file(rs.getString("cam_thum_file"));
-				campaign.setCam_thum_real_file(rs.getString("cam_thum_real_file"));
 				campaign.setCam_img(rs.getString("cam_img"));
 				campaign.setCam_real_img(rs.getString("cam_real_img"));
 				
@@ -150,7 +144,7 @@ public class CampaignDAO {
 		ResultSet rs = null;
 	
 		try {
-			String sql = "SELECT * FROM campaign WHERE cam_dix=?";
+			String sql = "SELECT * FROM campaign WHERE cam_idx=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, cam_idx);
 			rs = pstmt.executeQuery();
@@ -161,12 +155,8 @@ public class CampaignDAO {
 				campaign.setCam_people(rs.getInt("cam_people"));
 				campaign.setCam_subject(rs.getString("cam_subject"));
 				campaign.setCam_content(rs.getString("cam_content"));
-				campaign.setCam_readcount(rs.getInt("cam_readcount"));
-				campaign.setCam_date(rs.getDate("cam_date"));
-				campaign.setCam_thum_file(rs.getString("cam_thum_file"));
-				campaign.setCam_thum_real_file(rs.getString("cam_thum_real_file"));
 				campaign.setCam_img(rs.getString("cam_img"));
-				campaign.setCam_real_img(rs.getString("cam_original_img"));
+				campaign.setCam_real_img(rs.getString("cam_real_img"));
 				
 				System.out.println(campaign);
 			}
@@ -179,23 +169,6 @@ public class CampaignDAO {
 		}
 
 		return campaign;
-	}
-	
-	//조회수 증가
-	public void updateReadcount(int cam_idx) {
-			PreparedStatement pstmt = null;
-		
-		try {
-			String sql = "UPDATE campaign SET cam_readcount=cam_readcount+1 WHERE cam_idx=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cam_idx);
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("CampaignDAO - updateReadcount 오류");
-		} finally {
-			close(pstmt);
-		}
 	}
 	
 	//게시물 삭제
