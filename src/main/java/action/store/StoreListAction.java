@@ -58,12 +58,12 @@ public class StoreListAction implements Action {
 		// StoreListService 객체의 getBoardList() 메서드를 호출하여 게시물 목록 가져오기
 		// => 파라미터 : 현재 페이지번호(pageNum), 페이지 당 게시물 수(listLimit)
 		// => 리턴타입 : ArrayList<StoreDTO>(boardList)
-		ArrayList<StoreDTO> boardList = boardListService.getBoardList(pageNum, listLimit);
+		ArrayList<StoreDTO> storeList = boardListService.getBoardList(pageNum, listLimit);
 		
 		// 뷰페이지(jsp)에서 사용할 데이터가 저장된 객체들을 전달하기 위해
 		// request 객체의 setAttribute() 메서드를 호출하여 객체 저장
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("boardList", boardList);
+		request.setAttribute("storeList", storeList);
 		
 		// ActionForward 객체 생성하여 포워딩 정보 저장
 		// => store 디렉토리 내의 store_list.jsp 페이지 지정

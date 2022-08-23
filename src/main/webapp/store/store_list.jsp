@@ -13,26 +13,26 @@
 		<table>
 			<tr id="tr_top">
 				<td width="100">상품 번호</td>
-				<td width="100"> 상품 제목</td>
+				<td width="300"> 상품 제목</td>
 				<td width=100>상품 가격</td>
-				<td width="100">상품 내용</td>
+				<td width="400">상품 내용</td>
 				<td width="100">상품 태그</td>
 				<td width="100">상품 분류</td>
 			</tr>
 			<c:choose>
-				<c:when test="${not empty storeList and pageInfo.listCount gt 0 }">
+				<c:when test="${not empty storeList and pageInfo.itemListCount gt 0 }">
 					<c:forEach var="store" items="${storeList }">
 						<tr>
 							<td>${store.sto_idx }</td>
 							<td id="subject">
 								<a href="StoreDetail.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum }">
-									${store.store_subject }
+									${store.sto_subject }
 								</a>
 							</td>
-							<td>${store_sto_price}</td>
-							<td>${store_sto_content }</td>
-							<td>${store_sto_tag }</td>
-							<td>${store_sto_category }</td>
+							<td>${store.sto_price} 원</td>
+							<td>${store.sto_content }</td>
+							<td>${store.sto_tag }</td>
+							<td>${store.sto_category }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -44,7 +44,7 @@
 	</section>
 	<section id="buttonArea">
 		<input type="button" value="상품 등록" onclick="location.href='StoreWriteForm.st'">
-		<input type="button" value="상품 삭제" onclick="location.href='StoreDeleteForm.st'">
+<!-- 		<input type="button" value="상품 삭제" onclick="location.href='StoreDeleteForm.st'"> -->
 	</section>
 	<section id="pageList">	
 		<c:choose>
