@@ -15,6 +15,7 @@ CREATE TABLE store_review (
 );
  */
 public class StoreReviewDTO {
+
 	private int sto_re_idx;
 	private String mem_id;
 	private int sto_idx;

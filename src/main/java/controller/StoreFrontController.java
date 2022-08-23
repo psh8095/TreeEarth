@@ -19,6 +19,8 @@ import action.store.StoreItemListAction;
 import action.store.StoreListAction;
 import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
+import action.store.StoreOrderDetailAction;
+import action.store.StoreOrderListAction;
 import action.store.StoreQnaDeleteProAction;
 import action.store.StoreQnaDetailAction;
 import action.store.StoreQnaListAction;
@@ -120,8 +122,25 @@ public class StoreFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/StoreDetail.st")) {
+			// 상세 조회
 			try {
 				action = new StoreDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreOrderList.st")) {
+			// 주문 목록 확인
+			action = new StoreOrderListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreOrderDetail.st")) {
+			// 상세 조회
+			try {
+				action = new StoreOrderDetailAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
