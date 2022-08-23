@@ -12,7 +12,7 @@ import vo.store.StoreReviewDTO;
 public class StoreReviewListService {
 
 	// 전체 구매 후기 갯수 조회 작업을 요청할 getStoreReviewListCount() 메서드 정의 
-	public int getStoreReviewListCount() {
+	public int getStoreReviewListCount(int sto_idx) {
 		
 		int storeReviewListCount  = 0;
 		
@@ -21,7 +21,7 @@ public class StoreReviewListService {
 		dao.setConnection(con);
 		
 		// 전체 구매 후기 조회
-		storeReviewListCount = dao.selectStoreReviewListCount();
+		storeReviewListCount = dao.selectStoreReviewListCount(sto_idx);
 		System.out.println("storeReviewListCount : " + storeReviewListCount);
 		
 		close(con);

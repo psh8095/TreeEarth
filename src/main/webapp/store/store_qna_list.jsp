@@ -27,7 +27,8 @@
 <%-- 							<b>${store_qna.sto_qna_content }</b> --%>
 <!-- 							</td> -->
 							<td>
-							<span onclick="location.href='StoreQnaDetail.st?sto_idx=${store.sto_idx}&sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}'" style="cursor: pointer;">문의 보기</span>
+							<span style="display:block;margin-top: 200px;" onclick="location.href='StoreQnaDetail.st?sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}'" style="cursor: pointer;">&lt;문의 보기&gt;</span>
+<%-- 								<a href="StoreQnaDetail.st?sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}">&lt;문의 보기&gt;</a> --%>
 							</td>
 						</tr>
 						</table>
@@ -45,7 +46,7 @@
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='StoreQnaList.st?pageNum=${pageNum - 1}'">
+				<input type="button" value="이전" onclick="location.href='StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum-1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="이전">
@@ -58,14 +59,14 @@
 					${i }
 				</c:when>
 				<c:otherwise>
-					<a href="StoreQnaList.st?page=${i }">${i }</a>
+					<a href="StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='StoreQnaList.st?pageNum=${pageNum + 1}'">
+				<input type="button" value="다음" onclick="location.href='StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum+1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">

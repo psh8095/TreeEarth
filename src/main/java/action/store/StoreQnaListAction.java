@@ -19,7 +19,7 @@ public class StoreQnaListAction implements Action {
 		System.out.println("StoreQnaListAction");
 		
 		ActionForward forward = null;
-		
+		System.out.println("여기"+request.getParameter("pageNum"));
 		// 페이징처리 변수 선언
 		int pageNum = 1; 
 		int listLimit = 5;

@@ -361,7 +361,7 @@ public class StoreDAO {
 		
 		// 전체 상품 구매 후기글 수를 조회할 selectStoreReviewListCount() 메서드
 		// 파라미터 : 없음, 리턴타입 : int
-		public int selectStoreReviewListCount() {
+		public int selectStoreReviewListCount(int sto_idx) {
 			
 			int storeReviewListCount  = 0;
 			
@@ -369,8 +369,9 @@ public class StoreDAO {
 			ResultSet rs = null;
 			
 			try {
-				String sql = "SELECT COUNT(*) FROM store_review";
+				String sql = "SELECT COUNT(*) FROM store_review where sto_idx = ?";
 				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, sto_idx);
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
@@ -399,7 +400,7 @@ public class StoreDAO {
 			int startRow = (pageNum - 1) * listLimit;
 			
 			try {
-				String sql = "SELECT * FROM store_review WHERE sto_idx=? ORDER BY sto_re_idx DESC LIMIT ?,?";
+				String sql = "select mem_id, store_review.sto_idx, sto_re_idx, sto_re_score, sto_re_content, sto_re_file, sto_re_real_file, sto_subject from store_review left join store on store_review.sto_idx = store.sto_idx where store_review.sto_idx = ? ORDER BY sto_re_idx DESC LIMIT ?,?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, store.getSto_idx());
 				pstmt.setInt(2, startRow);
@@ -420,6 +421,7 @@ public class StoreDAO {
 					store_review.setSto_re_content(rs.getString("sto_re_content"));
 					store_review.setSto_re_file(rs.getString("sto_re_file"));
 					store_review.setSto_re_real_file(rs.getString("sto_re_real_file"));
+					store_review.setSto_subject(rs.getString("sto_subject"));
 					// 전체 구매 후기글 정보를 저장하는 ArrayList 객체에 1개 구매 후기 정보 StoreReviewDTO 객체 추가
 					storeReviewList.add(store_review);
 				}

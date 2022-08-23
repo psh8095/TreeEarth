@@ -99,7 +99,7 @@ fieldset legend {
 							<td>${store_review.mem_id }님의 후기입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;작성 날짜</td>
 						</tr>
 						<tr>
-							<td>[옵션] ${store.sto_subject }</td>
+							<td>[옵션] ${store_review.sto_subject }</td>
 						</tr>
 						<tr>
 							<td class="score">${store_review.sto_re_score }</td>
@@ -137,7 +137,7 @@ fieldset legend {
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='StoreReviewList.st?pageNum=${pageInfo.pageNum - 1}'">
+				<input type="button" value="이전" onclick="location.href='StoreReviewList.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="이전">
@@ -150,14 +150,14 @@ fieldset legend {
 					${i }
 				</c:when>
 				<c:otherwise>
-					<a href="StoreReviewList.st?page=${i }">${i }</a>
+					<a href="StoreReviewList.st?sto_idx=${store.sto_idx }&pageNum=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='StoreReviewList.st?pageNum=${pageInfo.pageNum + 1}'">
+				<input type="button" value="다음" onclick="location.href='StoreReviewList.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">
