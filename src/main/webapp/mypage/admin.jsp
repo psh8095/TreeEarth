@@ -10,7 +10,7 @@
 	<h1>관리자 페이지</h1>
 	<h3>1. 상품 관리</h3>
 		<!-- 등록한 상품 목록 -->
-		<input type="button" value="등록 된 상품 목록" onclick="location.href='store_list.jsp'"><br><br>
+		<input type="button" value="등록 된 상품 목록" onclick="location.href='StoreList.st'"><br><br>
 		<!-- 상품 등록 -->
 		<input type="button" value="상품 등록" onclick="location.href='StoreWriteForm.st'"><br>
 	

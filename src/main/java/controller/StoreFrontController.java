@@ -13,8 +13,10 @@ import action.Action;
 import action.store.InsertOrderAction;
 import action.store.OrderAction;
 import action.store.StoreDeleteProAction;
+import action.store.StoreDetailAction;
 import action.store.StoreItemDetailAction;
 import action.store.StoreItemListAction;
+import action.store.StoreListAction;
 import action.store.StoreModifyFormAction;
 import action.store.StoreModifyProAction;
 import action.store.StoreQnaDeleteProAction;
@@ -109,7 +111,23 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
+		} else if(command.equals("/StoreList.st")) {
+			// 등록한 상품 목록 확인
+			action = new StoreListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreDetail.st")) {
+			try {
+				action = new StoreDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		//----------------사용자 영역------------------------------------
 		else if(command.equals("/StoreReviewWriteForm.st")) {
 			// 회원 상품 구매후기 폼 주소
