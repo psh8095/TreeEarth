@@ -59,7 +59,7 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	
+	<div style="height: 50px"></div>
 	<c:choose>
 		<c:when test="${empty campaignList }">
 			<h1>현재 진행중인 캠페인이 없습니다.</h1>
