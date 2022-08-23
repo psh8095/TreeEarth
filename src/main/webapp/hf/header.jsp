@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script>
+	function login() {
+		window.open("MemberLoginForm.me", "login", "width=350, height=250");
+	}
+</script>
+
 <link href="css/index.css" rel="stylesheet">
 
 <header>
@@ -17,7 +23,7 @@
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<div class="login">
-					<a href="MemberLoginForm.me">로그인</a>
+					<span onclick="login()">로그인</span>
 				</div>
 			</c:when>
 			<c:otherwise>

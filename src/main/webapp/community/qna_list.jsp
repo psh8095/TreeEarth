@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
+<link href="css/button.css" rel="stylesheet">
 <link href="css/qna.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/TweenMax.js"></script>
@@ -62,6 +63,7 @@
 		<span class="click">
 			<a href="QnaList.cm?qna_tag=etc">기타문의</a>
 		</span>
+<!-- 		<button class="w-btn-gray" onclick="location.href='QnaList.cm?qna_tag=etc'">기타문의</button> -->
 	</div>
 	
 	<h1>목록</h1>

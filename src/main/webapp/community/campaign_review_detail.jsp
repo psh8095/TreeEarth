@@ -21,7 +21,7 @@
 	<section id="">
 		<h2>글 상세내용 보기</h2>
 		
-		<section id="">
+		<section id="container">
 			<table>
 			<tr><th width="70">제 목</th><td colspan="3" >${campaign_review.cam_re_subject }</td></tr>
 			<tr>

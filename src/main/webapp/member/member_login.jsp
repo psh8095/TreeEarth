@@ -19,19 +19,17 @@
 	}
 
 	function findPass() {
-		window.open("FindPassForm.me", "findPass", "width=700, height=300");
+		window.open("FindPassForm.me", "findPass", "width=630, height=300");
 	}
 </script>
 <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
 
-	<!-- 헤더 -->
-	<jsp:include page="../hf/header.jsp"></jsp:include>
-	<!-- 헤더 -->
-	
 	<h1>로그인</h1>
+
 	<h1><a href="requiredTerms.me">회원가입</a></h1>
+
 	<form action="MemberLoginPro.me" method="post">
 		<table border="1">
 			<tr>
@@ -54,9 +52,6 @@
 		</table>
 	</form>
 	
-	<!-- 푸터 -->
-	<jsp:include page="../hf/footer.jsp"></jsp:include>
-	<!-- 푸터 -->
 </body>
 </html>
 
