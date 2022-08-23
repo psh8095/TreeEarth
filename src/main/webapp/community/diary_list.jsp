@@ -15,55 +15,58 @@
 	
 	<section id="">
 	<h2>반려나무 성장일지</h2>
-		<c:choose>
-			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}">
-				<c:forEach var="diary" items="${diaryList }">
-				<div style="float: left; width: 30%; padding: 20px;">
-					<table>
-						<tr>
-							<td colspan="2">
-								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
-									<c:choose>
-										<c:when test="${not empty diary.diary_img}">
-											<img alt="" src="img/community/${diary.diary_img }" width="500px">
-										</c:when>
-										<c:otherwise>
-											<img alt="썸네일없음" src="img/community/treediary.png" width="500px">
-										</c:otherwise>
-									</c:choose>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
-									<b>${diary.diary_subject }</b>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>작성자</td>
-							<td>${diary.diary_id }</td>
-						</tr>
-						<tr>
-							<td>작성일</td>
-							<td>${diary.diary_date }</td>
-						</tr>
-						<tr>
-							<td>조회수</td>
-							<td>${diary.diary_readcount }</td>
-						</tr>
-					</table>
-						</div>
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<h1>게시물이 존재하지 않습니다.</h1>
-			</c:otherwise>
-		</c:choose>
+	<!-- SnapWidget -->
+<script src="https://snapwidget.com/js/snapwidget.js"></script>
+<iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
+<%-- 		<c:choose> --%>
+<%-- 			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}"> --%>
+<%-- 				<c:forEach var="diary" items="${diaryList }"> --%>
+<!-- 				<div style="float: left; width: 30%; padding: 20px;"> -->
+<!-- 					<table> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="2"> -->
+<%-- 								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}"> --%>
+<%-- 									<c:choose> --%>
+<%-- 										<c:when test="${not empty diary.diary_img}"> --%>
+<%-- 											<img alt="" src="img/community/${diary.diary_img }" width="500px"> --%>
+<%-- 										</c:when> --%>
+<%-- 										<c:otherwise> --%>
+<!-- 											<img alt="썸네일없음" src="img/community/treediary.png" width="500px"> -->
+<%-- 										</c:otherwise> --%>
+<%-- 									</c:choose> --%>
+<!-- 								</a> -->
+<!-- 							</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="2"> -->
+<%-- 								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}"> --%>
+<%-- 									<b>${diary.diary_subject }</b> --%>
+<!-- 								</a> -->
+<!-- 							</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>작성자</td> -->
+<%-- 							<td>${diary.diary_id }</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>작성일</td> -->
+<%-- 							<td>${diary.diary_date }</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>조회수</td> -->
+<%-- 							<td>${diary.diary_readcount }</td> --%>
+<!-- 						</tr> -->
+<!-- 					</table> -->
+<!-- 						</div> -->
+<%-- 				</c:forEach> --%>
+<%-- 			</c:when> --%>
+<%-- 			<c:otherwise> --%>
+<!-- 				<h1>게시물이 존재하지 않습니다.</h1> -->
+<%-- 			</c:otherwise> --%>
+<%-- 		</c:choose> --%>
 		
 	
-	</section>
+<!-- 	</section> -->
 	
 	<br>
 	

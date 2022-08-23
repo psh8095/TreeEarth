@@ -64,6 +64,8 @@ table {
 	<section id="writeForm">
 		<h2> 나만의 반려나무를 자랑해봐요</h2>
 		
+		
+		
 		<section id="">
 			<table>
 			<tr><th width="70">제 목</th><td colspan="3" >${diary.diary_subject }</td></tr>
@@ -84,6 +86,9 @@ table {
 			</table>
 		</section>
 			<section id="articleContentArea">
+			<!-- SnapWidget -->
+<script src="https://snapwidget.com/js/snapwidget.js"></script>
+<iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
 			<img alt="" src="./upload/<%=diary.getDiary_thumb_img() %>" width="70%">
 			<img alt="" src="./upload/<%=diary.getDiary_img() %>" width="70%">
 			</section>
@@ -99,7 +104,7 @@ table {
 <%-- 			<input type="button" value="목록" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '"> --%>
 		<%}else{%>
 		<section id="commandList">
-		<input type="button" value="목록" onclick="location.href='DiaryList.cm?pageNum=${param.pageNum}'">
+		<button class="w-btn-outline w-btn-indigo-outline"  type="button" onclick="location.href='DiaryList.cm?pageNum=${param.pageNum}'">목록</button>
 		</section>
 			
 	<%}%>	
