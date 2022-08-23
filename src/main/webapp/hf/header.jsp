@@ -37,30 +37,29 @@
 					<c:otherwise>
 						<div class="login">
 						    <a href="Cart.my">장바구니</a>
-							<div class="dropdown">
-								<a class="dropbtn">${sessionScope.sId } 님</a>
-								<div class="dropdown-content">
-									<ul class="inline">
-										<li><a href="">적립금</a></li>
-						                <li><a href="">이름</a></li>
-						                <li><a href="Wishlist.my">위시리스트</a></li>
-						                <li><a href="UpdateMemberInfoForm.my">회원정보수정</a></li>
-						                <li><a href="">후원금 내역 조회</a></li>
-						                <li><a href="">신청 캠페인 조회</a></li>
-						                <li><a href="">작성한 글</a></li>
-						                <li><a href="">작성한 댓글</a></li>
-						                <li><a href="OrderList.my">주문내역 조회</a></li>
-						            </ul>
-				        		 </div>   
+								<div class="dropdown">
+									<button class="dropbtn">${sessionScope.sId }님</button>
+										<div class="dropdown-content">
+											<a href="">적립금</a>
+							               	<a href="">이름</a>
+							                <a href="Wishlist.my">위시리스트</a>
+							                <a href="UpdateMemberInfoForm.my">회원정보수정</a>
+							                <a href="">후원금 내역 조회</a>
+							                <a href="">신청 캠페인 조회</a>
+							                <a href="">작성한 글</a>
+							                <a href="">작성한 댓글</a>
+							                <a href="OrderList.my">주문내역 조회</a>
+						            	</div>
+								</div>
+							 	<a href="MemberLogout.me">로그아웃</a>
 							</div>
-						 <a href="MemberLogout.me">로그아웃</a>
-						</div>
 					</c:otherwise>
 				</c:choose>
 			</c:otherwise>
 		</c:choose>
 	</section>
 </header>
+
 	
  	<!-- 메뉴바 영역 -->
 	<div id="menu">
@@ -75,8 +74,7 @@
 			</li>
 			<li>후원하기
 				<ul class="main2">
-					<li><a href="SupportList.su">진행중인 후원</a></li>
-					<li><a href="SupportListExpired.su">종료된 후원</a></li>
+					<li><a href="SupportListAction.su">진행중인 후원</a></li>
 				</ul>
 			</li>
 			<li>스토어
