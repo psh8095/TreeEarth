@@ -69,7 +69,8 @@
 			</li>
 			<li>후원하기
 				<ul class="main2">
-					<li><a href="SupportListAction.su">진행중인 후원</a></li>
+					<li><a href="SupportList.su">진행중인 후원</a></li>
+					<li><a href="SupportListExpired.su">종료된 후원</a></li>
 				</ul>
 			</li>
 			<li>스토어
