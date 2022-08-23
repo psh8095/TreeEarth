@@ -22,8 +22,7 @@ public class StoreReviewWriteProAction implements Action {
 		System.out.println("StoreReviewWriteProAction");
 		
 		ActionForward forward = null;
-		
-		// 상품 후기 사진 업로드 파일 경로
+		// 상품 후기 사진 업로드 파일 경로	
 		String uploadPath = "upload";
 		
 		// 파일 크기 제한 -> 10MB
@@ -45,8 +44,7 @@ public class StoreReviewWriteProAction implements Action {
 		
 //		System.out.println(Integer.parseInt(request.getParameter("sto_re_idx")));
 		
-		System.out.println(request.getParameter("sto_subject"));
-		
+		String sto_subject = multi.getParameter("sto_subject");
 		// 폼 파라미터 데이터 store_reviewDTO 객체에 저장
 		StoreReviewDTO storeReview = new StoreReviewDTO();
 //		storeReview.setSto_re_idx(Integer.parseInt(multi.getParameter("sto_re_idx")));

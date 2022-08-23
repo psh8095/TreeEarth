@@ -22,7 +22,14 @@ public class StoreReviewDTO {
 	private String sto_re_content;
 	private String sto_re_file;
 	private String sto_re_real_file;
+	private String sto_subject;
 	
+	public String getSto_subject() {
+		return sto_subject;
+	}
+	public void setSto_subject(String sto_subject) {
+		this.sto_subject = sto_subject;
+	}
 	public int getSto_re_idx() {
 		return sto_re_idx;
 	}

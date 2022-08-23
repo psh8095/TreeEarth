@@ -183,8 +183,8 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	<hr>
 	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
 	<div>
-		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }&sto_subject=${store.sto_subject}"><button class="w-btn-outline w-btn-green-outline" type="button">구매 후기</button></a>
-		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }"><button class="w-btn-outline w-btn-green-outline" type="button">상품 문의</button></a>
+		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><button class="w-btn-outline w-btn-green-outline" type="button">구매 후기</button></a>
+		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1"><button class="w-btn-outline w-btn-green-outline" type="button">상품 문의</button></a>
 	</div>
 	
 	<!-- 푸터 -->

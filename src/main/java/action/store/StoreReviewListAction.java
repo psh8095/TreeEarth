@@ -17,13 +17,13 @@ public class StoreReviewListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("StoreReviewListAction");
-		
+		int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		ActionForward forward = null;
 		
 		// 페이징처리 변수 선언
-		int pageNum = 1; 
+		int pageNum = 1;
 		int listLimit = 5;
-		int pageLimit = 5; 
+		int pageLimit = 5;
 
 		// 현재 페이지번호(pageNum)가 전달되었을 경우 변수에 저장
 		if(request.getParameter("pageNum") != null) {
@@ -32,7 +32,7 @@ public class StoreReviewListAction implements Action {
 		
 		// 페이징 처리에 필요한 전체 구매 후기 갯수 조회 작업 요청
 		StoreReviewListService service = new StoreReviewListService();
-		int itemListCount = service.getStoreReviewListCount();  // 변수명 변경?
+		int itemListCount = service.getStoreReviewListCount(sto_idx);  // 변수명 변경?
 		
 		int maxPage = (int)Math.ceil((double)itemListCount / listLimit);
 		int startPage = ((int)((double)pageNum / pageLimit + 0.9) - 1) * pageLimit + 1;
@@ -48,6 +48,7 @@ public class StoreReviewListAction implements Action {
 		store.setSto_thum_file(request.getParameter("sto_thum_file"));
 		store.setSto_thum_real_file(request.getParameter("sto_thum_real_file"));
 //		System.out.println(store); // 확인용
+		
 		request.setAttribute("store", store);
 		
 		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, itemListCount);
