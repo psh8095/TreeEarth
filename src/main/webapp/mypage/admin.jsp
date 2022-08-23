@@ -16,20 +16,14 @@
 	
 	<h3>2. 주문 관리</h3>
 		<!-- 배송 전 주문목록 -->
-		<input type="button" value="배송 전인 주문목록" onclick="'#'"><br><br>
-	
-		<!-- 배송 중 주문목록 -->
-		<input type="button" value="배송 중인 주문 목록" onclick="'#'"><br><br>
-	
-		<!-- 배송 완료 주문목록 -->
-		<input type="button" value="배송완료 된 주문 목록" onclick="'#'"><br><br>
+		<input type="button" value="주문목록" onclick="location.href='StoreOrderList.st'"><br><br>
 	
 	<h3>3. 간단 리뷰/문의 답변</h3>
 
 		<!-- 간단 리뷰 답변 -->
-		<input type="button" value="간단리뷰 답변하기" onclick="'#'"><br><br>
+		<input type="button" value="간단리뷰 답변하기" onclick="location.href='#'"><br><br>
 		<!-- 회원문의 답변 -->
-		<input type="button" value="회원문의 답변하기" onclick="'#'"><br><br>
+		<input type="button" value="회원문의 답변하기" onclick="location.href='#'"><br><br>
 	<h3>4. 캠페인</h3>
 		<!-- 캠페인 등록 -->
 		<input type="button" value="캠페인 공고 작성" onclick="location.href='CampaignWriteForm.cp'"><br><br>

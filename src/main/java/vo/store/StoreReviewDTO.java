@@ -15,13 +15,13 @@ CREATE TABLE store_review (
 );
  */
 public class StoreReviewDTO {
-	private int sto_re_idx;
-	private String mem_id;
-	private int sto_idx;
-	private int sto_re_score;
-	private String sto_re_content;
-	private String sto_re_file;
-	private String sto_re_real_file;
+	private int sto_re_idx; // 리뷰 번호
+	private String mem_id; // 아이디
+	private int sto_idx; // 상품 번호
+	private int sto_re_score; // 상품 구매 평점
+	private String sto_re_content; // 상품 구매 후기 내용
+	private String sto_re_file; // 상품 구매 후기 사진 파일
+	private String sto_re_real_file; // 상품 구매 후기 사진 원본 파일
 	
 	public int getSto_re_idx() {
 		return sto_re_idx;

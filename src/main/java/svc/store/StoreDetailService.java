@@ -11,14 +11,14 @@ import vo.store.StoreDTO;
 
 public class StoreDetailService {
 
-	public StoreDTO getStore(int sto_idx) {
+	public StoreDTO getStore(int order_id) {
 		StoreDTO store = null;
 		
 		Connection con = getConnection();
 		StoreDAO dao = StoreDAO.getInstance();
 		dao.setConnection(con);
 		
-		store = dao.selectStore(sto_idx);
+		store = dao.selectStore(order_id);
 		
 		close(con);
 		

@@ -14,10 +14,10 @@ CREATE TABLE store_qna (
 );
  */
 public class StoreQnaDTO {
-	private int sto_qna_idx;
-	private String mem_id;
-	private int sto_idx;
-	private String sto_qna_content;
+	private int sto_qna_idx; // 문의글 번호
+	private String mem_id; // 아이디
+	private int sto_idx; // 상품 번호
+	private String sto_qna_content; // 상품 문의 내용
 	private Date sto_qna_date;
 	
 	public int getSto_qna_idx() {

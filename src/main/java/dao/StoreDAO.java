@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import vo.mypage.OrderDTO;
 import vo.store.StoreDTO;
 import vo.store.StoreQnaDTO;
 import vo.store.StoreReviewDTO;
@@ -237,6 +238,7 @@ public class StoreDAO {
 			return store;
 	
 		}
+	
 		// 글 삭제 권한을 판별하는 메서드
 		public boolean isStoreWriter(int sto_idx) {
 			boolean isStoreWriter = false;
@@ -891,6 +893,82 @@ public class StoreDAO {
 			
 			return store;
 		}
+		
+		// 전체 주문내역 수를 조회하는 selectStoreOrderListCount() 메서드
+		public int selectStoreOrderListCount() {
+			int listCount = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT COUNT(*) FROM order_info";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					listCount = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreOrderListCount() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return listCount;
+		}
+		
+		// 전체 주문내역을 조회하는 selectStoreOrderList() 메서드
+		public ArrayList<OrderDTO> selectStoreOrderList(int pageNum, int listLimit) {
+			
+			ArrayList<OrderDTO> orderList = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			// 현재 페이지 번호를 활용하여 조회 시 시작행 번호 계산
+			int startRow = (pageNum - 1) * listLimit;
+			
+			try {
+				String sql = "SELECT * FROM order_info ORDER BY mem_id LIMIT ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, listLimit);
+ 
+				rs = pstmt.executeQuery();
+				
+				orderList = new ArrayList<OrderDTO>();
+				
+				while(rs.next()) {
+					// 1개 주문 정보를 저장할 OrderDTO 객체 생성
+					OrderDTO order1 = new OrderDTO();
+					// 저장
+					order1.setOrder_id(rs.getString("order_id"));
+					order1.setMem_id(rs.getString("mem_id"));
+					order1.setMem_name(rs.getString("mem_name"));
+					order1.setMem_address(rs.getString("mem_address"));
+					order1.setMem_address_detail(rs.getString("mem_address_detail"));
+					order1.setMem_phone(rs.getString("mem_phone"));
+					order1.setMem_email(rs.getString("mem_email"));
+					order1.setAmount(rs.getInt("amount"));
+					order1.setOrder_date(rs.getDate("order_date"));
+					order1.setOrder_status(rs.getString("order_status"));
+					// 전체 구매 후기글 정보를 저장하는 ArrayList 객체에 1개 구매 후기 정보 OrderDTO 객체 추가
+					orderList.add(order1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("StoreDAO - selectStoreOrderList() 메서드 오류 발생 : " + e.getMessage());
+			} finally {
+				close(rs);
+				close(pstmt);
+			}
+			
+			return orderList;
+		}
+		
 
 }
 
