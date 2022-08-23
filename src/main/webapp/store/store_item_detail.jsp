@@ -104,6 +104,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		});
 	});
 </script>
+<link href="css/button.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
 <style type="text/css">
 	#buttonArea {
@@ -121,9 +122,18 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	font-size: 20px;
 	}
 	
-/* 	#txt { */
-/* 	font-size: 16px; */
-/* 	} */
+	@font-face {
+	 font-family: 'NanumBarunGothic';
+	 font-style: normal;
+	 font-weight: 300;
+	 src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff');
+	}
+	
+	.w-btn-outline {
+		font-family:'NanumBarunGothic', sans-serif;
+		font-size: 15px;
+	}
+	
 </style>
 </head>
 <body>
@@ -173,8 +183,8 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	<hr>
 	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
 	<div>
-		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }&sto_subject=${store.sto_subject}"><input type="button" value="구매 후기" id="store_review"></a>
-		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }"><input type="button" value="상품 문의" id="store_qna"></a>
+		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }&sto_subject=${store.sto_subject}"><button class="w-btn-outline w-btn-green-outline" type="button">구매 후기</button></a>
+		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }"><button class="w-btn-outline w-btn-green-outline" type="button">상품 문의</button></a>
 	</div>
 	
 	<!-- 푸터 -->

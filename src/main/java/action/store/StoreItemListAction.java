@@ -17,11 +17,11 @@ public class StoreItemListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("StoreItemListAction");
 		
-		String sto = request.getParameter("sto_category");
-		
 		ActionForward forward = null;
 		
-		// 페이징 처리 없애기!
+		String sto = request.getParameter("sto_category"); // 스토어 카테고리
+		
+		// 페이징 처리 없애기?
 		int pageNum = 1; 
 		int listLimit = 9; 
 		int pageLimit = 3;
@@ -61,7 +61,7 @@ public class StoreItemListAction implements Action {
 		ArrayList<StoreDTO> storeList = service.getStoreItemList(pageNum, listLimit, sto);
 		
 //		System.out.println(pageInfo.getItemListCount());
-//		System.out.println(storeList); // 잠시 주석 처리
+//		System.out.println(storeList); // 확인 후 주석 처리
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("storeList", storeList);
 		

@@ -21,7 +21,7 @@ public class StoreWriteProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null; // 포워딩 정보를 저장하는 변수 선언
 		
-		String uploadPath = "upload"; // 가상폴더명
+		String uploadPath = "img/store"; // 가상폴더명
 		int fileSize = 1024 * 1024 * 10; // 파일크기지정
 		
 		ServletContext context = request.getServletContext(); // 현재 서블릿을 처리하는 객체인 서블릿컨텍스트 객체 가져오기

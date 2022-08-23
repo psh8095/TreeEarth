@@ -41,7 +41,6 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 	<%}  %>
 
 		<section id="itemWriteForm">
-			<h2>판매 상품 등록</h2>	
 			<div id="tr1">
 			<table>
 			<%
