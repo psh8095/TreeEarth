@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문관리 - 배송 전/배송 중/배송 완료 주문목록</title>
+<title>Insert title here</title>
 </head>
 <body>
-
+	<h1>주문 상세 조회 페이지</h1>
 </body>
 </html>
