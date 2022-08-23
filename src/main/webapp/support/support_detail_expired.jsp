@@ -158,8 +158,8 @@
 	</section>
 	
 			<section id="commandList">
-				<input type="button" value="목록" onclick="location.href='SupportListExpired.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">
-		
+				<button class="w-btn w-btn-gra2 w-btn-gra-anim"  type="button" onclick="location.href='SupportListExpired.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">
+				목록</button>
 			</section>
 			
 	

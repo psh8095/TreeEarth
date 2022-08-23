@@ -33,7 +33,7 @@ function giveMoney() {
 	<!-- 해더 -->
 	
 	
-		<h1>후원 목록</h1>
+		<h1>종료된 후원</h1>
 		<div style="float: left; width: 30%;">
 <!-- 		<a href="SupportWriteFormAdmin.su">글쓰기</a> -->
 		
