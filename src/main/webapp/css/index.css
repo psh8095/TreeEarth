@@ -26,10 +26,12 @@ header #font_img_holder{
 	right: 30px;
 }
 
+/* 로그인 */
+header div{
+	float: left;
+	
+}
 
-
-/* ---------------------------------------------------------------------------------------------------- */
-/* 로그인 영역 */
 header .login{
 	position: absolute;
 	top: 80px;
@@ -45,23 +47,42 @@ header .login{
 	color: black;
 }
 
-.mypage_dropdown {
-	display: inline-block;
+.login a{
+	text-decoration-line: none;
 }
 
-.mypage_content{
-	display: none;
-	position: absolute;
- 	background-color: #f1f1f1;
- 	min-width: 120px;
-  	z-index: 1;
-  	right: 0px;
+.dropbtn {
+  padding: px;
+  font-size: 15px;
+  border: none;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
 
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
-/* ---------------------------------------------------------------------------------------------------- */
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 /* 가로 메뉴바 */
 header #menu{
@@ -113,12 +134,14 @@ main1>li a:hover{
 	left: -9999px;
 	width: 120%;
 	list-style: none;
+	display: block;
 }
 
 .main2>li{
 	position: relative; 
 	background-color: #f1f1f1;
 }
+
 
 
 
@@ -134,9 +157,8 @@ body{
     display: table-cell;
 }
 
-
-
 /* ---------------------------------------------------------------------------------------------------- */
+
 /* 푸터영역 */
 footer {
 	position: fixed;
