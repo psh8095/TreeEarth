@@ -60,7 +60,7 @@ public class StoreWriteProAction implements Action {
 			out.println("</script>");
 		} else {
 			forward = new ActionForward();
-			forward.setPath("AdminStoreList.st");
+			forward.setPath("StoreList.st");
 			forward.setRedirect(true);
 		}
 
