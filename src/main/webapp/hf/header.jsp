@@ -65,9 +65,9 @@
 							                <a href="">작성한 글</a>
 							                <a href="">작성한 댓글</a>
 							                <a href="OrderList.my">주문내역 조회</a>
+							                <a href="MemberLogout.me">로그아웃</a>
 						            	</div>
 								</div>
-							 	<a href="MemberLogout.me">로그아웃</a>
 							</div>
 					</c:otherwise>
 					
@@ -92,7 +92,7 @@
 			</li>
 			<li>후원하기
 				<ul class="main2">
-					<li><a href="SupportListAction.su">진행중인 후원</a></li>
+					<li><a href="SupportList.su">진행중인 후원</a></li>
 				</ul>
 			</li>
 			<li>스토어
