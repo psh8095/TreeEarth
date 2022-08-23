@@ -13,7 +13,7 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
-	<section id="">
+	<section id="container">
 	<h2>캠페인후기 글 목록</h2>
 		<c:choose>
 			<c:when test="${not empty campaignReviewList and pageInfo.itemListCount gt 0}">
