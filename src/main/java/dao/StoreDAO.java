@@ -139,7 +139,7 @@ public class StoreDAO {
 				store.setSto_thum_real_file(rs.getString("sto_thum_real_file"));
 				store.setSto_content_file(rs.getString("sto_content_file"));
 				store.setSto_content_real_file(rs.getString("sto_content_real_file"));
-				System.out.println(store); //-> 확인 출력
+//				System.out.println(store); //-> 확인 출력
 				
 				storeList.add(store);
 			}
@@ -782,6 +782,7 @@ public class StoreDAO {
 			return storeQnaDeleteCount;
 		}
 
+		// 카테고리 별 상품 목록 갯수 조회 작업 메서드
 		public int selectItemListCount(String sto) {
 			
 			int itemListCount = 0;

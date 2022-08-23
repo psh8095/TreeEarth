@@ -325,3 +325,19 @@ button {
     transform: translate(-50%, -50%);
     animation: ring 1.5s infinite;
 }
+
+.w-btn-outline {
+    position: relative;
+    padding: 8px 8px;
+    border-radius: 15px;
+    font-family:'NanumBarunGothic', sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+	
+.w-btn-green-outline {
+    border: 2px solid #77af9c;
+    color: black;
+}
