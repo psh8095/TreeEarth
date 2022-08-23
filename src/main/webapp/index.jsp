@@ -15,7 +15,8 @@
 	<jsp:include page="hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
     <main>
-    	<div class="container">
+    	<div style="height:300px"></div>
+    	<div class="container" style="text-align: center;">
     		<img src="img/campaign.png" alt="나무">
     	</div>
     	<div>

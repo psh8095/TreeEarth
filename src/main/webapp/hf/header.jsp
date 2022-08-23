@@ -1,31 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!-- 제이쿼리 -->
 <script>
 	function login() {
-		window.open("MemberLoginForm.me", "login", "width=350, height=250");
+		window.open("MemberLoginForm.me", "login", "width=350, height=400");
 	}
 </script>
 
 <link href="css/index.css" rel="stylesheet">
 
+
+<!-- 헤더 -->
 <header>
+
+
+	<!-- 로고 -->
 	<div id="logo">
 		<h1></h1>
 		<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="250"></a>
 	</div>
+	
+	
+	<!-- 촤락 -->
 	<div id="font_img_holder">
 		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;">
 	</div>
 	
 	<!-- 로그인/마이페이지/장바구니 영역-->
 	<section>
+	
+	
 		<c:choose>
 			<c:when test="${empty sessionScope.sId}">
 				<div class="login">
 					<span onclick="login()">로그인</span>
 				</div>
 			</c:when>
+			
+			
 			<c:otherwise>
 				<c:choose>
 					<c:when test="${sessionScope.sId eq 'admin'}">
@@ -34,13 +48,16 @@
 							<a href="MemberLogout.me">로그아웃</a>
 						</div>
 					</c:when>
+					
+					
 					<c:otherwise>
 						<div class="login">
-						    <a href="Cart.my">장바구니</a>
-							<div class="dropdown">
-								<a class="dropbtn">${sessionScope.sId } 님</a>
-								<div class="dropdown-content">
-									<ul class="inline">
+						    <a href="Cart.my" class="my_cart">장바구니</a> 
+						    
+							<div class="mypage_dropdown">
+								<a class="mypage_menu">${sessionScope.sId }님</a>
+								<div class="mypage_content">
+									<ul >
 										<li><a href="">적립금</a></li>
 						                <li><a href="">이름</a></li>
 						                <li><a href="Wishlist.my">위시리스트</a></li>
@@ -50,12 +67,16 @@
 						                <li><a href="">작성한 글</a></li>
 						                <li><a href="">작성한 댓글</a></li>
 						                <li><a href="OrderList.my">주문내역 조회</a></li>
+						               	<li><a href="MemberLogout.me">로그아웃</a></li>
 						            </ul>
 				        		 </div>   
 							</div>
-						 <a href="MemberLogout.me">로그아웃</a>
+							
+							
 						</div>
 					</c:otherwise>
+					
+					
 				</c:choose>
 			</c:otherwise>
 		</c:choose>

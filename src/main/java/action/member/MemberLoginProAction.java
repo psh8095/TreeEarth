@@ -23,6 +23,8 @@ public class MemberLoginProAction implements Action {
 		MemberLoginProService service = new MemberLoginProService();
 		boolean isLoginSuccess = service.loginMember(member);
 		
+		
+		
 		if(!isLoginSuccess) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -36,9 +38,12 @@ public class MemberLoginProAction implements Action {
 			HttpSession session = request.getSession();
 			session.setAttribute("sId", member.getMem_id());
 			
-			forward = new ActionForward();
-			forward.setPath("./");
-			forward.setRedirect(false);
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("opener.location.reload()");
+			out.println("window.close();");
+			out.println("</script>");
 		}
 		
 		return forward;
