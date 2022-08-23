@@ -313,11 +313,6 @@ public class StoreDAO {
 			return updateCount;
 		}
 		
-		// 조회수 증가 작업을 처리하는 updateReadcount() 메서드 
-		public void updateReadcount(int sto_idx) {
-
-		
-	}
 		// 상품 구매 후기글 작성 작업 메서드
 		public int insertStoreReview(StoreReviewDTO storeReview) {
 			

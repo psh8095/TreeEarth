@@ -16,12 +16,10 @@ public class StoreDetailAction implements Action {
 		
 		ActionForward forward = null;
 		
-		int board_num = Integer.parseInt(request.getParameter("board_num"));
+		int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		
 		StoreDetailService service = new StoreDetailService();
-		service.increaseReadcount(board_num);
-		
-		StoreDTO store = service.getStore(board_num);
+		StoreDTO store = service.getStore(sto_idx);
 		
 		request.setAttribute("store", store);
 		

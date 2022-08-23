@@ -135,7 +135,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		<h1>${store.sto_idx }</h1>
 			<table>
 				<tr>
-					<td><img src="img/store/${store.sto_thum_file}" width="300" height="500"></td>
+					<td><img src="upload/${store.sto_thum_file}" width="600" height="500"></td>
 				</tr>
 				<tr>
 					<td>${store.sto_subject }<br></td>

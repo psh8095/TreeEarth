@@ -8,8 +8,8 @@
 <title>등록 된 상품을 상세조회하는 페이지</title>
 <style type="text/css">
 	#articleForm {
-		width: 500px;
-		height: 550px;
+		width: 800px;
+		height: 850px;
 		border: 1px solid red;
 		margin: auto;
 	}
@@ -21,7 +21,8 @@
 	table {
 		border: 1px solid black;
 		border-collapse: collapse; 
-	 	width: 500px;
+	 	width: 800px;
+	 	margin: auto;
 	}
 	
 	th {
@@ -34,7 +35,7 @@
 	}
 	
 	#basicInfoArea {
-		height: 70px;
+		height: 120px;
 		text-align: center;
 	}
 	
@@ -60,9 +61,9 @@
 		<h2>등록 된 상품을 상세조회하는 페이지</h2>
 		<section id="basicInfoArea">
 			<table border="1">
-			<tr><th width="70">상품 이름</th><td colspan="3" >${store.sto_subject }</td></tr>
+			<tr><th width="400">상품 이름</th><td colspan="3" >${store.sto_subject }</td></tr>
 			<tr>
-				<th width="70">상품 가격</th><td>${store.sto_price }</td>
+				<th width="70">상품 가격</th><td>${store.sto_price } 원</td>
 				<th width="70">작성일</th><td>${store.sto_date }</td>
 			</tr>
 			<tr>
@@ -83,13 +84,14 @@
 			</tr>
 			</table>
 		</section>
+		
 		<section id="articleContentArea">
 			${store.sto_content }
 		</section>
 	</section>
 	<section id="commandList">
-		<input type="button" value="수정" onclick="location.href='StoreModifyForm.st?board_num=${store.sto_idx}&pageNum=${param.pageNum}'">
-		<input type="button" value="삭제" onclick="location.href='StoreDeleteForm.st?board_num=${store.sto_idx}&pageNum=${param.pageNum}'">
+		<input type="button" value="수정" onclick="location.href='StoreModifyForm.st?sto_idx=${store.sto_idx}&pageNum=${param.pageNum}'">
+		<input type="button" value="삭제" onclick="location.href='StoreDeleteForm.st?sto_idx=${store.sto_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='StoreList.st?pageNum=${param.pageNum}'">
 	</section>
 </body>
