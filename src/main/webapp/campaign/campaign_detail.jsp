@@ -58,5 +58,8 @@
 <body>
 	<img src="img/campaign/${campaign.cam_real_img }" width="400">
 	<div>${campaign.cam_content }</div>
+	<div>
+		<a href="CampaignApplyForm.cp?cam_idx=${campaign.cam_idx }">캠페인 참가 신청</a>
+	</div>
 </body>
 </html>

@@ -46,9 +46,6 @@
 		</c:otherwise>	
 	</c:choose>
 	
-	<div>
-		<a href="CampaignApplyForm.cp?cam_idx=1">캠페인 참가 신청</a>
-	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
