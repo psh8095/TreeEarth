@@ -1,16 +1,9 @@
 @charset "UTF-8";
 
-body{
-	margin:0; 
-	padding-top: 95px;
-	box-sizing:border-box;
-	align-content: center;
-	width: 100%;
-	background: whitesmoke;
-    display: table-cell;
-}
 
-/* 헤더영역 */
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 해더 영역 */
 header{
 	position: fixed;
 	top:0;
@@ -33,7 +26,6 @@ header #font_img_holder{
 	right: 30px;
 }
 
-
 /* 로그인 */
 header div{
 	float: left;
@@ -47,6 +39,12 @@ header .login{
 	font-size: 15px;
 	word-spacing: 5px;
 	cursor: pointer;
+
+}
+
+.my_cart{
+	text-decoration-line: none;
+	color: black;
 }
 
 .login a{
@@ -85,7 +83,6 @@ header .login{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
-
 
 /* 가로 메뉴바 */
 header #menu{
@@ -146,6 +143,21 @@ main1>li a:hover{
 }
 
 
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 바디영역 */
+body{
+	margin:0; 
+	padding-top: 95px;
+	box-sizing:border-box;
+	align-content: center;
+	width: 100%;
+	background: whitesmoke;
+    display: table-cell;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
 
 /* 푸터영역 */
 footer {
