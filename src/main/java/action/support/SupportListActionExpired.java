@@ -10,7 +10,7 @@ import svc.support.SupportListService;
 import vo.ActionForward;
 import vo.support.SupportDTO;
 
-public class SupportListAction implements Action {
+public class SupportListActionExpired implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -33,7 +33,7 @@ public class SupportListAction implements Action {
 		System.out.println("7. 리스트 성공");
 		// 후원 페이지로 이동	
 		forward = new ActionForward();
-		forward.setPath("support/support_list.jsp");
+		forward.setPath("support/support_list_expired.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

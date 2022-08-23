@@ -45,9 +45,9 @@ public class SupportFrontController extends HttpServlet {
 			
 				
 				// 후원 리스트로 이동
-				if (command.equals("/SupportListAction.su")) {
+				if (command.equals("/SupportList.su")) {
 					try {
-						action = new SupportListAction();
+						action = new SupportList();
 						forward = action.execute(request, response);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -138,6 +138,24 @@ public class SupportFrontController extends HttpServlet {
 						forward = action.execute(request, response);
 					} catch (Exception e) {
 						System.out.println("moneycheck 오류 챱");
+						e.printStackTrace();
+					}
+					// --------------------------------------------------------------------------------------
+				
+//					만료된 후원 목록
+				} else if (command.equals("/SupportListExpired.su")) {
+					try {
+						action = new SupportListActionExpired();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+//					만료된 후원 상세
+				}else if(command.equals("/SupportDetailExpired.su")) {
+					try {
+						action = new SupportDetailActionExpired();
+						forward = action.execute(request, response);
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
