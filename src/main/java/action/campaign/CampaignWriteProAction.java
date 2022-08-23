@@ -47,8 +47,6 @@ Exception {
 			CampaignDTO campaign = new CampaignDTO();
 			campaign.setCam_subject(multi.getParameter("cam_subject"));
 			campaign.setCam_content(multi.getParameter("cam_content"));
-			campaign.setCam_thum_file(multi.getOriginalFileName("cam_thum_file"));
-			campaign.setCam_thum_real_file(multi.getFilesystemName("cam_thum_file"));
 			campaign.setCam_img(multi.getOriginalFileName("cam_img"));
 			campaign.setCam_real_img(multi.getFilesystemName("cam_img"));
 			

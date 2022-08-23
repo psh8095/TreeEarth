@@ -21,7 +21,6 @@ public class CampaignDetailAction implements Action{
 		
 		//조회수 증가 요청
 		CampaignDetailService service = new CampaignDetailService();
-		service.increaseReadcount(cam_idx);
 		
 		//글 상세정보 조회 요청
 		CampaignDTO campaign = service.getCampaignDetail(cam_idx);

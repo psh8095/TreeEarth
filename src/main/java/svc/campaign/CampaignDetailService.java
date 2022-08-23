@@ -29,18 +29,4 @@ public class CampaignDetailService {
 			return campaign;
 	}
 		
-		public void increaseReadcount(int cam_idx) {
-			
-			//싱글톤 디자인 패턴으로 생성된 CampaignDAO 인스턴스 활용
-			Connection con = JdbcUtil.getConnection();
-			CampaignDAO dao = CampaignDAO.getInstance();
-			dao.setConnection(con);
-			
-			//조회수 증가 작업
-			dao.updateReadcount(cam_idx);
-			
-			commit(con);
-			
-			close(con);
-		}
 }
