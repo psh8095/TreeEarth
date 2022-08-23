@@ -7,56 +7,16 @@
 <title>TreeEarth</title>
 <link href="../css/index.css" rel="stylesheet">
 <style type="text/css">
-#articleForm {
-		width: 500px;
-		height: 550px;
-		border: 1px;
-		margin: auto;
+	#img {
+		padding: 2%;
 	}
-	
-	h2 {
+	div {
 		text-align: center;
 	}
-	
-	table {
-		border: 1px solid black;
-		border-collapse: collapse; 
-	 	width: 500px;
-	}
-	
-	th {
-		text-align: center;
-	}
-	
-	td {
-		width: 150px;
-		text-align: center;
-	}
-	
-	#basicInfoArea {
-		height: 70px;
-		text-align: center;
-	}
-	
-	#articleContentArea {
-		background: skyblue;
-		margin-top: 20px;
-		height: 350px;
-		text-align: center;
-		overflow: auto;
-		white-space: pre-line;
-	}
-	
-	#commandList {
-		margin: auto;
-		width: 500px;
-		text-align: center;
-	}
-
 </style>
 </head>
 <body>
-	<img src="img/campaign/${campaign.cam_real_img }" width="400">
+	<div id="img"><img src="img/campaign/${campaign.cam_real_img }" width="100%"></div>
 	<div>${campaign.cam_content }</div>
 	<div>
 		<a href="CampaignApplyForm.cp?cam_idx=${campaign.cam_idx }">캠페인 참가 신청</a>

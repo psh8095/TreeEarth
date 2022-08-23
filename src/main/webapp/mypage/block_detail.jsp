@@ -29,7 +29,8 @@
 		</tr>
 	</table>
 
-	<input type="button" value="신고취소" onclick="">
+	<!-- 신고취소 해야될까? 귀찮아.... 일단 주소만 만들어봄..... -->
+	<input type="button" value="신고취소" onclick="location.href='CampaignReviewBlockCancel.my?cam_re_block_idx=${cam_re_block.cam_re_block_idx}'">
 	<input type="button" value="신고글삭제" onclick="location.href='CampaignReviewBlockDelete.my?cam_re_ref=${cam_re_block.cam_re_block_ref}'">
 
 </body>

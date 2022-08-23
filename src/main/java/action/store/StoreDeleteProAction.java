@@ -53,7 +53,7 @@ public class StoreDeleteProAction implements Action {
 			} else {
 				// 글목록(BoardList.bo) 페이지 요청 => 페이지번호 전달
 				forward = new ActionForward();
-				forward.setPath("StoreItemList.st?pageNum=" + request.getParameter("pageNum"));
+				forward.setPath("StoreList.st?pageNum=" + request.getParameter("pageNum"));
 				forward.setRedirect(true);
 			}
 		}

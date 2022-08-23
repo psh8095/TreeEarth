@@ -14,14 +14,6 @@
     font-style: normal;
 }
 
-
-body {
-    text-align: center;
-    padding: 100px;
-    background: whitesmoke;
-    display: table-cell;
-}
-
 button {
     margin: 20px;
 }
