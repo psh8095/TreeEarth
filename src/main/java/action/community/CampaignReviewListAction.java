@@ -18,8 +18,8 @@ public class CampaignReviewListAction implements Action {
 		
 		//페이징처리 변수
 		int pageNum = 1; 
-		int listLimit = 10;
-		int pageLimit = 10; 
+		int listLimit = 9;
+		int pageLimit = 9; 
 
 		//pageNum에 현재 페이지 번호 저장
 		if(request.getParameter("pageNum") != null) {
@@ -47,8 +47,10 @@ public class CampaignReviewListAction implements Action {
 //		System.out.println(pageInfo.getListCount());
 //		System.out.println(boardList);
 		
+		System.out.println("페이지 : " + pageNum);
+		
 		forward = new ActionForward();
-		forward.setPath("community/campaign_review_list.jsp");
+		forward.setPath("community/campaign_review_list.jsp?pageNum=" + pageNum);
 		forward.setRedirect(false);
 		
 		return forward;
