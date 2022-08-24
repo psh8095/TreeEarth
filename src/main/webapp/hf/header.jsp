@@ -30,6 +30,11 @@
 		  			"position" : "fixed ",
 		  			"transition-duration" : "0.5s"
 		  		});
+		       
+		  		$(".menu > li").css({
+		  			"color" : "black "
+		  		});
+		  		
 		   } else {
 		      // upscroll code
 		  		$("#header1").css({
@@ -37,6 +42,10 @@
 		  			"position" : "fixed",
 		  			"transition-duration" : "0.5s"
 		  		});
+		  		$(".menu > li").css({
+		  			"color" : ""
+		  		});
+		      
 		   }
 		       lastScrollTop = st;
 	    });
@@ -54,13 +63,13 @@
 
 
 <!-- 헤더 -->
-<header style="position: relative; width:100%; height: 800px">
+<header style="position: relative; width:100%; height: 1200px">
 	
 	
 	
 	<!-- 헤더 산 사진 -->
-	<div style="height:70px; width:100%; height:800px; background-color: white; position:  absolute; z-index: 1; overflow: hidden;">
-	    <img src="img/4961757.jpg" width="100%" alt="나무">
+	<div style="height:70px; width:100%; height:1200px; background-color: white; position:  absolute; z-index: 1; overflow: hidden;">
+	    <img src="img/cat-6723256.jpg" width="100%" alt="나무">
  	</div>
 	
 	
@@ -69,7 +78,7 @@
 	<div id="header1" style=" width:100%; position: absolute; z-index: 2;">
 	
 	
-<!-- 				로고 -->
+ 			<!-- 로고 -->
 <!-- 			<div id="logo"> -->
 <!-- 				<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="250"></a> -->
 <!-- 			</div> -->
@@ -121,6 +130,8 @@
 												<li><a href="">작성한 글</a></li>
 												<li> <a href="">작성한 댓글</a></li>
 												<li><a href="OrderList.my">주문내역 조회</a></li>
+												<li><a href="MemberLogout.me">로그아웃</a></li>
+												
 											</ul>
 										
 									</div>
