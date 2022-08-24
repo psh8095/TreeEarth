@@ -26,6 +26,8 @@ import action.store.StoreQnaDetailAction;
 import action.store.StoreQnaListAction;
 import action.store.StoreQnaModifyFormAction;
 import action.store.StoreQnaModifyProAction;
+import action.store.StoreQnaReplyFormAction;
+import action.store.StoreQnaReplyProAction;
 import action.store.StoreQnaWriteProAction;
 import action.store.StoreReviewDeleteProAction;
 import action.store.StoreReviewDetailAction;
@@ -141,6 +143,24 @@ public class StoreFrontController extends HttpServlet {
 			// 상세 조회
 			try {
 				action = new StoreOrderDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaReplyForm.bo")) {
+			// Qna 관리자 답변 페이지
+			action = new StoreQnaReplyFormAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/StoreQnaReplyPro.bo")) {
+			// Qna 관리자 답변 동작 기능
+			action = new StoreQnaReplyProAction();
+			
+			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
