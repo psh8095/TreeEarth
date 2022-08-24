@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/* 공용css */
+
+li{list-style: none; padding-left:0px;}
+a{text-decoration: none; color: black;}
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* 푸터영역 */
+footer{
+	position: relative;
+	height: 100px;
+	background-color: black;
+}
+#footer{
+	color: white;
+}

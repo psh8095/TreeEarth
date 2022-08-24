@@ -83,14 +83,18 @@ table {
 				<th width="70">조회수</th>
 				<td>${diary.diary_readcount }</td>
 			</tr>
+			<tr>
+				<th width="70">내용</th>
+				<td>
+					${diary.diary_content }<br><br>
+<%-- 					<img alt="${diary.diary_img }" src="img/community/${diary.diary_real_img }"> --%>
+			<img alt="" src="img/community/<%=diary.getDiary_thumb_img() %>" width="70%">
+			<img alt="" src="img/community//<%=diary.getDiary_img() %>" width="70%">
+				</td>
+			</tr>
 			</table>
 		</section>
 			<section id="articleContentArea">
-			<!-- SnapWidget -->
-<script src="https://snapwidget.com/js/snapwidget.js"></script>
-<iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
-			<img alt="" src="./upload/<%=diary.getDiary_thumb_img() %>" width="70%">
-			<img alt="" src="./upload/<%=diary.getDiary_img() %>" width="70%">
 			</section>
 	</section>
 	

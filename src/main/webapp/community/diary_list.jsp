@@ -7,23 +7,65 @@
 <meta charset="UTF-8">
 <title>treeEarth</title>
 <link href="../css/index.css" rel="stylesheet">
+<style type="text/css">
+#best{
+align: center;
+ width:fit-content;
+ margin:auto;
+}
+#insta{
+/* align: center; */
+margin-left:400px;
+ width:fit-content;
+}
+#buttonArea{
+   margin-left:auto;
+        display:block;
+          width:100px;
+}
+#pageList{
+margin:auto;
+display:block;
+}
+
+#pencil{
+	width:120px;
+	height: 40px;
+	color:#fff;
+	background: #1187CF ;
+	font-size: 16px;
+	border:none;
+	border-radius: 12px;
+	transition:0.3s;
+/* 	position: absolute; */
+/* 	left:50%; */
+/* 	top:50%; */
+	transform: translate(-50%,-50%);
+}
+#pencil:focus {
+	outline:0;
+}
+#pencil:hover{
+	background: #3fffa7 ;
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	<section id="diarycategory">
-	<button></button>
-	</section>
+	
+<!-- 	목록 전체 -->
 	<section id="">
-	<h2>반려나무 성장일지</h2>
-	<!-- SnapWidget -->
-<!-- SnapWidget -->
-<!-- SnapWidget -->
+	<section id ="best">
+		<img alt="diarybanner" src="img/community/diarybanner.png"  >
+	</section>
 <section id="insta">
 <script src="https://snapwidget.com/js/snapwidget.js"></script>
-<iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:90%; "></iframe>
+<iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:400%; "></iframe>
 </section>
+<h2>반려나무 성장일지</h2>
 		<c:choose>
 			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}">
 				<c:forEach var="diary" items="${diaryList }">
@@ -70,16 +112,18 @@
 				<h1>게시물이 존재하지 않습니다.</h1>
 			</c:otherwise>
 		</c:choose>
-		
-	
-<!-- 	</section> -->
+	</section>
 	
 	<br>
 	
+<!-- 	버튼 목록 -->
 	<div style="clear: both;">
-	<section id="buttonArea">
-		<input type="button" value="글쓰기" onclick="location.href='DiaryWriteForm.cm'" />
-	</section>
+	
+			<div id="buttonArea">
+	<c:if test="${not empty sessionScope.sId}">
+		   <button id="pencil" onclick="location.href='DiaryWriteForm.cm'" >✏ 글쓰기</button>
+		</c:if>
+			</div>
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">

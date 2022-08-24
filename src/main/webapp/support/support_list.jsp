@@ -33,11 +33,8 @@ function giveMoney() {
 	<!-- 해더 -->
 	
 	
-		<h1>후원 목록</h1>
-		<div style="float: left; width: 30%;">
-<!-- 		<a href="SupportWriteFormAdmin.su">글쓰기</a> -->
-		
 <!-- 		글 목록 -->
+		<h1>후원 목록</h1>
 			<section id="listForm">
 			<%for(Object o : List){
 				SupportDTO support = (SupportDTO)o; 
@@ -45,7 +42,7 @@ function giveMoney() {
 				
 				<h3><a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">제목 : <%=support.getSup_subject()%></a></h3>
 				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
-				<img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="50%"></a>
+				<img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="500px"></a>
 				
 				<div class="progressBar<%=support.getSup_idx() %>">
 			  		<div class="myBar<%=support.getSup_idx() %>"></div>
@@ -87,48 +84,12 @@ function giveMoney() {
 			});
 
 			$(".myBar<%=support.getSup_idx() %>").html(Math.round(day)+"%");
-		});
-		
-		
-
-		
-</script>
-					
+		});		
 			<%} %>
+			</script>
 			</section>
-			</div>
 			
-<!-- 			앨범형 -->
-			<div style="clear: both;">
-			<section id="pageList">
-		<c:choose>
-			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='SupportList.su?pageNum=${pageInfo.pageNum - 1}'">
-			</c:when>
-			<c:otherwise>
-				<input type="button" value="이전">
-			</c:otherwise>
-		</c:choose>
-		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
-			<c:choose>
-				<c:when test="${pageInfo.pageNum eq i}">
-					${i }
-				</c:when>
-				<c:otherwise>
-					<a href="SupportListAction.su?pageNum=${i }">${i }</a>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-		<c:choose>
-			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='SupportList.su?pageNum=${pageInfo.pageNum + 1}'">
-			</c:when>
-			<c:otherwise>
-				<input type="button" value="다음">
-			</c:otherwise>
-		</c:choose>
-	</section>
-</div>
+			
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

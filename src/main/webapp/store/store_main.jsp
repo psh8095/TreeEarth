@@ -33,7 +33,6 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 	<!-- 헤더 -->
 	
 	<h1>TreeEarth 프로젝트_Store Main</h1>
-	
 	<%if(storeList.isEmpty()) { %>
 	<hr>
 	<h1>상품이 없습니다.</h1>
@@ -73,6 +72,7 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 			}
 			%>
 		</section>
+
 	<div style="clear: both;">
 		<section id="pageList">
 		<c:choose>
@@ -103,6 +103,7 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 		</c:choose>
 	</section>
 	</div>
+
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
