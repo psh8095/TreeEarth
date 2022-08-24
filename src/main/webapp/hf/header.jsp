@@ -106,6 +106,7 @@
 							<c:otherwise>
 
 
+
 								<div id="myPage">
 									<div class="myPage">
 									
@@ -184,6 +185,5 @@
 				
 			</ul>
 		</div>
-	
 	</div>
 </header>
