@@ -32,7 +32,7 @@
 	<section id="">
 		<input type="button" value="문의 내용 수정" onclick="location.href='StoreQnaModifyForm.st?sto_idx=${store_qna.sto_idx}&sto_qna_idx=${store_qna.sto_qna_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="문의 삭제" onclick="location.href='StoreQnaDeleteForm.st?sto_idx=${store_qna.sto_idx}&sto_qna_idx=${store_qna.sto_qna_idx}&pageNum=${param.pageNum}'">
-		<input type="button" value="목록" onclick="location.href='StoreQnaList.st?sto_idx=${param.sto_idx }&pageNum=${param.pageNum}'">
+		<input type="button" value="목록" onclick="location.href='StoreQnaList.st?sto_idx=${store_qna.sto_idx }&pageNum=${param.pageNum}'">
 	</section>
 	
 	<!-- 푸터 -->
