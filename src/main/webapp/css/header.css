@@ -16,9 +16,11 @@ a{text-decoration: none; color: black;}
 }
 
 #myPage{
-
+	
 	display: inline;
 	float: right;
+
+	
 }	
 
 
@@ -50,7 +52,7 @@ a{text-decoration: none; color: black;}
 	text-align: left;
 	top: 30px;
 	opacity: 0;
-	background-color: gray;
+	background-color: white;
 	 
 }
 
@@ -62,7 +64,7 @@ a{text-decoration: none; color: black;}
 
 
 .subMyPage a:hover {
-	background-color: green;
+	background-color: gray;
 
 }
 
@@ -90,7 +92,7 @@ a{text-decoration: none; color: black;}
 	text-align: left;
 	top: 30px;
 	opacity: 0;
-	background-color: gray;
+	background-color: white;
 }
 
 .subMenu > li {
@@ -103,17 +105,21 @@ a{text-decoration: none; color: black;}
 	opacity: 1;
 }
 
+
 .menu a {
 	text-align:left;
-
-	
 	
 }
 
 .menu a:hover {
-	background-color: green;
+	background-color: gray;
 
 }
+
+.menu > li{
+	color: white;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------- */
 /*  가로 메뉴바 */
