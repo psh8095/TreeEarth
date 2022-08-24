@@ -22,30 +22,58 @@
 	       
 	       if(Math.abs(lastScrollTop - st) <= delta)
 	          return; // 스크롤값을 받아서 리턴한다.
-		          
+	       
+	          
+	      	// 내릴때
 			if ((st > lastScrollTop) && (lastScrollTop>0)) {
-		       // downscroll code
+		       
 		  		$("#header1").css({
 		  			"background-color":"white",
 		  			"position" : "fixed ",
 		  			"transition-duration" : "0.5s"
 		  		});
 		       
+		  		$("#logo > h1").css({
+		  			"color" : "black "
+		  		});
+		  		
 		  		$(".menu > li").css({
 		  			"color" : "black "
 		  		});
 		  		
+		  		$("#cart > a").css({
+		  			"color" : "black "
+		  		});
+		  		
+		  		$("#myPage > a").css({
+		  			"color" : "black "
+		  		});
+		  		
+		  		
+		   // 올릴때
 		   } else {
-		      // upscroll code
 		  		$("#header1").css({
 		  			"background-color":"",
 		  			"position" : "fixed",
 		  			"transition-duration" : "0.5s"
 		  		});
-		  		$(".menu > li").css({
-		  			"color" : ""
+		  		
+		  		$("#logo > h1").css({
+		  			"color" : "white "
 		  		});
-		      
+		  		
+		  		$(".menu > li").css({
+		  			"color" : "white "
+		  		});
+		  		
+		  		$("#cart > a").css({
+		  			"color" : "white "
+		  		});
+		  		
+		  		$("#myPage > a").css({
+		  			"color" : "white "
+		  		});
+		  		
 		   }
 		       lastScrollTop = st;
 	    });
@@ -63,31 +91,34 @@
 
 
 <!-- 헤더 -->
-<header style="position: relative; width:100%; height: 1200px">
+<header style="position: relative; width:100%; height: 1000px">
 	
 	
 	
 	<!-- 헤더 산 사진 -->
-	<div style="height:70px; width:100%; height:1200px; background-color: white; position:  absolute; z-index: 1; overflow: hidden;">
+	<div style="height:70px; width:100%; height:1000px; background-color: white; position:  absolute; z-index: 1; overflow: hidden; ">
 	    <img src="img/cat-6723256.jpg" width="100%" alt="나무">
  	</div>
 	
 	
 	
 	<!-- 헤더 기능 메뉴 -->
-	<div id="header1" style=" width:100%; position: absolute; z-index: 2;">
+	<div id="header1" style=" width:100%; position: absolute; z-index: 2; border: 1px solid gray; ">
 	
-	
- 			<!-- 로고 -->
-<!-- 			<div id="logo"> -->
-<!-- 				<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="250"></a> -->
-<!-- 			</div> -->
-
 		
-	<!-- 	<!-- 촤락  -->
-	<!-- 	<div id="font_img_holder"> -->
-	<!-- 		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;"> -->
-	<!-- 	</div> -->
+			<!-- 	<!-- 촤락  -->
+		<!-- 	<div id="font_img_holder"> -->
+		<!-- 		<img src="https://cdn.imweb.me/upload/S201808095b6c2aff66469/4c07bab104c64.gif" width="147" alt="" style="max-width: 100%; height: auto;"> -->
+		<!-- 	</div> -->
+	
+	
+		<!-- 로고 -->
+		<div id="logo">
+			<h1>트리어스</h1>
+<!-- 			<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="250"></a> -->
+		</div>
+		
+		
 		
 		<!-- 로그인/마이페이지/장바구니 영역 -->
 		<div id=login>
@@ -97,7 +128,7 @@
 				<c:choose>
 					<c:when test="${empty sessionScope.sId}">
 						<div class="login">
-							<span onclick="login()">로그인</span>
+							<a onclick="login()">로그인</a>
 						</div>
 					</c:when>
 					
@@ -116,10 +147,19 @@
 
 
 
+								<!-- 장바구니 영역 -->
+								<div id="cart">
+									<a href="Cart.my">장바구니 </a>
+								</div>
+								
+								
+								
+								<!-- 마이페이지 영역 -->
 								<div id="myPage">
-									<div class="myPage">
-									
-										<span id="sId">/ ${sessionScope.sId }님</span>
+									<ul class="myPage">
+			
+			
+										<li><a>${sessionScope.sId }님</a>
 											<ul class="subMyPage">
 												<li><a href="">적립금</a></li>
 												<li><a href="">이름</a></li>
@@ -131,16 +171,14 @@
 												<li> <a href="">작성한 댓글</a></li>
 												<li><a href="OrderList.my">주문내역 조회</a></li>
 												<li><a href="MemberLogout.me">로그아웃</a></li>
-												
 											</ul>
+										</li>
 										
-									</div>
+										
+									</ul>
 								</div>
 								
-								<div id="cart">
-									<a href="Cart.my">장바구니 </a>
-								</div>
-								
+
 								
 							</c:otherwise>
 							
@@ -150,16 +188,18 @@
 				</c:choose>
 			</section>
 		
+		
+		<!-- 로그인/마이페이지/장바구니 영역 끝 -->
 		</div>
 		
-	
-	
+		
+		
 	 	<!-- 메뉴바 영역 -->
 		<div id="menu">
 			<ul class="menu">
 			
 			
-				<li>캠페인
+				<li><a href="CampaignList.cp">캠페인</a>
 					<ul class="subMenu">
 						<li><a href="CampaignList.cp">진행중인 캠페인</a></li>
 						<li><a href="CampaignExpiredList.cp">종료된 캠페인</a></li>
@@ -167,14 +207,14 @@
 				</li>
 				
 				
-				<li>후원하기
+				<li><a href="SupportList.su">후원하기</a>
 					<ul class="subMenu">
 						<li><a href="SupportList.su">진행중인 후원</a></li>
 					</ul>
 				</li>
 				
 				
-				<li>스토어
+				<li><a href="StoreItemList.st?sto_category=반려나무">스토어</a>
 					<ul class="subMenu">
 						<li><a href="StoreItemList.st?sto_category=반려나무">반려나무</a></li>
 						<li><a href="StoreItemList.st?sto_category=식물">반려식물</a></li>
@@ -183,7 +223,7 @@
 				</li>
 				
 				
-				<li>커뮤니티
+				<li><a href="">커뮤니티</a>
 					<ul class="subMenu">
 						<li><a href="">공지사항</a></li>
 						<li><a href="CampaignReviewList.cm">캠페인 참여후기</a></li>
@@ -195,6 +235,11 @@
 				
 				
 			</ul>
+		<!-- 메뉴바 영역 끝-->
 		</div>
+
+		
+		
+	<!-- 헤더 기능 메뉴 끝-->
 	</div>
 </header>

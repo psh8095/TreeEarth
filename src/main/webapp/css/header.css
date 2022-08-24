@@ -1,92 +1,220 @@
 @charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 400;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 700;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ font-weight: 300;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* .nanumbarungothic * {
+ font-family: 'NanumBarunGothic', sans-serif;
+} */
+/*  *{  
+  font-family: 'Noto Sans KR', sans-serif; 
+ }  
+ p {
+ font-family: 'Hanna', fantasy;
+} */
+
 
 /* 공용css */
 
-*{margin: 0;}
-li{list-style: none;}
-a{text-decoration: none; color: black;}
 
+ul{list-style: none; padding-left: 0;}
+a{text-decoration: none; color: black;}
 
 
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* 헤더  */
-#logo{
+
+/* 로고 글자 */
+#logo > h1 {
+
+    font-family: 'EarlyFontDiary';
+	 letter-spacing: 1px;
+	 color: white;
+}
+
+
+/* 로그인 글자 */
+.login > a{
+    font-family: 'EarlyFontDiary';
+	font-size: 15px;
+	font-weight: 300;
+		 color: white;
 	
 }
+
+
+/* 메뉴바 글자 */
+.menu > li{ 
+    font-family: 'EarlyFontDiary';
+	font-size: 15px;
+	font-weight: 300;
+		 color: white;
+	
+}
+
+
+/* 장바구니 글자 */
+#cart > a{
+    font-family: 'EarlyFontDiary';
+	font-size: 15px;
+	font-weight: 300;
+		 color: white;
+	
+}
+
+
+/* 마이페이지 글자 */
+.myPage > li{
+    font-family: 'EarlyFontDiary';
+	font-size: 15px;
+	font-weight: 300;
+		 color: white;
+	
+}
+
+
+
+
+/* 로고 */
+#logo{	
+	display: inline-block;
+	border: 1px solid gray; 
+	
+}
+
+/* 로그인 */
+#login{
+	display: inline-block;
+	
+	position: absolute;
+	right: 20px;
+	top: 10px
+	
+}
+
+/* 메뉴 */
+#menu{
+	border: 1px solid gray; 
+	
+}
+
 
 #myPage{
-	
 	display: inline;
+	border: 1px solid blue; 
 	float: right;
 
-	
+
 }	
 
-
 #cart{
-
 	display: inline;
-	float: right;
+	border: 1px solid gray; 
+	
 
 }
-
-
 
 /* ---------------------------------------------------------------------------------------------------- */
-/* 마이페이지*/
+/* 마이페이지 메뉴*/
 
 
-.myPage > span {/* 엄빠 메뉴 조작 */
 
+
+
+.myPage > li {/* 메뉴 조작 */
+	box-sizing: border-box;
 	position:relative;
-	float: right;
+	border: 1px solid orange; 
+	
 
 }
 
-.subMyPage {/* 새끼 메뉴 조작 */
-
-	float: right;
+.subMyPage {/* 서브 메뉴 조작 */
 	position: absolute;
 	width: 150px;
 	text-align: left;
 	top: 30px;
+	left : -105px;
 	opacity: 0;
 	background-color: white;
-	 
+}
+
+.subMyPage > li {/* 서브 메뉴  */
+	width: 100%;
+	margin: 7px;
+	
+	border: 1px solid gray; 
+
 }
 
 
-.myPage:hover .subMyPage{
+.myPage a { /* 서브 메뉴 글자 */
+	text-align:left;
+}
+
+
+.myPage > li:hover .subMyPage{
 	transition-duration: 0.5s;
 	opacity: 1;
 }
 
 
-.subMyPage a:hover {
+.myPage a:hover .subMyPage{
 	background-color: gray;
 
 }
 
 
-
 /* ---------------------------------------------------------------------------------------------------- */
 /* 메뉴바 */
 
-.menu { /* 	메뉴바 킅 틀 딱딱 */
+
+.menu { /* 	메뉴바 킅 틀 */
 	width: 400px;
- 	height: 40px;
 }
 
-.menu > li {/* 엄빠 메뉴 조작 */
+.menu > li {/* 메뉴 조작 */
 	box-sizing: border-box;
 	position:relative;
 	float: left;
 	width: 25%;
 	
+	border: 1px solid gray; 
+
+	
 }
 
-.subMenu {/* 새끼 메뉴 조작 */
+.subMenu {/* 서브 메뉴 조작 */
 	position: absolute;
 	width: 150px;
 	text-align: left;
@@ -95,8 +223,17 @@ a{text-decoration: none; color: black;}
 	background-color: white;
 }
 
-.subMenu > li {
-	width: 100px;
+.subMenu > li {/* 서브 메뉴  */
+	width: 100%;
+	margin: 7px;
+	
+	border: 1px solid gray; 
+
+}
+
+
+.menu a { /* 서브 메뉴 글자 */
+	text-align:left;
 }
 
 
@@ -106,19 +243,12 @@ a{text-decoration: none; color: black;}
 }
 
 
-.menu a {
-	text-align:left;
-	
-}
-
-.menu a:hover {
+.menu a:hover .subMenu{
 	background-color: gray;
 
 }
 
-.menu > li{
-	color: white;
-}
+
 
 
 /* ---------------------------------------------------------------------------------------------------- */
