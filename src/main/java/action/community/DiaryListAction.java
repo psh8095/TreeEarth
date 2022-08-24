@@ -27,7 +27,7 @@ public class DiaryListAction implements Action {
 		}
 		
 		DiaryListService service = new DiaryListService();	
-		int diaryListCount = service.getCampaignReviewListCount();
+		int diaryListCount = service.getDiaryListCount();
 		
 		int maxPage = (int)Math.ceil((double)diaryListCount / listLimit);
 		int startPage = ((int)((double)pageNum / pageLimit + 0.9) - 1) * pageLimit + 1;

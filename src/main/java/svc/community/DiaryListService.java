@@ -12,7 +12,7 @@ import vo.community.*;
 public class DiaryListService {
 
 
-	public int getCampaignReviewListCount() {
+	public int getDiaryListCount() {
 
 		int listCount = 0;
 		

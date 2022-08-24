@@ -110,7 +110,7 @@ table {
 	<%}%>	
 
 	<!-- 푸터 -->
-	<jsp:include page="../hf/footer.jsp"></jsp:include>
+<%-- 	<jsp:include page="../hf/footer.jsp"></jsp:include> --%>
 	<!-- 푸터 -->
 </body>
 </html>
