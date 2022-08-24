@@ -26,6 +26,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td>작성일</td><td>${store_review.sto_re_date }</td>
+				</tr>
+				<tr>
 					<td><label for="mem_pass">비밀번호</label></td>
 					<td>
 						<input type="password" name="mem_pass" required="required">

@@ -337,7 +337,7 @@ public class StoreDAO {
 				close(pstmt); // 사용 완료된 PreparedStatement 객체를 먼저 반환
 				
 				// 전달받은 데이터를 store_review 테이블에 INSERT
-				sql = "INSERT INTO store_review VALUES (?,?,?,?,?,?,?)";
+				sql = "INSERT INTO store_review VALUES (?,?,?,?,?,?,?,now())";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, storeReview.getMem_id());
 				pstmt.setInt(2, storeReview.getSto_idx());
@@ -400,7 +400,7 @@ public class StoreDAO {
 			int startRow = (pageNum - 1) * listLimit;
 			
 			try {
-				String sql = "select mem_id, store_review.sto_idx, sto_re_idx, sto_re_score, sto_re_content, sto_re_file, sto_re_real_file, sto_subject from store_review left join store on store_review.sto_idx = store.sto_idx where store_review.sto_idx = ? ORDER BY sto_re_idx DESC LIMIT ?,?";
+				String sql = "select mem_id, store_review.sto_idx, sto_re_idx, sto_re_score, sto_re_content, sto_re_file, sto_re_real_file, sto_subject, sto_re_date from store_review left join store on store_review.sto_idx = store.sto_idx where store_review.sto_idx = ? ORDER BY sto_re_idx DESC LIMIT ?,?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, store.getSto_idx());
 				pstmt.setInt(2, startRow);
@@ -422,6 +422,7 @@ public class StoreDAO {
 					store_review.setSto_re_file(rs.getString("sto_re_file"));
 					store_review.setSto_re_real_file(rs.getString("sto_re_real_file"));
 					store_review.setSto_subject(rs.getString("sto_subject"));
+					store_review.setSto_re_date(rs.getDate("sto_re_date"));
 					// 전체 구매 후기글 정보를 저장하는 ArrayList 객체에 1개 구매 후기 정보 StoreReviewDTO 객체 추가
 					storeReviewList.add(store_review);
 				}
@@ -461,6 +462,7 @@ public class StoreDAO {
 					store_review.setSto_re_content(rs.getString("sto_re_content"));
 					store_review.setSto_re_file(rs.getString("sto_re_file"));
 					store_review.setSto_re_real_file(rs.getString("sto_re_real_file"));
+					store_review.setSto_re_date(rs.getDate("sto_re_date"));
 					
 					System.out.println(store_review); // 확인용
 				}

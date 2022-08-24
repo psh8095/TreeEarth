@@ -85,6 +85,7 @@ fieldset legend {
 			<c:choose>
 				<c:when test="${not empty storeReviewList and pageInfo.itemListCount gt 0}">
 					<c:forEach var="store_review" items="${storeReviewList }">
+					<div style="float: left; width: 30%; padding: 20px;">
 						<table>
 						<tr>
 							<td colspan="3">
@@ -96,7 +97,7 @@ fieldset legend {
 							</td>
 						</tr>
 						<tr>
-							<td>${store_review.mem_id }님의 후기입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;작성 날짜</td>
+							<td>${store_review.mem_id }님의 후기입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${store_review.sto_re_date }</td>
 						</tr>
 						<tr>
 							<td>[옵션] ${store_review.sto_subject }</td>
@@ -122,6 +123,7 @@ fieldset legend {
 							</td>
 						</tr>
 						</table>
+						</div>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
@@ -131,6 +133,7 @@ fieldset legend {
 			</c:choose>
 	</section>
 	<br>
+	<div style="clear: both;">
 	<section id="buttonArea">
 		<input type="button" value="후기 작성하기" onclick="location.href='StoreReviewWriteForm.st?sto_idx=${store.sto_idx}'">
 	</section>
@@ -164,7 +167,7 @@ fieldset legend {
 			</c:otherwise>
 		</c:choose>
 	</section>
-
+	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
