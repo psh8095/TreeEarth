@@ -39,5 +39,8 @@
 	<h3>6. 커뮤니티</h3>
 		<!-- 신고 글 조회 -->
 		<input type="button" value="신고 글 관리" onclick="location.href='CampaignReviewBlockList.my'"><br><br>
+	<h3>7. 회원 목록</h3>
+		<!-- 회원 목록 조회 -->
+		<input type="button" value="회원 목록" onclick="location.href='MemberList.my'"><br><br>
 </body>
 </html>
