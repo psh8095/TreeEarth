@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* 공용css */
+
+*{margin: 0;}
+li{list-style: none;}
+a{text-decoration: none; color: black;}
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 헤더  */
+#logo{
+	
+}
+
+#myPage{
+
+	display: inline;
+	float: right;
+}	
+
+
+#cart{
+
+	display: inline;
+	float: right;
+
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 마이페이지*/
+
+
+.myPage > span {/* 엄빠 메뉴 조작 */
+
+	position:relative;
+	float: right;
+
+}
+
+.subMyPage {/* 새끼 메뉴 조작 */
+
+	float: right;
+	position: absolute;
+	width: 150px;
+	text-align: left;
+	top: 30px;
+	opacity: 0;
+	background-color: gray;
+	 
+}
+
+
+.myPage:hover .subMyPage{
+	transition-duration: 0.5s;
+	opacity: 1;
+}
+
+
+.subMyPage a:hover {
+	background-color: green;
+
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 메뉴바 */
+
+.menu { /* 	메뉴바 킅 틀 딱딱 */
+	width: 400px;
+ 	height: 40px;
+}
+
+.menu > li {/* 엄빠 메뉴 조작 */
+	box-sizing: border-box;
+	position:relative;
+	float: left;
+	width: 25%;
+	
+}
+
+.subMenu {/* 새끼 메뉴 조작 */
+	position: absolute;
+	width: 150px;
+	text-align: left;
+	top: 30px;
+	opacity: 0;
+	background-color: gray;
+}
+
+.subMenu > li {
+	width: 100px;
+}
+
+
+.menu > li:hover .subMenu{
+	transition-duration: 0.5s;
+	opacity: 1;
+}
+
+.menu a {
+	text-align:left;
+
+	
+	
+}
+
+.menu a:hover {
+	background-color: green;
+
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/*  가로 메뉴바 */
+
+/* .menu { 	메뉴바 킅 틀 딱딱 */
+/* 	width: 600px; */
+/*  	height: 40px; */
+/*  	border: 1px solid black; */
+/* } */
+
+/* .menu > li {엄빠 메뉴 조작 */
+/* 	box-sizing:border-box; */
+/*  	border: 1px solid black; */
+ 	
+/*  	text-align: center; */
+/* 	position:relative; */
+/* 	float: left; */
+/* 	width: 25%; */
+	
+/* } */
+
+/* .subMenu {새끼 메뉴 조작 */
+/* 	box-sizing:border-box; */
+/*  	border: 1px solid black; */
+/* 	position: absolute; */
+/* 	width: 600px; */
+/* 	top: 30px; */
+/* 	opacity: 0; */
+/* } */
+
+/* .subMenu > li{ */
+/* 	display: inline; */
+/* } */
+
+/* .menu > li:hover .subMenu{ */
+/* 	opacity: 1; */
+/* } */
+
+/* .menu a { */
+/* 	background-color: gray; */
+/* } */
+
+/* .menu a:hover { */
+/* 	background-color: green; */
+
+/* } */
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 로고 */
+
+
+
+
+	
+	
