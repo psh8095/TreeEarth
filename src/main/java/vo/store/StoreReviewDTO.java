@@ -28,7 +28,7 @@ public class StoreReviewDTO {
 	private String sto_re_file;
 	private String sto_re_real_file;
 	private String sto_subject;
-	private Date sto_re_review;
+	private Date sto_re_date;
 	
 	public String getSto_subject() {
 		return sto_subject;
@@ -78,6 +78,12 @@ public class StoreReviewDTO {
 	public void setSto_re_real_file(String sto_re_real_file) {
 		this.sto_re_real_file = sto_re_real_file;
 	}
+	public Date getSto_re_date() {
+		return sto_re_date;
+	}
+	public void setSto_re_date(Date sto_re_date) {
+		this.sto_re_date = sto_re_date;
+	}
 	
 	@Override
 	public String toString() {
@@ -85,11 +91,6 @@ public class StoreReviewDTO {
 				+ sto_idx + ", sto_re_score=" + sto_re_score + ", sto_re_content=" + sto_re_content
 				+ ", sto_re_file=" + sto_re_file + ", sto_re_real_file=" + sto_re_real_file + "]";
 	}
-	public Date getSto_re_review() {
-		return sto_re_review;
-	}
-	public void setSto_re_review(Date sto_re_review) {
-		this.sto_re_review = sto_re_review;
-	}
+
 	
 }
