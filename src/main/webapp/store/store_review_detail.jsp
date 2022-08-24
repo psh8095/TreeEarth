@@ -18,7 +18,7 @@
 		<section id="">
 		 	<table>
 		 		<tr><th width="300">${store_review.mem_id }님의 후기입니다.</th></tr>
-		 		<tr><th>작성일</th><td></td></tr>
+		 		<tr><th>${store_review.sto_re_date }</th></tr>
 		 		<tr>
 		 			<th width="70">첨부 사진</th>
 		 		</tr>

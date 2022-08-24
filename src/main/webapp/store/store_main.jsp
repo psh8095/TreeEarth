@@ -5,7 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("storeList");
-
 %>
 <!DOCTYPE html>
 <html>
@@ -22,10 +21,10 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 		text-align: right;
 	}
 	
-	#tr1 {
-	display: flex;
-	display: inline;
-	}
+/* 	#tr1 { */
+/* 	display: flex; */
+/* 	display: inline; */
+/* 	} */
 </style>
 </head>
 <body>
@@ -41,16 +40,18 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 	<%}  %>
 
 		<section id="itemWriteForm">
-			<div id="tr1">
-			<table>
+<!-- 			<div id="tr1"> -->
+			
 			<%
 			for(Object o : storeList) {
 				StoreDTO dto = (StoreDTO)o;
 			%>
+		<div style="float: left; width: 30%; padding: 20px;">
+			<table>
 				<tr>
 					<td>
 						<a href="StoreItemDetail.st?sto_idx=<%=dto.getSto_idx() %>">
-						<img src="img/store/<%=dto.getSto_thum_file() %>" width="200" height="200">
+						<img src="img/store/<%=dto.getSto_thum_file() %>" width="500" height="500">
 						</a>
 					</td>
 				</tr>
@@ -66,13 +67,13 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 				<tr>
 					<td><%=dto.getSto_tag() %></td>
 				</tr>
+			</table>	
+			</div>
 			<%	
 			}
 			%>
-			</table>	
-			</div>
 		</section>
-
+	<div style="clear: both;">
 		<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
@@ -101,7 +102,7 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 			</c:otherwise>
 		</c:choose>
 	</section>
-
+	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
