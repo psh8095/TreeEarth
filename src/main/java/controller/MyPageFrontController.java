@@ -19,6 +19,7 @@ import action.mypage.DeleteCartAction;
 import action.mypage.DeleteWishlistAction;
 import action.mypage.InsertCartAction;
 import action.mypage.InsertWishlistAction;
+import action.mypage.MemberListAction;
 import action.mypage.OrderListAction;
 import action.mypage.UpdateMemberInfoAction;
 import action.mypage.WishlistAction;
@@ -148,6 +149,14 @@ public class MyPageFrontController extends HttpServlet {
 		} else if(command.equals("/CampaignReviewBlockDelete.my")) { 
 			//신고글 삭제
 			action = new CampaignReviewBlockDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/MemberList.my")) {
+			action = new MemberListAction();
 			
 			try {
 				forward = action.execute(request, response);

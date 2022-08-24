@@ -3,6 +3,8 @@ package dao;
 import static db.JdbcUtil.close;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import vo.member.*;
 
@@ -567,6 +569,46 @@ public class MemberDAO {
 		}
 		
 		return deleteCount;
+	}
+
+	// 전체 회원 목록 조회하는 메서드
+	public List<MemberDTO> selectMemberList() {
+		List<MemberDTO> memberList = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM member";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			memberList = new ArrayList<MemberDTO>();
+			
+			while(rs.next()) {
+				MemberDTO member = new MemberDTO();
+				member.setMem_id(rs.getString("mem_id"));
+				member.setMem_name(rs.getString("mem_name"));
+				member.setMem_birth(rs.getDate("mem_birth"));
+				member.setMem_gender(rs.getString("mem_gender"));
+				member.setMem_address(rs.getString("mem_address"));
+				member.setMem_address_detail(rs.getString("mem_address_detail"));
+				member.setMem_phone(rs.getString("mem_phone"));
+				member.setMem_email(rs.getString("mem_email"));
+				member.setMem_point(rs.getInt("mem_point"));
+				member.setMem_date(rs.getDate("mem_date"));
+				
+				memberList.add(member);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - selectMemberList()");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return memberList;
 	}
 
 }
