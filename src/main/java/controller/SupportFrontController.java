@@ -47,7 +47,7 @@ public class SupportFrontController extends HttpServlet {
 				// 후원 리스트로 이동
 				if (command.equals("/SupportList.su")) {
 					try {
-						action = new SupportList();
+						action = new SupportListAction();
 						forward = action.execute(request, response);
 					} catch (Exception e) {
 						e.printStackTrace();
