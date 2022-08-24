@@ -65,17 +65,19 @@
 	}
 	
 	#buttons{
-	margin-top: 250px;
+	margin-top: 100px;
 	}
 	
 	#commandList {
-		margin-top: 100px;
+		margin-top: 30px;
+		margin-bottom: 30px;
 /* 		width: auto; */
 		text-align: center;
 	}
 	
-	#list{
-		margin-top: 100px;
+	#List{
+		margin-top: 30px;
+		margin-bottom: 30px;
 		text-align: center;
 	}
 	
@@ -110,7 +112,7 @@
 			$("#giveMoney").on("click", function() {
 				if("<%=sId%>" != null) {
 // 				// 회원만 작성하게 만드세요
-					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=600,height=650");
+					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=1000,height=310");
 // 				} else {
 // 					alert("로그인 이후 사용해 주세요");
 				}
@@ -186,8 +188,5 @@
       
       <%}%>   
 	</section>
-<!-- 	<section id="commandList"> -->
-<%-- 		<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '">목록</button> --%>
-<!-- 	</section> -->
 </body>
 </html>

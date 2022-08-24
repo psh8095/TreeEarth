@@ -11,7 +11,6 @@
 #writeForm {
 	width: 800px;
 	height: 610px;
-	border: 1px solid green;
 	margin: auto;
 }
 
