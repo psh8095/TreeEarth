@@ -88,7 +88,7 @@ public class SupportWriteProAdminAction implements Action {
 		} else {
 			System.out.println("7. 게시물 작성 성공");
 			forward = new ActionForward();
-			forward.setPath("SupportListAction.su");
+			forward.setPath("SupportList.su");
 			forward.setRedirect(true);
 		}
 		

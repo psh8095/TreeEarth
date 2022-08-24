@@ -42,7 +42,7 @@ function giveMoney() {
 				
 				<h3><a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">제목 : <%=support.getSup_subject()%></a></h3>
 				<a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
-				<img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="500px"></a>
+				<img alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" width="500px" height="400px"></a>
 				
 				<div class="progressBar<%=support.getSup_idx() %>">
 			  		<div class="myBar<%=support.getSup_idx() %>"></div>
