@@ -110,18 +110,20 @@
 			
 			//후원 버튼
 			$("#giveMoney").on("click", function() {
-				if("<%=sId%>" != null) {
+				var sId = '<%=sId%>'
+				if(sId == 'null') {
+					alert("로그인 이후 사용해 주세요!");
+					window.open("MemberLoginForm.me?returnUrl=SupportList.su");
 // 				// 회원만 작성하게 만드세요
+				} else if(sId != 'null'){ 
 					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=1000,height=310");
-// 				} else {
-// 					alert("로그인 이후 사용해 주세요");
 				}
 			});
 
 		});
-		
-		
 </script>
+		
+		
 
 
 </head>
@@ -157,7 +159,7 @@
 			</table>
 			
 			
- 			<button id="giveMoney" class="w-btn-outline w-btn-green-outline" type="button" >후원</button>
+ 			<button class="w-btn-outline w-btn-green-outline"  id="giveMoney"  type="button" >후원</button>
 		</section>
 	
 	

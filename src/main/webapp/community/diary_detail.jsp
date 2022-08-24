@@ -17,6 +17,13 @@
 <link href="css/button.css" rel="stylesheet">
 </head>
 <style type="text/css">	
+
+@font-face {
+ font-family: 'MICEGothic Bold';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+	    font-weight: 700;
+	    font-style: normal;
+}
 #writeForm {
 	width: 800px;
 	height: 610px;
@@ -51,6 +58,18 @@ table {
 		width: 500px;
 		text-align: center;
 	}
+	
+	.w-btn-outline {
+    position: relative;
+    padding: 12px 12px;
+    border-radius: 15px;
+    font-family:'MICEGothic Bold';
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
 	
 .w-btn-indigo-outline {
     border: 3px solid aliceblue;
