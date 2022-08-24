@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h1>관리자 페이지</h1>
+	<input type="button" value="메인으로 이동" onclick="history.back()"><br>
+	
 	<h3>1. 상품 관리</h3>
 		<!-- 등록한 상품 목록 -->
 		<input type="button" value="등록 된 상품 목록" onclick="location.href='StoreList.st'"><br><br>
@@ -23,7 +25,7 @@
 		<!-- 간단 리뷰 답변 -->
 		<input type="button" value="간단리뷰 답변하기" onclick="location.href='#'"><br><br>
 		<!-- 회원문의 답변 -->
-		<input type="button" value="회원문의 답변하기" onclick="location.href='#'"><br><br>
+		<input type="button" value="회원문의 답변하기" onclick="location.href='StoreQnaList.st'"><br><br>
 	<h3>4. 캠페인</h3>
 		<!-- 캠페인 등록 -->
 		<input type="button" value="캠페인 공고 작성" onclick="location.href='CampaignWriteForm.cp'"><br><br>

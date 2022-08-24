@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.*;
 
 import vo.community.*;
+import vo.store.StoreQnaDTO;
 
 public class QnaDAO {
 	
@@ -179,7 +180,6 @@ public class QnaDAO {
 		return isQnaFaqWriter;
 	}
 
-	//
 	public int deleteQna(int qna_idx) {
 		
 		int deleteCount = 0;
@@ -201,6 +201,61 @@ public class QnaDAO {
 		}
 		
 		return deleteCount;
+	}
+	
+	// Qna 문의글 답글 작성을 수행하는 insertReplyQna() 메서드
+	public int insertReplyQna(StoreQnaDTO store_qna) {
+		int insertCount = 0;
+		
+		PreparedStatement pstmt = null, pstmt2 = null;
+		ResultSet rs = null;
+		
+		int num = 1; // 새 글 번호를 저장할 변수
+		
+		try {
+			// 새 글 번호로 사용될 번호를 생성하기 위해 기존 게시물의 가장 큰 번호 조회
+			// => 조회 결과가 있을 경우 해당 번호 + 1 값을 새 글 번호로 저장
+			String sql = "SELECT MAX(sto_qna_idx) FROM store_qna";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				num = rs.getInt(1) + 1; // 조회된 가장 큰 번호 + 1 값을 새 글 번호로 저장
+			}
+			
+			// 기존 답글들에 대한 순서번호(sto_qna_re_seq) 증가 작업 처리
+			// => 원본글의 참조글번호(sto_qna_re_ref) 와 같고(같은 레코드들 중에서)
+			//    원본글의 순서번호(sto_qna_re_seq)보다 큰 레코드들의 순서번호를 1씩 증가시키기
+			sql = "UPDATE store_qna SET sto_qna_re_seq=sto_qna_re_seq+1 "
+					+ "WHERE sto_qna_re_ref=? AND sto_qna_re_seq>?";
+			pstmt2 = con.prepareStatement(sql);
+			pstmt2.setInt(1, store_qna.getSto_qna_re_ref()); // 참조글번호
+			pstmt2.setInt(2, store_qna.getSto_qna_re_seq()); // 순서번호
+			pstmt2.executeUpdate();
+			
+			// 답글을 store_qna 테이블에 INSERT 작업
+			sql = "INSERT INTO store_qna VALUES (?,?,?,?,now(),?,?,?,?)";
+			pstmt2 = con.prepareStatement(sql);
+			pstmt2.setInt(1, num);
+			pstmt2.setString(2, store_qna.getMem_id());
+			pstmt2.setInt(3, store_qna.getSto_qna_idx());
+			pstmt2.setString(4, store_qna.getSto_qna_content());
+			pstmt2.setInt(5, store_qna.getSto_qna_re_seq());
+			pstmt2.setInt(6, store_qna.getSto_qna_re_ref());
+			pstmt2.setInt(7, store_qna.getSo_qna_re_lev());
+			pstmt2.setInt(11, 0); // sto_qna_readcount
+			
+			insertCount = pstmt2.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - insertReplyQna() : " + e.getMessage());
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return insertCount;
 	}
 	
 }
