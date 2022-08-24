@@ -21,6 +21,26 @@
 	function findPass() {
 		window.open("FindPassForm.me", "findPass", "width=630, height=300");
 	}
+	
+	function kakaoLogin() {
+		window.Kakao.Auth.login({
+			scope: 'profile_nickname, account_email, gender, birthday',
+			success: function(response) {
+				console.log(response)
+				window.Kakao.API.request({
+					url: '/v2/user/me',
+					success: (res) => {
+						const kakao_account = res.kakao_account;
+						console.log(kakao_account)
+					}
+				});
+			},
+			fail: function(error) {
+				console.log(error)
+			}
+		});
+	}
+	
 </script>
 <link href="css/index.css" rel="stylesheet">
 </head>
@@ -43,7 +63,7 @@
 			<tr>
 				<td colspan="2">
 				<input type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
-				<input type="submit" value="카카오톡으로 로그인">
+				<input type="button" value="카카오톡으로 로그인" onclick="kakaoLogin()">
 				<br>
 				<span id="searchId" onclick="findId()">아이디 찾기</span>&nbsp;&nbsp;&nbsp;
 				<span id="searchPass" onclick="findPass()">비밀번호찾기</span>

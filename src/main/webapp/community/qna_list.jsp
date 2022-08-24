@@ -42,28 +42,17 @@
 </script>
 </head>
 <body>
-
+	
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 
 	<div class="qna_category">
-		<span class="click">
-			<a href="QnaList.cm?qna_tag=faq">자주묻는질문</a>
-		</span>
-		<span class="click">
-			<a href="QnaList.cm?qna_tag=delivery">배송문의</a>
-		</span>
-		<span class="click">
-			<a href="QnaList.cm?qna_tag=change">교환/반품문의</a>
-		</span>
-		<span class="click">
-			<a href="QnaList.cm?qna_tag=store">상품문의</a>
-		</span>
-		<span class="click">
-			<a href="QnaList.cm?qna_tag=etc">기타문의</a>
-		</span>
-<!-- 		<button class="w-btn-gray" onclick="location.href='QnaList.cm?qna_tag=etc'">기타문의</button> -->
+		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=faq'">자주묻는질문</button>
+		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=delivery'">배송문의</button>
+		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=change'">교환/반품문의</button>
+		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=store'">상품문의</button>
+		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=etc'">기타문의</button>
 	</div>
 	
 	<h1>목록</h1>
