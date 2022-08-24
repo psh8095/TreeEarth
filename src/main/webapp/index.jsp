@@ -9,25 +9,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TreeEarth</title>
 <link href="css/index.css" rel="stylesheet">
+
 </head>
 <body>
-	<!-- 헤더 -->
-	<jsp:include page="hf/header.jsp"></jsp:include>
-	<!-- 헤더 -->
+
+  		<!-- <div style="height: 50px"></div> -->
+	
+		<!-- 헤더 -->
+		<jsp:include page="hf/header.jsp" ></jsp:include>
+		<!-- 헤더 -->
+	
+
+	
+	
     <main>
-    	<div style="height:300px"></div>
-    	<div class="container" style="text-align: center;">
-    		<img src="img/campaign.png" alt="나무">
+    	<div>
+	        <img src="img/pexels-pixabay-264547.jpg" alt="대충 메인 베너1" width="80%">
     	</div>
     	<div>
-	        <img src="img/2.png" alt="대충 메인 베너1" width="80%">
+	        <img src="img/pexels-pixabay-267482.jpg" alt="대충 메인 베너1" width="80%">
     	</div>
-    	<section>
-       		<img src="img/3.png" alt="대충 메인 베너2" width="80%">
-        </section>
+		<div>
+       		<img src="img/pexels-paula-128639.jpg" alt="대충 메인 베너2" width="80%">
+		</div>
     </main>
-    <!-- 푸터 -->
-	<jsp:include page="hf/footer.jsp"></jsp:include>
-	<!-- 푸터 -->
+
 </body>
 </html>
