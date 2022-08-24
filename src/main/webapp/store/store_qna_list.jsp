@@ -27,8 +27,7 @@
 <%-- 							<b>${store_qna.sto_qna_content }</b> --%>
 <!-- 							</td> -->
 							<td>
-							<span style="display:block;margin-top: 200px;" onclick="location.href='StoreQnaDetail.st?sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}'" style="cursor: pointer;">&lt;문의 보기&gt;</span>
-<%-- 								<a href="StoreQnaDetail.st?sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}">&lt;문의 보기&gt;</a> --%>
+							<span style="display:block;margin-top: 200px;" onclick="location.href='StoreQnaDetail.st?sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}'" style="cursor:pointer;">&lt;문의 보기&gt;</span>
 							</td>
 						</tr>
 						</table>
