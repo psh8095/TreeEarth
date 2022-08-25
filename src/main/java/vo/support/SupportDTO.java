@@ -4,11 +4,10 @@ import java.sql.Date;
 
 
 //서포트 테이블
-/*
+/*후원글번호, 후원 제목, 목표금액, 목표날짜, 내용, 썸네일파일*2, 파일*2, 조회수, 사이트 총 후원금액, 각 후원당 총 금액, 게시일 
 CREATE TABLE support (
 		   sup_idx int primary key,
 		   sup_subject VARCHAR(50) NOT NULL,
-		   sup_pass varchar(20) not null,
 		   sup_goal_price int NOT NULL,
 		   sup_goal_date Date NOT NULL,
 		   sup_content VARCHAR(1000) NOT NULL,

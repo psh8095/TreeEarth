@@ -89,7 +89,7 @@
 						${i }
 					</c:when>
 					<c:otherwise>
-						<a href="CampaignReviewList.cm?page=${i }">${i }</a>
+						<a href="CampaignReviewList.cm?pageNum=${i }">${i }</a>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
