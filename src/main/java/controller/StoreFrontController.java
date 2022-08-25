@@ -270,15 +270,17 @@ public class StoreFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/StoreQnaDetail.st")) {
-			// 상품 문의글 상세 조회 주소
-			action = new StoreQnaDetailAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if(command.equals("/StoreQnaModifyForm.st")) {
+		} 
+//		else if(command.equals("/StoreQnaDetail.st")) {
+//			// 상품 문의글 상세 조회 주소
+//			action = new StoreQnaDetailAction();
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} 
+		else if(command.equals("/StoreQnaModifyForm.st")) {
 			// 상품 문의글 수정 폼 주소
 			action = new StoreQnaModifyFormAction();
 			try {
