@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+
+.outer {
+  width: 100%;
+  height: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.inner-list {
+  display: flex;
+  transition: .3s ease-out;
+  height: 100%;
+}
+
+.inner {
+  border: 6px solid red;
+  padding: 0 16px;
+}
+
+.button-list {
+  text-align: center;
+}

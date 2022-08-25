@@ -49,6 +49,10 @@
 		  			"color" : "black "
 		  		});
 		  		
+		  		$(".login > a").css({
+		  			"color" : "black "
+		  		});
+		  		
 		  		
 		   // 올릴때
 		   } else {
@@ -73,6 +77,11 @@
 		  		$("#myPage > a").css({
 		  			"color" : "white "
 		  		});
+		  		
+		  		$(".login > a").css({
+		  			"color" : "white "
+		  		});
+		  		
 		  		
 		   }
 		       lastScrollTop = st;
