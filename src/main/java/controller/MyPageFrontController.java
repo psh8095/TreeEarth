@@ -21,6 +21,7 @@ import action.mypage.InsertCartAction;
 import action.mypage.InsertWishlistAction;
 import action.mypage.MemberListAction;
 import action.mypage.OrderListAction;
+import action.mypage.SupportHistoryListAction;
 import action.mypage.UpdateMemberInfoAction;
 import action.mypage.WishlistAction;
 import vo.ActionForward;
@@ -149,6 +150,15 @@ public class MyPageFrontController extends HttpServlet {
 		} else if(command.equals("/CampaignReviewBlockDelete.my")) { 
 			//신고글 삭제
 			action = new CampaignReviewBlockDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/SupportHistory.my")) { 
+			//후원 내역 조회
+			action = new SupportHistoryListAction();
 			
 			try {
 				forward = action.execute(request, response);
