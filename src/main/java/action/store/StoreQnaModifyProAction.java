@@ -53,7 +53,7 @@ public class StoreQnaModifyProAction implements Action {
 				out.println("</script>");
 			} else {
 				forward = new ActionForward();
-				forward.setPath("StoreQnaDetail.st?sto_idx=" + store_qna.getSto_idx() + "&sto_qna_idx=" + store_qna.getSto_qna_idx() + "&pageNum=" + request.getParameter("pageNum"));
+				forward.setPath("StoreQnaList.st?sto_idx=" + store_qna.getSto_idx() + "&sto_qna_idx=" + store_qna.getSto_qna_idx() + "&pageNum=" + request.getParameter("pageNum"));
 				forward.setRedirect(true);
 			}
 		}
