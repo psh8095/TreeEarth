@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 공용css */
+
+*{margin: 0; padding: 0;}
+ul{list-style: none; padding-left: 0;}
+a{text-decoration: none; color: black;}
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 메인  */
+
+.main {
+	border: 10px solid blue;
+	width: 60%;
+	margin: 0 auto;
+	
+}
+
+.list {
+	box-sizing: content-box;
+	border: 10px solid red;
+	width: 30%;
+	height: 250px;
+	margin: 0 auto;
+	overflow: hidden;
+	float: left;
+
+	
+
+}
