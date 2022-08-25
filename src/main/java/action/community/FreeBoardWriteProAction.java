@@ -18,15 +18,15 @@ public class FreeBoardWriteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("FreeBoardWriteProAction");
 		
 		ActionForward forward = null; // 포워딩 정보를 저장하는 변수 선언
 		
-		String uploadPath = "upload"; // 가상폴더명
+		String uploadPath = "img/community"; // 가상폴더명
+		
 		int fileSize = 1024 * 1024 * 10; // 파일크기지정
 		
-		ServletContext context = request.getServletContext(); // 현재 서블릿을 처리하는 객체인 서블릿컨텍스트 객체 가져오기
-		
-		String realPath = context.getContextPath(); // 업로드 파일이 저장되는 실제경로 얻어오기
+		String realPath = request.getServletContext().getRealPath(uploadPath); // 업로드 파일이 저장되는 실제경로 얻어오기
 		
 		MultipartRequest multi = new MultipartRequest( // 파일업로드에 필요한 각종 파라미터 전달
 			request,
@@ -41,8 +41,7 @@ public class FreeBoardWriteProAction implements Action {
 		board.setFree_pass(multi.getParameter("free_pass"));
 		board.setFree_subject(multi.getParameter("free_subject"));
 		board.setFree_content(multi.getParameter("free_content"));
-		board.setFree_img(multi.getParameter("free_img"));
-		board.setFree_original_img(multi.getParameter("free_original_img"));
+		board.setFree_img(multi.getFilesystemName("free_img"));
 		
 		// registFreeBoard() 메서드를 호출하여 글쓰기 작업 요청
 		FreeBoardWriteProService service = new FreeBoardWriteProService();
