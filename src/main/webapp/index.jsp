@@ -19,7 +19,9 @@
 	<jsp:include page="hf/header.jsp" ></jsp:include>
 	<!-- 헤더 -->
 	
-
+<!-- 	<!-- 배너 --> -->
+<%-- 	<jsp:include page="hf/mainBanner.jsp" ></jsp:include> --%>
+<!-- 	<!-- 배너 --> -->
 	
 	
     <main>
