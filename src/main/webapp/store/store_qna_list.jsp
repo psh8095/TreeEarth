@@ -23,14 +23,15 @@
 							<td>${store_qna.mem_id }님의 문의입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${store_qna.sto_qna_date }</td>
 						</tr>
 						<tr>
-<!-- 							<td> -->
-<%-- 							<b>${store_qna.sto_qna_content }</b> --%>
-<!-- 							</td> -->
 							<td>
-							<span style="display:block;margin-top: 200px;" onclick="location.href='StoreQnaDetail.st?sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}'" style="cursor:pointer;">&lt;문의 보기&gt;</span>
+							${store_qna.sto_qna_content }
+							</td>
+							<td>
+							<span style="display:block;margin-top: 20px; cursor:pointer;" onclick="location.href='StoreQnaDetail.st?sto_qna_idx=${store_qna.sto_qna_idx }&pageNum=${pageInfo.pageNum}'">&lt;문의 보기&gt;</span>
 							</td>
 						</tr>
 						</table>
+						<hr>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>

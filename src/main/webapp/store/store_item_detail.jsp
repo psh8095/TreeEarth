@@ -123,15 +123,27 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	}
 	
 	@font-face {
-	 font-family: 'NanumBarunGothic';
-	 font-style: normal;
-	 font-weight: 300;
-	 src: url('http://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff');
-	}
+       font-family: 'MICEGothic Bold';
+       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+       font-weight: 700;
+       font-style: normal;
+   }
 	
 	.w-btn-outline {
-		font-family:'NanumBarunGothic', sans-serif;
+		position: relative;
+		padding: 8px 8px;
+		border-radius: 15px;
+/* 		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); */
+		font-family:'MICEGothic Bold', sans-serif;
 		font-size: 15px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: 0.25s;
+	}
+	
+	.w-btn-green-outline {
+		border: 2px solid #77af9c;
+		color: black;
 	}
 	
 </style>
@@ -145,7 +157,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		<h1>${store.sto_idx }</h1>
 			<table>
 				<tr>
-					<td><img src="upload/${store.sto_thum_file}" width="600" height="500"></td>
+					<td><img src="img/store/${store.sto_thum_file}" width="600" height="500"></td>
 				</tr>
 				<tr>
 					<td>${store.sto_subject }<br></td>
