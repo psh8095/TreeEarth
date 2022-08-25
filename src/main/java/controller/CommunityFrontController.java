@@ -28,7 +28,7 @@ public class CommunityFrontController extends HttpServlet {
 		
 		if(command.equals("/FreeBoardWriteForm.cm")) { //자유게시판 작성 폼
 			forward = new ActionForward();
-			forward.setPath("freeboard/freeboard_write.jsp");
+			forward.setPath("community/freeboard_write.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/FreeBoardWritePro.cm")) { //자유게시판 작성 동작
 			try {
@@ -44,7 +44,63 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace(); 
 			}
-		}
+		} 
+//			else if(command.equals("/FreeBoardDetail.cm")) {
+//			try {
+//				action = new FreeBoardDetailAction();
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/FreeBoardDeleteForm.cm")) {
+//			forward = new ActionForward();
+//			forward.setPath("community/freeboard_delete.jsp");
+//			forward.setRedirect(false); // Dispatcher 방식(생략 가능)
+//		} else if(command.equals("/FreeBoardDeletePro.cm")) {
+//			action = new FreeBoardDeleteProAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/FreeBoardModifyForm.cm")) {
+//			// 글 수정에 필요한 게시물 조회 비즈니스 로직 처리를 위해
+//			// FreeBoardModifyFormAction 클래스의 execute() 메서드 호출
+//			action = new FreeBoardModifyFormAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/FreeBoardModifyPro.cm")) {
+//			action = new FreeBoardModifyProAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/FreeBoardReplyForm.cm")) {
+//			// FreeBoardReplyFormAction 을 통해 답글 달 원본 게시물 상세 정보 조회 후
+//			// freeboard_reply.jsp 페이지에서 표시(제목, 내용만 표시)
+//			action = new FreeBoardReplyFormAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else if(command.equals("/FreeBoardReplyPro.cm")) {
+//			action = new FreeBoardReplyProAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 		
 //		=================================================================================================================================
 		

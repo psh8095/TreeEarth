@@ -29,6 +29,7 @@ public class FreeBoardListAction implements Action {
 		
 		FreeBoardListService service = new FreeBoardListService();
 		int listCount = service.getListCount();
+		System.out.println("전체 자유게시판 게시물 수 : " + listCount);
 
 		int maxPage = (int)Math.ceil((double)listCount / listLimit);
 		int startPage = ((int)((double)pageNum / pageLimit + 0.9) - 1) * pageLimit + 1;
