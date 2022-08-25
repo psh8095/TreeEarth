@@ -1,9 +1,20 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* 공용css */
 
-*{margin: 0; padding: 0;}
+*{	margin: 0; 
+	padding: 0; 	
+	font-family: 'EarlyFontDiary';
+	font-size: 15px;
+	font-weight: 300;}
 ul{list-style: none; padding-left: 0;}
 a{text-decoration: none; color: black;}
 
@@ -12,22 +23,40 @@ a{text-decoration: none; color: black;}
 /* ---------------------------------------------------------------------------------------------------- */
 /* 메인  */
 
+body{
+	height: 100px;
+}
+
+
 .main {
-	border: 10px solid blue;
-	width: 60%;
+	position :relative;
+	border: 5px solid blue;
+	width: 70%;
 	margin: 0 auto;
+	
+	/* 푸터의 높이 */
+  	padding-bottom: (100px);
 	
 }
 
 .list {
-	box-sizing: content-box;
-	border: 10px solid red;
-	width: 30%;
-	height: 250px;
+	box-sizing:border-box;
+	border: 5px solid red;
+	width: 33%;
+	height: 350px;
 	margin: 0 auto;
 	overflow: hidden;
 	float: left;
+}
 
-	
+.img{
+	box-sizing:border-box;
+	border: 5px solid green;
+	width: 350px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+.subject {
 
 }

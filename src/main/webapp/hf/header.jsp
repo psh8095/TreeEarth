@@ -49,10 +49,6 @@
 		  			"color" : "black "
 		  		});
 		  		
-		  		$(".login > a").css({
-		  			"color" : "black "
-		  		});
-		  		
 		  		
 		   // 올릴때
 		   } else {
@@ -78,11 +74,6 @@
 		  			"color" : "white "
 		  		});
 		  		
-		  		$(".login > a").css({
-		  			"color" : "white "
-		  		});
-		  		
-		  		
 		   }
 		       lastScrollTop = st;
 	    });
@@ -100,12 +91,12 @@
 
 
 <!-- 헤더 -->
-<header style="position: relative; width:100%; height: 600px">
+<header style="position: relative; width:100%; height: 1000px">
 	
 	
 	
 	<!-- 헤더 산 사진 -->
-	<div style="height:70px; width:100%; height:600px; background-color: white; position:  absolute; z-index: 1; overflow: hidden; ">
+	<div style=" width:100%; height:1000px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
 	    <img src="img/cat-6723256.jpg" width="100%" alt="나무">
  	</div>
 	
