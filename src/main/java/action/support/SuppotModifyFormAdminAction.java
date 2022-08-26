@@ -31,7 +31,7 @@ public class SuppotModifyFormAdminAction implements Action {
 		
 		System.out.println("7. ModifyForm 확인");
 		forward = new ActionForward();
-		forward.setPath("support/support_board_modify.jsp");
+		forward.setPath("support/support_modify.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

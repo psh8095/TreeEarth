@@ -19,18 +19,18 @@
 		//답변 스르륵
 		$('.qa_li .question').click(function(){
 			
-			q = $(".qa_li .question").index(this);
+			q = $(".qa_li .question").index(this); //몇번째 질문인지
 	        
-			if(q!=qnaNum){ // Q눌렀을 때 답변 스르륵
-				$('.qa_li .answer').stop(true, true).slideUp(400);
-				$('.qa_li').removeClass('open');
-				TweenMax.to($('.qa_li .question').eq(qnaNum).find('.iconDiv'), 0.4, {rotation:0});
-				qnaNum = q;
-				$('.qa_li').eq(qnaNum).addClass('open');
-				$('.qa_li .answer').eq(qnaNum).stop(true, true).slideDown(400);
-				TweenMax.to($('.qa_li .question').eq(qnaNum).find('.iconDiv'), 0.4, {rotation:0});
+			if(q!=qnaNum){ // Q눌렀을 때 A 스르륵
+				$('.qa_li .answer').stop(true, true).slideUp(400); // 현재 스르륵 내려와 있는곳 다시 올리기
+				$('.qa_li').removeClass('open'); // open 제거
+				TweenMax.to($('.qa_li .question').eq(qnaNum).find('.iconDiv'), 0.4, {rotation:0}); // 0.4초동안 스르륵
+				qnaNum = q; //질문번호 몇번째인지
+				$('.qa_li').eq(qnaNum).addClass('open'); // open 클래스 추가
+				$('.qa_li .answer').eq(qnaNum).stop(true, true).slideDown(400); // 내가 누른 질문 스르륵 내려오기
+				TweenMax.to($('.qa_li .question').eq(qnaNum).find('.iconDiv'), 0.4, {rotation:0}); //0.4초동안 스르륵
 	            
-			}else{
+			}else{ //q없을때(dafault)
 				$('.qa_li .answer').eq(qnaNum).stop(true, true).slideUp(400);
 				$('.qa_li').eq(qnaNum).removeClass('open');
 				TweenMax.to($('.qa_li').eq(qnaNum).find('.question p'), 0.4, {rotation:0});
@@ -59,7 +59,7 @@
 	
 	<br>
 	
-	<div>
+	<section>
 		<ul class="listWrap">
 			<c:choose>
 				<c:when test="${not empty qnaList and pageInfo.itemListCount gt 0 }">
@@ -81,7 +81,7 @@
 				</c:otherwise>
 			</c:choose>
 		</ul>
-	</div>
+	</section>
 	
 	<c:choose>
 		<c:when test="${not empty sessionScope.sId}">

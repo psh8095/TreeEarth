@@ -8,14 +8,14 @@ import dao.*;
 
 public class SupportDeleteProAdminService {
 
-	public boolean isBoardWriter(int sup_idx, String sup_pass) {
+	public boolean isBoardWriter(int sup_idx, String mem_pass) {
 		boolean isBoardWriter = false;
 
 		Connection con = getConnection();
 		SupportDAO dao = SupportDAO.getInstance();
 		dao.setConnection(con);
 
-		isBoardWriter = dao.isBoardWriter(sup_idx, sup_pass);
+		isBoardWriter = dao.isBoardWriter(sup_idx, mem_pass);
 //	modify랑 똑같은 isboardwriter 메서드 사용
 
 		close(con);

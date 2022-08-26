@@ -30,9 +30,10 @@
 						id="board_name" value="<%=dto.getSup_subject() %>" required="required"></td>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="sup_pass">비밀번호</label></td>
-					<td class="td_right"><input type="password" name="sup_pass"
-						id="board_pass" required="required"></td>
+					<td><label for="mem_pass">비밀번호</label></td>
+					<td>
+						<input type="password" name="mem_pass" required="required">
+					</td>
 				</tr>
 				
 				

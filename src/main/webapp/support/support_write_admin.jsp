@@ -47,17 +47,18 @@ table {
 		<h2>게시판글등록</h2>
 		<form action="SupportWriteProAdmin.su" method="post"
 			enctype="multipart/form-data" name="boardForm" >
+			<input type="hidden" name="mem_id" value="${param.mem_id }">
 			<table>
 				<tr>
 					<td class="td_left"><label for="sup_subject">제목</label></td>
 					<td class="td_right"><input type="text" name="sup_subject"
 						id="board_name" required="required"></td>
 				</tr>
-				<tr>
-					<td class="td_left"><label for="sup_pass">비밀번호</label></td>
-					<td class="td_right"><input type="password" name="sup_pass"
-						id="board_pass" required="required"></td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<td class="td_left"><label for="sup_pass">비밀번호</label></td> -->
+<!-- 					<td class="td_right"><input type="password" name="sup_pass" -->
+<!-- 						id="board_pass" required="required"></td> -->
+<!-- 				</tr> -->
 				
 				<tr>
 					<td class="td_left"><label for="sup_goal_price">목표 금액</label></td>

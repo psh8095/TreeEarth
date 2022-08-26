@@ -35,7 +35,7 @@
 			<table>
 				<tr>
 					<td><label>글 비밀번호</label></td>
-					<td><input type="password" name="sup_pass" required="required"></td>
+					<td><input type="password" name="mem_pass" required="required"></td>
 				</tr>
 				<tr>
 					<td colspan="2">
