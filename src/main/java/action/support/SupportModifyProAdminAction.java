@@ -49,7 +49,10 @@ public class SupportModifyProAdminAction implements Action {
 		
 		SupportDTO dto = new SupportDTO();
 		
+		
+		//관리자로 수정하므로 아이디는 admin으로 고정
 		dto.setSup_idx(Integer.parseInt(multi.getParameter("sup_idx")));
+		dto.setMem_id("admin");
 		dto.setSup_goal_price(Integer.parseInt(multi.getParameter("sup_goal_price")));
 		dto.setSup_subject(multi.getParameter("sup_subject"));
 		dto.setSup_content(multi.getParameter("sup_content"));
