@@ -18,10 +18,11 @@ public class SupportDeleteProAdminAction implements Action {
 			
 			//글 삭제를 위하여 판별하기 위해 글 번호와 비밀번호 파라미터 가져오기
 			int sup_idx = Integer.parseInt(request.getParameter("sup_idx"));
-			String sup_pass = request.getParameter("sup_pass");
+			String mem_pass = request.getParameter("mem_pass");
 			
 			SupportDeleteProAdminService service = new SupportDeleteProAdminService();
-		boolean isBoardWriter = service.isBoardWriter(sup_idx, sup_pass); //modify와 동일 메서드
+		boolean isBoardWriter = service.isBoardWriter(sup_idx, mem_pass); //modify와 동일 메서드
+		System.out.println(isBoardWriter);
 		if(!isBoardWriter) {
 			 response.setContentType("text/html; charset=UTF-8" );
 			 PrintWriter out = response.getWriter();
@@ -42,7 +43,7 @@ public class SupportDeleteProAdminAction implements Action {
 			}else {
 				System.out.println("7. 삭제 성공");
 				forward = new ActionForward();
-				forward.setPath("SupportListAction.su"); //+ request.getParameter("pageNum")
+				forward.setPath("SupportList.su"); //+ request.getParameter("pageNum")
 				forward.setRedirect(true);
 			}
 		}
