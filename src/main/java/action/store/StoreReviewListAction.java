@@ -22,7 +22,7 @@ public class StoreReviewListAction implements Action {
 		
 		// 페이징처리 변수 선언
 		int pageNum = 1;
-		int listLimit = 5;
+		int listLimit = 6;
 		int pageLimit = 5;
 
 		// 현재 페이지번호(pageNum)가 전달되었을 경우 변수에 저장
