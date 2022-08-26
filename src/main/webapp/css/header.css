@@ -47,7 +47,7 @@
 
 *{margin: 0; padding: 0;}
 ul{list-style: none; padding-left: 0;}
-a{text-decoration: none; color: black;}
+a{text-decoration: none; color:black;}
 
 
 
@@ -65,12 +65,25 @@ a{text-decoration: none; color: black;}
 }
 
 
+
 /* 로그인 글자 */
 .login > a{
     font-family: 'EarlyFontDiary';
 	font-size: 15px;
 	font-weight: 300;
 	color: white;
+}
+
+
+/* 장바구니 글자, 마이페이지 */
+#cart > a, .myPage > li a {
+    font-family: 'EarlyFontDiary';
+	font-size: 15px;
+	font-weight: 300;
+	color: white;
+	height: 24px;
+	line-height: 24px;
+	display: inline-block;	
 	
 }
 
@@ -84,43 +97,22 @@ a{text-decoration: none; color: black;}
 	
 }
 
-
-/* 장바구니 글자 */
-#cart > a, .myPage > li a {
-    font-family: 'EarlyFontDiary';
-	font-size: 15px;
-	font-weight: 300;
-	color: white;
-	height: 24px;
-	line-height: 24px;
-	display: inline-block;	
-	
-	
+.subMyPage > li > a{
+	color: black;
 }
 
-
-/* /* 마이페이지 글자 */
-.myPage > li {
-    font-family: 'EarlyFontDiary';
-	font-size: 15px;
-	font-weight: 300;
-		 color: white;
-	
-}
-
- */
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* 헤더 */
 
 
-
 /* 로고 */
 #logo{	
 	display: inline-block;
-	border: 1px solid gray; 
+	margin: 10px;
 	
 }
+
 
 /* 로그인 */
 #login{
@@ -131,23 +123,16 @@ a{text-decoration: none; color: black;}
 	
 }
 
-/* 메뉴 */
-#menu{
-	border: 1px solid RED; 
-	
-}
 
-
+/* 장바구니 글자, 마이페이지 */
 #myPage, #cart {box-sizing:border-box;
 	display: inline-block;
-	border: 1px solid blue;
 	padding: 0;
 	height: 24px;
    	vertical-align: top;
+   	margin-left: 20px;
 
 }	
-
-
 
 
 
@@ -155,50 +140,52 @@ a{text-decoration: none; color: black;}
 /* 마이페이지 드롭다운 메뉴바*/
 
 
-
-.myPage > li {/* 메뉴 조작 */
+/* 메뉴 조작 */
+.myPage > li {
 	box-sizing: border-box;
 	position:relative;
-/* 	border: 1px solid orange;  */
 	margin: 0;
 	
 
 }
 
-.subMyPage {/* 서브 메뉴 조작 */
-	position: absolute;
+
+/* 서브 메뉴 조작 */
+.subMyPage {
 	width: 150px;
 	text-align: left;
-	top: 30px;
-	left : -105px;
-	opacity: 0;
+	display: none;	
 	background-color: white;
+	position: absolute;
+	left: -110px;
 }
 
-.subMyPage > li {/* 서브 메뉴  */
+
+/* 서브 메뉴  */
+.subMyPage > li {
 	width: 100%;
-	margin: 7px;
-	
-	border: 1px solid purple; 
-
+	padding: 7px;
 }
 
 
-.myPage a { /* 서브 메뉴 글자 */
+ /* 서브 메뉴 글자 */
+.subMyPage a {
 	text-align:left;
+
 }
 
 
 .myPage > li:hover .subMyPage{
+	display: block;
 	transition-duration: 0.5s;
-	opacity: 1;
 }
 
-
-.myPage a:hover .subMyPage{
-	background-color: black;
-
+ 	
+.subMyPage a:hover {
+	background-color: gray;
+	transition-duration: 0.1s;
 }
+
 
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -206,36 +193,32 @@ a{text-decoration: none; color: black;}
 
 
 .menu { /* 	메뉴바 킅 틀 */
+	margin : 20px;
 	width: 400px;
 }
+
 
 .menu > li {/* 메뉴 조작 */
 	box-sizing: border-box;
 	position:relative;
 	float: left;
 	width: 25%;
-	
-	border: 1px solid orange; 
 
-	
 }
 
+
 .subMenu {/* 서브 메뉴 조작 */
-	/* position: absolute; */
+	position:relative;
 	width: 150px;
 	text-align: left;
-	/* top: 30px; */
-	/* opacity: 0; */
 	display: none;	
 	background-color: white;
+
 }
 
 .subMenu > li {/* 서브 메뉴  */
 	width: 100%;
-	margin: 7px;
-	
-	border: 1px solid blue; 
-
+	padding: 7px;
 }
 
 
@@ -247,24 +230,21 @@ a{text-decoration: none; color: black;}
 
 .menu > li:hover .subMenu{
 	transition-duration: 0.5s;
-	/* opacity: 1; */
 	display: block;
 }
 
 
-/* .menu li:hover .subMenu{
-	background-color: gray;
-	border: 1px solid red;
-
+ .subMenu a  {
+ 	display: block;
+ 	width: 100%;
+ 	height: 100%;  
+ 	transition-duration: 0.5s;
+ 	
 }
-
- */
- .subMenu a  {display: block;
- width: 100%;
- height: 100%;  }
+ 	
 .subMenu a:hover {
 	background-color: gray;
-transition-duration: 0.5s;
+	transition-duration: 0.1s;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */

@@ -15,74 +15,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/button.css" rel="stylesheet">
-<link href="../css/index.css" rel="stylesheet" > 
-
-<style type="text/css">
-	#articleForm {
-		width: 1000px;
-		height: 550px;
-		margin: auto;
-		margin-left:auto;
-		margin-right:auto;
-	}
-	
-	h2 {
-		text-align: center;
-	}
-	
-	table {
-		border: 1px solid black;
-		border-collapse: collapse; 
-	 	width: 1000px;
-	 	margin-left:auto;
-		margin-right:auto;
-	 	
-	}
-	
-	th {
-		text-align: center;
-	}
-	
-	td {
-		width: 150px;
-		text-align: center;
-	}
-	
-	#basicInfoArea {
-		height: auto;
-		text-align: center;
-	}
-	
-	#articleContentArea {
-/* 		background: orange; */
-		margin-top: 20px;
-		width:auto;
-		height: 350px;
-		text-align: center;
-		overflow: auto;
-		white-space: pre-line;
-	}
-	
-	#buttons{
-	margin-top: 100px;
-	}
-	
-	#commandList {
-		margin-top: 30px;
-		margin-bottom: 30px;
-/* 		width: auto; */
-		text-align: center;
-	}
-	
-	#List{
-		margin-top: 30px;
-		margin-bottom: 30px;
-		text-align: center;
-	}
-	
-</style>
-
+<link href="css/support.css" rel="stylesheet">
 
 <script src="js/jquery-3.6.0.js"></script>
 	<script type="text/javascript">
@@ -92,21 +25,65 @@
 		$(function() {
 			
 			
-			//오늘 날짜
-			var today = new Date();
+		// D-Day 구하기 -----------------------------------------------------------------------------
+	    	  
+	         //오늘 날짜
+	         var today = new Date();
+	         
+	         //골 날짜
+	         var goalDate = $(".goalDate").html();
+	         var dday = new Date(goalDate)
+	         
+	         //디데이 계산
+	         var gap = dday.getTime() - today.getTime();
+	         var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+	         
+	         var day =  1 / result * 100
+	        
+
 			
-			//골 날짜
-			var goalDate = <%=dto.getSup_goal_date() %>
-			var dday = new Date(goalDate)
+		// 후원금 구하기 -----------------------------------------------------------------------------
+	
+						    	  
+	         //모인 후원금
+	         var money = $(".money").html();
 			
-			//디데이 계산
-			var gap = dday.getTime() - today.getTime();
-			var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+			 //골 프라이스(전체값)
+	         var goalPrice = $(".goalPrice").html();
 			
-			//디데이 표시
-			$("#dday").html(result);
+			 //일부값
+	         var moneyPer = Number(goalPrice) / Number(money) * 100;;
+	        	 
+			 if(moneyPer == "Infinity"){
+				 moneyPer = 0;
+			 }
+	        
 			
+		// 후원금 프로그레스 바 -----------------------------------------------------------------------------
+	
+		
+		         //프로그레스 바 전체
+	         $(".progressBar").css({
+		           width: "100%",
+		           height: "5px",
+		           background: "grey"
+		         });
+	         
+		         //프로그레스 바 진행도
+	         $(".myBar").css({
+		           width: moneyPer+"%",
+		           height: "5px",
+		           background: "skyblue"
+		         });
 			
+		     //프로그레스 바 진행도 퍼센트
+	         $(".moneyPer").html(Math.round(moneyPer)+"%");
+	         //디데이
+		     $(".dDay").html(result+"일 남음");
+	     
+		
+		// 후원 버튼 -----------------------------------------------------------------------------
+
 			
 			//후원 버튼
 			$("#giveMoney").on("click", function() {
@@ -128,67 +105,112 @@
 
 </head>
 <body>
-<jsp:include page="../hf/header.jsp"></jsp:include>
-	<!-- 게시판 상세내용 보기 -->
-	<section id="articleForm">
-		<h2>진행 중 후원</h2>
-		<section id="basicInfoArea">
-			<table border="1">
+
+
+   <!-- 해더 -->
+   <jsp:include page="../hf/header.jsp"></jsp:include>
+   <!-- 해더 -->
+   
+   
+   
+	<!-- 디테일 메인 블럭 -->
+   <div class="main">
+
+
+	 <hr style="color: gray; opacity: 70%; margin: 50px;">
+	
+	
+		<!-- 썸네일 -->
+		<img id="sup_thumbnai" alt="" src="./img/support/<%=dto.getSup_thumbnail_file() %>" width="70%">
+
 			
-<!-- 			글 번호를 데리고 왔는지 확인하기 위한 작업 -->
-			<tr>
-				<th width="70">글 번호</th><td><%=dto.getSup_idx() %></td>
-			</tr>
-			<tr><th width="70">제 목</th><td colspan="3" ><%=dto.getSup_subject() %></td>
-			</tr>
-			<tr>
-				<th width="70">작성일</th><td><%=dto.getSup_date() %></td>
-			</tr>
-			<tr>
-				<th width="70">조회수</th>
-				<td><%=dto.getSup_readcount() %></td>
-			</tr>
-			<tr>
-				<th width="70">D-Day</th>
-				<td id="goalDate"><%=dto.getSup_goal_date() %></td>
-			</tr>
+			
+			
+		<!-- 섬네일 옆	 -->
+		<div id="content">
+			<table >
+			
+				<!-- 후원 제목 -->
 				<tr>
-				<th width="70">목표 금액</th>
-				<td><%=dto.getSup_goal_price() %></td>
-			</tr>
+					<td class="sup_subject"><%=dto.getSup_subject() %></td>
+					
+				</tr>
+				
+				
+				
+				<!-- D-Day -->
+				<tr>
+					<td><span class="dDay"></span></td>
+					<td class="goalDate"><%=dto.getSup_goal_date() %></td>
+				</tr>
+				
+				
+				
+				<!-- 목표 금액 -->
+				<tr>
+					<td class="money" ><%=dto.getSup_money() %></td>
+					<td class="goalPrice" ><%=dto.getSup_goal_price() %></td>
+				</tr>
+				
+		            <tr>
+		               <td>
+		                  <div class="progressBar"></div>
+		                  <div class="myBar"></div>
+		                  <span class="money"><%=dto.getSup_money() %></span>원
+		                  <span style="text-align: left;" class="moneyPer<%=dto.getSup_idx() %>"></span>
+		               </td>
+		            </tr>
+				
+				<!-- idx, date, readcount 안보이게 -->
+				<tr style="display: none;">
+					<td><%=dto.getSup_date() %></td>
+					<td><%=dto.getSup_idx() %></td>
+					<td><%=dto.getSup_readcount() %></td>
+				</tr>
+				
 			</table>
 			
 			
- 			<button class="w-btn-outline w-btn-green-outline"  id="giveMoney"  type="button" >후원</button>
-		</section>
+			
+			<!-- 후원 버튼 -->			
+		 	<button class="w-btn-outline w-btn-green-outline"  id="giveMoney"  type="button" >후원</button>
+		
+		</div>
+		
+		
+		
+		
+			<!-- 내용 -->
+			<div class="content"><%=dto.getSup_content() %></div>
+		
+			<!-- 상세 페이지 -->		
+			<img id="sup_original" alt="" src="./img/support/<%=dto.getSup_original_file() %>" width="70%">
+			
+		
+		
+		
+		
 	
-	
-	
-		<section id="articleContentArea">
-			<img alt="" src="./img/support/<%=dto.getSup_thumbnail_file() %>" width="70%">
-			<img alt="" src="./img/support/<%=dto.getSup_original_file() %>" width="70%">
-			<%=dto.getSup_content() %>
-		</section>
-	</section>
-	
-	<section id ="buttons">
 	   <%if(sId == null){%>
       <section id="List">
       <button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>   
       </section>
 
       <%}else if(sId.equals("admin")){%>
-         <section id="commandList">
-            <button class="w-btn w-btn-gra2 w-btn-gra-anim"  type="button" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }'">수정</button>
-            <button class="w-btn w-btn-gra2 w-btn-gra-anim" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}'">삭제</button>
+            <button class="w-btn w-btn-gra2 w-btn-gra-anim"  type="button" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">수정</button>
+            <button class="w-btn w-btn-gra2 w-btn-gra-anim" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">삭제</button>
             <button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>
-         </section>
          <%}else{ %>
-      <section id="List">
+  
       <button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>   
-      </section>
+ 
       
       <%}%>   
-	</section>
+	</div>
+	
+	<!-- 푸터 -->
+   <jsp:include page="../hf/footer.jsp"></jsp:include>
+   <!-- 푸터 -->
+	
 </body>
 </html>

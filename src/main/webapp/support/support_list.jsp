@@ -40,7 +40,7 @@
 	<!-- 후원 메인 블럭 -->
    <main >
    
-		   <hr style="color: gray; opacity: 70%; padding: 50px;">
+	 <hr style="color: gray; opacity: 70%; margin: 50px;">
 		   
 			<!-- 글 목록 -->
 		   <div class="main">
@@ -56,6 +56,7 @@
 		             	 <span class="dDay<%=support.getSup_idx() %>"></span>
 		               </td>
 		            </tr>
+		            
 		            <tr>
 		               <td>
 		                  <a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
@@ -190,9 +191,7 @@
         
          
    <!-- 푸터 -->
-   <section id ="foot">
    <jsp:include page="../hf/footer.jsp"></jsp:include>
-   </section>
    <!-- 푸터 -->
       
 </body>

@@ -28,25 +28,42 @@
 			if ((st > lastScrollTop) && (lastScrollTop>0)) {
 		       
 		  		$("#header1").css({
-		  			"background-color":"white",
+		  			"position" : "fixed ",
+		  			"transition-duration" : "0.5s"
+		  		});
+		  		
+		  		$("#backGraound").css({
+		  			"z-index" : "2",
 		  			"position" : "fixed ",
 		  			"transition-duration" : "0.5s"
 		  		});
 		       
+		  		
+		  		/* 로고 글자 */
 		  		$("#logo > h1").css({
-		  			"color" : "black "
+		  			"color" : "black ",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
-		  		$(".menu > li").css({
-		  			"color" : "black "
+		  		
+		  		/* 로그인 글자 */
+		  		$(".login > a").css({
+		  			"color" : "black ",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
-		  		$("#cart > a").css({
-		  			"color" : "black "
+		  		
+		  		/* 장바구니 글자, 마이페이지 */
+		  		$("#cart > a, .myPage > li a ").css({
+		  			"color" : "black ",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
-		  		$("#myPage > a").css({
-		  			"color" : "black "
+		  		
+		  		/* 메뉴바 글자 */
+		  		$(".menu > li > a").css({
+		  			"color" : "black ",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
 		  		
@@ -58,22 +75,39 @@
 		  			"transition-duration" : "0.5s"
 		  		});
 		  		
+		  		$("#backGraound").css({
+		  			"z-index" : "",
+		  			"transition-duration" : "0.5s"
+		  		});
+		       
+		  		/* 로고 글자 */
 		  		$("#logo > h1").css({
-		  			"color" : "white "
+		  			"color" : "",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
-		  		$(".menu > li").css({
-		  			"color" : "white "
+		  		
+		  		/* 로그인 글자 */
+		  		$(".login > a").css({
+		  			"color" : "",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
-		  		$("#cart > a").css({
-		  			"color" : "white "
+		  		
+		  		/* 장바구니 글자, 마이페이지 */
+		  		$("#cart > a, .myPage > li a ").css({
+		  			"color" : "",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
-		  		$("#myPage > a").css({
-		  			"color" : "white "
+		  		
+		  		/* 메뉴바 글자 */
+		  		$(".menu > li > a").css({
+		  			"color" : "",
+		  			"transition-duration" : "0.5s"
 		  		});
 		  		
+
 		   }
 		       lastScrollTop = st;
 	    });
@@ -97,13 +131,15 @@
 	
 	<!-- 헤더 산 사진 -->
 	<div style=" width:100%; height:1000px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
-	    <img src="img/cat-6723256.jpg" width="100%" alt="나무">
+	    <img src="img/KakaoTalk_20220825_162630074.png" width="100%" alt="나무">
  	</div>
-	
+ 	
+	<!-- 백그라운드 -->
+	<div id="backGraound" style=" width:100%; height:125px; background-color: white; position: absolute; z-index: 0; "></div>
 	
 	
 	<!-- 헤더 기능 메뉴 -->
-	<div id="header1" style=" width:100%; position: absolute; z-index: 2; border: 1px solid gray; ">
+	<div id="header1" style=" width:100%; position: absolute; z-index: 3; ">
 	
 		
 			<!-- 	<!-- 촤락  -->
@@ -165,7 +201,7 @@
 												<li><a href="">이름</a></li>
 												<li><a href="Wishlist.my">위시리스트</a></li>
 												<li><a href="UpdateMemberInfoForm.my">회원정보수정</a></li>
-												<li><a href="">후원금 내역 조회</a></li>
+												<li><a href="SupportHistory.my">후원금 내역 조회</a></li>
 												<li> <a href="">신청 캠페인 조회</a></li>
 												<li><a href="">작성한 글</a></li>
 												<li> <a href="">작성한 댓글</a></li>
