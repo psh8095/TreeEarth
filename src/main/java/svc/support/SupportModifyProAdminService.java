@@ -9,7 +9,7 @@ import static db.JdbcUtil.*;
 
 public class SupportModifyProAdminService {
 	
-	public boolean isBoardWriter(int sup_idx, String sup_pass) {
+	public boolean isBoardWriter(int sup_idx, String mem_pass) {
 		System.out.println("SupportModifyProAdminService");
 	
 		boolean isBoardWriter = false;
@@ -18,11 +18,12 @@ public class SupportModifyProAdminService {
 	SupportDAO dao = SupportDAO.getInstance();
 	dao.setConnection(con);
 	
-	isBoardWriter = dao.isBoardWriter(sup_idx,sup_pass);
+	isBoardWriter = dao.isBoardWriter(sup_idx, mem_pass);
 	
 	close(con);
 	
 	return isBoardWriter;
+	
 	}
 	
 	public boolean modifySupportBoard(SupportDTO dto) {

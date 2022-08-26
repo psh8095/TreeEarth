@@ -21,7 +21,7 @@ public class SupportModifyProAdminAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		
-		String uploadPath = "upload";
+		String uploadPath = "img/support";
 		//파일 사이즈
 		int filesize = 1024 * 1024 * 10;
 		
@@ -45,10 +45,11 @@ public class SupportModifyProAdminAction implements Action {
 		String date = multi.getParameter("sup_goal_date");
 		Date goalDate = Date.valueOf(date);
 		
+		String mem_pass = multi.getParameter("mem_pass");
+		
 		SupportDTO dto = new SupportDTO();
 		
 		dto.setSup_idx(Integer.parseInt(multi.getParameter("sup_idx")));
-		dto.setSup_pass(multi.getParameter("sup_pass"));
 		dto.setSup_goal_price(Integer.parseInt(multi.getParameter("sup_goal_price")));
 		dto.setSup_subject(multi.getParameter("sup_subject"));
 		dto.setSup_content(multi.getParameter("sup_content"));
@@ -57,13 +58,12 @@ public class SupportModifyProAdminAction implements Action {
 		dto.setSup_goal_date(goalDate);
 		
 		
-		
 		//게시물 수정 권한 확인 위해 전달받은 파라미터 중 패스워드를 비교
 		//SupportModifyProAdminService() 클래스의 isBoardWriter() 메서드를 호출
 		//SupportDeleteProAdminService()의 isBoardWriter()와 작업 내용이 같다
 		SupportModifyProAdminService service = new SupportModifyProAdminService();
-		boolean isBoardWriter = service.isBoardWriter(dto.getSup_idx(), dto.getSup_pass());
-		
+		boolean isBoardWriter = service.isBoardWriter(dto.getSup_idx(), mem_pass);
+		System.out.println(isBoardWriter);
 		
 		if(!isBoardWriter) {
 			 response.setContentType("text/html; charset=UTF-8" );

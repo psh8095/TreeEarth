@@ -145,21 +145,19 @@ public class SupportDAO {
 			
 			//기존 글이 없으면 
 			//게시글 등록
-			sql2 = "INSERT INTO support VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+			sql2 = "INSERT INTO support VALUES(?,'admin',?,?,?,?,?,?,?,?,?,?,now())";
 			pstmt2 = con.prepareStatement(sql2);
 			pstmt2.setInt(1, idx); 
 			pstmt2.setString(2, dto.getSup_subject());
-			pstmt2.setString(3, dto.getSup_pass()); 
-			pstmt2.setInt(4, dto.getSup_goal_price());
-			pstmt2.setDate(5, dto.getSup_goal_date());
-			pstmt2.setString(6, dto.getSup_content());
-			pstmt2.setString(7, dto.getSup_thumbnail_file());
-			pstmt2.setString(8, dto.getSup_thumbnail_real_file());
-			pstmt2.setString(9, dto.getSup_original_file());
-			pstmt2.setString(10, dto.getSup_real_file());
-			pstmt2.setInt(11, 0); 
-			pstmt2.setInt(12, 0);
-			pstmt2.setInt(13, 0);
+			pstmt2.setInt(3, dto.getSup_goal_price());
+			pstmt2.setDate(4, dto.getSup_goal_date());
+			pstmt2.setString(5, dto.getSup_content());
+			pstmt2.setString(6, dto.getSup_thumbnail_file());
+			pstmt2.setString(7, dto.getSup_thumbnail_real_file());
+			pstmt2.setString(8, dto.getSup_original_file());
+			pstmt2.setString(9, dto.getSup_real_file());
+			pstmt2.setInt(10, 0); 
+			pstmt2.setInt(11, 0);
 
 			insertCount = pstmt2.executeUpdate();
 			System.out.println("5-2. 게시물 등록!");
@@ -207,18 +205,18 @@ public class SupportDAO {
 	// ----------------------------------------------------------------------------------------
 
 	
-	// 글수정, 삭제에 사용되는 isBoardWriter() 정의
-	public boolean isBoardWriter(int sup_idx, String sup_pass) {
+	// 글수정, 삭제 판별에 사용되는 isBoardWriter() 정의
+	public boolean isBoardWriter(int sup_idx, String mem_pass) {
 		System.out.println("4. isBoardWriter");
 		boolean isBoardWriter = false;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		try { // 번호와 비밀번호 조회해서 맞는 거 찾기
-			String sql = "SELECT * FROM support WHERE sup_idx = ? and sup_pass =? ";
+			String sql = "SELECT * FROM support s, member m WHERE s.mem_id = 'admin' AND s.sup_idx = ? AND m.mem_pass = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, sup_idx);
-			pstmt.setString(2, sup_pass);
+			pstmt.setString(2, mem_pass);
 
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -242,10 +240,10 @@ public class SupportDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			String sql = "UPDATE support SET sup_subject = ?, sup_pass = ?, sup_goal_price =?, sup_content =? ,  sup_thumbnail_file = ?,  sup_original_file = ?, sup_goal_date = ? WHERE sup_idx = ?";
+			String sql = "UPDATE support SET sup_subject = ?, mem_id = ?, sup_goal_price =?, sup_content =? ,  sup_thumbnail_file = ?,  sup_original_file = ?, sup_goal_date = ? WHERE sup_idx = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getSup_subject());
-			pstmt.setString(2, dto.getSup_pass());
+			pstmt.setString(2, dto.getMem_id());
 			pstmt.setInt(3, dto.getSup_goal_price());
 			pstmt.setString(4, dto.getSup_content());
 			pstmt.setString(5, dto.getSup_thumbnail_file());
@@ -320,7 +318,7 @@ public class SupportDAO {
 				// 게시물 정보 저장
 				dto.setSup_idx(rs.getInt("sup_idx"));
 				dto.setSup_goal_price(rs.getInt("sup_goal_price"));
-				dto.setSup_pass(rs.getString("sup_pass"));
+				dto.setMem_id(rs.getString("mem_id"));
 				dto.setSup_subject(rs.getString("sup_subject"));
 				dto.setSup_content(rs.getString("sup_content"));
 				dto.setSup_thumbnail_real_file(rs.getString("sup_thumbnail_real_file"));
