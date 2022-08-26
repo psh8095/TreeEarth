@@ -60,7 +60,7 @@ public class StoreQnaListAction implements Action {
 //		System.out.println(storeQnaList); // 확인용
 		
 		forward = new ActionForward();
-		forward.setPath("store/store_qna_list.jsp");
+		forward.setPath("store/store_qna_list.jsp?pageNum=" + pageNum);
 		forward.setRedirect(false);
 		
 		return forward;

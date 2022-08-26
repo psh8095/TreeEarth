@@ -2,9 +2,8 @@ package vo.support;
 
 import java.sql.Date;
 
-
-//서포트 테이블
-/*후원글번호, 후원 제목, 목표금액, 목표날짜, 내용, 썸네일파일*2, 파일*2, 조회수, 사이트 총 후원금액, 각 후원당 총 금액, 게시일 
+/*
+*후원글번호, 작성자ID, 제목, 목표금액, 후원종료날짜, 내용, 썸네일파일*2, 상세파일*2, 조회수, 총 후원금, 게시일자
 CREATE TABLE support (
    sup_idx int primary key,
    mem_id VARCHAR(16),
@@ -21,25 +20,23 @@ CREATE TABLE support (
    sup_date Date NOT NULL,
    FOREIGN KEY (mem_id) REFERENCES member(mem_id) ON DELETE CASCADE
 );
-
 */
 
 public class SupportDTO {
 	
-	private int sup_idx; //1
-	private String sup_subject; //2
-	private String mem_id; //3
-	private int sup_goal_price; //4
-	private Date sup_goal_date;//5
-	private String sup_content; //6
-	private String sup_thumbnail_file; //7
-	private String sup_thumbnail_real_file; //8
-	private String sup_real_file; //9
-	private String sup_original_file; //10
-	private int sup_readcount; //11
-	private int sup_money; //12
-	private Date sup_date; //13
-	
+	private int sup_idx;
+	private String mem_id;
+	private String sup_subject;
+	private int sup_goal_price;
+	private Date sup_goal_date;
+	private String sup_content;
+	private String sup_thumbnail_file;
+	private String sup_thumbnail_real_file;
+	private String sup_original_file;
+	private String sup_real_file;
+	private int sup_readcount;
+	private int sup_money;
+	private Date sup_date;
 	
 	public int getSup_idx() {
 		return sup_idx;
@@ -47,17 +44,17 @@ public class SupportDTO {
 	public void setSup_idx(int sup_idx) {
 		this.sup_idx = sup_idx;
 	}
-	public String getSup_subject() {
-		return sup_subject;
-	}
-	public void setSup_subject(String sup_subject) {
-		this.sup_subject = sup_subject;
-	}
 	public String getMem_id() {
 		return mem_id;
 	}
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
+	}
+	public String getSup_subject() {
+		return sup_subject;
+	}
+	public void setSup_subject(String sup_subject) {
+		this.sup_subject = sup_subject;
 	}
 	public int getSup_goal_price() {
 		return sup_goal_price;
@@ -89,17 +86,17 @@ public class SupportDTO {
 	public void setSup_thumbnail_real_file(String sup_thumbnail_real_file) {
 		this.sup_thumbnail_real_file = sup_thumbnail_real_file;
 	}
-	public String getSup_real_file() {
-		return sup_real_file;
-	}
-	public void setSup_real_file(String sup_real_file) {
-		this.sup_real_file = sup_real_file;
-	}
 	public String getSup_original_file() {
 		return sup_original_file;
 	}
 	public void setSup_original_file(String sup_original_file) {
 		this.sup_original_file = sup_original_file;
+	}
+	public String getSup_real_file() {
+		return sup_real_file;
+	}
+	public void setSup_real_file(String sup_real_file) {
+		this.sup_real_file = sup_real_file;
 	}
 	public int getSup_readcount() {
 		return sup_readcount;
@@ -122,22 +119,12 @@ public class SupportDTO {
 	
 	@Override
 	public String toString() {
-		return "SupportDTO [sup_idx=" + sup_idx + ", sup_subject=" + sup_subject + ", mem_id=" + mem_id
+		return "SupportDTO [sup_idx=" + sup_idx + ", mem_id=" + mem_id + ", sup_subject=" + sup_subject
 				+ ", sup_goal_price=" + sup_goal_price + ", sup_goal_date=" + sup_goal_date + ", sup_content="
 				+ sup_content + ", sup_thumbnail_file=" + sup_thumbnail_file + ", sup_thumbnail_real_file="
-				+ sup_thumbnail_real_file + ", sup_real_file=" + sup_real_file + ", sup_original_file="
-				+ sup_original_file + ", sup_readcount=" + sup_readcount + ", sup_money=" + sup_money + ", sup_date="
+				+ sup_thumbnail_real_file + ", sup_original_file=" + sup_original_file + ", sup_real_file="
+				+ sup_real_file + ", sup_readcount=" + sup_readcount + ", sup_money=" + sup_money + ", sup_date="
 				+ sup_date + "]";
 	}
-	
-	
-	
-
-	
-	
-	
-
-
-	
 	
 }
