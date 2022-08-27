@@ -304,19 +304,10 @@ Back to top button
 	</main>         
 	
 	<div id="pagewrap">
-	<h1>Demo</h1>
-	<h2><a href="http://webdesignerwall.com/tutorials/animated-scroll-to-top">Animated Scroll to Top</a></h2>
-	<p class="credits"><em>by <a href="http://webdesignerwall.com">Web Designer Wall</a></em></p>
-	<p>↓ scroll down</p>
-	
-<h3><a href="http://themify.me">Themify.me</a></h3>
-	<p>Mauris ornare rhoncus sem, non euismod tortor rhoncus ac. Aliquam erat volutpat. Fusce justo purus, convallis sed feugiat nec, aliquet et ipsum. Nullam dapibus semper risus eu accumsan. Nulla facilisis eros ac ligula sodales suscipit. Fusce pellentesque iaculis dignissim. Phasellus tristique neque vitae justo laoreet tempus. Duis dignissim mollis lectus, id mollis tortor dignissim ut. Proin non velit arcu, sit amet laoreet massa. Aliquam gravida eros sit amet leo scelerisque molestie. Morbi et cursus felis. Pellentesque at dui nunc. Integer euismod tincidunt nisl, in iaculis tellus feugiat sed. Praesent semper augue eu augue ullamcorper mattis.</p>
-	<h3><a href="http://icondock.com">IconDock</a></h3>
-	<p id="back-top">
-		<a href="#top"><span></span>Back to Top</a>
-	</p>
-
-</div>
+		<p id="back-top">
+			<a href="#top"><span></span>Back to Top</a>
+		</p>
+	</div>
         
          
    <!-- 푸터 -->

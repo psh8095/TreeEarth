@@ -77,11 +77,15 @@ $(function() {
 	IMP.init("imp73101414");
 	
 	$("#donate").on("click", function() {
+		
+		var date = new Date();
+		var now = date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
+		out.println(now);
 
 		IMP.request_pay({
 			pg: "html5_inicis",
 			pay_method: "card",
-			merchant_uid: "order_" + <%=idx%>,
+			merchant_uid: "order_" + <%=idx%> + now,
 			name: "트리어스",
 			amount: total_money,
 			buyer_email: "${member.mem_email}",
