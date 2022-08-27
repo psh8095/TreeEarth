@@ -20,7 +20,7 @@ a{text-decoration: none; color: black;}
 
 
 body{
-	height: 100px;
+	height: 100%;
 }
 
 
@@ -96,22 +96,24 @@ body{
 	font-size: 40px;
 }
 
+/* 글자 사이즈 */
 .sup_subject, #dDay > span, #goalPrice > span, #progressBar{
-	border: 5px solid red;
 	font-size: 30px;	
 }
 
-#content > table > tr {
-	border: 5px solid blue;
-	margin: 15px 0px 0px 15px;
+
+/* 썸네일 옆 컨텐츠들 간격 */
+table {
+  border-collapse: separate;
+  border-spacing: 0 20px;
 }
 
-#progressBar{
-	border: 5px solid red;
-	
+.butten {
+	text-align: center;
+	width: 40px;
+	height: 25px;
+	border-top:  50px solid #fff;
 }
-
-
 
 /* 상세 페이지 */
 #sup_original{
