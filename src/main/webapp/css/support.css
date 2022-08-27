@@ -83,9 +83,27 @@ body{
 	display:block;
 	border: 5px solid blue;
 	margin-left: 10px;
-	width: 50%;
+	width: 40%;
 	height:450px;
-	float: left;
+	float: right;
+}
+
+
+/* 제목 */
+.sup_subject{
+	border: 5px solid red;
+	text-align: center;
+	font-size: 40px;
+}
+
+.sup_subject, #dDay > span, #goalPrice > span, #progressBar{
+	border: 5px solid red;
+	font-size: 30px;	
+}
+
+#content > table > tr {
+	border: 5px solid blue;
+	margin: 15px 0px 0px 15px;
 }
 
 #progressBar{
@@ -93,12 +111,6 @@ body{
 	
 }
 
-/* 제목 */
-.sup_subject{
-	border: 5px solid red;
-	text-align: center;
-	font-size: 30px;
-}
 
 
 /* 상세 페이지 */

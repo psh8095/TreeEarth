@@ -254,14 +254,14 @@ Back to top button
 				
 				<!-- D-Day -->
 				<tr>
-					<td><span class="dDay"></span></td>
+					<td id="dDay"><span class="dDay"></span></td>
 				</tr>
 				
 				
 				
 				<!-- 목표 금액 -->
 				<tr>
-					<td >
+					<td id="goalPrice">
 						<span class="goalPrice" ><%=dto.getSup_goal_price() %></span>
 		                <span >원(목표금액)</span>
 					</td>
