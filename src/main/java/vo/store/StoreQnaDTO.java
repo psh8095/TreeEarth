@@ -25,7 +25,7 @@ public class StoreQnaDTO {
 	private Date sto_qna_date;
 	private int sto_qna_re_seq;
 	private int sto_qna_re_ref;
-	private int so_qna_re_lev;
+	private int sto_qna_re_lev;
 	
 	public int getSto_qna_idx() {
 		return sto_qna_idx;
@@ -69,18 +69,18 @@ public class StoreQnaDTO {
 	public void setSto_qna_re_ref(int sto_qna_re_ref) {
 		this.sto_qna_re_ref = sto_qna_re_ref;
 	}
-	public int getSo_qna_re_lev() {
-		return so_qna_re_lev;
+	public int getSto_qna_re_lev() {
+		return sto_qna_re_lev;
 	}
-	public void setSo_qna_re_lev(int so_qna_re_lev) {
-		this.so_qna_re_lev = so_qna_re_lev;
+	public void setSto_qna_re_lev(int sto_qna_re_lev) {
+		this.sto_qna_re_lev = sto_qna_re_lev;
 	}
 	
 	@Override
 	public String toString() {
 		return "StoreQnaDTO [sto_qna_idx=" + sto_qna_idx + ", mem_id=" + mem_id + ", sto_idx=" + sto_idx
 				+ ", sto_qna_content=" + sto_qna_content + ", sto_qna_date=" + sto_qna_date + ", sto_qna_re_seq="
-				+ sto_qna_re_seq + ", sto_qna_re_ref=" + sto_qna_re_ref + ", so_qna_re_lev=" + so_qna_re_lev + "]";
+				+ sto_qna_re_seq + ", sto_qna_re_ref=" + sto_qna_re_ref + ", so_qna_re_lev=" + sto_qna_re_lev + "]";
 	}
 		
 }

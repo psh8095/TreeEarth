@@ -577,12 +577,15 @@ public class StoreDAO {
 				close(pstmt); // 사용 완료된 PreparedStatement 객체를 먼저 반환
 				
 				// 전달받은 데이터를 store_review 테이블에 INSERT
-				sql = "INSERT INTO store_qna VALUES (?,?,?,?,now())";
+				sql = "INSERT INTO store_qna VALUES (?,?,?,?,now(),?,?,?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, storeQna.getMem_id());
 				pstmt.setInt(2, storeQna.getSto_idx());
 				pstmt.setInt(3, num);
 				pstmt.setString(4, storeQna.getSto_qna_content());
+				pstmt.setInt(5, storeQna.getSto_qna_re_seq());
+				pstmt.setInt(6, storeQna.getSto_qna_re_ref());
+				pstmt.setInt(7, storeQna.getSto_qna_re_lev());
 				
 				insertQnaCount = pstmt.executeUpdate();
 			} catch (SQLException e) {
@@ -646,7 +649,7 @@ public class StoreDAO {
 				storeQnaList = new ArrayList<StoreQnaDTO>();
 				
 				while(rs.next()) {
-					// 1개 문의글 정보를 저장할 StoreReviewDTO 객체 생성
+					// 1개 문의글 정보를 저장할 StoreQnaDTO 객체 생성
 					StoreQnaDTO store_qna = new StoreQnaDTO();
 					// 저장
 					store_qna.setMem_id(rs.getString("mem_id"));
@@ -654,6 +657,9 @@ public class StoreDAO {
 					store_qna.setSto_qna_idx(rs.getInt("sto_qna_idx"));
 					store_qna.setSto_qna_content(rs.getString("sto_qna_content"));
 					store_qna.setSto_qna_date(rs.getDate("sto_qna_date"));
+					store_qna.setSto_qna_re_seq(rs.getInt("sto_qna_re_seq"));
+					store_qna.setSto_qna_re_ref(rs.getInt("sto_qna_re_ref"));
+					store_qna.setSto_qna_re_lev(rs.getInt("sto_qna_re_lev"));
 					// 전체 구매 후기글 정보를 저장하는 ArrayList 객체에 1개 구매 후기 정보 StoreQnaDTO 객체 추가
 					storeQnaList.add(store_qna);
 				}
@@ -668,7 +674,7 @@ public class StoreDAO {
 			return storeQnaList;
 		}
 		
-		// 상품 간단 문의글 상세 정보를 조회하는 selectStoreQnaDetail() 메서드
+		// 상품 문의글 수정 시 글 상세 정보를 조회하는 selectStoreQnaDetail() 메서드
 		// 리턴타입 : StoreQnaDTO 객체 , 파라미터 : int(sto_qna_idx)
 		public StoreQnaDTO selectStoreQnaDetail(int sto_qna_idx) {
 			
@@ -692,7 +698,7 @@ public class StoreDAO {
 					store_qna.setSto_qna_content(rs.getString("sto_qna_content"));
 					store_qna.setSto_qna_date(rs.getDate("sto_qna_date"));
 					
-					System.out.println(store_qna); // 확인용
+//					System.out.println(store_qna); // 확인용
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

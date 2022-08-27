@@ -25,7 +25,7 @@ public class StoreQnaReplyProAction implements Action {
 		store_qna.setSto_qna_content(request.getParameter("sto_qna_content"));
 		store_qna.setSto_qna_re_seq(Integer.parseInt(request.getParameter("sto_qna_re_seq")));
 		store_qna.setSto_qna_re_ref(Integer.parseInt(request.getParameter("sto_qna_re_ref")));
-		store_qna.setSo_qna_re_lev(Integer.parseInt(request.getParameter("sto_qna_re_lev")));
+		store_qna.setSto_qna_re_lev(Integer.parseInt(request.getParameter("sto_qna_re_lev")));
 //		System.out.println(store_qna);
 		
 		// StoreQnaReplyProService 의 replyBoard() 메서드를 호출하여 답글 등록 작업 요청
