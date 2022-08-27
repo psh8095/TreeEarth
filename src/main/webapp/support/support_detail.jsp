@@ -78,8 +78,9 @@
 			
 		     //프로그레스 바 진행도 퍼센트
 	         $(".moneyPer").html(Math.round(moneyPer)+"%");
-	         //디데이
-		     $(".dDay").html(result+"일 남음");
+	        
+		     //디데이
+		     $(".dDay").html("D-"+result);
 	     
 		
 		// 후원 버튼 -----------------------------------------------------------------------------
@@ -133,7 +134,6 @@
 				<!-- 후원 제목 -->
 				<tr>
 					<td class="sup_subject"><%=dto.getSup_subject() %></td>
-					
 				</tr>
 				
 				
@@ -141,28 +141,41 @@
 				<!-- D-Day -->
 				<tr>
 					<td><span class="dDay"></span></td>
-					<td class="goalDate"><%=dto.getSup_goal_date() %></td>
 				</tr>
 				
 				
 				
 				<!-- 목표 금액 -->
 				<tr>
-					<td class="money" ><%=dto.getSup_money() %></td>
-					<td class="goalPrice" ><%=dto.getSup_goal_price() %></td>
+					<td >
+						<span class="goalPrice" ><%=dto.getSup_goal_price() %></span>
+		                <span >원(목표금액)</span>
+					</td>
 				</tr>
 				
-		            <tr>
-		               <td>
-		                  <div class="progressBar"></div>
-		                  <div class="myBar"></div>
-		                  <span class="money"><%=dto.getSup_money() %></span>원
-		                  <span style="text-align: left;" class="moneyPer<%=dto.getSup_idx() %>"></span>
-		               </td>
-		            </tr>
+				
+				<!-- 퍼센트 바 -->
+	            <tr id="progressBar">
+	               <td>
+	                  <div class="progressBar"></div>
+	                  <div class="myBar"></div>
+	                  
+	                  <!-- 현제 모인 금액 -->
+	                  <span class="money"><%=dto.getSup_money() %></span>원
+	                  <span >(현재 모인 금액)</span>
+	                  
+	                  <!-- 현제 모인 금액 -->
+	                  <span style="text-align: left;" class="moneyPer"></span>
+	                  <span >(진행률)</span>
+	               </td>
+	            </tr>
+				
+				
 				
 				<!-- idx, date, readcount 안보이게 -->
 				<tr style="display: none;">
+									<td class="goalDate"><%=dto.getSup_goal_date() %></td>
+				
 					<td><%=dto.getSup_date() %></td>
 					<td><%=dto.getSup_idx() %></td>
 					<td><%=dto.getSup_readcount() %></td>
