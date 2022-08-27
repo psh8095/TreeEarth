@@ -17,6 +17,93 @@
 <title>Insert title here</title>
 <!-- <link href="style.css" rel="stylesheet"> -->
 <link href="css/support.css" rel="stylesheet">
+<style type="text/css">
+/* 위로 올라가기 버튼 */
+body {
+	font: .88em/150% Arial, Helvetica, sans-serif;
+	margin: 30px auto;
+}
+h1 {
+	font: bold 80%/120% Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	margin: 0 0 10px;
+	color: #999;
+}
+h2 {
+	font-size: 2.5em;
+	margin: 0 0 8px;
+}
+h3 {
+	font-size: 1.6em;
+	margin: 20px 0 5px;
+}
+a {
+	color: #69C;
+	text-decoration: none;
+}
+a:hover {
+	color: #F30;
+}
+p {
+	margin: 0 0 10px;
+}
+.credits {
+	border-bottom: solid 1px #eee;
+	padding-bottom: 10px;
+	margin: 0 0 30px;
+}
+#pagewrap {
+	margin: 0 auto;
+	width: 600px;
+	padding-left: 150px;
+	position: relative;
+}
+
+/*
+Back to top button 
+*/
+#back-top {
+	position: fixed;
+	bottom: 30px;
+	margin-left: -150px;
+}
+#back-top a {
+	width: 108px;
+	display: block;
+	margin-left:1200px;
+	text-align: center;
+	font: 11px/100% Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #bbb;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover {
+	color: #000;
+}
+/* arrow icon (span tag) */
+#back-top span {
+	width: 108px;
+	height: 108px;
+	display: block;
+	margin-bottom: 7px;
+	background: #ddd url(up-arrow.png) no-repeat center center;
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover span {
+	background-color: #777;
+}
+</style>
 <!-- 스크립트 -->
 <script>
 	function giveMoney() {
@@ -29,7 +116,7 @@
 
 
 
-<body>
+<body id="top">
    <!-- 해더 -->
    <jsp:include page="../hf/header.jsp"></jsp:include>
    <!-- 해더 -->
@@ -177,6 +264,33 @@
 							     
 		
 						      });      
+						      
+							// back to top 버튼 -----------------------------------------------------------------------------
+										$(document).ready(function(){
+							
+											// 사용하지 않을 때 숨김처리
+											$("#back-top").hide();
+											
+											// 사라지기 효과
+											$(function () {
+												$(window).scroll(function () {
+													if ($(this).scrollTop() > 100) {
+														$('#back-top').fadeIn();
+													} else {
+														$('#back-top').fadeOut();
+													}
+												});
+							
+												// scroll body to 0px on click
+												$('#back-top a').click(function () {
+													$('body,html').animate({
+														scrollTop: 0
+													}, 800);
+													return false;
+												});
+											});
+							
+										});
 					         </script>
 			            </td>
 			         </tr>
@@ -188,6 +302,21 @@
 			</div>
 	
 	</main>         
+	
+	<div id="pagewrap">
+	<h1>Demo</h1>
+	<h2><a href="http://webdesignerwall.com/tutorials/animated-scroll-to-top">Animated Scroll to Top</a></h2>
+	<p class="credits"><em>by <a href="http://webdesignerwall.com">Web Designer Wall</a></em></p>
+	<p>↓ scroll down</p>
+	
+<h3><a href="http://themify.me">Themify.me</a></h3>
+	<p>Mauris ornare rhoncus sem, non euismod tortor rhoncus ac. Aliquam erat volutpat. Fusce justo purus, convallis sed feugiat nec, aliquet et ipsum. Nullam dapibus semper risus eu accumsan. Nulla facilisis eros ac ligula sodales suscipit. Fusce pellentesque iaculis dignissim. Phasellus tristique neque vitae justo laoreet tempus. Duis dignissim mollis lectus, id mollis tortor dignissim ut. Proin non velit arcu, sit amet laoreet massa. Aliquam gravida eros sit amet leo scelerisque molestie. Morbi et cursus felis. Pellentesque at dui nunc. Integer euismod tincidunt nisl, in iaculis tellus feugiat sed. Praesent semper augue eu augue ullamcorper mattis.</p>
+	<h3><a href="http://icondock.com">IconDock</a></h3>
+	<p id="back-top">
+		<a href="#top"><span></span>Back to Top</a>
+	</p>
+
+</div>
         
          
    <!-- 푸터 -->

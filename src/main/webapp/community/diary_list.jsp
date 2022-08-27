@@ -32,7 +32,7 @@ display:block;
 	width:120px;
 	height: 40px;
 	color:#fff;
-	background: #1187CF ;
+	background: #0080ff ;
 	font-size: 16px;
 	border:none;
 	border-radius: 12px;
@@ -66,9 +66,11 @@ display:block;
 <iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:400%; "></iframe>
 </section>
 <h2>반려나무 성장일지</h2>
+<!-- 			목록 기능구현 -->
 		<c:choose>
 			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}">
 				<c:forEach var="diary" items="${diaryList }">
+<!-- 				앨범형 작업 -->
 				<div style="float: left; width: 30%; padding: 20px;">
 					<table>
 						<tr>
