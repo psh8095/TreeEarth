@@ -305,7 +305,7 @@ Back to top button
 	
 	<div id="pagewrap">
 		<p id="back-top">
-			<a href="#top"><span></span>Back to Top</a>
+			<a href="#top"><span>Back to Top</span></a>
 		</p>
 	</div>
         

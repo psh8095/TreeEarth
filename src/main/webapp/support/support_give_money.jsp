@@ -80,7 +80,6 @@ $(function() {
 		
 		var date = new Date();
 		var now = date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
-		out.println(now);
 
 		IMP.request_pay({
 			pg: "html5_inicis",
@@ -95,8 +94,24 @@ $(function() {
 		}, function(rsp) {
 			if(rsp.success) {
 				alert("결제가 정상적으로 완료되었습니다.");
-				location.href="GiveMoneyPro.su?total_money="+total_money+"&idx="+<%=idx%>;
 
+				$.ajax({
+					type: "post",
+					url: "GiveMoneyPro.su",
+					data: {
+						total_money: total_money,
+						idx: ${param.idx},
+						mem_id: ${sessionScope.sId },
+						sup_idx: ${param.idx},
+						suphi_money: total_money
+					},
+					dataType: "text",
+					success: function(response) {
+						opener.location.href="SupportListAction.su";
+						window.close();
+					}
+				});
+				
 			} else {
 				alert("결제에 실패하였습니다.");
 				alert(rsp.error_msg);
@@ -117,6 +132,7 @@ $(function() {
 
 
 	<form action="GiveMoneyPro.su">
+		<input type="hidden" name="mem_id" value="${sessionScope.sId }">
 		
 		<!-- 금액 직접 입력 -->
 		<input type="text" id="text_money" name="sup_money" placeholder="후원금">

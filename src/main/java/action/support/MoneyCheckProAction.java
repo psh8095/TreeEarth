@@ -1,13 +1,13 @@
 package action.support;
 
-import java.io.PrintWriter;
+import java.io.*;
 
 import javax.servlet.http.*;
 
 import action.*;
 import svc.support.*;
 import vo.*;
-import vo.support.SupportDTO;
+import vo.support.*;
 
 public class MoneyCheckProAction implements Action {
 
@@ -23,8 +23,12 @@ public class MoneyCheckProAction implements Action {
 		
 		int total_money = Integer.parseInt(request.getParameter("total_money"));
 		int idx = Integer.parseInt(request.getParameter("idx"));
+		String mem_id = request.getParameter("mem_id");
+		int sup_idx = Integer.parseInt(request.getParameter("sup_idx"));
+		int suphi_money = Integer.parseInt(request.getParameter("suphi_money"));
 		System.out.println("3-1. " + total_money);
 		System.out.println("3-2. " + idx);
+		System.out.println(mem_id + sup_idx + suphi_money);
 		
 		SupportDTO dto = new SupportDTO();
 		dto.setSup_money(total_money);
