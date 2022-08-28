@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 공용css */
+
+*{	margin: 0; 
+	padding: 0; 	
+	font-family: 'EarlyFontDiary';
+	font-size: 15px;
+	font-weight: 300;}
+ul{list-style: none; padding-left: 0;}
+a{text-decoration: none; color: black;}
+
+body{
+	height: 100%;
+}
+
+
+.main {
+	position:relative;
+	border: 5px solid gre;
+	width: 80%;
+	margin: 0 auto;
+	
+	
+	/* 푸터의 높이 */
+  	padding: 30px;
+	
+}
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 메인  */
+
+.list {
+	position :relative;
+	box-sizing:border-box;
+	border: 5px solid red;
+	width: 25%;
+	height: 350px;
+	margin: 0 auto;
+	overflow: hidden;
+	float: left;
+}
+
+.img{
+	display:block;
+	width:100%;
+	box-sizing:border-box;
+	border: 5px solid green;
+	height: 250px;
+	margin: 0 auto;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 디테일  */
+
+.page{
+	clear: both;
+}
+
+
+
