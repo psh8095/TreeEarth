@@ -242,7 +242,7 @@ public class QnaDAO {
 			pstmt2.setString(4, store_qna.getSto_qna_content());
 			pstmt2.setInt(5, store_qna.getSto_qna_re_seq());
 			pstmt2.setInt(6, store_qna.getSto_qna_re_ref());
-			pstmt2.setInt(7, store_qna.getSo_qna_re_lev());
+			pstmt2.setInt(7, store_qna.getSto_qna_re_lev());
 			pstmt2.setInt(11, 0); // sto_qna_readcount
 			
 			insertCount = pstmt2.executeUpdate();
