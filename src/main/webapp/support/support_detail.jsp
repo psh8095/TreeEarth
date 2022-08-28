@@ -288,8 +288,7 @@ Back to top button
 				
 				<!-- idx, date, readcount 안보이게 -->
 				<tr style="display: none;">
-									<td class="goalDate"><%=dto.getSup_goal_date() %></td>
-				
+					<td class="goalDate"><%=dto.getSup_goal_date() %></td>
 					<td><%=dto.getSup_date() %></td>
 					<td><%=dto.getSup_idx() %></td>
 					<td><%=dto.getSup_readcount() %></td>
