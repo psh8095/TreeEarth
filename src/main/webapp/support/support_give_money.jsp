@@ -81,6 +81,7 @@ $(function() {
 		var date = new Date();
 		var now = date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
 
+		
 		IMP.request_pay({
 			pg: "html5_inicis",
 			pay_method: "card",
@@ -101,14 +102,13 @@ $(function() {
 					data: {
 						total_money: total_money,
 						idx: ${param.idx},
-						mem_id: ${sessionScope.sId },
+						mem_id: "${sessionScope.sId }",
 						sup_idx: ${param.idx},
 						suphi_money: total_money
 					},
 					dataType: "text",
 					success: function(response) {
-						opener.location.href="SupportListAction.su";
-						window.close();
+						
 					}
 				});
 				
