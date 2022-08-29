@@ -26,9 +26,9 @@ public class MoneyCheckProAction implements Action {
 		String mem_id = request.getParameter("mem_id");
 		int sup_idx = Integer.parseInt(request.getParameter("sup_idx"));
 		int suphi_money = Integer.parseInt(request.getParameter("suphi_money"));
-		System.out.println("3-1. " + total_money);
-		System.out.println("3-2. " + idx);
-		System.out.println(mem_id + sup_idx + suphi_money);
+//		System.out.println("3-1. " + total_money);
+//		System.out.println("3-2. " + idx);
+//		System.out.println(mem_id + sup_idx + suphi_money);
 		
 		SupportDTO dto = new SupportDTO();
 		dto.setSup_money(total_money);
