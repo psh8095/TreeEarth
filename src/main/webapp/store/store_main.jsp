@@ -41,38 +41,33 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 					StoreDTO dto = (StoreDTO)o;
 				%>
 					<div class="list">
-						<table>
-						
-							<tr>
-								<td>
-									<a href="StoreItemDetail.st?sto_idx=<%=dto.getSto_idx() %>">
-									<img class="img" src="img/store/<%=dto.getSto_thum_file() %>" width="500" height="500">
-									</a>
-								</td>
-							</tr>
+							
+							<!-- 상품이미지	 -->
+							<a href="StoreItemDetail.st?sto_idx=<%=dto.getSto_idx() %>">
+							<img class="img" src="img/store/<%=dto.getSto_thum_file() %>" width="500" height="500">
+							</a>
+							
+							<!-- 상품명	 -->
+							<div>
+								<%=dto.getSto_subject() %>
+							</div>
+					
+							
+							<!-- 상품명	 -->
+<%-- 						<%=dto.getSto_content() %>--%>
+
+							
+							<!-- 가격	 -->
+							<div>
+								<%=dto.getSto_price() %>원
+							</div>
 							
 							
-							<tr><!-- 상품명	 -->
-								<td><%=dto.getSto_subject() %></td>
-							</tr>
+							<!-- 태그	 -->
+							<div>
+								<%=dto.getSto_tag() %>
+							</div>
 							
-							
-<!-- 							<tr>상품명	 -->
-<%-- 								<td><%=dto.getSto_content() %></td> --%>
-<!-- 							</tr> -->
-							
-							
-							<tr><!-- 가격	 -->
-								<td><%=dto.getSto_price() %>원</td>
-							</tr>
-							
-							
-							<tr><!-- 태그	 -->
-								<td><%=dto.getSto_tag() %></td>
-							</tr>
-							
-							
-						</table>	
 					</div>
 				<%	
 				}

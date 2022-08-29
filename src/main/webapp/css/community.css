@@ -12,7 +12,7 @@
 
 *{	margin: 0; 
 	padding: 0; 	
-	font-family: 'HallymGothic-Regular';
+	font-family: 'EarlyFontDiary';
 	font-size: 15px;
 	font-weight: 300;}
 ul{list-style: none; padding-left: 0;}
@@ -50,6 +50,7 @@ body{
 	overflow:hidden;
 	padding: 15px;
 
+
 }
 
 
@@ -60,7 +61,7 @@ body{
     height:300px;
     object-fit:cover;
 	box-sizing:border-box;
-	border: 5px solid blue;
+	border: 5px solid green;
 	border-radius: 7px;
 }
 
