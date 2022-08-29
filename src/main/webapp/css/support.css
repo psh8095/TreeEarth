@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'EarlyFontDiary';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
-    font-weight: normal;
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -12,7 +12,7 @@
 
 *{	margin: 0; 
 	padding: 0; 	
-	font-family: 'HallymGothic-Regular';
+    font-family: 'HallymGothic-Regular';
 	font-size: 15px;
 	font-weight: 300;}
 ul{list-style: none; padding-left: 0;}
@@ -25,8 +25,8 @@ body{
 
 
 .main {
+/* 	border: 5px solid red; */
 	position:relative;
-	border: 5px solid gre;
 	width: 70%;
 	margin: 0 auto;
 	
@@ -40,9 +40,9 @@ body{
 
 /* 리스트 */
 .list {
+/* 	border: 5px solid orange; */
 	position :relative;
 	box-sizing:border-box;
-	border: 5px solid red;
 	width: 33%;
 	height: 450px;
 	margin: 0 auto;
@@ -55,17 +55,17 @@ body{
 
 /* 사진 크기 */
 .img{
+/* 	border: 5px solid yellow; */
 	display:block;
 	width:100%;
     height:300px;
     object-fit:cover;
 	box-sizing:border-box;
-	border: 5px solid blue;
 	border-radius: 7px;
 }
 
 .bar{
-	border: 5px solid green;
+/* 	border: 5px solid green; */
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -73,11 +73,11 @@ body{
 
 /* 썸네일 */
 #sup_thumbnai{
+/* 	border: 5px solid red; */
 	box-sizing: border-box;
 	width:55%;
 	height:450px;
 	display:block;
-	border: 5px solid green;
 	margin-bottom: 30px;
 	float: left;
 }
@@ -85,9 +85,9 @@ body{
 
 /* 썸네일 옆 컨텐츠들 */
 #content{
+/* 	border: 5px solid green; */
 	box-sizing: border-box;
 	display:block;
-	border: 5px solid blue;
 	margin-left: 10px;
 	width: 40%;
 	height:450px;
@@ -97,10 +97,11 @@ body{
 
 /* 제목 */
 .sup_subject{
-	border: 5px solid red;
+/* 	border: 5px solid orange; */
 	text-align: center;
 	font-size: 40px;
 }
+
 
 /* 글자 사이즈 */
 .sup_subject, #dDay > span, #goalPrice > span, #progressBar{
@@ -114,6 +115,7 @@ table {
   border-spacing: 0 20px;
 }
 
+
 .butten {
 	text-align: center;
 	width: 40px;
@@ -121,21 +123,24 @@ table {
 	border-top:  50px solid #fff;
 }
 
+
 /* 상세 페이지 */
 #sup_original{
-	
-	border: 5px solid green;
+/* 	border: 5px solid blue; */
 	display:block;
 	width: 100%;
 	height:auto;
 	margin: 0 auto;
 }
 
+
 /* 한줄 설명 */
 .content{
+/* 	border: 5px solid purple; */
 	clear: both;
 	margin: 10px;
 	width: 50%;
+	box-sizing: border-box;
 }
 
 

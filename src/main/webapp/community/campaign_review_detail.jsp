@@ -12,52 +12,82 @@
 				'treeEarth', 'width=450,height=550');
 	}
 </script>
-<link href="../css/index.css" rel="stylesheet">
+<link href="css/community.css" rel="stylesheet">
 </head>
 <body>
+
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	<section id="">
-		<h2>글 상세내용 보기</h2>
-		
-		<section id="container">
-			<table>
-			<tr><th width="70">제 목</th><td colspan="3" >${campaign_review.cam_re_subject }</td></tr>
-			<tr>
-				<th width="70">작성자</th><td>${campaign_review.cam_re_id }</td>
-				<th width="70">작성일</th><td>${campaign_review.cam_re_date }</td>
-			</tr>
-			<tr>
-				<th width="70">첨부파일</th>
-				<td>
-					<a href="img/community/${campaign_review.cam_re_real_file }">
-						${campaign_review.cam_re_file }
-					</a>
-				</td>
-				<th width="70">조회수</th>
-				<td>${campaign_review.cam_re_readcount }</td>
-			</tr>
-			<tr>
-				<th width="70">내용</th>
-				<td>
-					${campaign_review.cam_re_content }<br><br>
-					<img alt="${campaign_review.cam_re_file }" src="img/community/${campaign_review.cam_re_real_file }">
-				</td>
-			</tr>
-			</table>
-		</section>
-	</section>
 	
-	<section id="">
-		<input type="button" value="수정" onclick="location.href='CampaignReviewModifyForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
-		<input type="button" value="삭제" onclick="location.href='CampaignReviewDeleteForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
-		<input type="button" value="목록" onclick="location.href='CampaignReviewList.cm?pageNum=${param.pageNum}'">
+	
+	
+<!-- 디테일 메인 블럭 -->
+   <div class="main">
+
+
+	 <hr style="color: gray; opacity: 70%; margin: 50px;">
+	
+	
+		<!-- 섬네일 옆	 -->
+		<div id="content">
+
 		
-		<c:if test="${not empty sessionScope.sId}">
-			<input type="button" value="신고하기" onclick="blockForm()">
-		</c:if>
-	</section>
+			<!-- 제목 -->
+			<div >
+				<span class="cam_subject"> ${campaign_review.cam_re_subject} </span>
+			</div>
+			
+			
+			<!-- 작성자 -->
+			<div>
+				<span >작성자 : ${campaign_review.cam_re_id } </span>
+			</div>
+			
+			
+			<!-- 데이트 -->	
+			<div>
+				<span >작성일 : ${campaign_review.cam_re_date } </span>
+			</div>	
+					
+						
+			<!-- 조회수 -->		
+			<div>
+				<span >조회수 : ${campaign_review.cam_re_readcount }</span>
+			</div>		
+		</div>
+		
+		
+		<!-- 내용 -->		
+		<div class="content">
+			<span >${campaign_review.cam_re_content }</span>
+		</div>			
+		
+			
+		<!-- 상세이미지 -->	
+		<div >
+			<a href="img/community/${campaign_review.cam_re_real_file }"><img id="cam_img" alt="${campaign_review.cam_re_file }" src="img/community/${campaign_review.cam_re_real_file }"></a>
+		</div>		
+						
+				
+		<!-- 버튼 -->	
+		<div>
+			<input type="button" value="수정" onclick="location.href='CampaignReviewModifyForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
+			<input type="button" value="삭제" onclick="location.href='CampaignReviewDeleteForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
+			<input type="button" value="목록" onclick="location.href='CampaignReviewList.cm?pageNum=${param.pageNum}'">
+		
+		
+			<c:if test="${not empty sessionScope.sId}">
+				<input type="button" value="신고하기" onclick="blockForm()">
+			</c:if>
+		
+		</div>
+		
+		
+	</div>
+	
+
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>

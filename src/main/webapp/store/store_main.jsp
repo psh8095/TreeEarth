@@ -23,7 +23,7 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 
-
+	 <hr style="color: gray; opacity: 70%; margin: 70px;">
 
 	<!-- 	상품이 없을 때 -->
 	<%if(storeList.isEmpty()) { %>

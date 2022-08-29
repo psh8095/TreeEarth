@@ -127,7 +127,7 @@ Back to top button
 	<!-- 후원 메인 블럭 -->
    <main >
    
-	 <hr style="color: gray; opacity: 70%; margin: 50px;">
+	 <hr style="color: gray; opacity: 70%; margin: 70px;">
 		   
 		   
 			<!-- 글 목록 -->

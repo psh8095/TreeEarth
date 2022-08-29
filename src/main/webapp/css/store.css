@@ -26,8 +26,8 @@ body{
 
 
 .main {
+/* 	border: 5px solid green; */
 	position:relative;
-	border: 5px solid green;
 	width: 80%;
 	margin: 0 auto;
 	
@@ -38,11 +38,11 @@ body{
 /* 메인  */
 
 .list {
+/* 	border: 5px solid red; */
 	position :relative;
 	box-sizing:border-box;
-	border: 5px solid red;
 	width: 25%;
-	height: 450px;
+	height: 380px;
 	margin: 0 auto;
 	float: left;
 	overflow: hidden;
@@ -52,12 +52,12 @@ body{
 
 /* 사진 크기 */
 .img{
+/* 	border: 5px solid blue; */
 	display:block;
 	width:100%;
     height:300px;
     object-fit:cover;
 	box-sizing:border-box;
-	border: 5px solid blue;
 	border-radius: 7px;
 }
 
@@ -70,8 +70,8 @@ body{
 
 
 .main1{
+/* 	border: 5px solid green; */
 	position:relative;
-	border: 5px solid green;
 	width: 60%;
 	margin: 0 auto;
 	
@@ -83,11 +83,11 @@ body{
 
 /* 썸네일 */
 #sto_thumbnai{
+/* 	border: 5px solid green; */
 	box-sizing: border-box;
 	width:55%;
 	height:450px;
 	display:block;
-	border: 5px solid green;
 	margin-bottom: 30px;
 	float: left;
 }
@@ -95,9 +95,9 @@ body{
 
 /* 썸네일 옆 컨텐츠들 */
 #content{
+/* 	border: 5px solid blue; */
 	box-sizing: border-box;
 	display:block;
-	border: 5px solid blue;
 	margin-left: 10px;
 	width: 40%;
 	height:450px;
@@ -107,7 +107,7 @@ body{
 
 /* 제목 */
 .sto_subject{
-	border: 5px solid red;
+/* 	border: 5px solid red; */
 	text-align: center;
 	font-size: 40px;
 }
@@ -128,7 +128,7 @@ table {
 /* 상세 페이지 */
 #sto_original{
 	
-	border: 5px solid green;
+/* 	border: 5px solid green; */
 	display:block;
 	width: 100%;
 	height:auto;
@@ -137,11 +137,82 @@ table {
 
 
 #qna{
+/* 	border: 5px solid green; */
 	text-align: center;
-	border: 5px solid green;
 	clear: both;
 	
 }
+
+
+hr{
+	color: gray; opacity: 100%;  width: 100%;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* 스토어 후기  */
+
+/* 자유게시판 타이틀  */
+.r_sto_title{
+	float: left;
+	margin: 15px;
+}
+
+
+/* 글쓰기  */
+.r_sto_title_button{
+	float: right;
+	margin-right: 10px;
+	margin: 15px;
+}
+
+
+
+/* 제목  */
+.r_sto_subject{
+/* 	border: 5px solid red; */
+	margin: 15px;
+	float: left;
+	width: 15%;
+}
+
+/* 조회수  */
+.r_sto_content{
+/* 	border: 5px solid blue; */
+	margin: 15px;
+	float: left;
+	width: 35%;
+}
+
+
+/* 작성자  */
+.r_sto_name{
+/* 	border: 5px solid orange; */
+	margin: 15pxs;
+	float: left;
+	width: 10%;
+
+}
+
+
+
+/* 작성일  */
+.r_sto_date{
+/* 	border: 5px solid green; */
+	margin: 15px;
+	float: left;
+	width: 15%;
+}
+
+.r_sto_img{
+/* 	border: 5px solid orange; */
+	display:block;
+	width:100%;
+    height:100px;
+    object-fit:cover;
+	box-sizing:border-box;
+	border-radius: 7px;
+}
+
+
 
 
 
