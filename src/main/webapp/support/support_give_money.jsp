@@ -15,6 +15,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Insert title here</title>
 <link href="css/button.css" rel="stylesheet">
+<style type="text/css">
+#don{
+text-align: center;
+margin: auto;
+padding: 55px;
+}
+#don2{
+text-align: center;
+margin: auto;
+padding-bottom: 50px;
+}
+#sub{
+text-align: center;
+margin: auto;
+}
+</style>
 
 <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script src="js/jquery-3.6.0.js"></script>
@@ -128,26 +144,31 @@ $(function() {
 </script>
 </head>
 <body>
+<section id="sub">
 <h1>DONATE</h1>
+</section>
 
 
 	<form action="GiveMoneyPro.su">
 		<input type="hidden" name="mem_id" value="${sessionScope.sId }">
 		
+		<section id="don">
 		<!-- 금액 직접 입력 -->
 		<input type="text" id="text_money" name="sup_money" placeholder="후원금">
 		<!-- 금액 버튼 -->
 	    <button id="button_money_10000" class="w-btn w-btn-yellow" type="button"> 10000원  </button>
 	    <button id="button_money_20000" class="w-btn w-btn-yellow" type="button"> 20000원  </button>
 	    <button id="button_money_30000" class="w-btn w-btn-yellow" type="button"> 30000원  </button><br>
+		</section>
 	    
-	    
+	    <section id="don2">
 		<span>총 후원금&nbsp;&nbsp;</span>
 		<span id="total_money"></span>
 		<span>원</span>
 		
 		<!-- 후원 버튼 -->
 		<button id="donate" class="w-btn w-btn-gra2"  type="button"> 후원 </button><br>
+	    </section>
 		
 		<div id="CheckMoneyResult"></div>
 		
