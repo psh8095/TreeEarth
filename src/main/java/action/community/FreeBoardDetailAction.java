@@ -16,17 +16,17 @@ public class FreeBoardDetailAction implements Action {
 			
 			ActionForward forward = null;
 			
-			int board_num = Integer.parseInt(request.getParameter("board_num"));
+			int free_idx = Integer.parseInt(request.getParameter("free_idx"));
 
 			FreeBoardDetailService service = new FreeBoardDetailService();
-			service.increaseReadcount(board_num);
+			service.increaseReadcount(free_idx);
 			
-			FreeboardDTO board = service.getBoard(board_num);
+			FreeboardDTO freeboard = service.getBoard(free_idx);
 			
-			request.setAttribute("board", board);
+			request.setAttribute("freeboard", freeboard);
 			
 			forward = new ActionForward();
-			forward.setPath("community/freeboard_view.jsp");
+			forward.setPath("community/freeboard_detail.jsp");
 			forward.setRedirect(false);
 			
 			return forward;

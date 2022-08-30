@@ -28,10 +28,10 @@ public class FreeBoardListAction implements Action {
 		}
 		
 		FreeBoardListService service = new FreeBoardListService();
-		int listCount = service.getListCount();
-		System.out.println("전체 자유게시판 게시물 수 : " + listCount);
+		int itemListCount = service.getListCount();
+		System.out.println("전체 자유게시판 게시물 수 : " + itemListCount);
 
-		int maxPage = (int)Math.ceil((double)listCount / listLimit);
+		int maxPage = (int)Math.ceil((double)itemListCount / listLimit);
 		int startPage = ((int)((double)pageNum / pageLimit + 0.9) - 1) * pageLimit + 1;
 		int endPage = startPage + pageLimit - 1;
 
@@ -39,7 +39,7 @@ public class FreeBoardListAction implements Action {
 			endPage = maxPage;
 		}
 		
-		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, listCount);
+		PageInfo pageInfo = new PageInfo(pageNum, maxPage, startPage, endPage, itemListCount);
 		
 		ArrayList<FreeboardDTO> boardList = service.getBoardList(pageNum, listLimit);
 		

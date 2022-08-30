@@ -214,7 +214,7 @@ public class FreeBoardDAO {
 			PreparedStatement pstmt = null;
 			
 			try {
-				String sql = "UPDATE freeboard SET free_name=?,free_subject=?,freeboard_content=? WHERE free_idx=?";
+				String sql = "UPDATE freeboard SET free_name=?,free_subject=?,free_content=? WHERE free_idx=?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, board.getFree_name());
 				pstmt.setString(2, board.getFree_subject());
