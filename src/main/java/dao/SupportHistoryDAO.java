@@ -106,5 +106,42 @@ public class SupportHistoryDAO {
 		
 		return supList;
 	}
+
+	//후원 내역 전체 조회
+	public ArrayList<SupportHistoryDTO> getsupportList() {
+		
+		ArrayList<SupportHistoryDTO> supList = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM supporthistory";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			supList = new ArrayList<SupportHistoryDTO>();
+			
+			while(rs.next()) {
+				SupportHistoryDTO supporthistory = new SupportHistoryDTO();
+				supporthistory.setSuphi_idx(rs.getInt("suphi_idx"));
+				supporthistory.setMem_id(rs.getString("mem_id"));
+				supporthistory.setSup_idx(rs.getInt("sup_idx"));
+				supporthistory.setSuphi_money(rs.getInt("suphi_money"));
+				supporthistory.setSuphi_date(rs.getDate("suphi_date"));
+				
+				supList.add(supporthistory);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("SupportHistoryDAO - getsupportList");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return supList;
+	}
 	
 }
