@@ -48,7 +48,7 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 							</a>
 							
 							<!-- 상품명	 -->
-							<div>
+							<div class="list_subject">
 								<%=dto.getSto_subject() %>
 							</div>
 					
@@ -58,13 +58,13 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 
 							
 							<!-- 가격	 -->
-							<div>
+							<div class="list_subject">
 								<%=dto.getSto_price() %>원
 							</div>
 							
 							
 							<!-- 태그	 -->
-							<div>
+							<div class="list_subject">
 								<span class="sto_tag main_tag"><%=dto.getSto_tag() %></span>
 							</div>
 							

@@ -171,11 +171,16 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 			
 			
 			<!-- 장바구니 담기 버튼 -->
-			<div>
+			
+			<div class="sto_flex">
+				<input type="button" value="구매하기" id="order" class="sto_od">
 				<input type="button" value="위시리스트 담기" id="insertWishlist" class="sto_od">
 				<input type="button" value="장바구니 담기" id="insertCart" class="sto_od">
-				<span class="sto_od2"><input type="button" value="구매하기" id="order" class="sto_od"></span>
 			</div>
+<!-- 				<input type="button" value="위시리스트 담기" id="insertWishlist" class="sto_od"> -->
+<!-- 				<input type="button" value="장바구니 담기" id="insertCart" class="sto_od"> -->
+<!-- 				<input type="button" value="구매하기" id="order" class="sto_od"> -->
+<!-- 			</div> -->
 
 
 		<!-- 섬네일 옆끝 -->
