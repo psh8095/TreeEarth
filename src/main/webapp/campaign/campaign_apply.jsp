@@ -43,10 +43,12 @@
 			</tr>
 		</table>
 		
-			<!-- <input type="submit" value="지원하기"> -->
-			<section id="cam_button">
-				<button class="w-btn-outline" type="button">지원하기</button>
-			</section>
+		<section id="cam_button">
+			 <input class="w-btn-outline w-btn-green-outline" type="submit" value="지원하기"> 
+				<!-- <button class="w-btn-outline" type="button">지원하기</button> -->
+		</section>
+<!-- 				<button class="w-btn-outline w-btn-green-outline" type="button">지원하기</button> -->
+    
 	</form>
 </div>	
 	<!-- 푸터 -->
