@@ -1,0 +1,75 @@
+@charset "EUC-KR";
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+/* 캠페인 전체 */
+
+
+
+/* 캠페인 참가 신청서 폼 */
+body {
+    padding: 2rem;
+    background-color: hsl(0,0%,95%);
+}
+
+* {-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  
+#container{
+	width: 550px;
+  	padding: 20px;
+  	margin: 45px auto 25px auto;
+}
+  
+form {
+    max-width: 30rem;
+    margin: 0 auto;
+	padding: 1.5rem 2rem; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+table input {
+  outline: 0;
+  background: #ffffff;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+h1{
+	text-align: center;
+	padding: 20px;
+}
+
+
+
+
+
+/* 지원하기 버튼 모양*/
+#cam_button{
+	text-align: center;
+}
+
+.w-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "PyeongChangPeace-Bold";
+    font-size: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+
+  
+  
