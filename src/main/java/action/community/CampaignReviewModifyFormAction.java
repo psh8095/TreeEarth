@@ -19,6 +19,7 @@ public class CampaignReviewModifyFormAction implements Action {
 		int cam_re_idx = Integer.parseInt(request.getParameter("cam_re_idx"));
 		
 		CampaignReviewDetailService service = new CampaignReviewDetailService();
+		//상세조회
 		CampaignReviewDTO campaign_review = service.getCampaignReviewDetail(cam_re_idx);
 		
 		request.setAttribute("campaign_review", campaign_review);

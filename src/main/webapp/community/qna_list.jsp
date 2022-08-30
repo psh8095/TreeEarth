@@ -44,10 +44,10 @@
 <body>
 	
 	<!-- 헤더 -->
-	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<jsp:include page="../hf/header.jsp"></jsp:include> 
 	<!-- 헤더 -->
 
-	<div class="qna_category" style="text-align: center;">
+	<div class="qna_category">
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=faq'">자주묻는질문</button>
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=delivery'">배송문의</button>
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=change'">교환/반품문의</button>
