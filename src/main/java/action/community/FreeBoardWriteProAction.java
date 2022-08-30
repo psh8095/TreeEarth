@@ -32,6 +32,7 @@ public class FreeBoardWriteProAction implements Action {
 			request,
 			realPath,
 			fileSize,
+			"UTF-8",
 			new DefaultFileRenamePolicy()
 		);
 		

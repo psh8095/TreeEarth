@@ -26,6 +26,7 @@
 					<td width="50">수량</td>
 					<td width="150">결제 금액</td>
 					<td width="150">구매 일자</td>
+					<td>후기 작성</td>
 				</tr>
 				<c:forEach var="i" begin="0" end="${orderList.size() - 1}" step="1">
 					<tr>
@@ -35,6 +36,7 @@
 						<td width="50">${orderDetail[i].quantity }</td>
 						<td width="150">${orderList[i].amount }</td>
 						<td width="150">${orderList[i].order_date }</td>
+						<td onclick="location.href='StoreReviewWriteForm.st?sto_idx=${store[i].sto_idx }'"><button class="w-btn-outline w-btn-green-outline" type="button">구매 후기 작성</button></td>
 					</tr>
 				</c:forEach>
 			</table>
