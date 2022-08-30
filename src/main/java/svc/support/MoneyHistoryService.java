@@ -31,7 +31,6 @@ public class MoneyHistoryService {
 	}
 
 	public ArrayList<SupportHistoryDTO> getSupportHistory(String mem_id) {
-		System.out.println("getSupportHistory");
 		
 		ArrayList<SupportHistoryDTO> supList = null;
 		
@@ -41,7 +40,6 @@ public class MoneyHistoryService {
 		
 		//후원내역 조회
 		supList = dao.getsupportList(mem_id);
-		System.out.println("service" + supList);
 		
 		close(con);
 		

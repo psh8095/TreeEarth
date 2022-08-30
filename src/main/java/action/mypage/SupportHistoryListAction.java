@@ -23,7 +23,6 @@ public class SupportHistoryListAction implements Action {
 		
 		HttpSession session = request.getSession();
 		String mem_id = session.getAttribute("sId").toString();
-		System.out.println(mem_id);
 		
 		MoneyHistoryService service = new MoneyHistoryService();
 		ArrayList<SupportHistoryDTO> supList = service.getSupportHistory(mem_id);
