@@ -35,12 +35,12 @@
 		  		$("#backGraound").css({
 		  			"z-index" : "2",
 		  			"position" : "fixed ",
-		  			"transition-duration" : "0.5s"
+		  			"transition-duration" : "1s"
 		  		});
 		       
 		  		
 		  		/* 로고 글자 */
-		  		$("#logo > h1").css({
+		  		$("#logo > a").css({
 		  			"color" : "black ",
 		  			"transition-duration" : "0.5s"
 		  		});
@@ -81,7 +81,7 @@
 		  		});
 		       
 		  		/* 로고 글자 */
-		  		$("#logo > h1").css({
+		  		$("#logo > a").css({
 		  			"color" : "",
 		  			"transition-duration" : "0.5s"
 		  		});
@@ -125,17 +125,20 @@
 
 
 <!-- 헤더 -->
-<header style="position: relative; width:100%; height: 1000px">
+<header style="position: relative; width:100%; height: 800px">
 	
 	
 	
 	<!-- 헤더 산 사진 -->
-	<div style=" width:100%; height:1000px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
-	    <img src="img/KakaoTalk_20220825_162630074.png" width="100%" alt="나무">
+	<div style=" width:100%; height:800px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
+	    <img src="img/main/main_mountain.jpg" width="100%" alt="나무">
  	</div>
  	
 	<!-- 백그라운드 -->
-	<div id="backGraound" style=" width:100%; height:125px; background-color: white; position: absolute; z-index: 0; "></div>
+	<div id="backGraound" style=" width:100%; height:160px; background-color: white; position: absolute; z-index: 0; "></div>
+	
+	<!-- 밝기 조절 -->
+	<div id="backGraound" style=" width:100%; height:800px; background-color: black; position: absolute; z-index: 1; opacity: 0.33;"></div>
 	
 	
 	<!-- 헤더 기능 메뉴 -->
@@ -150,9 +153,8 @@
 	
 		<!-- 로고 -->
 		<div id="logo">
-			<h1>트리어스</h1>
-			
-				<!-- <a href="./"><img src="img/main/logo33.png" alt="트리어스" width="250"></a> -->
+			<a href="./">트리어스</a>
+<!-- 			<a href="./"><img src="img/main/main_logo.png" alt="트리어스" width="250"></a> -->
 		</div>
 		
 		
@@ -186,7 +188,7 @@
 
 								<!-- 장바구니 영역 -->
 								<div id="cart">
-									<a href="Cart.my">장바구니 </a>
+									<a href="Cart.my">장바구니 </a> 
 								</div>
 								
 								
@@ -228,6 +230,8 @@
 		<!-- 로그인/마이페이지/장바구니 영역 끝 -->
 		</div>
 		
+		
+		<hr>
 		
 		
 	 	<!-- 메뉴바 영역 -->
