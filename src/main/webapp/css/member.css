@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/* 한림예고 */
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+/* 공용css */
+
+li{list-style: none; padding-left:0px;}
+a{text-decoration: none; color: black;}
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/*  */
+
+hr{
+	width: 70%;
+	opacity: 0.3;
+}
+
+.login_main{
+	
+	font-family: 'HallymGothic-Regular';
+	text-align: center;
+}
+
+.login_back{
+	background-color: #dcdcdc;
+	margin: 15px;
+	text-align: center;
+	border-radius: 5px;
+	height: 580px;
+}
+
+.login_input{
+	margin:5px;
+	width: 280px;
+	height: 35px;
+}
+
+.login_button {
+	margin:5px;
+	width: 280px;
+	height: 35px;
+	margin-bottom: 30px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/*  */

@@ -116,7 +116,7 @@
 	});
 	
 	function login() {
-		window.open("MemberLoginForm.me", "login", "width=350, height=400");
+		window.open("MemberLoginForm.me", "login", "width=400, height=600");
 	}
 	
 	</script>
@@ -151,7 +151,8 @@
 		<!-- 로고 -->
 		<div id="logo">
 			<h1>트리어스</h1>
-<!-- 			<a href="./"><img src="img/main/logo33.png" alt="트리어스" width="250"></a> -->
+			
+				<!-- <a href="./"><img src="img/main/logo33.png" alt="트리어스" width="250"></a> -->
 		</div>
 		
 		
@@ -238,7 +239,6 @@
 				<li><a href="CampaignList.cp">캠페인</a>
 					<ul class="subMenu">
 						<li><a href="CampaignList.cp">진행중인 캠페인</a></li>
-						<li><a href="CampaignExpiredList.cp">종료된 캠페인</a></li>
 					</ul>
 				</li>
 				

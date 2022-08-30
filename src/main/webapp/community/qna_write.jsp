@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,14 +37,16 @@
 			</tr>
 			<tr>
 				<td><label for="qna_subject">질문</label></td>
-				<td><input type="text" name="qna_subject" required="required" /></td>
+				<td><textarea name="qna_subject" cols="40" rows="15" required="required"></textarea></td>
 			</tr>
-			<tr>
-				<td><label for="qna_content">답변</label></td>
-				<td>
-					<textarea id="qna_content" name="qna_content" cols="40" rows="15"></textarea>
-				</td>
-			</tr>
+			<c:if test="${sessionScope.sId eq 'admin'}">
+				<tr>
+					<td><label for="qna_content">답변</label></td>
+					<td>
+						<textarea id="qna_content" name="qna_content" cols="40" rows="15"></textarea>
+					</td>
+				</tr>
+			</c:if>
 		</table>
 		
 		<section id="commandCell">

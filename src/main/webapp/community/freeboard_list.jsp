@@ -5,106 +5,112 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>트리어스 자유게시판 ~ ★</title>
-<style type="text/css">
-	#listForm {
-		width: 1024px;
-		max-height: 610px;
-		margin: auto;
-	}
-	
-	h2 {
-		text-align: center;
-	}
-	
-	table {
-		margin: auto;
-		width: 1024px;
-	}
-	
-	#tr_top {
-		background: orange;
-		text-align: center;
-	}
-	
-	table td {
-		text-align: center;
-	}
-	
-	#subject {
-		text-align: left;
-		padding-left: 20px;
-	}
-	
-	#pageList {
-		margin: auto;
-		width: 1024px;
-		text-align: center;
-	}
-	
-	#emptyArea {
-		margin: auto;
-		width: 1024px;
-		text-align: center;
-	}
-	
-	#buttonArea {
-		margin: auto;
-		width: 1024px;
-		text-align: right;
-	}
-	
-	a {
-		text-decoration: none;
-	}
-</style>
+<title>트리어스 자유게시판</title>
+<link href="css/community.css" rel="stylesheet">
 </head>
 <body>
+
+
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+	
+	
+
 	<!-- 게시판 리스트 -->
-	<section id="listForm">
-	<h2>게시판 글 목록</h2>
-	<table>
-		<tr id="tr_top">
-			<td width="100px">번호</td>
-			<td>제목</td>
-			<td width="150px">작성자</td>
-			<td width="150px">작성일</td>
-			<td width="100px">조회수</td>
-		</tr>
-		<!-- 게시물 목록 출력(단, 게시물이 하나라도 존재할 경우에만 출력) => JSTL 과 EL 활용 -->
-		<!-- JSTL 의 c:choose 태그를 사용하여 게시물 존재 여부 판별 -->
-		<!-- 조건 : boardList 객체가 비어있지 않고 pageInfo 객체의 itemListCount 가 0보다 클 경우 -->
-		<c:choose>
-			<c:when test="${not empty boardList and pageInfo.itemListCount gt 0 }">
-				<!-- c:foreach 태그를 사용하여 boardList 객체의 BoardDTO 객체를 꺼내서 출력 -->
-				<c:forEach var="freeboard" items="${boardList }">
-					<tr>
-						<td>${freeboard.free_idx }</td>
-						<td id="subject">
-							<a href="FreeBoardDetail.cm?free_idx=${freeboard.free_idx }&pageNum=${pageInfo.pageNum}">
-								<!-- 답글에 대한 들여쓰기(공백 추가) 작업 처리 -->
-								<c:forEach var="i" begin="1" end="${freeboard.free_re_lev }">
-									&nbsp;&nbsp;
-								</c:forEach>
-								${freeboard.free_subject }
-							</a>
-						</td>
-						<td>${freeboard.free_name }</td>
-						<td>${freeboard.free_date }</td>
-						<td>${freeboard.free_readcount }</td>
-					</tr>
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<tr><td colspan="5">게시물이 존재하지 않습니다.</td></tr>
-			</c:otherwise>
-		</c:choose>
-	</table>
-	</section>
-	<section id="buttonArea">
-		<input type="button" value="글쓰기" onclick="location.href='FreeBoardWriteForm.cm'" />
-	</section>
-	<section id="pageList">
+	<div class="main">
+	
+	
+	 	 <hr style="color: gray; opacity: 70%; margin: 50px;">
+
+				<!-- 자유게시판 타이틀-->
+				<div class="free_title">
+					<span>자유게시판</span>
+				</div>
+				 
+				
+				<!-- 글쓰기 -->
+				<div class="free_title_button">
+					<input type="button" value="글쓰기" onclick="location.href='FreeBoardWriteForm.cm'" />
+				</div>
+			
+		
+		 <hr>
+	
+	
+				<!-- 게시판 구별 -->
+				<div >
+					<span class="free_subject">제목</span>
+					<span class="free_name">작성자</span>
+					<span class="free_date">작성일</span>
+					<span class="free_read">조회수</span>
+				</div>
+			
+		
+		 <hr>
+		
+		
+		
+		<!-- 게시판 내용 -->
+		<div >
+		
+			<c:choose>
+				<c:when test="${not empty boardList and pageInfo.itemListCount gt 0 }">
+					<c:forEach var="freeboard" items="${boardList }">
+					
+					
+							<!-- 제목 -->
+							<div class="free_subject">
+								<a href="FreeBoardDetail.cm?free_idx=${freeboard.free_idx }&pageNum=${pageInfo.pageNum}">
+									<c:forEach var="i" begin="1" end="${freeboard.free_re_lev }">
+										&nbsp;&nbsp;
+									</c:forEach>
+									${freeboard.free_subject }
+								</a>
+							</div>
+							
+							<!-- 작성자 -->
+							<div class="free_name">
+								${freeboard.free_name }
+							</div>
+							
+							
+
+							<div class="free_date">
+								${freeboard.free_date }
+							</div>
+							
+							
+							<!-- 조회수 -->
+							<div class="free_read">
+								${freeboard.free_readcount }
+							</div>
+							
+						
+		 					<hr style="color: gray; opacity: 70%; margin: 20px; clear: both;">
+						
+					</c:forEach>
+					
+					
+				</c:when>
+				<c:otherwise>
+					<div>게시물이 존재하지 않습니다.</div> 
+				</c:otherwise>
+			</c:choose>
+			
+		</div>
+		
+		
+	</div>
+	
+
+
+
+
+		
+		
+		
+	<section >
 		<!-- 
 		현재 페이지 번호(pageNum)가 1보다 클 경우에만 [이전] 링크 동작
 		=> 클릭 시 BoardList.cm 서블릿 주소 요청하면서 
@@ -142,6 +148,14 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
+	
+	
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
+	
+	
 </body>
 </html>
 

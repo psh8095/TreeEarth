@@ -55,7 +55,7 @@
 		}
 	});
 </script>
-<link href="../css/index.css" rel="stylesheet">
+<link href="css/store.css" rel="stylesheet">
 <style type="text/css">
 fieldset {
     display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
@@ -76,54 +76,107 @@ fieldset legend {
 </style>
 </head>
 <body>
+	
+	
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	<section id="">
-		<h3>상품후기 목록</h3> 
+	
+	
+	<!-- 게시판 리스트 -->
+	<div class="main">
+	
+	
+	 	<hr>
+	 	
+	 			<!-- 스토어 후기 타이틀-->
+				<div class="r_sto_title">
+					<span>구매 후기</span>
+				</div>
+	
+	
+					<!-- 글쓰기 -->
+				<div class="r_sto_title_button">
+					<input type="button" value="후기 작성하기" onclick="location.href='StoreReviewWriteForm.st?sto_idx=${store.sto_idx}'">
+				</div>
+			
+		
+		 <hr>
+	
+	
+					<!-- 게시판 구별 -->
+				<div >
+					<span class="r_sto_subject">상품</span>
+					<span class="r_sto_content">내용</span>
+					<span class="r_sto_name">작성자</span>
+					<span class="r_sto_date">작성일</span>
+				</div>
+
+		
+		 <hr>
+		
+		
+		
+		<!-- 게시판 내용 -->
+		<div >
+
 <%-- 		<h1>${store.sto_idx }</h1> --%>
 			<c:choose>
 				<c:when test="${not empty storeReviewList and pageInfo.itemListCount gt 0}">
 					<c:forEach var="store_review" items="${storeReviewList }">
-					<div style="float: left; width: 30%; padding: 20px;">
-						<table>
-						<tr>
-							<td colspan="3">
-									<c:choose>
-										<c:when test="${not empty store_review.sto_re_file}"> 
-											<img alt="" src="upload/${store_review.sto_re_file }" width="300" height="250"> 
-										</c:when>
-									</c:choose>
-							</td>
-						</tr>
-						<tr>
-							<td>${store_review.mem_id }님의 후기입니다.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${store_review.sto_re_date }</td>
-						</tr>
-						<tr>
-							<td>[옵션] ${store_review.sto_subject }</td>
-						</tr>
-						<tr>
-							<td class="score">${store_review.sto_re_score }</td>
-						</tr>
-						</table>
-						<fieldset>
-							<span class="rate1" id="st">⭐</span>
-							<span class="rate2" id="st">⭐</span>
-							<span class="rate3" id="st">⭐</span>
-							<span class="rate4" id="st">⭐</span>
-							<span class="rate5" id="st">⭐</span>
-						</fieldset>
-						<table>
-						<tr>
-							<td>
-							<b>${store_review.sto_re_content }</b>
-							</td>
-							<td>
-							<span onclick="location.href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}'" style="cursor: pointer;">&lt;후기 상세보기&gt;</span>
-							</td>
-						</tr>
-						</table>
+						
+						
+						<!-- 제목 -->
+						<div class="r_sto_subject">
+
+							<!-- 이미지 -->	
+							<c:choose>
+								<c:when test="${not empty store_review.sto_re_file}"> 
+									<a href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}' ><img class="r_sto_img" alt="" src="upload/${store_review.sto_re_file }" width="300" height="250">	</a> 
+								</c:when>
+							</c:choose>
+		
+							<fieldset>
+								<span class="rate1" id="st">⭐</span>
+								<span class="rate2" id="st">⭐</span>
+								<span class="rate3" id="st">⭐</span>
+								<span class="rate4" id="st">⭐</span>
+								<span class="rate5" id="st">⭐</span>
+							</fieldset>
+							
 						</div>
+					
+					
+						<div >	
+						
+						
+							<!-- 내용 -->
+							<div class="r_sto_content">
+								<a href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}' >${store_review.sto_re_content }	</a>
+							</div>
+							
+							
+							<!-- 작성자 -->	
+							<div class="r_sto_name">
+								${store_review.mem_id }
+							</div>	
+							
+							
+							<!-- 작성일 -->	
+							<div class="r_sto_date">
+								${store_review.sto_re_date }
+							</div>	
+							
+								
+<%-- 							${store_review.sto_re_score } --%>
+							
+						
+						</div>
+				
+				
+						 <hr>
+				
+						
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
@@ -131,12 +184,14 @@ fieldset legend {
 					<h3>후기를 작성해 보세요!</h3>
 				</c:otherwise>
 			</c:choose>
-	</section>
+			
+			
+		</div>	
+	</div>
+
+
 	<br>
 	<div style="clear: both;">
-	<section id="buttonArea">
-		<input type="button" value="후기 작성하기" onclick="location.href='StoreReviewWriteForm.st?sto_idx=${store.sto_idx}'">
-	</section>
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">

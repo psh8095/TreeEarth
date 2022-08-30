@@ -104,104 +104,108 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		});
 	});
 </script>
-<link href="css/button.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
-<style type="text/css">
-	#buttonArea {
-		margin: auto;
-		width: 1024px;
-		text-align: right;
-	}
-	
-	#tr1 {
-	display: flex;
-	display: inline;
-	}
-	
-	#quantity_price {
-	font-size: 20px;
-	}
-	
-	@font-face {
-       font-family: 'MICEGothic Bold';
-       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
-       font-weight: 700;
-       font-style: normal;
-   }
-	
-	.w-btn-outline {
-		position: relative;
-		padding: 8px 8px;
-		border-radius: 15px;
-/* 		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); */
-		font-family:'MICEGothic Bold', sans-serif;
-		font-size: 15px;
-		text-decoration: none;
-		font-weight: 600;
-		transition: 0.25s;
-	}
-	
-	.w-btn-green-outline {
-		border: 2px solid #77af9c;
-		color: black;
-	}
-	
-</style>
+<!-- <link href="css/button.css" rel="stylesheet"> -->
+<link href="css/store.css" rel="stylesheet">
+
+
 </head>
 <body>
+
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	<section>
-		<h2>상품 상세 내용 보기</h2>
-		<h1>${store.sto_idx }</h1>
-			<table>
-				<tr>
-					<td><img src="img/store/${store.sto_thum_file}" width="600" height="500"></td>
-				</tr>
-				<tr>
-					<td>${store.sto_subject }<br></td>
-				</tr>
-				<tr>
-					<td>${store.sto_content }<br></td>
-				</tr>
-				<tr>
-					<td>${store.sto_tag }<br></td>
-				</tr>
-				<tr>
-					<td>판매가 : ${store.sto_price }원<br></td>
-				</tr>
-			</table>
-			<div id="button">
-				<div id="button_quantity"> 
-					<span>
-						<button id="minus_btn">-</button>
-					</span>
-						<input type="text" id="quantity_input" name="amount" value="1" size="2" readonly="readonly">
-					<span>
-						<button id="plus_btn">+</button>
-					</span><br>
-						<span>총 상품금액&nbsp;&nbsp;</span><span id="quantity_price">${store.sto_price }</span><span>원</span>
-				</div>
-			</div>
-	</section>
+
+
+	<!-- 디테일 메인 블럭 -->
+   <div class="main1">
+
+
+	 <hr style="color: gray; opacity: 70%; margin: 50px;">
+
 	
-	<!-- 장바구니 담기 버튼 -->
-	<div>
-		<input type="button" value="위시리스트 담기" id="insertWishlist">
-		<input type="button" value="장바구니 담기" id="insertCart">
-		<input type="button" value="구매하기" id="order">
+		<!-- 썸네일 -->
+		<img id="sto_thumbnai" src="img/store/${store.sto_thum_file}" width="600" height="500">
+
+
+		<!-- 섬네일 옆	 -->
+		<div id="content">
+		
+		
+			<div>
+<%-- 				<h1>${store.sto_idx }</h1> --%>
+					<table>
+						<tr>
+							<td class="sto_subject">${store.sto_subject }<br></td>
+						</tr>
+						<tr>
+							<td>가격 : ${store.sto_price }원<br></td>
+						</tr>
+<!-- 						<tr> -->
+<%-- 							<td>${store.sto_content }<br></td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<%-- 							<td>${store.sto_tag }<br></td> --%>
+<!-- 						</tr> -->
+					</table>
+					
+					
+					<!-- 상품  수량  -->
+					<div id="button">
+						<div id="button_quantity"> 
+							<span>
+								<button id="minus_btn">-</button>
+							</span>
+								<input type="text" id="quantity_input" name="amount" value="1" size="2" readonly="readonly">
+							<span>
+								<button id="plus_btn">+</button>
+							</span><br>
+							<span>총 상품금액&nbsp;&nbsp;</span><span id="quantity_price">${store.sto_price }</span><span>원</span>
+						</div>
+					</div>
+			</div>
+			
+			
+			
+			<!-- 장바구니 담기 버튼 -->
+			<div>
+				<input type="button" value="위시리스트 담기" id="insertWishlist">
+				<input type="button" value="장바구니 담기" id="insertCart">
+				<input type="button" value="구매하기" id="order">
+			</div>
+
+
+		<!-- 섬네일 옆끝 -->
+		</div>
+
+
+	<hr style="color: gray; opacity: 70%; margin: 50px;">
+
+		
+		
+		<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
+		<div id="qna">	
+			<hr style="color: gray; opacity: 70%; margin: 20px;">
+			<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><button class="w-btn-outline w-btn-green-outline" type="button">구매 후기</button></a> / 
+			<a href="StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1"><button class="w-btn-outline w-btn-green-outline" type="button">상품 문의</button></a>
+			<hr style="color: gray; opacity: 70%; margin: 20px;">
+		</div>
+		
+		
+		<div>
+			<h1>상세페이지</h1>
+		</div>
+
+	<!-- 디테일 메인 블럭 끝-->
 	</div>
-	<hr>
-	<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
-	<div>
-		<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><button class="w-btn-outline w-btn-green-outline" type="button">구매 후기</button></a>
-		<a href="StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1"><button class="w-btn-outline w-btn-green-outline" type="button">상품 문의</button></a>
-	</div>
+
+
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
+
+
 </body>
 </html>
 

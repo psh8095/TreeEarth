@@ -7,6 +7,7 @@
     font-style: normal;
 }
 
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* 공용css */
 
@@ -25,8 +26,8 @@ body{
 
 
 .main {
-/* 	border: 5px solid red; */
 	position:relative;
+	border: 5px solid gre;
 	width: 70%;
 	margin: 0 auto;
 	
@@ -35,12 +36,12 @@ body{
 
 
 /* ---------------------------------------------------------------------------------------------------- */
-/* 메인  */
+/* 캠페인 참여 휴기 메인  */
 
 
 /* 리스트 */
 .list {
-/* 	border: 5px solid orange; */
+/* 	border: 5px solid red; */
 	position :relative;
 	box-sizing:border-box;
 	width: 33%;
@@ -50,12 +51,13 @@ body{
 	overflow:hidden;
 	padding: 15px;
 
+
 }
 
 
 /* 사진 크기 */
 .img{
-/* 	border: 5px solid yellow; */
+/* 	border: 5px solid green; */
 	display:block;
 	width:100%;
     height:300px;
@@ -69,81 +71,120 @@ body{
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
-/* 디테일  */
+/* 캠페인 참여 휴기 디테일  */
 
-/* 썸네일 */
-#sup_thumbnai{
-/* 	border: 5px solid red; */
-	box-sizing: border-box;
-	width:55%;
-	height:450px;
-	display:block;
-	margin-bottom: 30px;
-	float: left;
-}
+
 
 
 /* 썸네일 옆 컨텐츠들 */
 #content{
-/* 	border: 5px solid green; */
+/* 	border: 5px solid red; */
 	box-sizing: border-box;
 	display:block;
-	margin-left: 10px;
-	width: 40%;
-	height:450px;
-	float: right;
 }
 
 
 /* 제목 */
-.sup_subject{
 /* 	border: 5px solid orange; */
-	text-align: center;
+.cam_subject{
 	font-size: 40px;
 }
 
-
 /* 글자 사이즈 */
-.sup_subject, #dDay > span, #goalPrice > span, #progressBar{
+.cam_subject, #dDay > span, #goalPrice > span, #progressBar{
 	font-size: 30px;	
 }
 
 
-/* 썸네일 옆 컨텐츠들 간격 */
-table {
-  border-collapse: separate;
-  border-spacing: 0 20px;
-}
-
-
+/* 버튼 */
 .butten {
+/* 	border-top:  50px solid #fff; */
 	text-align: center;
 	width: 40px;
 	height: 25px;
-	border-top:  50px solid #fff;
-}
-
-
-/* 상세 페이지 */
-#sup_original{
-/* 	border: 5px solid blue; */
-	display:block;
-	width: 100%;
-	height:auto;
-	margin: 0 auto;
 }
 
 
 /* 한줄 설명 */
 .content{
-/* 	border: 5px solid purple; */
+/* 	border: 5px solid yellow; */
 	clear: both;
-	margin: 10px;
-	width: 50%;
-	box-sizing: border-box;
+	margin: 30px 0px 30px 0px;
+}
+
+
+#cam_img{
+/* 	border: 5px solid green; */
+	box-sizing: border-box;;
+	width: 100%;
+	display:block;
+}
+
+
+/* 선 */
+hr{
+	color: gray; opacity: 100%;  width: 100%;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* 자유게시판 후기  */
+
+
+/* 자유게시판 타이틀  */
+.free_title{
+	float: left;
+	margin: 15px;
+}
+
+
+/* 글쓰기  */
+.free_title_button{
+	float: right;
+	margin-right: 10px;
+	margin: 15px;
 }
 
 
 
+/* 제목  */
+.free_subject{
+/* 	border: 5px solid red; */
+	margin: 15px;
+	float: left;
+	width: 40%;
+	overflow: hidden;
+}
+
+
+/* 작성자  */
+.free_name{
+/* 	border: 5px solid orange; */
+	margin: 15px;
+	float: left;
+	width: 10%
+
+}
+
+
+
+/* 작성일  */
+.free_date{
+/* 	border: 5px solid green; */
+	margin: 15px;
+	float: left;
+	width: 15%
+}
+
+
+
+/* 조회수  */
+.free_read{
+/* 	border: 5px solid blue; */
+	margin: 15px;
+	float: left;
+	width: 10%
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 자유게시판 후기 디테일  */
 
 

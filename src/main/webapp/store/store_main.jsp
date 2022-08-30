@@ -13,67 +13,72 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TreeEarth</title>
-<link href="../css/index.css" rel="stylesheet">
-<style type="text/css">
-	#buttonArea {
-		margin: auto;
-		width: 1024px;
-		text-align: right;
-	}
-	
-/* 	#tr1 { */
-/* 	display: flex; */
-/* 	display: inline; */
-/* 	} */
-</style>
+<link href="css/store.css" rel="stylesheet">
 </head>
+
 <body>
+
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	
-	<h1>TreeEarth 프로젝트_Store Main</h1>
+
+	 <hr style="color: gray; opacity: 70%; margin: 70px;">
+
+	<!-- 	상품이 없을 때 -->
 	<%if(storeList.isEmpty()) { %>
 	<hr>
 	<h1>상품이 없습니다.</h1>
 	<%}  %>
 
-		<section id="itemWriteForm">
-<!-- 			<div id="tr1"> -->
-			
-			<%
-			for(Object o : storeList) {
-				StoreDTO dto = (StoreDTO)o;
-			%>
-		<div style="float: left; width: 30%; padding: 20px;">
-			<table>
-				<tr>
-					<td>
-						<a href="StoreItemDetail.st?sto_idx=<%=dto.getSto_idx() %>">
-						<img src="img/store/<%=dto.getSto_thum_file() %>" width="500" height="500">
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td>상품명 : <%=dto.getSto_subject() %></td>
-				</tr>
-				<tr>
-					<td><%=dto.getSto_content() %></td>
-				</tr>
-				<tr>
-					<td><%=dto.getSto_price() %></td>
-				</tr>
-				<tr>
-					<td><%=dto.getSto_tag() %></td>
-				</tr>
-			</table>	
-			</div>
-			<%	
-			}
-			%>
-		</section>
 
-	<div style="clear: both;">
+
+		<!-- 상품 목록 -->
+		<div class="main">
+			
+				<%
+				for(Object o : storeList) {
+					StoreDTO dto = (StoreDTO)o;
+				%>
+					<div class="list">
+							
+							<!-- 상품이미지	 -->
+							<a href="StoreItemDetail.st?sto_idx=<%=dto.getSto_idx() %>">
+							<img class="img" src="img/store/<%=dto.getSto_thum_file() %>" width="500" height="500">
+							</a>
+							
+							<!-- 상품명	 -->
+							<div>
+								<%=dto.getSto_subject() %>
+							</div>
+					
+							
+							<!-- 상품명	 -->
+<%-- 						<%=dto.getSto_content() %>--%>
+
+							
+							<!-- 가격	 -->
+							<div>
+								<%=dto.getSto_price() %>원
+							</div>
+							
+							
+							<!-- 태그	 -->
+							<div>
+								<%=dto.getSto_tag() %>
+							</div>
+							
+					</div>
+				<%	
+				}
+				%>
+				
+		</div>
+
+
+
+	<!-- 페이징 처리 -->
+	<div class="page">
 		<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
@@ -104,9 +109,14 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 	</section>
 	</div>
 
+
+
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
+	
+	
+	
 </body>
 </html>
 
