@@ -32,6 +32,8 @@
 	<h3>5. 후원</h3>
 		<!-- 후원 글 작성하기 -->
 		<input type="button" value="후원 등록하기" onclick="location.href='SupportWriteFormAdmin.su'"><br><br>
+		<!-- 후원 내역 조회 -->
+		<input type="button" value="후원 내역 조회" onclick="location.href='SupportHistoryAdmin.my'"><br><br>
 	<h3>6. 커뮤니티</h3>
 		<!-- 신고 글 조회 -->
 		<input type="button" value="신고 글 관리" onclick="location.href='CampaignReviewBlockList.my'"><br><br>
