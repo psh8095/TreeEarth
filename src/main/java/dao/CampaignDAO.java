@@ -204,9 +204,9 @@ public class CampaignDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, apply.getCam_idx());
 			pstmt.setString(2, apply.getMem_id());
-			pstmt.setString(3, apply.getMem_name());
-			pstmt.setString(4, apply.getMem_phone());
-			pstmt.setString(5, apply.getMem_email());
+			pstmt.setString(3, apply.getMem_phone());
+			pstmt.setString(4, apply.getMem_email());
+			pstmt.setString(5, apply.getMem_name());
 			pstmt.setInt(6, apply.getApply_people());
 			pstmt.setString(7, apply.getApply_etc());
 			insertCount = pstmt.executeUpdate();
@@ -219,5 +219,79 @@ public class CampaignDAO {
 		
 		return insertCount;
 	}
+
+	// 관리자 - 캠페인 참가 신청 내역 조회(전체)
+	public List<ApplyListDTO> selectCampaignApplyList() {
+		List<ApplyListDTO> applyList = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM campaign c JOIN campaign_apply a ON c.cam_idx = a.cam_idx";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			applyList = new ArrayList<ApplyListDTO>();
+			
+			while(rs.next()) {
+				ApplyListDTO apply = new ApplyListDTO();
+				apply.setCam_idx(rs.getInt("cam_idx"));
+				apply.setCam_subject(rs.getString("cam_subject"));
+				apply.setMem_phone(rs.getString("mem_phone"));
+				apply.setMem_name(rs.getString("mem_name"));
+				apply.setApply_people(rs.getInt("apply_people"));
+				apply.setApply_etc(rs.getString("apply_etc"));
+				apply.setMem_id(rs.getString("mem_id"));
+				
+				applyList.add(apply);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("SQL 구문 오류 - selectCampaignApplyList()");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return applyList;
+	}
 	
+	// 사용자 - 캠페인 참가 신청 내역 조회(개인)
+	public List<ApplyListDTO> selectCampaignApplyList(String sId) {
+		List<ApplyListDTO> applyList = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM campaign c JOIN campaign_apply a ON c.cam_idx = a.cam_idx WHERE mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sId);
+			rs = pstmt.executeQuery();
+			
+			applyList = new ArrayList<ApplyListDTO>();
+			
+			while(rs.next()) {
+				ApplyListDTO apply = new ApplyListDTO();
+				apply.setCam_idx(rs.getInt("cam_idx"));
+				apply.setCam_subject(rs.getString("cam_subject"));
+				apply.setMem_phone(rs.getString("mem_phone"));
+				apply.setMem_name(rs.getString("mem_name"));
+				apply.setApply_people(rs.getInt("apply_people"));
+				apply.setApply_etc(rs.getString("apply_etc"));
+				apply.setMem_id(rs.getString("mem_id"));
+				
+				applyList.add(apply);
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL 구문 오류 - selectCampaignApplyList()");
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return applyList;
+	}
 }
