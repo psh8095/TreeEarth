@@ -103,6 +103,8 @@ Back to top button
 #back-top a:hover span {
 	background-color: #777;
 }
+
+
 </style>
 <!-- 스크립트 -->
 <script>
@@ -275,9 +277,9 @@ Back to top button
 	</main>         
 	
 	<div id="pagewrap">
-		<p id="back-top">
-			<a href="#top"><span>Back to Top</span></a>
-		</p>
+	<p id="back-top">
+		<a href="#top"><span></span>Back to Top</a>
+	</p>
 	</div>
         
          
