@@ -125,7 +125,7 @@
 
 
 <!-- 헤더 -->
-<header style="position: relative; width:100%; height: 800px">
+<header style="position: relative; width:100%; height: 700px">
 	
 	
 	
