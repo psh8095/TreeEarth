@@ -65,6 +65,11 @@ body{
 	clear: both;
 }
 
+/* 태그 */
+.main_tag {
+	margin-top: 100px;
+}
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* 디테일  */
 
@@ -108,7 +113,7 @@ body{
 /* 제목 */
 .sto_subject{
 /* 	border: 5px solid red; */
-	text-align: center;
+	text-align: left;
 	font-size: 40px;
 }
 
@@ -146,6 +151,44 @@ table {
 
 hr{
 	color: gray; opacity: 100%;  width: 100%;
+}
+
+/* 태그 */
+.sto_tag {
+	background-color: #00A5FF;
+	color: white;
+	padding: 5px 10px 5px 10px;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+/* 버튼 */
+.sto_od{
+   width:150px;
+   height: 40px;
+    background-color: rgba(0,0,0,0);
+    color: black;
+   font-size: 16px;
+   border:1px solid lightgray;
+   border-radius: 2px;
+   transition:0.3s;
+/*    position: absolute; */
+/*    left:50%; */
+/*    top:50%; */
+   transform: translate(-50%,-50%);
+}
+.sto_od:focus {
+   outline:0;
+}
+.sto_od:hover{
+   cursor: pointer;
+   border:1px solid black;
+}
+
+.sto_od2 {
+	background-color: #00A5FF;
+	color: white;
+	padding: 5px 10px 5px 10px;
 }
 /* ---------------------------------------------------------------------------------------------------- */
 /* 스토어 후기  */
