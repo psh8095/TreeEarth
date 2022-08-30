@@ -100,7 +100,11 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		
 		// 구매하기
 		$("#order").on("click", function() {
-			location.href="Order.st?sto_idx=" + ${param.sto_idx} + "&quantity=" + $("#quantity_input").val();
+			if(${empty sessionScope.sId}) {
+				alert("로그인이 필요한 기능입니다.");
+			} else {
+				location.href="Order.st?sto_idx=" + ${param.sto_idx} + "&quantity=" + $("#quantity_input").val();
+			}
 		});
 	});
 </script>

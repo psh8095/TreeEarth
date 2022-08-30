@@ -19,21 +19,24 @@
 	<jsp:include page="hf/header.jsp" ></jsp:include>
 	<!-- 헤더 -->
 	
-<!-- 	<!-- 배너 --> -->
+ 	<!-- 배너 --> 
 <%-- 	<jsp:include page="hf/mainBanner.jsp" ></jsp:include> --%>
-<!-- 	<!-- 배너 --> -->
+	<!-- 배너 --> 
 	
 	
     <main>
-    	<div style="text-align: center;">
-	        <img src="img/pexels-pixabay-264547.jpg" alt="대충 메인 베너1" width="80%">
+    	<div>
+    	
     	</div>
-    	<div style="text-align: center;">
-	        <img src="img/pexels-pixabay-267482.jpg" alt="대충 메인 베너1" width="80%">
-    	</div>
-		<div style="text-align: center;">
-       		<img src="img/pexels-paula-128639.jpg" alt="대충 메인 베너2" width="80%">
-		</div>
+<!--     	<div style="text-align: center;"> -->
+<!-- 	        <img src="img/1.png" alt="대충 메인 베너1" width="80%"> -->
+<!--     	</div> -->
+<!--     	<div style="text-align: center;"> -->
+<!-- 	        <img src="img/2.png" alt="대충 메인 베너1" width="80%"> -->
+<!--     	</div> -->
+<!-- 		<div style="text-align: center;"> -->
+<!--        		<img src="img/3.png" alt="대충 메인 베너2" width="80%"> -->
+<!-- 		</div> -->
     </main>
     
    

@@ -10,11 +10,9 @@
 </head>
 <body>
 
-
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	
 
 	<!-- 후원 메인 블럭 -->
    <main >

@@ -3,6 +3,13 @@
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
 @font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'EarlyFontDiary';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
     font-weight: normal;
@@ -41,9 +48,8 @@ a{text-decoration: none; color:black;}
 
 
 /* 로고 글자 */
-#logo > h1 {
-
-     font-family: 'HallymGothic-Regular';
+#logo > a {
+     font-family: 'GangwonEduPowerExtraBoldA';
 	 letter-spacing: 1px;
 	 font-size: 50px;
 	 color: white;
@@ -69,6 +75,8 @@ a{text-decoration: none; color:black;}
 	height: 24px;
 	line-height: 24px;
 	display: inline-block;	
+	margin: 13px 10px 0px 0px;
+
 	
 }
 
@@ -86,6 +94,11 @@ a{text-decoration: none; color:black;}
 	color: black;
 }
 
+/* 기능 매뉴 */
+#header1{
+	box-sizing: border-box;
+	padding: 20px;
+}
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* 헤더 */
@@ -112,11 +125,9 @@ a{text-decoration: none; color:black;}
 /* 장바구니 글자, 마이페이지 */
 #myPage, #cart {box-sizing:border-box;
 	display: inline-block;
-	padding: 0;
 	height: 24px;
    	vertical-align: top;
    	margin-left: 20px;
-
 }	
 
 
@@ -134,6 +145,10 @@ a{text-decoration: none; color:black;}
 
 }
 
+.myPage  > li > a{
+	padding-bottom: 20px;
+}
+
 
 /* 서브 메뉴 조작 */
 .subMyPage {
@@ -143,13 +158,16 @@ a{text-decoration: none; color:black;}
 	background-color: white;
 	position: absolute;
 	left: -110px;
+	top: 39px;
+	overflow: hidden;
 }
 
 
+
 /* 서브 메뉴  */
-.subMyPage > li {
+.subMyPage > li > a{
 	width: 100%;
-	padding: 7px;
+	padding: 12px 7px 12px 7px;
 }
 
 
@@ -167,7 +185,7 @@ a{text-decoration: none; color:black;}
 
  	
 .subMyPage a:hover {
-	background-color: gray;
+	background-color: #dcdcdc;
 	transition-duration: 0.1s;
 }
 
@@ -192,18 +210,25 @@ a{text-decoration: none; color:black;}
 }
 
 
+.menu > li > a{
+	padding-bottom: 20px;
+}
+
 .subMenu {/* 서브 메뉴 조작 */
-	position:relative;
+	position:absolute;
+	top:39px;
 	width: 150px;
 	text-align: left;
 	display: none;	
 	background-color: white;
-
+	overflow: hidden;
+						box-shadow: 100px;
+	
 }
 
-.subMenu > li {/* 서브 메뉴  */
+.subMenu > li > a{/* 서브 메뉴  */
 	width: 100%;
-	padding: 7px;
+	padding: 12px 7px 12px 7px;
 }
 
 
@@ -214,8 +239,8 @@ a{text-decoration: none; color:black;}
 
 
 .menu > li:hover .subMenu{
-	transition-duration: 0.5s;
 	display: block;
+	transition-duration: 0.5s;
 }
 
 
@@ -228,61 +253,7 @@ a{text-decoration: none; color:black;}
 }
  	
 .subMenu a:hover {
-	background-color: gray;
-	transition-duration: 0.1s;
+	background-color: #dcdcdc;
+	transition-duration: 0.5s;
 }
 
-/* ---------------------------------------------------------------------------------------------------- */
-/*  가로 메뉴바 */
-
-/* .menu { 	메뉴바 킅 틀 딱딱 */
-/* 	width: 600px; */
-/*  	height: 40px; */
-/*  	border: 1px solid black; */
-/* } */
-
-/* .menu > li {엄빠 메뉴 조작 */
-/* 	box-sizing:border-box; */
-/*  	border: 1px solid black; */
- 	
-/*  	text-align: center; */
-/* 	position:relative; */
-/* 	float: left; */
-/* 	width: 25%; */
-	
-/* } */
-
-/* .subMenu {새끼 메뉴 조작 */
-/* 	box-sizing:border-box; */
-/*  	border: 1px solid black; */
-/* 	position: absolute; */
-/* 	width: 600px; */
-/* 	top: 30px; */
-/* 	opacity: 0; */
-/* } */
-
-/* .subMenu > li{ */
-/* 	display: inline; */
-/* } */
-
-/* .menu > li:hover .subMenu{ */
-/* 	opacity: 1; */
-/* } */
-
-/* .menu a { */
-/* 	background-color: gray; */
-/* } */
-
-/* .menu a:hover { */
-/* 	background-color: green; */
-
-/* } */
-
-/* ---------------------------------------------------------------------------------------------------- */
-/* 로고 */
-
-
-
-
-	
-	
