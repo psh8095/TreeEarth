@@ -6,65 +6,73 @@
 <head>
 <meta charset="UTF-8">
 <title>treeEarth</title>
-<link href="../css/index.css" rel="stylesheet">
+<link href="css/community.css" rel="stylesheet">
 </head>
 <body>
+
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
-	<section id="container">
-	<h2>캠페인후기 글 목록</h2>
-		<c:choose>
-			<c:when test="${not empty campaignReviewList and pageInfo.itemListCount gt 0}">
-				<c:forEach var="campaign_review" items="${campaignReviewList }">
-					<div style="float: left; width: 30%; padding: 20px;">
-						<table>
-							<tr>
-								<td colspan="2">
-									<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
-										<c:choose>
-											<c:when test="${not empty campaign_review.cam_re_file}">
-												<img alt="" src="img/community/${campaign_review.cam_re_file }" width="500px">
-											</c:when>
-											<c:otherwise>
-												<img alt="이미지없음" src="img/community/tree.png" width="500px">
-											</c:otherwise>
-										</c:choose>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
-										<b>${campaign_review.cam_re_subject }</b>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>작성자</td>
-								<td>${campaign_review.cam_re_id }</td>
-							</tr>
-							<tr>
-								<td>작성일</td>
-								<td>${campaign_review.cam_re_date }</td>
-							</tr>
-							<tr>
-								<td>조회수</td>
-								<td>${campaign_review.cam_re_readcount }</td>
-							</tr>
-						</table>
-					</div>
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<h1>게시물이 존재하지 않습니다.</h1>
-			</c:otherwise>
-		</c:choose>
-	</section>
+
+	<!-- 후원 메인 블럭 -->
+   <main >
+   
+		<hr style="color: gray; opacity: 70%; margin: 50px;">
+			   
+	   
+		<!-- 글 목록 -->
+	    <div class="main">
+	
+			<c:choose>
+				<c:when test="${not empty campaignReviewList and pageInfo.itemListCount gt 0}">
+					<c:forEach var="campaign_review" items="${campaignReviewList }">
+						
+						
+						<div class="list">
+										<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
+											<c:choose>
+												<c:when test="${not empty campaign_review.cam_re_file}">
+													<img class="img" alt="" src="img/community/${campaign_review.cam_re_file }" width="500px">
+												</c:when>
+												<c:otherwise>
+													<img alt="이미지없음" src="img/community/tree.png" width="500px">
+												</c:otherwise>
+											</c:choose>
+										</a>
+										
+										
+										<!-- 글제목 -->
+										<div>
+											<a href="CampaignReviewDetail.cm?cam_re_idx=${campaign_review.cam_re_idx }&pageNum=${pageInfo.pageNum}">
+												<b>${campaign_review.cam_re_subject }</b>
+											</a>
+										</div>	
+					
+										<span>작성자 ${campaign_review.cam_re_id }</span> 
+										<span>작성일 ${campaign_review.cam_re_date }</span> 
+										<span>조회수 ${campaign_review.cam_re_readcount }</span> 
+						</div>
+						
+						
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<h1>게시물이 존재하지 않습니다.</h1>
+				</c:otherwise>
+			</c:choose>
+			
+		</div>
+	</main>
+	
+	
 	
 	<br>
 	
+	
+	
+	<!-- 버튼들 -->
 	<div style="clear: both;">
 	
 		<c:if test="${not empty sessionScope.sId}">
@@ -104,6 +112,7 @@
 			</c:choose>
 		</section>
 	</div>
+	
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>

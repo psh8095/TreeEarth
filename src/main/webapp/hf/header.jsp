@@ -116,7 +116,7 @@
 	});
 	
 	function login() {
-		window.open("MemberLoginForm.me", "login", "width=350, height=400");
+		window.open("MemberLoginForm.me", "login", "width=400, height=600");
 	}
 	
 	</script>

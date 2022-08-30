@@ -42,34 +42,55 @@
 	}
 	
 </script>
-<link href="css/index.css" rel="stylesheet">
+<link href="css/member.css" rel="stylesheet">
 </head>
 <body>
 
-	<h1>로그인</h1>
-
-	<h1><a href="requiredTerms.me">회원가입</a></h1>
 
 	<form action="MemberLoginPro.me" method="post">
-		<table border="1">
-			<tr>
-				<th>아이디</th>
-				<td><input type="text" name="mem_id"></td>
-			</tr>
-			<tr>
-				<th>패스워드</th>
-				<td><input type="password" name="mem_pass"></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-				<input type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
-				<input type="button" value="카카오톡으로 로그인" onclick="kakaoLogin()">
-				<br>
-				<span id="searchId" onclick="findId()">아이디 찾기</span>&nbsp;&nbsp;&nbsp;
-				<span id="searchPass" onclick="findPass()">비밀번호찾기</span>
-				</td>
-			</tr>
-		</table>
+	
+	
+		<div class="login_main">
+			<div class="login_back">
+			
+				<h1 style="text-align: center; margin-bottom: 60px;">트리어스</h1>
+				
+				<hr>
+					
+					
+					<div>
+						<input class="login_input" type="text" name="mem_id" placeholder="아이디">
+					</div>
+		
+		
+					<div>
+						<input class="login_input" type="password" name="mem_pass" placeholder="비밀번호">
+					</div>
+						
+				
+					<div >
+						<input class="login_button" type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
+					</div>
+
+				<hr>
+									
+					<div >
+						<input  type="button" value="카카오톡으로 로그인" onclick="kakaoLogin()">
+					</div>
+		
+		
+					<div>
+						<span id="searchId" onclick="findId()">아이디 찾기</span>&nbsp;&nbsp;&nbsp;
+						<span id="searchPass" onclick="findPass()">비밀번호찾기</span>
+					</div>				
+				
+				
+				<hr>
+					
+			</div>
+		</div>
+		
+		
 	</form>
 	
 </body>

@@ -245,7 +245,7 @@ Back to top button
 		<div id="content">
 			<table >
 			
-				<!-- 후원 제목 -->
+				<!-- 제목 -->
 				<tr>
 					<td class="sup_subject"><%=dto.getSup_subject() %></td>
 				</tr>

@@ -1,17 +1,24 @@
 @charset "UTF-8";
 
-
+/* 한림예고 */
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* 공용css */
 
 *{	margin: 0; 
 	padding: 0; 	
-	font-family: 'EarlyFontDiary';
+	font-family: 'HallymGothic-Regular';
 	font-size: 15px;
 	font-weight: 300;}
 ul{list-style: none; padding-left: 0;}
 a{text-decoration: none; color: black;}
+
 
 body{
 	height: 100%;
@@ -19,14 +26,10 @@ body{
 
 
 .main {
+/* 	border: 5px solid green; */
 	position:relative;
-	border: 5px solid green;
 	width: 80%;
 	margin: 0 auto;
-	
-	
-	/* 푸터의 높이 */
-  	padding: 30px;
 	
 }
 
@@ -35,23 +38,27 @@ body{
 /* 메인  */
 
 .list {
+/* 	border: 5px solid red; */
 	position :relative;
 	box-sizing:border-box;
-	border: 5px solid red;
 	width: 25%;
-	height: 350px;
+	height: 380px;
 	margin: 0 auto;
-	overflow: hidden;
 	float: left;
+	overflow: hidden;
+	padding: 15px;
 }
 
+
+/* 사진 크기 */
 .img{
+/* 	border: 5px solid blue; */
 	display:block;
 	width:100%;
+    height:300px;
+    object-fit:cover;
 	box-sizing:border-box;
-	border: 5px solid green;
-	height: 250px;
-	margin: 0 auto;
+	border-radius: 7px;
 }
 
 .page{
@@ -63,8 +70,8 @@ body{
 
 
 .main1{
+/* 	border: 5px solid green; */
 	position:relative;
-	border: 5px solid green;
 	width: 60%;
 	margin: 0 auto;
 	
@@ -76,11 +83,11 @@ body{
 
 /* 썸네일 */
 #sto_thumbnai{
+/* 	border: 5px solid green; */
 	box-sizing: border-box;
 	width:55%;
 	height:450px;
 	display:block;
-	border: 5px solid green;
 	margin-bottom: 30px;
 	float: left;
 }
@@ -88,9 +95,9 @@ body{
 
 /* 썸네일 옆 컨텐츠들 */
 #content{
+/* 	border: 5px solid blue; */
 	box-sizing: border-box;
 	display:block;
-	border: 5px solid blue;
 	margin-left: 10px;
 	width: 40%;
 	height:450px;
@@ -100,7 +107,7 @@ body{
 
 /* 제목 */
 .sto_subject{
-	border: 5px solid red;
+/* 	border: 5px solid red; */
 	text-align: center;
 	font-size: 40px;
 }
@@ -121,7 +128,7 @@ table {
 /* 상세 페이지 */
 #sto_original{
 	
-	border: 5px solid green;
+/* 	border: 5px solid green; */
 	display:block;
 	width: 100%;
 	height:auto;
@@ -130,11 +137,82 @@ table {
 
 
 #qna{
+/* 	border: 5px solid green; */
 	text-align: center;
-	border: 5px solid green;
 	clear: both;
 	
 }
+
+
+hr{
+	color: gray; opacity: 100%;  width: 100%;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* 스토어 후기  */
+
+/* 자유게시판 타이틀  */
+.r_sto_title{
+	float: left;
+	margin: 15px;
+}
+
+
+/* 글쓰기  */
+.r_sto_title_button{
+	float: right;
+	margin-right: 10px;
+	margin: 15px;
+}
+
+
+
+/* 제목  */
+.r_sto_subject{
+/* 	border: 5px solid red; */
+	margin: 15px;
+	float: left;
+	width: 15%;
+}
+
+/* 조회수  */
+.r_sto_content{
+/* 	border: 5px solid blue; */
+	margin: 15px;
+	float: left;
+	width: 35%;
+}
+
+
+/* 작성자  */
+.r_sto_name{
+/* 	border: 5px solid orange; */
+	margin: 15pxs;
+	float: left;
+	width: 10%;
+
+}
+
+
+
+/* 작성일  */
+.r_sto_date{
+/* 	border: 5px solid green; */
+	margin: 15px;
+	float: left;
+	width: 15%;
+}
+
+.r_sto_img{
+/* 	border: 5px solid orange; */
+	display:block;
+	width:100%;
+    height:100px;
+    object-fit:cover;
+	box-sizing:border-box;
+	border-radius: 7px;
+}
+
+
 
 
 

@@ -19,10 +19,10 @@
 <link href="css/support.css" rel="stylesheet">
 <style type="text/css">
 /* 위로 올라가기 버튼 */
-body {
-	font: .88em/150% Arial, Helvetica, sans-serif;
-	margin: 30px auto;
-}
+/* body { */
+/* 	font: .88em/150% Arial, Helvetica, sans-serif; */
+/* 	margin: 30px auto; */
+/* } */
 h1 {
 	font: bold 80%/120% Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
@@ -127,7 +127,8 @@ Back to top button
 	<!-- 후원 메인 블럭 -->
    <main >
    
-	 <hr style="color: gray; opacity: 70%; margin: 50px;">
+	 <hr style="color: gray; opacity: 70%; margin: 70px;">
+		   
 		   
 			<!-- 글 목록 -->
 		   <div class="main">
@@ -135,50 +136,24 @@ Back to top button
 		            SupportDTO support = (SupportDTO)o; 
 		         %>
 		      <div class="list">
-		         <table>
-		         
-		
-		            <tr>
-		               <td>
+
 		             	 <span class="dDay<%=support.getSup_idx() %>"></span>
-		               </td>
-		            </tr>
-		            
-		            <tr>
-		               <td>
+		
 		                  <a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
 		                  <img class="img" alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" ></a>
-		               </td>
-		            </tr>
-		                     
-		            <tr>
-		               <td>
+	
 		              	 <a class="subject" href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><%=support.getSup_subject()%></a>
-		               </td>
-		            </tr>
-		            
-		            <tr>
-		               <td>
+	
 		                  <div class="progressBar<%=support.getSup_idx() %>"></div>
 		                  <div class="myBar<%=support.getSup_idx() %>"></div>
 		                  <span class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></span>원
 		                  <span style="text-align: left;" class="moneyPer<%=support.getSup_idx() %>"></span>
-		               </td>
-		            </tr>
-		            
-		            
-		            <tr>
-		               <td>
+		
 							<!--  제이쿼리용 디스플레이 none 처리 -->
-		                  <div style="display: none;" class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></div>
-		                  <div style="display: none;" class="goalPrice<%=support.getSup_idx() %>"><%=support.getSup_goal_price() %></div>
+		                  <div style=": none;" class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></div>
+		                  <div style="disdisplayplay: none;" class="goalPrice<%=support.getSup_idx() %>"><%=support.getSup_goal_price() %></div>
 		                  <div style="display: none;" class="goalDate<%=support.getSup_idx() %>"><%=support.getSup_goal_date() %></div>
-		               </td>
-		            </tr>
-		            
-		            
-		            <tr>
-		           		<td>
+		
 				            <script type="text/javascript">
 						      //제이쿼리
 						      $(function() {
@@ -292,11 +267,7 @@ Back to top button
 							
 										});
 					         </script>
-			            </td>
-			         </tr>
-			         
-			         
-			      </table>
+		
 			  </div>
 			  <%} %>   
 			</div>
