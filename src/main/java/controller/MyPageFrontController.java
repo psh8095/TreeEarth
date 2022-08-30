@@ -22,6 +22,7 @@ import action.mypage.InsertWishlistAction;
 import action.mypage.MemberListAction;
 import action.mypage.OrderListAction;
 import action.mypage.SupportHistoryListAction;
+import action.mypage.SupportHistoryListAdminAction;
 import action.mypage.UpdateMemberInfoAction;
 import action.mypage.WishlistAction;
 import vo.ActionForward;
@@ -165,7 +166,16 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/MemberList.my")) {
+		} else if(command.equals("/SupportHistoryAdmin.my")) { 
+			//후원 내역 조회(관리자)
+			action = new SupportHistoryListAdminAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/MemberList.my")) {
 			action = new MemberListAction();
 			
 			try {

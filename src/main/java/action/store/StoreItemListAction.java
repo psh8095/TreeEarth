@@ -21,9 +21,8 @@ public class StoreItemListAction implements Action {
 		
 		String sto = request.getParameter("sto_category"); // 스토어 카테고리 파라미터 가져오기
 		
-		// 페이징 처리 없애기?
 		int pageNum = 1; 
-		int listLimit = 9; 
+		int listLimit = 12; 
 		int pageLimit = 3;
 		
 		// 현재 페이지번호(pageNum)가 전달되었을 경우 가져와서 변수에 저장

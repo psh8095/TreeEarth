@@ -65,7 +65,7 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 							
 							<!-- 태그	 -->
 							<div>
-								<%=dto.getSto_tag() %>
+								<span class="sto_tag main_tag"><%=dto.getSto_tag() %></span>
 							</div>
 							
 					</div>
