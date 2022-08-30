@@ -2,6 +2,7 @@
 
 /* 공용css */
 
+*{margin: 0; padding: 0;}
 li{list-style: none; padding-left:0px;}
 a{text-decoration: none; color: black;}
 
@@ -13,4 +14,68 @@ a{text-decoration: none; color: black;}
 
 /* ---------------------------------------------------------------------------------------------------- */
 
-/* 백그라운드 */
+/* 백그라운드0 */
+#main_back0{
+	position: absolute;
+	background-color: #e8e8c2;
+	width: 100%;
+	height: 4000px;
+	box-sizing: border-box;
+	z-index: 3;
+	border: 5px solid red;
+}
+
+
+/* 백그라운드 커버 상단 */
+#main_back1{
+	position: absolute;
+	background-color: #e8e8c2;
+	width: 100%;
+	height: 2000px;
+	box-sizing: border-box;
+	z-index: 3;
+	border: 5px solid green;
+}
+
+
+/* 고정 사진 */
+#main_fixed{
+	position: fixed;
+	top: -400px;
+
+	z-index: 1;
+	width: 100%;
+	height: auto;
+	border: 5px solid orange;
+}
+
+/* 백그라운드 커버 하단*/
+#main_back2{
+	position: absolute;
+	background-color: #e8e8c2;
+	width: 100%;
+	height: 1500px;
+	box-sizing: border-box;
+	z-index: 3;
+	border: 5px solid blue;
+	top: 2500px;
+		
+}
+/* 이미지 */
+/* #main_img{ */
+/* 	border: 5px solid orange; */
+/* 	position: absolute; */
+/* 	z-index: 2; */
+/* } */
+
+/* 하-이 문구 */
+#main_fixed2{
+
+	position: fixed;
+	z-index: 4;
+	width: 1000px;
+	height: auto;
+	top: 500px;
+	left: 800px;
+	font-size: 100px
+}
