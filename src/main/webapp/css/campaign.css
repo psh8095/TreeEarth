@@ -8,7 +8,6 @@
 /* 캠페인 전체 */
 
 
-
 /* 캠페인 참가 신청서 폼 */
 body {
     padding: 2rem;
@@ -50,26 +49,7 @@ h1{
 }
 
 
-
-
-
 /* 지원하기 버튼 모양*/
 #cam_button{
 	text-align: center;
 }
-
-.w-btn-outline {
-    position: relative;
-    padding: 15px 30px;
-    border-radius: 15px;
-    font-family: "PyeongChangPeace-Bold";
-    font-size: 25px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-
-  
-  
