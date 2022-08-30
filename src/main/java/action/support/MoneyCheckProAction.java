@@ -17,9 +17,7 @@ public class MoneyCheckProAction implements Action {
 		
 		ActionForward forward = null;
 		
-		
 	// ----------------------------------------------------------------------------------------
-
 		
 		int total_money = Integer.parseInt(request.getParameter("total_money"));
 		int idx = Integer.parseInt(request.getParameter("idx"));
@@ -34,8 +32,15 @@ public class MoneyCheckProAction implements Action {
 		dto.setSup_money(total_money);
 		dto.setSup_idx(idx);
 		
+		SupportHistoryDTO supporthistory = new SupportHistoryDTO();
+		supporthistory.setMem_id(mem_id);
+		supporthistory.setSup_idx(sup_idx);
+		supporthistory.setSuphi_money(suphi_money);
+		
 	// ----------------------------------------------------------------------------------------
 
+		MoneyHistoryService service_hi = new MoneyHistoryService();
+		service_hi.regiestSupport(supporthistory);
 		
 		//머니 저장
 		MoneyCheckProService service = new MoneyCheckProService();
@@ -62,9 +67,6 @@ public class MoneyCheckProAction implements Action {
 			out.println("</script>");
 		}
 
-		
-
-		
 		return forward;
 	}
 

@@ -95,7 +95,7 @@ public class CampaignReviewBlockDAO {
 				blockList.add(cam_re_block);
 			}
 			
-			System.out.println(blockList.toString());
+//			System.out.println(blockList.toString());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
