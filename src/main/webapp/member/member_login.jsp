@@ -15,11 +15,11 @@
 <script type="text/javascript">
 
 	function findId() {
-		window.open("FindIdForm.me", "findId", "width=450, height=450");
+		window.open("FindIdForm.me", "findId", "width=400, height=600");
 	}
 
 	function findPass() {
-		window.open("FindPassForm.me", "findPass", "width=450, height=300");
+		window.open("FindPassForm.me", "findPass", "width=400, height=600");
 	}
 	
 	function kakaoLogin() {
