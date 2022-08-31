@@ -98,6 +98,6 @@ ul, li, p {
 	color:#e82b2b; 
 }
 
-#deleteBtn {
+#deleteBtn #modifyBtn{
 	float: right;
 }

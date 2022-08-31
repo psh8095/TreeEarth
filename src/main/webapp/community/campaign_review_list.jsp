@@ -82,7 +82,7 @@
 		<section id="pageList">
 			<c:choose>
 				<c:when test="${pageInfo.pageNum > 1}">
-					<input type="button" value="이전" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum - 1}'">
+					<input type="button" value="이전" onclick="location.href='CampaignReviewList.cm?pageNum=${pageInfo.pageNum - 1}'">
 				</c:when>
 				<c:otherwise>
 					<input type="button" value="이전">

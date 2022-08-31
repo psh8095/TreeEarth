@@ -61,7 +61,7 @@ public class QnaDAO {
 			pstmt.setString(2, qna.getQna_id());
 			pstmt.setString(3, qna.getQna_tag());
 			pstmt.setString(4, qna.getQna_subject());
-			pstmt.setString(5, qna.getQna_content());
+			pstmt.setString(5, null);
 			
 			insertCount = pstmt.executeUpdate();
 			
@@ -75,7 +75,7 @@ public class QnaDAO {
 		
 		return insertCount;
 	}
-
+	
 	//전체 게시물 수 조회
 	public int selectListCount(String qna_tag) {
 		
@@ -180,6 +180,7 @@ public class QnaDAO {
 		return isQnaFaqWriter;
 	}
 
+	//qna 글 삭제
 	public int deleteQna(int qna_idx) {
 		
 		int deleteCount = 0;
@@ -201,6 +202,85 @@ public class QnaDAO {
 		}
 		
 		return deleteCount;
+	}
+	
+	//qna 답변(관리자)
+	public int answerQna(QnaDTO qna) {
+		
+		int insertCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int num = 1;
+		
+		try {
+			//글 번호 설정
+			String sql = "SELECT MAX(qna_idx) FROM qna";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				num = rs.getInt(1) + 1;
+			}
+			
+			close(pstmt);
+			
+			//데이터 insert
+			sql = "INSERT INTO qna VALUES (?,?,?,?,now())";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, qna.getQna_id());
+			pstmt.setString(3, qna.getQna_tag());
+			pstmt.setString(4, qna.getQna_subject());
+			pstmt.setString(5, qna.getQna_content());
+			
+			insertCount = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("QnaDAO - insertQna 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return insertCount;
+	}
+	
+	//qna 상세조회(수정)
+	public QnaDTO selectQnaDetail(int qna_idx) {
+		
+		QnaDTO qna = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "SELECT * FROM qna WHERE qna_idx=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qna_idx);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				qna = new QnaDTO();
+				qna.setQna_idx(rs.getInt("qna_idx"));
+				qna.setQna_id(rs.getString("qna_id"));
+				qna.setQna_tag(rs.getString("qna_tag"));
+				qna.setQna_subject(rs.getString("qna_subject"));
+				qna.setQna_content(rs.getString("qna_content"));
+				qna.setQna_date(rs.getDate("qna_date"));
+				
+				System.out.println(qna);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("QnaDAO - selectQnaDetail 오류");
+		}
+		
+		return qna;
 	}
 	
 	// Qna 문의글 답글 작성을 수행하는 insertReplyQna() 메서드
@@ -257,5 +337,7 @@ public class QnaDAO {
 		
 		return insertCount;
 	}
+
+	
 	
 }
