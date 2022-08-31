@@ -15,6 +15,7 @@
 <title>반려나무 성장일지</title>
 <link href="../css/index.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
+<link href="css/community.css" rel="stylesheet">
 </head>
 <style type="text/css">	
 
