@@ -8,19 +8,16 @@
 <title>트리어스 - 캠페인</title>
 <link href="css/button.css" rel="stylesheet">
 <style type="text/css">
-	#listBar {
-		text-align: center;
-	}
-	@font-face {
-	    font-family: 'MICEGothic Bold';
-	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
-	    font-weight: 700;
-	    font-style: normal;
-	}
-	.w-btn {
-		font-family: "MICEGothic Bold", sans-serif;
-    	font-size: 20px;
-	}
+#listBar {
+	text-align: center;
+}
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 </style>
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -67,11 +64,12 @@
 		<c:otherwise>
 			<section id="listBar">
 				<c:forEach var="cam" items="${campaignList }">
-					<button class="cam_subject w-btn w-btn-green">${cam.cam_subject }</button>
+					<button class="w-btn-outline w-btn-green-outline">${cam.cam_subject }</button>
 					<span class="cam_idx" hidden="">${cam.cam_idx }</span>
 				</c:forEach>
 			</section>
 			<section id="detailView"></section>
+			
 		</c:otherwise>	
 	</c:choose>
 	

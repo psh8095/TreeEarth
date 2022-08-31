@@ -42,15 +42,13 @@
 				<td><textarea cols="37" rows="10" name="apply_etc"></textarea></td>
 			</tr>
 		</table>
-		
+		<br>
 		<section id="cam_button">
-			 <input class="w-btn-outline w-btn-green-outline" type="submit" value="지원하기"> 
-				<!-- <button class="w-btn-outline" type="button">지원하기</button> -->
+			 <input class="w-btn-outline w-btn-green-outline" type="submit" value="지원하기">
 		</section>
-<!-- 				<button class="w-btn-outline w-btn-green-outline" type="button">지원하기</button> -->
-    
 	</form>
 </div>	
+
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
