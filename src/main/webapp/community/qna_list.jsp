@@ -55,10 +55,6 @@
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=etc'">기타문의</button>
 	</div>
 	
-	<h1>목록</h1>
-	
-	<br>
-	
 	<section>
 		<ul class="listWrap">
 			<c:choose>
@@ -71,6 +67,7 @@
 					        </div>
 					        <div class="answer">
 					        	${qna.qna_content }
+					        	<input id="modifyBtn" type="button" value="수정" onclick="location.href='QnaModifyForm.cm?qna_idx=${qna.qna_idx}'">
 					        	<input id="deleteBtn" type="button" value="삭제" onclick="location.href='QnaDeleteForm.cm?qna_idx=${qna.qna_idx}'">
 					        </div>
 						</li>
