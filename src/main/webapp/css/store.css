@@ -152,8 +152,12 @@ table {
 #qna{
 /* 	border: 5px solid green; */
 	text-align: center;
-	clear: both;
-	
+	clear: both;	
+}
+
+.rq_st {
+	cursor: pointer;
+	font-size: 18px;
 }
 
 
@@ -203,6 +207,7 @@ hr{
    cursor: pointer;
    border:1px solid black;
 }
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* 스토어 후기  */
 
@@ -242,12 +247,16 @@ hr{
 /* 작성자  */
 .r_sto_name{
 /* 	border: 5px solid orange; */
-	margin: 15pxs;
+	margin: 15px;
 	float: left;
-	width: 10%;
+	width: 15%;
 
 }
 
+/* 별점 출력 값 숨김 처리 */
+.score{
+	visibility: hidden;	
+}
 
 
 /* 작성일  */

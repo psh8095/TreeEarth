@@ -135,7 +135,7 @@ fieldset legend {
 									<a href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}' ><img class="r_sto_img" alt="" src="upload/${store_review.sto_re_file }" width="300" height="250">	</a> 
 								</c:when>
 							</c:choose>
-		
+							<div class="score">${store_review.sto_re_score }</div>
 							<fieldset>
 								<span class="rate1" id="st">⭐</span>
 								<span class="rate2" id="st">⭐</span>
@@ -166,11 +166,6 @@ fieldset legend {
 							<div class="r_sto_date">
 								${store_review.sto_re_date }
 							</div>	
-							
-								
-<%-- 							${store_review.sto_re_score } --%>
-							
-						
 						</div>
 				
 				

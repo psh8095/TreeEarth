@@ -196,14 +196,16 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		<!-- 구매 후기 버튼 / 상품 QnA 버튼 -->
 		<div id="qna">	
 			<hr style="color: gray; opacity: 70%; margin: 20px;">
-			<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><button class="w-btn-outline w-btn-green-outline" type="button">구매 후기</button></a> / 
-			<a href="StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1"><button class="w-btn-outline w-btn-green-outline" type="button">상품 문의</button></a>
+<%-- 			<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><button class="review_btn" type="button">구매 후기</button></a> /  --%>
+<%-- 			<a href="StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1"><button class="review_btn" type="button">상품 문의</button></a> --%>
+			<span onclick="location.href='StoreReviewList.st?sto_idx=${store.sto_idx }'" class="rq_st">구매 후기</span> / 
+			<span onclick="location.href='StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1'" class="rq_st">상품 문의</span>
 			<hr style="color: gray; opacity: 70%; margin: 20px;">
 		</div>
 		
 		
 		<div>
-			<h1>상세페이지</h1>
+			<a href="img/store/${store.sto_content_file }"><img id="sto_content_file" alt="${store.sto_content_file }" src="img/store/${store.sto_content_file }"></a>
 		</div>
 
 	<!-- 디테일 메인 블럭 끝-->
