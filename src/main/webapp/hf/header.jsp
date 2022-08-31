@@ -264,7 +264,7 @@
 				
 				<li><a href="">커뮤니티</a>
 					<ul class="subMenu">
-						<li><a href="">공지사항</a></li>
+						<li><a href="NoticeList.cm">공지사항</a></li>
 						<li><a href="CampaignReviewList.cm">캠페인 참여후기</a></li>
 						<li><a href="DiaryList.cm">반려나무 성장일기</a></li>
 						<li><a href="FreeBoardList.cm">자유게시판</a></li>

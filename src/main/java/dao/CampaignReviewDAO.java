@@ -24,7 +24,7 @@ public class CampaignReviewDAO {
 		this.con = con;
 	}
 
-	//글쓰기 작업
+	//글쓰기 작업 
 	public int insertCampaignReview(CampaignReviewDTO campaign_review) {
 		
 		int insertCount = 0; 
@@ -245,7 +245,7 @@ public class CampaignReviewDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM campaign_review c, member m WHERE c.cam_re_id = m.mem_id AND mem_pass = ?";
+			String sql = "SELECT * FROM campaign_review c, member m WHERE c.cam_re_id = m.mem_id AND m.mem_pass = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mem_pass);
 			

@@ -110,7 +110,7 @@
 		
 		
 		
-	<section >
+	<section style="text-align: center;">
 		<!-- 
 		현재 페이지 번호(pageNum)가 1보다 클 경우에만 [이전] 링크 동작
 		=> 클릭 시 BoardList.cm 서블릿 주소 요청하면서 
