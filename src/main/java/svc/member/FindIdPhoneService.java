@@ -13,7 +13,7 @@ public class FindIdPhoneService {
 	public String searchMemberId(String mem_name, String mem_phone) {
 		System.out.println("FindIdPhoneService");
 
-		String mem_id = null;
+		String mem_id = "";
 		
 		Connection con = getConnection();
 		MemberDAO dao = MemberDAO.getInstance();
@@ -21,7 +21,9 @@ public class FindIdPhoneService {
 		
 		MemberDTO member = dao.isMemberIdPhone(mem_name, mem_phone);
 		
-		mem_id = member.getMem_id();
+		if(member != null) {
+			mem_id = member.getMem_id();
+		}
 		
 		close(con);
 		

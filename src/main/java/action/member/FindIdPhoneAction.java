@@ -23,7 +23,7 @@ public class FindIdPhoneAction implements Action {
 		FindIdPhoneService service = new FindIdPhoneService();
 		String mem_id = service.searchMemberId(mem_name, mem_phone);
 		
-		if(mem_id == null) {
+		if(mem_id.equals("")) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			

@@ -9,7 +9,16 @@
 <script type="text/javascript">
 	// 제이쿼리
 	$(function() {
-		$("#findPhone").on("click", function() {
+		$("#findPhone").prop("checked", true);
+		$.ajax({
+			type: "post",
+			url: "member/find_id_phone.jsp",
+			success: function(response) {
+				$("#result").html(response);
+			}
+		});
+		
+		$("#findPhone").on("change", function() {
 			$.ajax({
 				type: "post",
 				url: "member/find_id_phone.jsp",
@@ -19,7 +28,7 @@
 			});
 		});
 		
-		$("#findEmail").on("click", function() {
+		$("#findEmail").on("change", function() {
 			$.ajax({
 				type: "post",
 				url: "member/find_id_email.jsp",
