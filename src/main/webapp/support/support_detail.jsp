@@ -106,8 +106,8 @@ Back to top button
 #giveMoney{
    width:150px;
    height: 50px;
-    background-color: #1abc80   ;
-    color: white;
+    background-color: #7fd49b;
+    color: gray;
    font-size: 16px;
    border:1px solid lightgray;
    border-radius: 2px;
@@ -121,6 +121,7 @@ Back to top button
    outline:0;
 }
 #giveMoney:hover{
+	color:black;
    cursor: pointer;
    border:1px solid black;
 }
@@ -326,7 +327,7 @@ margin:auto;
 			
 			
 			<!-- 후원 버튼 -->			
-		 	<button class="w-btn-outline w-btn-green-outline"  id="giveMoney"  type="button" >후원하기</button>
+		 	<button  id="giveMoney"  type="button" >후원하기</button>
 		
 		</div>
 		

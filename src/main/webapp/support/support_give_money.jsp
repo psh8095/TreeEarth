@@ -16,11 +16,40 @@
 <title>Insert title here</title>
 <link href="css/button.css" rel="stylesheet">
 <style type="text/css">
+
+
+.w-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+   font-family: 'HallymGothic-Regular';
+    font-size: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
 #don{
 text-align: center;
 margin: auto;
 padding: 55px;
 }
+.bnt_group button{
+	width:100px;
+   height: 70px;
+    background-color:   #c5e096;;
+    color: black;
+     font-family: 'HallymGothic-Regular';
+   font-size: 18px;
+   font-weight:bold;
+   border:1px solid lightgray;
+   transition:0.3s;
+ top:-32px;
+/*  float:left; */
+ margin:0 -3px -10px;
+}  
+
 #don2{
 text-align: center;
 margin: auto;
@@ -30,6 +59,19 @@ padding-bottom: 50px;
 text-align: center;
 margin: auto;
 }
+#text_money{
+margin-left: 370px;
+text-align: center;
+margin-top: 30px;
+font-size: 20px;
+}
+
+.con{
+display: block;
+	font-size: 0; /* 가장 중요한 font-size: 0; 속성 */
+	margin: 0 -5px;
+}
+
 </style>
 
 <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
@@ -152,23 +194,32 @@ $(function() {
 	<form action="GiveMoneyPro.su">
 		<input type="hidden" name="mem_id" value="${sessionScope.sId }">
 		
-		<section id="don">
-		<!-- 금액 직접 입력 -->
-		<input type="text" id="text_money" name="sup_money" placeholder="후원금">
+		
+		
+	<div class="con">
+	  <div id="mon">
+		<div id="tex">
+		<input type="text" id="text_money" name="sup_money" placeholder="금액 직접 입력">
+		</div>
 		<!-- 금액 버튼 -->
-	    <button id="button_money_10000" class="w-btn w-btn-yellow" type="button"> 10000원  </button>
-	    <button id="button_money_20000" class="w-btn w-btn-yellow" type="button"> 20000원  </button>
-	    <button id="button_money_30000" class="w-btn w-btn-yellow" type="button"> 30000원  </button><br>
+		<div class="bnt_group">
+		<section id="don">
+	    <button id="button_money_10000" type="button"> 1만원  </button>
+	    <button id="button_money_20000" type="button"> 2만원  </button>
+	    <button id="button_money_30000" type="button"> 3만원  </button><br>
 		</section>
+	  </div>
+		</div>
+	</div>	
 	    
-	    <section id="don2">
+	    <div id="don2">
 		<span>총 후원금&nbsp;&nbsp;</span>
 		<span id="total_money"></span>
 		<span>원</span>
 		
 		<!-- 후원 버튼 -->
-		<button id="donate" class="w-btn w-btn-gra2"  type="button"> 후원 </button><br>
-	    </section>
+		<button id="donate" class="w-btn-outline w-btn-green-outline" type="button"> 후원 </button><br>
+	    </div>
 		
 		<div id="CheckMoneyResult"></div>
 		
