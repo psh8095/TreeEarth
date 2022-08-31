@@ -5,14 +5,43 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
+<script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
+	
 	function changeDomain() {
 		document.findIdEmail.email2.value = document.findIdEmail.emailDomain.value;
 	}
-</script>
+	
+	//제이쿼리
+	$(function() {	
+		
+
+
+		$("#find").on("change", function() {
+			
+			var find = $("input[name=find]:checked").val();
+			
+			
+			alert(find)
+// 			if(find == 1){
+// 				$("#findIdPhone").html("");
+// 			} else if(find == 2){
+// 				$("#findIdPhone").html("");
+// 			}
+		
+		})
+		
+
+	});
+	
+</script>		
+	
 </head>
 <body>
 	<h1>아이디 찾기</h1>
+	
+	<input type="radio" id="find" name="find" value="1" >핸드폰으로 찾기
+	<input type="radio" id="find" name="find" value="2">이메일로 찾기
 	
 	<section id="findIdPhone">
 		<h3>이름, 핸드폰번호로 찾기</h3>
@@ -44,6 +73,8 @@
 			</table>
 		</form>
 	</section>
+	
+	
 	
 	<section id="findIdEmail">
 		<h3>이름, 이메일로 찾기</h3>
