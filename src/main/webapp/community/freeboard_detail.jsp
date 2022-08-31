@@ -8,7 +8,7 @@
 <title>트리어스 자유게시판 상세보기</title>
 <script>
 	function blockForm() {
-		window.open("CampaignReviewBlockForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}", 
+		window.open("FreeBoardBlockForm.cm?free_idx=${freeboard.free_idx}&pageNum=${param.pageNum}", 
 				'treeEarth', 'width=450,height=550');
 	}
 </script>
@@ -17,9 +17,12 @@
 </style>
 </head>
 <body>
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
+	
 	
    <div class="main">
 
@@ -32,7 +35,7 @@
 		
 			<!-- 제목 -->
 			<div >
-				<span class="free_subject"> ${freeboard.free_subject} </span>
+				<span class="free_subject">제목 : ${freeboard.free_subject} </span>
 			</div>
 			
 			

@@ -25,7 +25,71 @@ public class CommunityFrontController extends HttpServlet {
 		ActionForward forward = null; // 포워딩 정보를 관리하는 변수
 
 //		=================================================================================================================================
+		if(command.equals("/NoticeWriteForm.cm")) { 
+			// 공지사항 작성 폼
+			forward = new ActionForward();
+			forward.setPath("community/notice_write.jsp");
+			forward.setRedirect(false);
+		} else if (command.equals("/NoticeWritePro.cm")) { 
+			// 공지사항 작성 동작
+			try {
+				action = new NoticeWriteProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/NoticeList.cm")) { 
+			// 공지사항 목록
+			try {
+				action = new NoticeListAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace(); 
+			}
+		} else if(command.equals("/NoticeDetail.cm")) {
+			// 공지사항 1개의 글 상세 조회
+			try {
+				action = new NoticeDetailAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/NoticeDeleteForm.cm")) {
+			// 공지사항 삭제 폼
+			forward = new ActionForward();
+			forward.setPath("community/notice_delete.jsp");
+			forward.setRedirect(false);
+		} else if(command.equals("/NoticeDeletePro.cm")) {
+			// 공지사항 삭제 동작
+			action = new NoticeDeleteProAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/NoticeModifyForm.cm")) {
+			// 공지사항 수정 폼
+			action = new NoticeModifyFormAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/NoticeModifyPro.cm")) {
+			// 공지사항 수정 동작
+			action = new NoticeModifyProAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
+		
+//		=================================================================================================================================		
 		if(command.equals("/FreeBoardWriteForm.cm")) { 
 			// 자유게시판 글작성 폼
 			forward = new ActionForward();
@@ -104,7 +168,25 @@ public class CommunityFrontController extends HttpServlet {
 //			} catch (Exception e) {
 //				e.printStackTrace();
 //			}
-//		}
+//		} 
+		
+		 else if(command.equals("/FreeBoardBlockForm.cm")) {
+			// 자유게시판 글 신고 폼
+			try {
+				action = new FreeBoardBlockFormAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FreeBoardBlockPro.cm")) {
+			 // 자유게시판 글 신고 동작
+			try {
+				action = new FreeBoardProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 //		=================================================================================================================================
 		
