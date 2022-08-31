@@ -141,7 +141,7 @@ hr{
 /* 	border: 5px solid green; */
 	width: 100px;
 	display: inline-block;
-		height: 40px
+	height: 40px
 	
 }
 
@@ -156,4 +156,11 @@ hr{
 /* 글자 마진 */
 .text_div{
 	margin: 30px;
+}
+
+/* 트루에 폼 버튼 */
+.mem_button{
+	width: 130px;
+	height: 50px;
+	border-radius: 3px;
 }
