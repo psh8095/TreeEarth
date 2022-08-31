@@ -69,6 +69,7 @@
 				</c:forEach>
 			</section>
 			<section id="detailView"></section>
+			
 		</c:otherwise>	
 	</c:choose>
 	
