@@ -11,6 +11,7 @@ import vo.community.*;
 
 public class CampaignReviewDetailService {
 
+	//상세조회
 	public CampaignReviewDTO getCampaignReviewDetail(int cam_re_idx) {
 		System.out.println("CampaignReviewDetailService");
 
@@ -29,6 +30,7 @@ public class CampaignReviewDetailService {
 		return campaign_review;
 	}
 
+	//조회수 증가
 	public void increaseReadcount(int cam_re_idx) {
 
 		//싱글톤 디자인 패턴으로 생성된 CampaignReviewDAO 인스턴스 활용

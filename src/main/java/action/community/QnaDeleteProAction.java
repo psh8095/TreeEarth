@@ -33,6 +33,7 @@ public class QnaDeleteProAction implements Action {
 			out.println("</script>");
 
 		} else { 
+			//삭제
 			boolean isDeleteSuccess = service.deleteQna(qna_idx);
 
 			if(!isDeleteSuccess) {
