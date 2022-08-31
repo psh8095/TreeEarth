@@ -13,7 +13,7 @@ public class FindIdEmailService {
 	public String searchMemberId(String mem_name, String mem_email) {
 		System.out.println("FindIdService");
 
-		String mem_id = null;
+		String mem_id = "";
 		
 		Connection con = getConnection();
 		MemberDAO dao = MemberDAO.getInstance();
@@ -21,7 +21,9 @@ public class FindIdEmailService {
 		
 		MemberDTO member = dao.isMemberIdEmail(mem_name, mem_email);
 		
-		mem_id = member.getMem_id();
+		if(member != null) {
+			mem_id = member.getMem_id();
+		}
 		
 		close(con);
 		

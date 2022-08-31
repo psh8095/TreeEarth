@@ -25,7 +25,7 @@ public class FindIdEmailAction implements Action {
 		String mem_id = service.searchMemberId(mem_name, mem_email);
 		System.out.println(mem_id);
 		
-		if(mem_id == null) {
+		if(mem_id.equals("")) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			

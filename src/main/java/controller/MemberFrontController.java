@@ -175,7 +175,7 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 				System.out.println("MemberFrontController - FindIdPhone 오류");
 			}
-		} else if(command.equals("/FindIdEmail.me")) { //휴대폰으로 아이디 찾기
+		} else if(command.equals("/FindIdEmail.me")) { //이메일로 아이디 찾기
 			try {
 				action = new FindIdEmailAction();
 				forward = action.execute(request, response);
