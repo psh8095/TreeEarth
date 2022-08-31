@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/index.css" rel="stylesheet">
+<link href="css/mypage.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
 <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script type="text/javascript">
@@ -141,52 +141,104 @@
 </script>
 </head>
 <body>
+
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+
+	<div id="main">
 	
-	<h1>장바구니</h1>
-	<c:choose>
-		<c:when test="${empty cart }">
-			<h1>장바구니가 비어있습니다.</h1>
-		</c:when>
-		<c:otherwise>
-			<table>
-				<c:forEach var="cart" items="${cart }">
-					<tr>
-						<td><input type="checkbox" class="checkCart"></td>
-						<td><img src="img/store/${cart.sto_thum_file }" width="150"></td>
-						<td>${cart.sto_subject }</td>
-						<td>
-							<!-- 수량 조절 버튼 -->
+		<h1>장바구니</h1>
+		
+		
+		<hr style="color: gray; opacity: 70%; margin: 50px;">
+				
+			<div>
+				<input type="button" id="allCheck" value="전체 선택">
+				<input type="button" id="uncheck" value="전체 해제">
+				<input type="button" id="deleteAll" value="장바구니 비우기">
+			</div>
+		
+		<hr>
+	
+	
+				<!-- 게시판 구별 -->
+				<div id="my_title">
+					<span class="my_img">사진</span>
+					<span class="my_subject">제목</span>
+					<span class="my_button">수량</span>
+					<span class="my_price">가격</span>
+				</div>
+			
+		
+		 <hr>
+		
+		
+		<div id="listDiv">
+			<c:choose>
+				<c:when test="${empty cart }">
+					<h1>장바구니가 비어있습니다.</h1>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="cart" items="${cart }">
+					
+					
+						<div class="my_img">
+							<input type="checkbox" class="checkCart">
+							<img src="img/store/${cart.sto_thum_file }" width="150">
+						</div>
+						
+						
+						<div class="my_subject">
+							${cart.sto_subject }
+						</div>
+				
+				
+						<!-- 수량 조절 버튼 -->
+						<div class="my_button">
 							<input type="button" class="minus" value="-">
 							<input type="text" class="quantity" value="1" size="1" readonly="readonly">
 							<input type="button" class="plus" value="+">
-						</td>
-						<td><span class="price">${cart.sto_price }</span> 원</td>
-						<td><input type="button" class="rm_cart" value="삭제하기">
-							<input type="hidden" class="sto_idx" value="${cart.sto_idx }"></td>
-					</tr>
-				</c:forEach>
-			</table>
-		</c:otherwise>	
-	</c:choose>
-	<hr>
-	<div>
-		<input type="button" id="allCheck" value="전체 선택">
-		<input type="button" id="uncheck" value="전체 해제">
-		<input type="button" id="deleteAll" value="장바구니 비우기">
+						
+						</div>	
+						
+						
+						<div class="my_price">
+							<span class="price">${cart.sto_price }</span> 원
+							<input type="button" class="rm_cart" value="삭제하기">
+							<input type="hidden" class="sto_idx" value="${cart.sto_idx }">
+						</div>
+						
+						<hr>
+						
+					</c:forEach>
+				</c:otherwise>	
+			</c:choose>
+		</div>
+	
+	
+	
+		<div id="orderDiv">
+			<div>
+				<h2>결제 예정 금액 &nbsp;&nbsp;<span id="totalPrice">0</span>원</h2>
+			</div>
+			
+			
+			<div>
+				<h3>
+					선택한 상품&nbsp;&nbsp;
+				</h3>
+			</div>
+			
+			<div >
+				<input id="my_order_button" type="button" id="order" value="주문하기">
+			</div>
+			
+		</div>	
+
 	</div>
-	<hr>
-	<div>
-		<h2>결제 예정 금액 &nbsp;&nbsp;<span id="totalPrice">0</span>원</h2>
-	</div>
-	<div>
-		<h3>
-			선택한 상품&nbsp;&nbsp;
-			<input type="button" id="order" value="주문하기">
-		</h3>
-	</div>
+	
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
