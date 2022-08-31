@@ -37,9 +37,6 @@ display:block;
 	border:none;
 	border-radius: 12px;
 	transition:0.3s;
-/* 	position: absolute; */
-/* 	left:50%; */
-/* 	top:50%; */
 	transform: translate(-50%,-50%);
 }
 #pencil:focus {
@@ -126,6 +123,7 @@ display:block;
 		   <button id="pencil" onclick="location.href='DiaryWriteForm.cm'" >✏ 글쓰기</button>
 		</c:if>
 			</div>
+			
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
@@ -142,14 +140,14 @@ display:block;
 					${i }
 				</c:when>
 				<c:otherwise>
-					<a href="DiaryList.cm?page=${i }">${i }</a>
+					<a href="DiaryList.cm?pageNum=${i }">${i }</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageNum + 1}'">
+				<input type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="다음">

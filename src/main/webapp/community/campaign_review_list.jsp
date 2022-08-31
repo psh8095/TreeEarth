@@ -102,7 +102,7 @@
 	
 			<c:choose>
 				<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-					<input type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageNum + 1}'">
+					<input type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageInfo.pageNum + 1}'">
 				</c:when>
 				<c:otherwise>
 					<input type="button" value="다음">
