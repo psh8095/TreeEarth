@@ -18,7 +18,7 @@
 				},
 				dataType: "text",
 				success: function(response) {
-					$("#result").html(response);
+					$("#mem_main").html(response);
 				}
 			});
 		});
@@ -58,12 +58,12 @@
 			<div id="input_from">
 				<div >
 					<span class="input_sub">아이디</span> 
-					<input class="mem_input" type="text" name="mem_id" id="mem_id" placeholder="  아이디 넘겨서 고정해주세요">
+					<input class="mem_input" type="text" name="mem_id" id="mem_id" readonly="readonly" value="${sessionScope.sId }">
 				</div>
 				
 				<div >
 					<span class="input_sub">비밀번호</span>
-					<input class="mem_input" id="result" type="password" name="mem_pass" id="mem_pass" placeholder="  비밀번호를 입력해주세요.">
+					<input class="mem_input" type="password" name="mem_pass" id="mem_pass" placeholder="  비밀번호를 입력해주세요.">
 				</div>
 			</div>
 			
