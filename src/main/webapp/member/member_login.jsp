@@ -15,11 +15,11 @@
 <script type="text/javascript">
 
 	function findId() {
-		window.open("FindIdForm.me", "findId", "width=700, height=450");
+		window.open("FindIdForm.me", "findId", "width=450, height=450");
 	}
 
 	function findPass() {
-		window.open("FindPassForm.me", "findPass", "width=630, height=300");
+		window.open("FindPassForm.me", "findPass", "width=450, height=300");
 	}
 	
 	function kakaoLogin() {
@@ -53,18 +53,18 @@
 		<div class="login_main">
 			<div class="login_back">
 			
-				<h1 style="text-align: center; margin-bottom: 60px;">트리어스</h1>
+				<h1 style="text-align: center;  margin: 60px 0px 60px 0px;; position:relative; top: 35px;">트리어스</h1>
 				
 				<hr>
 					
 					
-					<div>
-						<input class="login_input" type="text" name="mem_id" placeholder="아이디">
+					<div class="contnet_div">
+						<input class="login_input" type="text" name="mem_id" placeholder="  아이디">
 					</div>
 		
 		
-					<div>
-						<input class="login_input" type="password" name="mem_pass" placeholder="비밀번호">
+					<div class="contnet_div">
+						<input class="login_input" type="password" name="mem_pass" placeholder="  비밀번호">
 					</div>
 						
 				
@@ -74,7 +74,7 @@
 
 				<hr>
 									
-					<div >
+					<div class="contnet_div">
 						<input  type="button" value="카카오톡으로 로그인" onclick="kakaoLogin()">
 					</div>
 		

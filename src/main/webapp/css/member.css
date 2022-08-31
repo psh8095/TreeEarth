@@ -8,7 +8,8 @@
     font-style: normal;
 }
 /* 공용css */
-
+*{padding: 0; margin: 0;     font-family: 'HallymGothic-Regular';
+}
 li{list-style: none; padding-left:0px;}
 a{text-decoration: none; color: black;}
 
@@ -19,6 +20,7 @@ a{text-decoration: none; color: black;}
 hr{
 	width: 70%;
 	opacity: 0.3;
+	margin: 25px;
 }
 
 .login_main{
@@ -48,6 +50,10 @@ hr{
 	margin-bottom: 30px;
 }
 
+/* 컨텐트 디브 */
+.contnet_div{
+	margin: 15px;
+}
 
 /* ---------------------------------------------------------------------------------------------------- */
 
