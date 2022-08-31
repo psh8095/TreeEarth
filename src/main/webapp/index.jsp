@@ -30,7 +30,7 @@
     	<div id="main_back0">
     	    <div>
     	   		<img  id="main_fixed" src="img/jang.jpg" alt="대충 메인 베너1" width="80%">
-    			<h1 id="main_fixed2">까-꿍</h1>
+    			<h1 id="main_fixed2">R.I.P]</h1>
     		</div>
     	</div>
 
