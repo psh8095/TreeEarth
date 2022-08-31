@@ -76,7 +76,11 @@ body{
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* 디테일  */
-
+	
+/* 총 상품금액 문구 위치 */
+.qn_price{
+	margin-top: 9px;
+}
 
 .main1{
 /* 	border: 5px solid green; */
@@ -166,7 +170,7 @@ hr{
 	font-size: 12px;
 }
 
-/* 버튼 */
+/* 버튼 - 구매하기, 위시리스트, 장바구니 담기 */
 .sto_flex{
 	display: flex;
 	height: auto;
@@ -188,8 +192,8 @@ hr{
 	margin-right: 10px;
 }
 .sto_od:first-child{
-	background: #069ff4;
-	color: white;
+	background: #c5e096;
+	color:  white;
 }
 
 .sto_od:focus {
