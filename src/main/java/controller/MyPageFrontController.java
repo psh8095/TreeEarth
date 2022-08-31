@@ -1,30 +1,14 @@
 package controller;
 
-import java.io.IOException;
+import java.io.*;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
 
-import action.Action;
-import action.mypage.CampaignReviewBlockDeleteAction;
-import action.mypage.CampaignReviewBlockDetailAction;
-import action.mypage.CampaignReviewBlockListAction;
-import action.mypage.CartListAction;
-import action.mypage.CheckPassAction;
-import action.mypage.DeleteCartAction;
-import action.mypage.DeleteWishlistAction;
-import action.mypage.InsertCartAction;
-import action.mypage.InsertWishlistAction;
-import action.mypage.MemberListAction;
-import action.mypage.OrderListAction;
-import action.mypage.SupportHistoryListAction;
-import action.mypage.UpdateMemberInfoAction;
-import action.mypage.WishlistAction;
-import vo.ActionForward;
+import action.*;
+import action.mypage.*;
+import vo.*;
 
 // 마이페이지 컨트롤러
 @WebServlet("*.my")
@@ -165,6 +149,20 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/SupportHistoryAdmin.my")) { 
+			//후원 내역 조회(관리자)
+			action = new SupportHistoryListAdminAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/QnaModifyForm.cm")) { 
+			//qna 답변 폼
+			forward = new ActionForward();
+			forward.setPath("community/qna_write_admin.jsp");
+			forward.setRedirect(false);
 		} else if(command.equals("/MemberList.my")) {
 			action = new MemberListAction();
 			

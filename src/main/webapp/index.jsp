@@ -13,33 +13,37 @@
 </head>
 <body>
 
-
-
-	<!-- 헤더 -->
+	<div style="position: relative; z-index: 5;">
+   	<!-- 헤더 -->
 	<jsp:include page="hf/header.jsp" ></jsp:include>
 	<!-- 헤더 -->
+	</div>
 	
  	<!-- 배너 --> 
 <%-- 	<jsp:include page="hf/mainBanner.jsp" ></jsp:include> --%>
 	<!-- 배너 --> 
 	
 	
-    <main>
-    	<div>
-    	
+    <main style="position: relative;">
+  		
+		<!-- 백그라운드 -->
+    	<div id="main_back0">
+    	    <div>
+    	   		<img  id="main_fixed" src="img/jang.jpg" alt="대충 메인 베너1" width="80%">
+    			<h1 id="main_fixed2">R.I.P]</h1>
+    		</div>
     	</div>
-<!--     	<div style="text-align: center;"> -->
-<!-- 	        <img src="img/1.png" alt="대충 메인 베너1" width="80%"> -->
-<!--     	</div> -->
-<!--     	<div style="text-align: center;"> -->
-<!-- 	        <img src="img/2.png" alt="대충 메인 베너1" width="80%"> -->
-<!--     	</div> -->
-<!-- 		<div style="text-align: center;"> -->
-<!--        		<img src="img/3.png" alt="대충 메인 베너2" width="80%"> -->
-<!-- 		</div> -->
-    </main>
-    
+
+
+		<!-- 이미지 -->
+		<div id="main_back1">
+	  	</div> 
+	  	
+		<div id="main_back2">
+	  	</div> 
    
+   
+   </main>
    	<!-- 헤더 -->
 	<jsp:include page="hf/footer.jsp" ></jsp:include>
 	<!-- 헤더 -->

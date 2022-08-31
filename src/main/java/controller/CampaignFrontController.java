@@ -75,6 +75,15 @@ public class CampaignFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/CampaignApplyList.cp")) {
+			// 참가 신청 내역 조회
+			action = new CampaignApplyListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		

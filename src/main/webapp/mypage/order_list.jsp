@@ -13,6 +13,9 @@
 	<!-- 헤더 -->
 	
 	<h1>주문 내역</h1>
+	
+	<hr>
+	
 	<c:choose>
 		<c:when test="${empty orderList }">
 			<h1>주문한 상품이 없습니다.</h1>

@@ -102,6 +102,33 @@ Back to top button
 #back-top a:hover span {
 	background-color: #777;
 }
+
+#giveMoney{
+   width:150px;
+   height: 50px;
+    background-color: #1abc80   ;
+    color: white;
+   font-size: 16px;
+   border:1px solid lightgray;
+   border-radius: 2px;
+   transition:0.3s;
+ 	position: relative;	
+ 	left:75px;
+ 	top:50px;
+   transform: translate(-50%,-50%);
+}
+#givemoney:focus {
+   outline:0;
+}
+#giveMoney:hover{
+   cursor: pointer;
+   border:1px solid black;
+}
+
+#List{
+text-align: center;
+margin:auto;
+}
 </style>
 
 <script src="js/jquery-3.6.0.js"></script>
@@ -181,7 +208,7 @@ Back to top button
 					window.open("MemberLoginForm.me?returnUrl=SupportList.su");
 // 				// 회원만 작성하게 만드세요
 				} else if(sId != 'null'){ 
-					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=1000,height=310");
+					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=1000,height=610");
 				}
 			});
 
@@ -299,7 +326,7 @@ Back to top button
 			
 			
 			<!-- 후원 버튼 -->			
-		 	<button class="w-btn-outline w-btn-green-outline"  id="giveMoney"  type="button" >후원</button>
+		 	<button class="w-btn-outline w-btn-green-outline"  id="giveMoney"  type="button" >후원하기</button>
 		
 		</div>
 		

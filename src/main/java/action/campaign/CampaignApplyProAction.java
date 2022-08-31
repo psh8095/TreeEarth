@@ -33,7 +33,8 @@ public class CampaignApplyProAction implements Action {
 		
 		
 		forward = new ActionForward();
-		forward.setPath("./");
+		forward.setPath("CampaignApplyList.cp");
+		forward.setRedirect(true);
 		return forward;
 	}
 

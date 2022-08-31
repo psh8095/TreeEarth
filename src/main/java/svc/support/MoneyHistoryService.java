@@ -46,4 +46,20 @@ public class MoneyHistoryService {
 		return supList;
 	}
 
+	public ArrayList<SupportHistoryDTO> getSupportHistory() {
+		
+		ArrayList<SupportHistoryDTO> supList = null;
+		
+		Connection con = JdbcUtil.getConnection();
+		SupportHistoryDAO dao = SupportHistoryDAO.getInstance();
+		dao.setConnection(con);
+		
+		//후원내역 조회
+		supList = dao.getsupportList();
+		
+		close(con);
+		
+		return supList;
+	}
+
 }

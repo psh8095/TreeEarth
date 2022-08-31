@@ -43,9 +43,9 @@ body{
 	box-sizing:border-box;
 	width: 25%;
 	height: 380px;
-	margin: 0 auto;
+	margin: 20px auto;
 	float: left;
-	overflow: hidden;
+/* 	overflow: hidden; */
 	padding: 15px;
 }
 
@@ -63,6 +63,15 @@ body{
 
 .page{
 	clear: both;
+}
+
+.list_subject{
+	margin-top: 8px
+}
+
+/* 태그 */
+.main_tag {
+	margin-top: 100px;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -108,7 +117,7 @@ body{
 /* 제목 */
 .sto_subject{
 /* 	border: 5px solid red; */
-	text-align: center;
+	text-align: left;
 	font-size: 40px;
 }
 
@@ -146,6 +155,49 @@ table {
 
 hr{
 	color: gray; opacity: 100%;  width: 100%;
+}
+
+/* 태그 */
+.sto_tag {
+	background-color: #00A5FF;
+	color: white;
+	padding: 5px 10px 5px 10px;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+/* 버튼 */
+.sto_flex{
+	display: flex;
+	height: auto;
+}
+
+.sto_od{
+	margin-top:20px;
+	flex:3;
+	background-color: rgba(0,0,0,0);
+	border:1px solid lightgray;
+	border-radius: 2px;
+	color: black;
+	transition:0.3s;
+	font-size: 16px;
+	height: 46px;
+}
+
+.sto_od:not(:last-child){
+	margin-right: 10px;
+}
+.sto_od:first-child{
+	background: #069ff4;
+	color: white;
+}
+
+.sto_od:focus {
+   outline:0;
+}
+.sto_od:hover{
+   cursor: pointer;
+   border:1px solid black;
 }
 /* ---------------------------------------------------------------------------------------------------- */
 /* 스토어 후기  */
