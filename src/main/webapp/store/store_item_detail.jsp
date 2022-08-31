@@ -163,6 +163,8 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 							<span>
 								<button id="plus_btn">+</button>
 							</span><br>
+						</div>
+						<div class="qn_price">
 							<span>총 상품금액&nbsp;&nbsp;</span><span id="quantity_price">${store.sto_price }</span><span>원</span>
 						</div>
 					</div>
