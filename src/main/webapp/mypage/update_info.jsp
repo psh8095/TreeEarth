@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/index.css" rel="stylesheet">
+<link href="css/mypage.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -26,16 +26,60 @@
 </script>
 </head>
 <body>
+
+
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
-	<h1>회원 정보 수정</h1>
-	<div id="result">
-		비밀번호를 입력해주세요
-		<input type="password" name="mem_pass" id="mem_pass">
-		<input type="button" value="확인" id="checkPass"><br><br>
+	<hr style="color: gray; opacity: 50%; margin: 50px;">
+	
+	
+	<!-- 메인 디브 -->
+	<div id="mem_main">
+	
+	
+		<!-- 샬라샬라 -->
+		<h1 class="text_div">개인 정보 수정</h1>
+		
+		<div class="text_div">
+			<h4 style="margin-bottom: 5px;">비밀 번호 재확인</h4>
+			<span>회원님의 정보를 안전하게 보호하기위해 비밀번호를 다시 한번 확인해 주세요</span>
+		</div>
+
+
+
+		<!-- 기능  div -->
+		<div id="mem_contnet">
+		
+			<hr style="color: gray; opacity: 70%; margin: 20px;">
+		
+			<!-- input 바 -->
+			<div id="input_from">
+				<div >
+					<span class="input_sub">아이디</span> 
+					<input class="mem_input" type="text" name="mem_id" id="mem_id" placeholder="  아이디 넘겨서 고정해주세요">
+				</div>
+				
+				<div >
+					<span class="input_sub">비밀번호</span>
+					<input class="mem_input" id="result" type="password" name="mem_pass" id="mem_pass" placeholder="  비밀번호를 입력해주세요.">
+				</div>
+			</div>
+			
+			
+			<hr style="color: gray; opacity: 70%; margin: 20px;">
+			
+			<div>
+				<input type="button" value="확인" id="checkPass"><br><br>
+			</div>
+		</div>
+
+	
 	</div>
+	
+	
+	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

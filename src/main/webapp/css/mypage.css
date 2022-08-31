@@ -1,8 +1,18 @@
 @charset "UTF-8";
 
+
+/* 한림예고 */
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 /* 공용css */
 
-*{margin: 0; padding: 0;}
+*{margin: 0; padding: 0; font-family: 'HallymGothic-Regular';}
 li{list-style: none; padding-left:0px;}
 a{text-decoration: none; color: black;}
 
@@ -22,6 +32,7 @@ hr{
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
+/* 장바구니 */
 #my_title{
 	border: 5px solid orange;
 	box-sizing: border-box;
@@ -94,4 +105,55 @@ hr{
 	text-align: center;
 	width: 200px;
 	height: 50px;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 회원 정보 수정 */
+
+#mem_main{
+/* 	border: 5px solid red; */
+	position: relative;
+	width: 70%;
+	height: 600px;
+	margin: 0 auto;
+}
+
+#mem_contnet{
+/* 	border: 5px solid orange; */
+	text-align: center;
+}
+
+
+/* 확인버튼 */
+#checkPass{
+	width: 250px;
+	height: 50px;
+	border-radius: 3px;
+}
+
+#input_from{
+/* 	border: 5px solid blue; */
+
+}
+
+/* 글자 */
+.input_sub{
+/* 	border: 5px solid green; */
+	width: 100px;
+	display: inline-block;
+		height: 40px
+	
+}
+
+/* 인풋 창 */
+.mem_input{
+	margin: 20px;
+	border-radius: 3px;
+	width: 250px;
+	height: 40px
+}
+
+/* 글자 마진 */
+.text_div{
+	margin: 30px;
 }
