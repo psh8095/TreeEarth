@@ -51,7 +51,7 @@ public class CampaignReviewModifyProAction implements Action {
 				out.println("</script>");
 			} else {
 				forward = new ActionForward();
-				forward.setPath("CampaignReviewDetail.cm?cam_re_idx=" + campaign_review.getCam_re_idx() + "&pageNum=" + request.getParameter("pageNum"));
+				forward.setPath("CampaignReviewDetail.cm?cam_re_idx=" + cam_re_idx + "&pageNum=" + request.getParameter("pageNum"));
 				forward.setRedirect(true);
 			}
 		}

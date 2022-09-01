@@ -11,38 +11,77 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
+<link href="css/member.css" rel="stylesheet">
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
 
+	//아이디 찾기 창
 	function findId() {
 		window.open("FindIdForm.me", "findId", "width=400, height=600");
 	}
 
+	//비밀번호 찾기 창
 	function findPass() {
 		window.open("FindPassForm.me", "findPass", "width=400, height=600");
 	}
 	
+	//카카오 API key
+	Kakao.init('3881606b6752efe09dea2830d84fd642');
+	//sdk초기화 여부 판단
+	console.log(Kakao.isInitialized());
+	
 	function kakaoLogin() {
-		window.Kakao.Auth.login({
-			scope: 'profile_nickname, account_email, gender, birthday',
-			success: function(response) {
-				console.log(response)
-				window.Kakao.API.request({
+		Kakao.Auth.login({
+			success: function (response) {
+				Kakao.API.request({
 					url: '/v2/user/me',
-					success: (res) => {
-						const kakao_account = res.kakao_account;
-						console.log(kakao_account)
-					}
-				});
+					success: function (response) {
+						console.log(response)
+						alert("로그인 완료!");
+						
+						$.ajax({
+							type: "post",
+							url: "MemberLoginPro.me",
+							data: {
+								mem_id: response.profile_nickname
+							},
+							dataType: "text",
+							success: function(response) {
+								session.setAttribute("sId", mem_id);
+								opener.location.reload();
+								window.close();
+							}
+						});
+						
+					},
+					fail: function (error) {
+						console.log(error)
+					},
+				})
 			},
-			fail: function(error) {
+			fail: function (error) {
 				console.log(error)
-			}
-		});
+			},
+		})
+	}
+	
+	function kakaoLogout() {
+		if (Kakao.Auth.getAccessToken()) {
+			Kakao.API.request({
+				url: '/v1/user/unlink',
+				success: function (response) {
+					console.log(response)
+					alert("로그아웃!");
+				},
+				fail: function (error) {
+					console.log(error)
+				},
+			})
+			Kakao.Auth.setAccessToken(undefined)
+		}
 	}
 	
 </script>
-<link href="css/member.css" rel="stylesheet">
 </head>
 <body>
 
@@ -76,6 +115,7 @@
 									
 					<div class="contnet_div">
 						<input  type="button" value="카카오톡으로 로그인" onclick="kakaoLogin()">
+						<input  type="button" value="카카오톡 로그아웃" onclick="kakaoLogout()">
 					</div>
 		
 		

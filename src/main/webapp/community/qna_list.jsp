@@ -71,7 +71,7 @@
 					        <div class="answer">
 					        	${qna.qna_content }
 					        	<c:if test="${sessionScope.sId eq 'admin'}">
-						        	<input id="modifyBtn" type="button" value="답변" onclick="location.href='QnaModifyForm.my?qna_idx=${qna.qna_idx}'">
+						        	<input id="modifyBtn" type="button" value="답변" onclick="location.href='QnaModifyForm.cm?qna_idx=${qna.qna_idx}'">
 					        	</c:if>
 					        	<input id="deleteBtn" type="button" value="삭제" onclick="location.href='QnaDeleteForm.cm?qna_idx=${qna.qna_idx}'">
 					        </div>

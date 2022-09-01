@@ -339,14 +339,14 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/QnaModifyForm.cm")) { //qna 수정 폼
+		} else if(command.equals("/QnaModifyForm.cm")) { //qna 답변 폼
 			try {
 				action = new QnaModifyFormAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/QnaModifyPro.cm")) { //qna 수정 동작
+		} else if(command.equals("/QnaModifyPro.cm")) { //qna 답변 동작
 			try {
 				action = new QnaModifyProAction();
 				forward = action.execute(request, response);
