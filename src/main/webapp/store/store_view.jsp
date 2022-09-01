@@ -56,6 +56,10 @@
 </style>
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+	
 	<!-- 게시판 상세내용 보기 -->
 	<section id="articleForm">
 		<h2>등록 된 상품을 상세조회하는 페이지</h2>
@@ -94,5 +98,9 @@
 		<input type="button" value="삭제" onclick="location.href='StoreDeleteForm.st?sto_idx=${store.sto_idx}&pageNum=${param.pageNum}'">
 		<input type="button" value="목록" onclick="location.href='StoreList.st?pageNum=${param.pageNum}'">
 	</section>
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>

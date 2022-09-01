@@ -66,6 +66,10 @@
 </style>
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+	
 	<!-- 게시판 리스트 -->
 	<section id="listForm">
 	<h2>주문관리 - 배송 전/배송 중/배송 완료 주문목록</h2>
@@ -165,5 +169,9 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>

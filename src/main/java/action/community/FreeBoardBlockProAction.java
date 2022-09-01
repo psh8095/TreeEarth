@@ -10,17 +10,17 @@ import svc.community.FreeBoardBlockProService;
 import vo.ActionForward;
 import vo.community.FreeBoardBlockDTO;
 
-public class FreeBoardProAction implements Action {
+public class FreeBoardBlockProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("FreeBoardProAction");
+		System.out.println("FreeBoardBlockProAction");
 		
 		ActionForward forward = null;
 		
 		int free_block_ref = Integer.parseInt(request.getParameter("free_idx"));
 		String free_block_id = request.getParameter("free_block_id");
-		String free_block_reason = request.getParameter("free_block_content");
+		String free_block_reason = request.getParameter("free_block_reason");
 
 		//받아온 데이터 DTO에 저장
 		FreeBoardBlockDTO free_block = new FreeBoardBlockDTO();

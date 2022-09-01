@@ -143,7 +143,7 @@ public class CommunityFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/FreeBoardModifyPro.cm")) {
-			// 자유게시판 글 수정 기능
+			// 자유게시판 글 수정 동작
 			action = new FreeBoardModifyProAction();
 			
 			try {
@@ -151,26 +151,25 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} 
-//		else if(command.equals("/FreeBoardReplyForm.cm")) {
-//			action = new FreeBoardReplyFormAction();
-//			
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		} else if(command.equals("/FreeBoardReplyPro.cm")) {
-//			action = new FreeBoardReplyProAction();
-//			
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		} 
-		
-		 else if(command.equals("/FreeBoardBlockForm.cm")) {
+		} else if(command.equals("/FreeBoardReplyForm.cm")) {
+			// 자유게시판 답글 폼
+			action = new FreeBoardReplyFormAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FreeBoardReplyPro.cm")) {
+			// 자유 게시판 답글 동작
+			action = new FreeBoardReplyProAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FreeBoardBlockForm.cm")) {
 			// 자유게시판 글 신고 폼
 			try {
 				action = new FreeBoardBlockFormAction();
@@ -181,7 +180,7 @@ public class CommunityFrontController extends HttpServlet {
 		} else if(command.equals("/FreeBoardBlockPro.cm")) {
 			 // 자유게시판 글 신고 동작
 			try {
-				action = new FreeBoardProAction();
+				action = new FreeBoardBlockProAction();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();

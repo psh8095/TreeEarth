@@ -7,6 +7,10 @@
 <title>상품관리 - 상품등록</title>
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+	
 	<!-- 게시판 등록 -->
 	<section id="writeForm">
 		<h1>상품 등록(관리자페이지)</h1>
@@ -63,6 +67,10 @@
 			</section>
 		</form>
 	</section>
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>
 

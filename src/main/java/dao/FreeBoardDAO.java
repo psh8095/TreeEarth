@@ -126,6 +126,7 @@ public class FreeBoardDAO {
 		public FreeboardDTO selectFreeBoardList(int free_idx) {
 			
 			FreeboardDTO board = null;
+			
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			
@@ -317,7 +318,7 @@ public class FreeBoardDAO {
 				pstmt2.executeUpdate();
 				
 				// 답글을 freeboard 테이블에 INSERT 작업
-				sql = "INSERT INTO freeboard VALUES (?,?,?,?,?,?,?,?,?,?,?,now())";
+				sql = "INSERT INTO freeboard VALUES (?,?,?,?,?,?,?,?,?,?,now())";
 				pstmt2 = con.prepareStatement(sql);
 				pstmt2.setInt(1, idx);
 				pstmt2.setString(2, board.getFree_name());
@@ -326,15 +327,14 @@ public class FreeBoardDAO {
 				pstmt2.setString(5, board.getFree_content());
 				// 답글 기능에서 파일 업로드 기능은 제외
 				pstmt2.setString(6, "");
-				pstmt2.setString(7, "");
 				// ------------ 주의! 답글 관련 번호 ---------------
 				// 답글에 사용될 참조글 번호(free_re_ref)는 원본글의 참조글번호와 동일
-				pstmt2.setInt(8, board.getFree_re_ref()); // free_re_ref
+				pstmt2.setInt(7, board.getFree_re_ref()); // free_re_ref
 				// 들여쓰기레벨(free_re_lev)과 순서번호(free_re_seq)는 원본글의 각 번호 + 1 
-				pstmt2.setInt(9, board.getFree_re_lev() + 1); // free_re_lev
-				pstmt2.setInt(10, board.getFree_re_seq() + 1); // free_re_seq
+				pstmt2.setInt(8, board.getFree_re_lev() + 1); // free_re_lev
+				pstmt2.setInt(9, board.getFree_re_seq() + 1); // free_re_seq
 				// -------------------------------------------------
-				pstmt2.setInt(11, 0); // free_readcount
+				pstmt2.setInt(10, 0); // free_readcount
 				
 				insertCount = pstmt2.executeUpdate();
 				
