@@ -38,7 +38,7 @@ public class QnaListAction implements Action {
 		//전체 게시물 개수 조회 요청
 		QnaListService service = new QnaListService();
 		int itemlistCount = service.getListCount(qna_tag);
-		System.out.println("listCount: " + itemlistCount);
+//		System.out.println("listCount: " + itemlistCount);
 		
 		//페이징처리
 		int maxPage = (int)Math.ceil((double)itemlistCount / listLimit);

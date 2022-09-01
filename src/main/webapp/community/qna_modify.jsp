@@ -48,7 +48,7 @@
 				<tr>
 					<td><label for="qna_content">답변</label></td>
 					<td>
-						<textarea id="qna_content" name="qna_content" cols="40" rows="15">
+						<textarea id="qna_content" name="qna_content" cols="40" rows="15" required="required">
 							${qna.qna_content }
 						</textarea>
 					</td>

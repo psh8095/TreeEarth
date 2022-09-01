@@ -1,13 +1,13 @@
 package action.community;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import java.io.*;
 
-import action.Action;
-import svc.community.QnaModifyProService;
-import vo.ActionForward;
-import vo.community.QnaDTO;
+import javax.servlet.http.*;
+
+import action.*;
+import svc.community.*;
+import vo.*;
+import vo.community.*;
 
 public class QnaModifyProAction implements Action {
 
@@ -17,9 +17,6 @@ public class QnaModifyProAction implements Action {
 		ActionForward forward = null;
 		
 		int qna_idx = Integer.parseInt(request.getParameter("qna_idx"));
-		HttpSession session = request.getSession();
-		String sId = session.getAttribute("sId").toString();
-		System.out.println(qna_idx + sId);
 		
 		QnaDTO qna = new QnaDTO();
 		qna.setQna_idx(qna_idx);
@@ -28,7 +25,21 @@ public class QnaModifyProAction implements Action {
 		qna.setQna_content(request.getParameter("qna_content"));
 		
 		QnaModifyProService service = new QnaModifyProService();
-//		boolean isQnaWriter = service.isQnaWriter(qna_idx);
+		//기존글에 답변 추가
+		boolean isModifySuccess = service.modifyQna(qna);
+		
+		if(!isModifySuccess) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('답변완료!')");
+			out.println("history.back()");
+			out.println("</script>");
+		} else {
+			forward = new ActionForward();
+			forward.setPath("QnaList.cm?qna_tag=" + qna.getQna_tag());
+			forward.setRedirect(true);
+		}
 		
 		return forward;
 	}

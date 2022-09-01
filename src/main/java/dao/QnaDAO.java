@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.*;
 
 import vo.community.*;
-import vo.store.StoreQnaDTO;
+import vo.store.*;
 
 public class QnaDAO {
 	
@@ -141,7 +141,7 @@ public class QnaDAO {
 				qna.setQna_date(rs.getDate("qna_date"));
 				
 				qnaList.add(qna);
-				System.out.println(qna);
+//				System.out.println(qna);
 			}
 			
 		} catch (Exception e) {
@@ -210,52 +210,7 @@ public class QnaDAO {
 		return deleteCount;
 	}
 	
-	//qna 답변(관리자)
-	public int answerQna(QnaDTO qna) {
-		
-		int insertCount = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		int num = 1;
-		
-		try {
-			//글 번호 설정
-			String sql = "SELECT MAX(qna_idx) FROM qna";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				num = rs.getInt(1) + 1;
-			}
-			
-			close(pstmt);
-			
-			//데이터 insert
-			sql = "INSERT INTO qna VALUES (?,?,?,?,now())";
-
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setString(2, qna.getQna_id());
-			pstmt.setString(3, qna.getQna_tag());
-			pstmt.setString(4, qna.getQna_subject());
-			pstmt.setString(5, qna.getQna_content());
-			
-			insertCount = pstmt.executeUpdate();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("QnaDAO - insertQna 오류");
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return insertCount;
-	}
-	
-	//qna 상세조회(수정)
+	//qna 상세조회
 	public QnaDTO selectQnaDetail(int qna_idx) {
 		
 		QnaDTO qna = null;
@@ -277,16 +232,42 @@ public class QnaDAO {
 				qna.setQna_subject(rs.getString("qna_subject"));
 				qna.setQna_content(rs.getString("qna_content"));
 				qna.setQna_date(rs.getDate("qna_date"));
-				
-//				System.out.println(qna);
 			}
-			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("QnaDAO - selectQnaDetail 오류");
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		return qna;
+	}
+	
+	//qna 답변
+	public int updateQna(QnaDTO qna) {
+		
+		int updateCount = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "UPDATE qna SET qna_content=? WHERE qna_idx=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, qna.getQna_content());
+			pstmt.setInt(2, qna.getQna_idx());
+			
+			updateCount = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("QnaDAO - updateQna 오류");
+		} finally {
+			close(pstmt);
+		}
+		
+		return updateCount;
 	}
 	
 	// Qna 문의글 답글 작성을 수행하는 insertReplyQna() 메서드
@@ -344,6 +325,4 @@ public class QnaDAO {
 		return insertCount;
 	}
 
-	
-	
 }

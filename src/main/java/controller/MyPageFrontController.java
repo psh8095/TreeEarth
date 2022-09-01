@@ -176,11 +176,6 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/QnaModifyForm.my")) { 
-			//qna 답변 폼
-			forward = new ActionForward();
-			forward.setPath("community/qna_modify.jsp");
-			forward.setRedirect(false);
 		} else if(command.equals("/MemberList.my")) {
 			action = new MemberListAction();
 			

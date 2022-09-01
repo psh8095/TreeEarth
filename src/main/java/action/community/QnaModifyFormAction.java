@@ -1,14 +1,11 @@
 package action.community;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
-import action.Action;
-import svc.community.CampaignReviewDetailService;
-import svc.community.QnaModifyService;
-import vo.ActionForward;
-import vo.community.CampaignReviewDTO;
-import vo.community.QnaDTO;
+import action.*;
+import svc.community.*;
+import vo.*;
+import vo.community.*;
 
 public class QnaModifyFormAction implements Action {
 
@@ -21,6 +18,7 @@ public class QnaModifyFormAction implements Action {
 		int qna_idx = Integer.parseInt(request.getParameter("qna_idx"));
 		
 		QnaModifyService service = new QnaModifyService();
+		//상세조회
 		QnaDTO qna = service.getQna(qna_idx);
 		
 		request.setAttribute("qna", qna);
