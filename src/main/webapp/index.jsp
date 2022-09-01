@@ -26,11 +26,16 @@
 	
     <main style="position: relative;">
   		
+  	<div style="position: absolute; z-index: 4;">
+  		<jsp:include page="hf/roulette.jsp" ></jsp:include>
+  	</div>
+	
+  		
 		<!-- 백그라운드 -->
     	<div id="main_back0">
     	    <div>
     	   		<img style="filter: grayscale(100%);" id="main_fixed" src="img/forest.jpeg" alt="대충 메인 베너1" width="80%">
-<!--     			<h1 id="main_fixed2">바꿨어</h1> -->
+    			<h1 id="main_fixed2">바꿨어</h1>
     		</div>
     	</div>
 
