@@ -24,7 +24,7 @@
 /* 	margin: 30px auto; */
 /* } */
 h1 {
-	font: bold 80%/120% Arial, Helvetica, sans-serif;
+/* 	font: bold 80%/120% Arial, Helvetica, sans-serif; */
 	text-transform: uppercase;
 	margin: 0 0 10px;
 	color: #999;
@@ -41,9 +41,9 @@ a {
 	color: #69C;
 	text-decoration: none;
 }
-a:hover {
-	color: #F30;
-}
+/* a:hover { */
+/* 	color: #F30; */
+/* } */
 p {
 	margin: 0 0 10px;
 }
@@ -72,7 +72,7 @@ Back to top button
 	display: block;
 	margin-left:1200px;
 	text-align: center;
-	font: 11px/100% Arial, Helvetica, sans-serif;
+/* 	font: 11px/100% Arial, Helvetica, sans-serif; */
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #bbb;
@@ -124,10 +124,20 @@ Back to top button
    <!-- 해더 -->
    
    
+
+   
 	<!-- 후원 메인 블럭 -->
    <main>
    
-	 <hr style="color: gray; opacity: 70%; margin: 70px;">
+	 <hr style="color: gray; opacity: 70%; margin: -20px 30px 30px 30px;">
+		   
+		   
+			<!--  베너 -->
+	       <div style="width: 75%; overflow:hidden; height:300px; background-color: black; z-index: 1; margin: 0 auto; top: 115px;  position: relative;">
+		  		<div style="background-color: black; opacity: 0.33;" >
+		  	 		<img src="img/jang.jpg" style=" display:block; width:100%; height: 100%">
+		   		</div>
+		   </div>
 		   
 		   
 			<!-- 글 목록 -->

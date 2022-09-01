@@ -22,7 +22,7 @@ a{text-decoration: none; color: black;}
 	height: 4000px;
 	box-sizing: border-box;
 	z-index: 3;
-	border: 5px solid red;
+/* 	border: 5px solid red; */
 }
 
 
@@ -34,19 +34,19 @@ a{text-decoration: none; color: black;}
 	height: 2000px;
 	box-sizing: border-box;
 	z-index: 3;
-	border: 5px solid green;
+/* 	border: 5px solid green; */
 }
 
 
 /* 고정 사진 */
 #main_fixed{
 	position: fixed;
-	top: -400px;
+	top: 0px;
 
 	z-index: 1;
 	width: 100%;
 	height: auto;
-	border: 5px solid orange;
+/* 	border: 5px solid orange; */
 }
 
 /* 백그라운드 커버 하단*/
@@ -57,7 +57,7 @@ a{text-decoration: none; color: black;}
 	height: 1500px;
 	box-sizing: border-box;
 	z-index: 3;
-	border: 5px solid blue;
+/* 	border: 5px solid blue; */
 	top: 2500px;
 		
 }

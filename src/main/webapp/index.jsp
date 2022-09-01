@@ -29,8 +29,8 @@
 		<!-- 백그라운드 -->
     	<div id="main_back0">
     	    <div>
-    	   		<img  id="main_fixed" src="img/jang.jpg" alt="대충 메인 베너1" width="80%">
-    			<h1 id="main_fixed2">시랑해요 장팀장</h1>
+    	   		<img style="filter: grayscale(100%);" id="main_fixed" src="img/forest.jpeg" alt="대충 메인 베너1" width="80%">
+<!--     			<h1 id="main_fixed2">바꿨어</h1> -->
     		</div>
     	</div>
 
