@@ -41,6 +41,8 @@ public class QnaDAO {
 		
 		int num = 1;
 		
+		String qna_content = qna.getQna_content();
+		
 		try {
 			//글 번호 설정
 			String sql = "SELECT MAX(qna_idx) FROM qna";
@@ -53,6 +55,10 @@ public class QnaDAO {
 			
 			close(pstmt);
 			
+			if(qna_content.equals(null)) {
+				qna_content = null;
+			}
+			
 			//데이터 insert
 			sql = "INSERT INTO qna VALUES (?,?,?,?,?,now())";
 
@@ -61,7 +67,7 @@ public class QnaDAO {
 			pstmt.setString(2, qna.getQna_id());
 			pstmt.setString(3, qna.getQna_tag());
 			pstmt.setString(4, qna.getQna_subject());
-			pstmt.setString(5, null);
+			pstmt.setString(5, qna.getQna_content());
 			
 			insertCount = pstmt.executeUpdate();
 			
@@ -272,7 +278,7 @@ public class QnaDAO {
 				qna.setQna_content(rs.getString("qna_content"));
 				qna.setQna_date(rs.getDate("qna_date"));
 				
-				System.out.println(qna);
+//				System.out.println(qna);
 			}
 			
 		} catch (Exception e) {

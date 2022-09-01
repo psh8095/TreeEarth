@@ -47,6 +47,7 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include> 
 	<!-- 헤더 -->
 
+	<!-- 카테고리 선택했을때 페이지 이동 -->
 	<div class="qna_category">
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=faq'">자주묻는질문</button>
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=delivery'">배송문의</button>
@@ -54,6 +55,8 @@
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=store'">상품문의</button>
 		<button class="w-btn-green-outline w-btn-outline" onclick="location.href='QnaList.cm?qna_tag=etc'">기타문의</button>
 	</div>
+	
+	<br>
 	
 	<section>
 		<ul class="listWrap">
@@ -67,7 +70,9 @@
 					        </div>
 					        <div class="answer">
 					        	${qna.qna_content }
-					        	<input id="modifyBtn" type="button" value="수정" onclick="location.href='QnaModifyForm.cm?qna_idx=${qna.qna_idx}'">
+					        	<c:if test="${sessionScope.sId eq 'admin'}">
+						        	<input id="modifyBtn" type="button" value="답변" onclick="location.href='QnaModifyForm.my?qna_idx=${qna.qna_idx}'">
+					        	</c:if>
 					        	<input id="deleteBtn" type="button" value="삭제" onclick="location.href='QnaDeleteForm.cm?qna_idx=${qna.qna_idx}'">
 					        </div>
 						</li>
@@ -80,9 +85,13 @@
 		</ul>
 	</section>
 	
+	<br>
+	
 	<c:choose>
 		<c:when test="${not empty sessionScope.sId}">
-			<input type="button" value="글쓰기" id="writeBtn" onclick="location.href='QnaWriteForm.cm'">
+			<button id ="pencil" onclick="location.href='QnaWriteForm.cm'">
+				<img src="img/community/free-icon-writing-6782423.png" width="47px" height="50px">
+			</button>
 		</c:when>
 	</c:choose>
 	

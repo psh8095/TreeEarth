@@ -16,7 +16,7 @@
 	<h1>Q&A 수정</h1>
 	
 	<form action="QnaModifyPro.cm" method="post">
-		<input type="hidden" name="qna" value="${param.qna_idx }">
+		<input type="hidden" name="qna_idx" value="${param.qna_idx }">
 		<table>
 			<tr>
 				<td><label for="qna_id">작성자</label></td>

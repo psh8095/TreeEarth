@@ -26,7 +26,7 @@ public class QnaModifyFormAction implements Action {
 		request.setAttribute("qna", qna);
 		
 		forward = new ActionForward();
-		forward.setPath("community/qna_modify.jsp");
+		forward.setPath("community/qna_modify.jsp?qna_idx=" + qna_idx);
 		forward.setRedirect(false);
 		
 		return forward;
