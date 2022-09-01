@@ -9,6 +9,7 @@ import java.util.List;
 
 import vo.mypage.OrderDTO;
 import vo.mypage.OrderDetailDTO;
+import vo.mypage.OrderListDTO;
 
 import static db.JdbcUtil.*;
 
@@ -36,16 +37,15 @@ public class OrderDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "INSERT INTO order_info VALUES(?,?,?,?,?,?,?,?,now())";
+			String sql = "INSERT INTO order_info VALUES(?,?,?,?,'-',?,?,?,now(),'배송 대기')";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, order.getOrder_id());
 			pstmt.setString(2, order.getMem_id());
 			pstmt.setString(3, order.getMem_name());
 			pstmt.setString(4, order.getMem_address());
-			pstmt.setString(5, "-");
-			pstmt.setString(6, order.getMem_phone());
-			pstmt.setString(7, order.getMem_email());
-			pstmt.setInt(8, order.getAmount());
+			pstmt.setString(5, order.getMem_phone());
+			pstmt.setString(6, order.getMem_email());
+			pstmt.setInt(7, order.getAmount());
 			
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -95,25 +95,30 @@ public class OrderDAO {
 	}
 
 	// 주문 내역 출력에 필요한 주문 정보 조회
-	public List<OrderDTO> selectOrderInfo(String sId) {
-		List<OrderDTO> orderList = null;
+	public List<OrderListDTO> selectOrderInfo(String sId) {
+		List<OrderListDTO> orderList = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
-			String sql = "SELECT * FROM order_info WHERE mem_id=?";
+			String sql = "SELECT * FROM order_info i, order_detail d, store s WHERE i.order_id = d.order_id AND d.sto_idx = s.sto_idx AND mem_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, sId);
 			rs = pstmt.executeQuery();
 			
-			orderList = new ArrayList<OrderDTO>();
+			orderList = new ArrayList<OrderListDTO>();
 			
 			while(rs.next()) {
-				OrderDTO order = new OrderDTO();
+				OrderListDTO order = new OrderListDTO();
 				order.setOrder_id(rs.getString("order_id"));
+				order.setSto_idx(rs.getInt("sto_idx"));
+				order.setSto_thum_file(rs.getString("sto_thum_file"));
+				order.setSto_subject(rs.getString("sto_subject"));
+				order.setQuantity(rs.getInt("quantity"));
 				order.setAmount(rs.getInt("amount"));
 				order.setOrder_date(rs.getDate("order_date"));
+				order.setSto_price(rs.getInt("sto_price"));
 				
 				orderList.add(order);
 			}
