@@ -125,12 +125,12 @@
 
 
 <!-- 헤더 -->
-<header style="position: relative; width:100%; height: 800px">
+<header style="position: relative; width:100%; height: 500px">
 	
 	
 	
 	<!-- 헤더 산 사진 -->
-	<div style=" width:100%; height:800px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
+	<div style=" width:100%; height:500px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
 	    <img src="img/main/main_mountain.jpg" width="100%" alt="나무">
 <!-- 	    <img src="img/jang.jpg" width="100%" alt="나무" style="top: -500px; position: relative;" > -->
  	</div>
@@ -139,7 +139,7 @@
 	<div id="backGraound" style=" width:100%; height:160px; background-color: white; position: absolute; z-index: 0; "></div>
 	
 	<!-- 밝기 조절 -->
-	<div id="backGraound" style=" width:100%; height:800px; background-color: black; position: absolute; z-index: 1; opacity: 0.33;"></div>
+	<div id="backGraound" style=" width:100%; height:500px; background-color: black; position: absolute; z-index: 1; opacity: 0.33;"></div>
 	
 	
 	<!-- 헤더 기능 메뉴 -->
