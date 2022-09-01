@@ -5,7 +5,30 @@
     font-weight: 400;
     font-style: normal;
 }
-/* 캠페인 */
+
+/* 캠페인 슬라이드 배너 */
+.outer {
+  border: 6px solid royalblue;
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.inner-list {
+  display: flex;
+  transition: .3s ease-out;
+  height: 100%;
+}
+
+.inner {
+  border: 6px solid olive;
+  padding: 0 16px;
+}
+
+.button-list {
+  text-align: center;
+}
 
 /* 캠페인 참가 신청서 폼 */
 body {
