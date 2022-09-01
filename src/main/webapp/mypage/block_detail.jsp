@@ -9,13 +9,12 @@
 </head>
 <body>
 
-	<h1>신고글 상세조회</h1>
+	<h1>캠페인후기 신고글 상세조회</h1>
 	
 	<table>
 		<tr>
 			<th>신고글제목</th>
 			<td>${campaign_review.cam_re_subject }</td>
-			<td>${freeboard.free_subject }</td>
 		</tr>
 		<tr>
 			<th>신고글내용</th>
@@ -23,15 +22,10 @@
 				${campaign_review.cam_re_content } <br><br>
 				<img alt="${campaign_review.cam_re_file }" src="upload/${campaign_review.cam_re_real_file }">
 			</td>
-						<td>
-				${freeboard.free_content } <br><br>
-				<img alt="${freeboard.free_img }" src="upload/${freeboard.free_img }">
-			</td>
 		</tr>
 		<tr>
 			<th>신고이유</th>
 			<td>${cam_re_block.cam_re_block_reason }</td>
-			<td>${free_block.free_block_reason }</td>
 		</tr>
 	</table>
 
