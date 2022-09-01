@@ -168,6 +168,7 @@
 				<c:choose>
 					<c:when test="${empty sessionScope.sId}">
 						<div class="login">
+							<a href="requiredTerms.me">회원가입</a> /
 							<a onclick="login()">로그인</a>
 						</div>
 					</c:when>

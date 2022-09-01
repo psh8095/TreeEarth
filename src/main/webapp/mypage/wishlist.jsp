@@ -11,9 +11,9 @@
 <script type="text/javascript">
 	$(function() {
 		// 위시리스트 한 개 삭제
-		$(".rm_cart").on("click", function() {
-			if(confirm("장바구니에서 삭제하시겠습니까?")) {
-				alert("장바구니에서 삭제했습니다.");
+		$(".rm_wishlist").on("click", function() {
+			if(confirm("위시리스트에서 삭제하시겠습니까?")) {
+				alert("위시리스트에서 삭제했습니다.");
 				location.href = "DeleteWishlist.my?sto_idx=" + $(".sto_idx").eq($(".rm_wishlist").index(this)).val();
 			}
 		});

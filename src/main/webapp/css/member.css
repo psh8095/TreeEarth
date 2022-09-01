@@ -87,3 +87,20 @@ hr{
 	margin: 20px;
 	right: 40px;
 }
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* 회원가입*/
+
+#mem_main_div{
+	position: relative;
+	width: 40%;
+	border: 5px solid red;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+#login_back{
+	background-color: #dcdcdc;
+	border-radius: 5px;
+}
