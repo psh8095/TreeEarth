@@ -39,6 +39,10 @@ table {
 </style>
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+	
 	<section id="writeForm">
 	<h2>캠페인 게시글 작성</h2>
 		<form action="CampaignWritePro.cp" method="post" enctype="multipart/form-data">
@@ -63,5 +67,9 @@ table {
 			</section>
 		</form>
 	</section>
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>

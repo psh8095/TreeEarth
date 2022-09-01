@@ -20,8 +20,7 @@ public class FreeBoardModifyProService {
 		FreeBoardDAO dao = FreeBoardDAO.getInstance();
 		dao.setConnection(con);
 		
-		// BoardDAO 객체의 isFreeBoardWriter() 메서드를 호출하여 수정 권한 판별 수행
-		// => 글 삭제에 사용된 BoardDAO 의 isBoardWriter() 메서드 재사용 가능
+		// FreeBoardDAO 객체의 isFreeBoardWriter() 메서드를 호출하여 수정 권한 판별 수행
 		isFreeBoardWriter = dao.isFreeBoardWriter(free_idx, free_pass);
 		
 		close(con);
@@ -37,8 +36,7 @@ public class FreeBoardModifyProService {
 		FreeBoardDAO dao = FreeBoardDAO.getInstance();
 		dao.setConnection(con);
 		
-		// BoardDAO 의 updateFreeBoard() 메서드를 호출하여 글 수정 작업 수행
-		// => 파라미터 : FreeBoardDTO 객체   리턴타입 : int(updateCount)
+		// FreeBoardDAO 의 updateFreeBoard() 메서드를 호출하여 글 수정 작업 수행
 		int updateCount = dao.updateFreeBoard(board);
 		
 		// 글 수정 작업 실행 결과 판별하여 성공 시 commit, 실패 시 rollback

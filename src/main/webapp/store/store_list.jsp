@@ -8,6 +8,10 @@
 <title>상품관리 - 상품목록</title>
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+	
 	<section id="listForm">
 		<h1>등록 된 상품목록</h1>
 		<table>
@@ -79,5 +83,9 @@
 			</c:otherwise>
 		</c:choose>
 	</section>
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>

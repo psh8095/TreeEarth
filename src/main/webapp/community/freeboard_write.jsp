@@ -41,6 +41,10 @@
 </style>
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+	
 	<%
 		String free_name = null;
 		if (session.getAttribute("free_name") != null) {
@@ -101,6 +105,10 @@
 			</section>
 		</form>
 	</section>
+	
+	<!-- 푸터 -->
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
+	<!-- 푸터 -->
 </body>
 </html>
 
