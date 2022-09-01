@@ -41,7 +41,7 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("DeleteWishlist.my")) {
+		} else if(command.equals("/DeleteWishlist.my")) {
 			// 위시리스트 삭제 서블릿 주소 요청 시 수행
 			action = new DeleteWishlistAction();
 			
