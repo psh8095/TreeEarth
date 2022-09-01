@@ -304,7 +304,7 @@ public class SupportDAO {
 		
 		try {
 			//support 게시물 전체 조회
-			String sql = "SELECT * FROM support";
+			String sql = "SELECT * FROM support ORDER BY sup_idx DESC";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			

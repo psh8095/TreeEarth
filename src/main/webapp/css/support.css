@@ -27,7 +27,7 @@ body{
 .main {
 /* 	border: 5px solid red; */
 	position:relative;
-	width: 70%;
+	width: 60%;
 	margin: 0 auto;
 	
 	
@@ -35,7 +35,7 @@ body{
 
 
 /* ---------------------------------------------------------------------------------------------------- */
-/* 메인  */
+/* 후원 리스트  */
 
 
 /* 리스트 */
@@ -43,12 +43,12 @@ body{
 /* 	border: 5px solid orange; */
 	position :relative;
 	box-sizing:border-box;
-	width: 33%;
-	height: 450px;
+	width: 30%;
+	height: 330px;
 	margin: 0 auto;
 	float: left;
 	overflow:hidden;
-	padding: 15px;
+	padding: 18px;
 
 }
 
@@ -58,28 +58,64 @@ body{
 /* 	border: 5px solid yellow; */
 	display:block;
 	width:100%;
-    height:300px;
+    height:180px;
     object-fit:cover;
 	box-sizing:border-box;
-	border-radius: 7px;
+	border-radius: 4px;
 }
 
 .bar{
 /* 	border: 5px solid green; */
 }
 
+.sup_thum_div{
+/* 	border: 1px solid red; */
+	box-sizing: border-box;
+	margin: 5px;
+	padding: 5px;
+}
+
+.sup_sub_div{
+/* 	border: 1px solid orange; */
+	box-sizing: border-box;
+	margin: 5px;
+	height: 50px;
+	
+}
+
+.sup_per_div{
+/* 	border: 1px solid green; */
+	box-sizing: border-box;
+	padding: 10px;
+	overflow: hidden;
+	
+}
+
+
+.sup_main_font{
+	font-weight: 700;
+	font-size: 17px;
+}
+
+/* .sup_sub_font{ */
+/* 	font-weight: 700; */
+/* 	font-size: 12px; */
+/* 	color: gray;  */
+/* } */
+
 /* ---------------------------------------------------------------------------------------------------- */
-/* 디테일  */
+/* 후원 디테일  */
 
 /* 썸네일 */
 #sup_thumbnai{
 /* 	border: 5px solid red; */
 	box-sizing: border-box;
-	width:55%;
+	width:60%;
 	height:450px;
 	display:block;
 	margin-bottom: 30px;
 	float: left;
+	padding: 20px 0px 30px 30px;
 }
 
 
@@ -89,9 +125,10 @@ body{
 	box-sizing: border-box;
 	display:block;
 	margin-left: 10px;
-	width: 40%;
+	width: 35%;
 	height:450px;
 	float: right;
+	padding: 20px 30px 40px 0px;
 }
 
 
@@ -100,6 +137,7 @@ body{
 /* 	border: 5px solid orange; */
 	text-align: center;
 	font-size: 40px;
+	font-weight: 700;
 }
 
 
@@ -109,10 +147,8 @@ body{
 }
 
 
-/* 썸네일 옆 컨텐츠들 간격 */
-table {
-  border-collapse: separate;
-  border-spacing: 0 20px;
+.sup_con_div{
+	margin: 15px;
 }
 
 
@@ -131,6 +167,7 @@ table {
 	width: 100%;
 	height:auto;
 	margin: 0 auto;
+	padding: 30px;
 }
 
 
@@ -138,12 +175,146 @@ table {
 .content{
 /* 	border: 5px solid purple; */
 	clear: both;
-	margin: 10px;
+	margin: 10px 10px 10px 30px;
 	width: 50%;
 	box-sizing: border-box;
 }
 
+.sup_button{
+	width: 300px;
+	text-align: center;
+	height: 50px;
+	margin: 15px;
+	  color: gray; 
+	background-color: #7fd49b;
+	border:1px solid lightgray;
+    border-radius: 2px;
+}
+.sup_button:focus {
+   outline:0;
+}
+.sup_button:hover{
+   color:black;
+   cursor: pointer;
+   border:1px solid black;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 후원 기브머니  */
+
+/* 메인 */
+.gm_main_div{
+	position: relative;
+/* 	border: 5px solid red;  */
+	padding: 10px 30px 30px 30px;
+	margin: 20px auto;
+}
+
+/* 메인글자 */
+.gm_main_text1{
+	text-align: center;
+	font-size: 50px;
+	font-weight: 700;
+	text-align: center;
+	margin: 25px;
+}
+
+/* 서브글자 */
+.gm_main_text2{
+	text-align: center;
+	font-size: 40px;
+	font-weight: 700;
+	text-align: center;
+	margin: 25px;
+	
+}
+
+/* 서브 작은글자 */
+.gm_main_text3{
+	text-align: center;
+	font-size: 20px;
+	font-weight: 500;
+	color: gray;
+	text-align: center;
+	margin: 25px;
+}
 
 
+/* 버튼, 글자 후원금 입력 폼 */
+.gm_money{
+/* 	border: 5px solid orange;  */
+	width: 45%;
+	float: left;
+	margin: 20px 0px 20px 120px;
+	box-sizing: border-box;
+	
+}
+
+/* 글자 입력폼 */
+.gm_text_money{
+	width: 300px;
+	height: 50px;
+	margin-bottom: 20px;
+/* 	border: 5px solid blue;  */
+}
+
+/* 버튼 입력폼 */
+#button_money_10000, #button_money_20000, #button_money_30000 {
+	width: 110px;
+	height: 60px;
+	margin: 0 auto;
+ 	text-align: center;
+	color: gray; 
+	background-color: #7fd49b;
+	border:1px solid lightgray;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
 
 
+#button_money_10000:focus {
+   outline:0;
+}
+
+#button_money_10000:hover{
+   color:black;
+   cursor: pointer;
+   border:1px solid black;
+}
+
+
+#button_money_20000:focus {
+   outline:0;
+}
+
+#button_money_20000:hover{
+   color:black;
+   cursor: pointer;
+   border:1px solid black;
+}
+
+
+#button_money_30000:focus {
+   outline:0;
+}
+
+#button_money_30000:hover{
+   color:black;
+   cursor: pointer;
+   border:1px solid black;
+}
+
+
+/* 후원 하기 폼 */
+.gm_order_money{
+/* 	border: 5px solid green; */
+	width: 28%;
+	float: right;
+	margin: 20px 120px 20px 0px;
+
+}
+
+#donate{
+	position: relative;
+	left: 40px;
+}
