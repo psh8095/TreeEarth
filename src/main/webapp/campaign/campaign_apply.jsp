@@ -17,7 +17,7 @@
 	<!-- 헤더 -->
 	
 	<div id="container">
-	<h1>캠페인 참가 신청서 양식</h1>
+	<h1>캠페인 참가 신청서</h1>
 	<form action="CampaignApplyPro.cp" method="post">
 		<input type="hidden" name="cam_idx" value="${param.cam_idx }">
 		<table border="1">

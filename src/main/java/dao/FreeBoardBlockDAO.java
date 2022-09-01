@@ -1,6 +1,6 @@
 package dao;
 
-import static db.JdbcUtil.close;
+import static db.JdbcUtil.*;
 
 import java.sql.*;
 import java.util.*;
@@ -30,6 +30,7 @@ public class FreeBoardBlockDAO {
 		int insertCount = 0;
 		
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		ResultSet rs = null;
 		
 		int num = 1;
@@ -37,6 +38,7 @@ public class FreeBoardBlockDAO {
 		try {
 			//새 신고글번호 저장
 			String sql = "SELECT MAX(free_block_idx) FROM free_block";
+			
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -44,24 +46,20 @@ public class FreeBoardBlockDAO {
 				num = rs.getInt(1) + 1;
 			}
 			
-			close(pstmt);
-			
 			//신고글 DB에 저장
 			sql = "INSERT INTO free_block VALUES (?,?,?,?,now())";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setInt(2, free_block.getFree_block_ref());
-			pstmt.setString(3, free_block.getFree_block_id());
-			pstmt.setString(4, free_block.getFree_block_reason());
+			pstmt2 = con.prepareStatement(sql);
+			pstmt2.setInt(1, num);
+			pstmt2.setInt(2, free_block.getFree_block_ref());
+			pstmt2.setString(3, free_block.getFree_block_id());
+			pstmt2.setString(4, free_block.getFree_block_reason());
 			
-			insertCount = pstmt.executeUpdate();
+			insertCount = pstmt2.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("FreeBoardBlockDAO - insertFreeBoardBlock() 메서드 오류");
 		} finally {
-			close(pstmt);
-			close(rs);
 		}
 		
 		return insertCount;

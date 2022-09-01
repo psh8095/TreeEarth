@@ -25,6 +25,7 @@ public class FreeBoardModifyProAction implements Action {
 		board.setFree_pass(request.getParameter("free_pass"));
 		board.setFree_subject(request.getParameter("free_subject"));
 		board.setFree_content(request.getParameter("free_content"));
+		System.out.println(board);
 		
 		// 게시물 수정 권한 판별을 위해 전달받은 파라미터 중 패스워드 비교
 		// => FreeBoardModifyProService 의 isFreeBoardWriter() 메서드를 호출

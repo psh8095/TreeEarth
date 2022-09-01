@@ -7,6 +7,7 @@ import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
 
 import dao.FreeBoardDAO;
+import db.JdbcUtil;
 import vo.community.FreeboardDTO;
 
 	public class FreeBoardDetailService {
@@ -29,7 +30,7 @@ import vo.community.FreeboardDTO;
 		public FreeboardDTO getBoard(int free_idx) {
 			FreeboardDTO freeboard = null;
 			
-			Connection con = getConnection();
+			Connection con = JdbcUtil.getConnection();
 			FreeBoardDAO dao = FreeBoardDAO.getInstance();
 			dao.setConnection(con);
 			

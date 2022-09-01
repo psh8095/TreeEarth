@@ -15,7 +15,10 @@ public class DeleteCartAction implements Action {
 		System.out.println("DeleteCartAction");
 		ActionForward forward = null;
 		
-		int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
+		// 파라미터 데이터 배열에 저장
+		String[] sto_idx = request.getParameterValues("sto_idx");
+		
+//		int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 		HttpSession session = request.getSession();
 		String sId = session.getAttribute("sId").toString();
 //		System.out.println(sto_idx + " " + sId);
@@ -23,10 +26,12 @@ public class DeleteCartAction implements Action {
 		DeleteCartService service = new DeleteCartService();
 		
 		// 상품 번호가 0 이면 장바구니 전체 삭제, 아니면 상품 번호에 해당하는 아이템 삭제
-		if(sto_idx == 0) {
-			service.deleteCart(sId);
-		} else {
-			service.deleteCart(sto_idx, sId);
+		for(int i = 0; i < sto_idx.length; i++) {
+			if(Integer.parseInt(sto_idx[i]) == 0) {
+				service.deleteCart(sId);
+			} else {
+				service.deleteCart(Integer.parseInt(sto_idx[i]), sId);
+			}
 		}
 		
 		forward = new ActionForward();

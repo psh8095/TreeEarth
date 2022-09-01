@@ -26,6 +26,7 @@ public class CampaignFrontController extends HttpServlet {
 			Action action = null; 
 			ActionForward forward = new ActionForward();
 			
+			
 		//-------------------------------------------------------------------------------------
 		if(command.equals("/CampaignApplyForm.cp")) {
 				// 캠페인 참가 신청서 서블릿 주소

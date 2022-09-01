@@ -114,7 +114,7 @@ public class MyPageFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/CampaignReviewBlockList.my")) { 
-			//신고글 목록 조회
+			//캠페인리뷰 신고글 목록 조회
 			action = new CampaignReviewBlockListAction();
 			
 			try {
@@ -123,7 +123,7 @@ public class MyPageFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/CampaignReviewBlockDetail.my")) { 
-			//신고글 목록 상세조회
+			//캠페인리뷰 신고글 목록 상세조회
 			action = new CampaignReviewBlockDetailAction();
 			
 			try {
@@ -132,8 +132,35 @@ public class MyPageFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/CampaignReviewBlockDelete.my")) { 
-			//신고글 삭제
+			//캠페인리뷰 신고글 삭제
 			action = new CampaignReviewBlockDeleteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FreeBoardBlockList.my")) { 
+			// 자유게시판 신고글 목록 조회
+			action = new FreeBoardBlockListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FreeBoardBlockDetail.my")) { 
+			// 자유게시판 신고글 목록 상세조회
+			action = new FreeBoardBlockDetailAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/FreeBoardBlockDelete.my")) { 
+			// 자유게시판 신고글 삭제
+			action = new FreeBoardBlockDeleteAction();
 			
 			try {
 				forward = action.execute(request, response);

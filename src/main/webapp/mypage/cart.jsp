@@ -76,10 +76,26 @@
 		});
 		
 		// 장바구니에서 삭제
-		$(".rm_cart").on("click", function() {
+		$("#rm_cart").on("click", function() {
 			if(confirm("장바구니에서 삭제하시겠습니까?")) {
+				// 파라미터 저장할 배열 생성
+				var sto_idxs = [];
+				
+				for(var i = 0; i < ${cart.size()}; i++) {
+					if($(".checkCart").eq(i).is(":checked")) {
+						sto_idxs.push($(".sto_idx").eq(i).val());
+					}
+				}
+				
+				// 파라미터 연결할 변수 선언
+				var p = "";
+				
+				for(var i = 0; i < sto_idxs.length; i++) {
+					p += "sto_idx=" + sto_idxs[i] + "&";
+				}
+				
 				alert("장바구니에서 삭제했습니다.");
-				location.href = "DeleteCart.my?sto_idx=" + $(".sto_idx").eq($(".rm_cart").index(this)).val();
+				location.href = "DeleteCart.my?" + p;
 			}
 		});
 		
@@ -123,9 +139,6 @@
 			
 			for(var i = 0; i < ${cart.size()}; i++) {
 				if($(".checkCart").eq(i).is(":checked")) {
-// 					alert($(".sto_idx").eq(i).val());
-// 					alert($(".quantity").eq(i).val());
-// 					alert(parseInt($(".totalPrice").html()));
 					sto_idxs.push($(".sto_idx").eq(i).val());
 					quantities.push($(".quantity").eq(i).val());
 				}
@@ -141,40 +154,28 @@
 </script>
 </head>
 <body>
-
-
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 
 	<div id="main">
-	
 		<h1 style="margin: 30px 0px 50px 0px">장바구니</h1>
-		
-		
-				
 			<div>
 				<input type="button" id="allCheck" value="전체 선택">
 				<input type="button" id="uncheck" value="전체 해제">
+				<input type="button" id="rm_cart" value="선택 삭제">
 				<input type="button" id="deleteAll" value="장바구니 비우기">
 			</div>
-		
 		<hr>
-	
-	
-				<!-- 게시판 구별 -->
-				<div id="my_title">
-					<span class="my_check"></span>
-					<span class="my_img">사진</span>
-					<span class="my_subject">제목</span>
-					<span class="my_button">수량</span>
-					<span class="my_price">가격</span>
-				</div>
-			
-		
+			<!-- 게시판 구별 -->
+			<div id="my_title">
+				<span class="my_check"></span>
+				<span class="my_img">사진</span>
+				<span class="my_subject">제목</span>
+				<span class="my_button">수량</span>
+				<span class="my_price">가격</span>
+			</div>
 		 <hr>
-		
-		
 		<div id="listDiv">
 			<c:choose>
 				<c:when test="${empty cart }">
@@ -182,21 +183,15 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="cart" items="${cart }">
-					
 						<div class="my_check">
 							<input type="checkbox" class="checkCart">
 						</div>
-					
 						<div class="my_img">
 							<img src="img/store/${cart.sto_thum_file }" width="150">
 						</div>
-						
-						
 						<div class="my_subject">
 							${cart.sto_subject }
 						</div>
-				
-				
 						<!-- 수량 조절 버튼 -->
 						<div class="my_button">
 							<input type="button" class="minus" value="-">
@@ -204,64 +199,41 @@
 							<input type="button" class="plus" value="+">
 						
 						</div>	
-						
-						
 						<div class="my_price">
 							<span class="price">${cart.sto_price }</span> 원
-							<input type="button" class="rm_cart" value="삭제하기">
 							<input type="hidden" class="sto_idx" value="${cart.sto_idx }">
 						</div>
-						
 						<hr>
-						
 					</c:forEach>
 				</c:otherwise>	
 			</c:choose>
 		</div>
 	
-	
 		<!-- 결제 창 -->
 		<div id="orderDiv">
-		
-			<div >
-				<input id="my_order_button1" type="button" id="order" value="배송지 변경">
-			</div>
-		
-		
 			<div class="my_back">
 				<div class="orderSpan">
 					<span>상품 금액<span class="totalPrice">0</span>원</span>
 				</div>
-			
 				<div class="orderSpan">
 					<span>상품 할인 금액<span>0</span>원</span>
 				</div>
-			
 				<div class="orderSpan">
 					<span>배송비<span >0</span>원</span>
 				</div>
-			
 				<div class="orderSpan4">
 					<h3>결제 예정 금액<span class="totalPrice">0</span>원</h3>
 				</div>
 			</div>
-			
-
-			
 			<div >
 				<input id="my_order_button2" type="button" id="order" value="주문하기">
 			</div>
-			
 		</div>	
-
 	</div>
-	
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
-	
-	
 	
 </body>
 </html>
