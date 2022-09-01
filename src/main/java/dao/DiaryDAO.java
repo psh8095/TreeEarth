@@ -130,7 +130,7 @@ public class DiaryDAO {
 				num = rs.getInt(1) + 1;
 				System.out.println("5-1. 글번호 상승");
 			}
-			sql = "INSERT INTO diary VALUES (?,?,?,?,?,?,?,?,?,now())";
+			sql = "INSERT INTO diary VALUES (?,?,?,?,?,?,?,?,?,0,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, diary.getDiary_id());
@@ -179,6 +179,7 @@ public class DiaryDAO {
 				diary.setDiary_thumb_img(rs.getString("diary_thumb_img"));
 				diary.setDiary_thumb_real_img(rs.getString("diary_thumb_real_img"));
 				diary.setDiary_readcount(rs.getInt("diary_readcount"));
+				diary.setDiary_likecnt(rs.getInt("diary_likecnt"));
 				diary.setDiary_date(rs.getDate("diary_date"));
 				
 				System.out.println(diary);
@@ -289,5 +290,109 @@ public class DiaryDAO {
 		
 		return updateCount;
 	}
+
+	public int updateLike(int diaryno, String mid) {
+		
+		  int updateLike = 0;
+	      boolean isSelect = false;
+	      /*
+	       * idx와 nickname에 해당하는 data를 조회시 return 값이 0일경우
+	       * likes 에 + 1을 update
+	       * 
+	       * return 값이 있을 경우
+	       * 해당데이터 delete
+	       * 
+	       * 둘중의 하나의 처리가 완료 되었을 경우 updateLike = 1;
+	       */
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+	      
+	      int num = 1;
+	      
+	      // 1. 좋아요가 있는지 없는지 조회
+	      try {
+	         String sql = "SELECT * FROM d_heart WHERE diaryno=? AND mid=?";
+	         pstmt = con.prepareStatement(sql);
+	         pstmt.setInt(1, diaryno);
+	         pstmt.setString(2, mid);
+	         rs = pstmt.executeQuery();
+	         if(rs.next()) {
+	            isSelect = true; 
+	         }
+	         
+	         close(pstmt);
+	         close(rs);
+	         
+	         sql = "SELECT MAX(like_idx) FROM d_heart";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				//기존 글 존재시
+				if(rs.next()) {
+					num = rs.getInt(1) + 1;
+				}
+				
+				close(pstmt);
+	         
+	         if(!isSelect) { // likes 가 없을 경우, insert
+	            sql = "INSERT INTO d_heart VALUES(?, 1, ?, ?)";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setInt(1, num);
+	            pstmt.setInt(2,diaryno);
+	            pstmt.setString(3, mid);
+	            updateLike = pstmt.executeUpdate();
+	            System.out.println("review_likes - 좋아요 추가");
+	         
+	         } else { // likes가 있는 경우 기존의 data를 delete
+	            
+	            sql="DELETE FROM d_heart WHERE diaryno=? AND mid=?";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setInt(1, diaryno);            
+	            pstmt.setString(2, mid);
+	            updateLike = pstmt.executeUpdate();
+	            updateLike = -1;
+	            System.out.println("review_likes - 좋아요 취소");
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	         System.out.println("sql 구문 실행 및 작성오류 - review_likes update");
+	      } finally {
+	         close(pstmt);
+	      }
+	      return updateLike;
+	   }
+	
+	public int updateDiary(int diaryno, int updateLike, int likecnt) {
+		System.out.println(likecnt);
+	      int updateCount = 0;
+	      String sql = "";
+	      PreparedStatement pstmt = null;
+	   
+	      if (updateLike == 1) {
+	         sql =  "UPDATE diary d"
+	         		+ "inner join d_heart h on d.diary_idx= h.diaryno"
+	         		+ "SET d.likecnt = d.likecnt + h.likeno WHERE h.diaryno=?";
+	         System.out.println("리뷰 좋아요 증가");
+	      } else {
+	         if(updateLike  > 0) {
+	         sql = "UPDATE diary SET likecnt=likecnt  - 1 WHERE diaryno=?";
+	         } else {
+	            sql = "UPDATE diary SET likecnt = 0 WHERE diaryno=?";
+	         }
+	         System.out.println("다이어리 좋아요 취소");
+	      }
+	      
+	      try {
+	         pstmt = con.prepareStatement(sql);
+	         pstmt.setInt(1, diaryno);
+	         updateCount = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	         System.out.println("sql 구문 작성 및 실행 오류 - updateReview - (reviewBoard좋아요");
+	      }
+
+	      return updateCount;
+	   }
 
 }

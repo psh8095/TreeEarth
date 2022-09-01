@@ -28,6 +28,10 @@ ul, li, p {
 	margin:0; 
 }
 
+h3 {
+	text-align: center;
+}
+
 .listWrap { 
 	font-family:'Noto Sans KR', sans-serif; 
 	margin-bottom:20px; 
@@ -98,6 +102,30 @@ ul, li, p {
 	color:#e82b2b; 
 }
 
+/* 수정, 삭제 버튼 */
 #deleteBtn #modifyBtn{
 	float: right;
+}
+
+/* 글쓰기 버튼*/
+#pencil{
+   width:80px;
+   height:80px;
+   color:#fff;
+   background: #0080ff ;
+   font-size: 16px;
+   border:none;
+   border-radius: 70px;
+   transition:0.3s;
+   transform: translate(-50%,-50%);
+   float: right;
+}
+
+#pencil:focus {
+   outline:0;
+}
+
+#pencil:hover{
+   background: #7fd49b ;
+   cursor: pointer;
 }

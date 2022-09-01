@@ -306,7 +306,7 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} 
 		
 //		=================================================================================================================================
 		
@@ -353,7 +353,17 @@ public class CommunityFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} 
+//		=================================================================================================================================
+		
+		else if(command.equals("/DiaryHeart.cm")) { //좋아요 처리
+			try {
+				action = new DiaryHeartAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
 //		=================================================================================================================================
 		

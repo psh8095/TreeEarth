@@ -153,7 +153,8 @@ public class CampaignReviewDAO {
 		int startRow = (pageNum - 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM campaign_review ORDER BY cam_re_idx LIMIT ?,?";
+			//캠페인 후기 목록 조회(최신순)
+			String sql = "SELECT * FROM campaign_review ORDER BY cam_re_idx DESC LIMIT ?,?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);
