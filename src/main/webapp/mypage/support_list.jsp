@@ -16,27 +16,33 @@
 
 	<h1>후원 내역 조회</h1>
 	
-	<table id="sup_list">
-		<tr>
-			<td>후원글</td>
-			<td>후원금액</td>
-			<td>후원일</td>
-		</tr>
+	<div id="sup_list">
+	
+		
+			<span>후원글</span>
+			<span>후원금액</span>
+			<span>후원일</span>
+		
+		
 		<c:choose>
 			<c:when test="${not empty supList }">
 				<c:forEach var="supporthistory" items="${supList }">
-					<tr>
-						<td>${supporthistory.sup_idx }</td>
-						<td>${supporthistory.suphi_money }</td>
-						<td>${supporthistory.suphi_date }</td>
-					</tr>
+					
+						<span>${supporthistory.sup_idx }</span>
+						<span>${supporthistory.suphi_money }</span>
+						<span>${supporthistory.suphi_date }</span>
+					
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
+			
 				<h1>게시물이 존재하지 않습니다.</h1>
+				
 			</c:otherwise>
 		</c:choose>
-	</table>
+	</div>
+
+
 
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>

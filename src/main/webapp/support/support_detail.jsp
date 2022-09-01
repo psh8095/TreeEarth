@@ -17,119 +17,120 @@
 <title>Insert title here</title>
 <link href="css/support.css" rel="stylesheet">
 <style type="text/css">
-/* 위로 올라가기 버튼 */
-body {
-	font: .88em/150% Arial, Helvetica, sans-serif;
-	margin: 30px auto;
-}
-h1 {
-	font: bold 80%/120% Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-	margin: 0 0 10px;
-	color: #999;
-}
-h2 {
-	font-size: 2.5em;
-	margin: 0 0 8px;
-}
-h3 {
-	font-size: 1.6em;
-	margin: 20px 0 5px;
-}
-a {
-	color: #69C;
-	text-decoration: none;
-}
-a:hover {
-	color: #F30;
-}
-p {
-	margin: 0 0 10px;
-}
-.credits {
-	border-bottom: solid 1px #eee;
-	padding-bottom: 10px;
-	margin: 0 0 30px;
-}
-#pagewrap {
-	margin: 0 auto;
-	width: 600px;
-	padding-left: 150px;
-	position: relative;
+/* /* 위로 올라가기 버튼 */ */
+/* body { */
+/* 	font: .88em/150% Arial, Helvetica, sans-serif; */
+/* 	margin: 0px auto; */
+/* } */
+/* h1 { */
+/* 	font: bold 80%/120% Arial, Helvetica, sans-serif; */
+/* 	text-transform: uppercase; */
+/* 	margin: 0 0 10px; */
+/* 	color: #999; */
+/* } */
+/* h2 { */
+/* 	font-size: 2.5em; */
+/* 	margin: 0 0 8px; */
+/* } */
+/* h3 { */
+/* 	font-size: 1.6em; */
+/* 	margin: 20px 0 5px; */
+/* } */
+/* a { */
+/* 	color: #69C; */
+/* 	text-decoration: none; */
+/* } */
+/* a:hover { */
+/* 	color: #F30; */
+/* } */
+/* p { */
+/* 	margin: 0 0 10px; */
+/* } */
+/* .credits { */
+/* 	border-bottom: solid 1px #eee; */
+/* 	padding-bottom: 10px; */
+/* 	margin: 0 0 30px; */
+/* } */
+/* #pagewrap { */
+/* 	margin: 0 auto; */
+/* 	width: 600px; */
+/* 	padding-left: 150px; */
+/* 	position: relative; */
+/* } */
+
+/* /* */
+/* Back to top button  */
+/* */ */
+/* #back-top { */
+/* 	position: fixed; */
+/* 	bottom: 30px; */
+/* 	margin-left: -150px; */
+/* } */
+/* #back-top a { */
+/* 	width: 108px; */
+/* 	display: block; */
+/* 	margin-left:1200px; */
+/* 	text-align: center; */
+/* 	font: 11px/100% Arial, Helvetica, sans-serif; */
+/* 	text-transform: uppercase; */
+/* 	text-decoration: none; */
+/* 	color: #bbb; */
+/* 	/* background color transition */ */
+/* 	-webkit-transition: 1s; */
+/* 	-moz-transition: 1s; */
+/* 	transition: 1s; */
+/* } */
+/* #back-top a:hover { */
+/* 	color: #000; */
+/* } */
+/* /* arrow icon (span tag) */ */
+/* #back-top span { */
+/* 	width: 108px; */
+/* 	height: 108px; */
+/* 	display: block; */
+/* 	margin-bottom: 7px; */
+/* 	background: #ddd url(up-arrow.png) no-repeat center center; */
+/* 	/* rounded corners */ */
+/* 	-webkit-border-radius: 15px; */
+/* 	-moz-border-radius: 15px; */
+/* 	border-radius: 15px; */
+/* 	/* background color transition */ */
+/* 	-webkit-transition: 1s; */
+/* 	-moz-transition: 1s; */
+/* 	transition: 1s; */
+/* } */
+/* #back-top a:hover span { */
+/* 	background-color: #777; */
+/* } */
+
+/* 후원하기 버튼 */
+/* #giveMoney{ */
+/*    width:150px; */
+/*    height: 50px; */
+/*     background-color: #7fd49b; */
+/*     color: gray; */
+/*    font-size: 16px; */
+/*    border:1px solid lightgray; */
+/*    border-radius: 2px; */
+/*    transition:0.3s; */
+/*     position: relative;    */
+/*     left:75px; */
+/*     top:50px; */
+/*    transform: translate(-50%,-50%); */
+/* } */
+/* #givemoney:focus { */
+/*    outline:0; */
+/* } */
+/* #giveMoney:hover{ */
+/*    color:black; */
+/*    cursor: pointer; */
+/*    border:1px solid black; */
 }
 
-/*
-Back to top button 
-*/
-#back-top {
-	position: fixed;
-	bottom: 30px;
-	margin-left: -150px;
-}
-#back-top a {
-	width: 108px;
-	display: block;
-	margin-left:1200px;
-	text-align: center;
-	font: 11px/100% Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: #bbb;
-	/* background color transition */
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
-}
-#back-top a:hover {
-	color: #000;
-}
-/* arrow icon (span tag) */
-#back-top span {
-	width: 108px;
-	height: 108px;
-	display: block;
-	margin-bottom: 7px;
-	background: #ddd url(up-arrow.png) no-repeat center center;
-	/* rounded corners */
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	/* background color transition */
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
-}
-#back-top a:hover span {
-	background-color: #777;
-}
-
-#giveMoney{
-   width:150px;
-   height: 50px;
-    background-color: #7fd49b;
-    color: gray;
-   font-size: 16px;
-   border:1px solid lightgray;
-   border-radius: 2px;
-   transition:0.3s;
- 	position: relative;	
- 	left:75px;
- 	top:50px;
-   transform: translate(-50%,-50%);
-}
-#givemoney:focus {
-   outline:0;
-}
-#giveMoney:hover{
-	color:black;
-   cursor: pointer;
-   border:1px solid black;
-}
-
-#List{
-text-align: center;
-margin:auto;
-}
+/* #List{ */
+/* text-align: center; */
+/* margin:auto; */
+/* } */
 </style>
 
 <script src="js/jquery-3.6.0.js"></script>
@@ -271,34 +272,32 @@ margin:auto;
 			
 		<!-- 섬네일 옆	 -->
 		<div id="content">
-			<table >
 			
 				<!-- 제목 -->
-				<tr>
-					<td class="sup_subject"><%=dto.getSup_subject() %></td>
-				</tr>
+				<div style="margin-bottom:60px;">
+					<span class="sup_subject"><%=dto.getSup_subject() %></span>
+				</div>
 				
 				
 				
 				<!-- D-Day -->
-				<tr>
-					<td id="dDay"><span class="dDay"></span></td>
-				</tr>
+				<div class="sup_con_div">
+					<span id="dDay"><span class="dDay"></span></span>
+				</div>
 				
 				
 				
 				<!-- 목표 금액 -->
-				<tr>
-					<td id="goalPrice">
-						<span class="goalPrice" ><%=dto.getSup_goal_price() %></span>
-		                <span >원(목표금액)</span>
-					</td>
-				</tr>
-				
+				<div class="sup_con_div" id="goalPrice">
+					<span class="goalPrice" ><%=dto.getSup_goal_price() %></span>
+	                <span >원(목표금액)</span>
+				</div>
+		
 				
 				<!-- 퍼센트 바 -->
-	            <tr id="progressBar">
-	               <td>
+	            <div class="sup_con_div" id="progressBar">
+	               <div>
+	               
 	                  <div class="progressBar"></div>
 	                  <div class="myBar"></div>
 	                  
@@ -309,34 +308,35 @@ margin:auto;
 	                  <!-- 현제 모인 금액 -->
 	                  <span style="text-align: left;" class="moneyPer"></span>
 	                  <span >(진행률)</span>
-	               </td>
-	            </tr>
-				
+	                  
+	               </div>
+	            </div>
 				
 				
 				<!-- idx, date, readcount 안보이게 -->
-				<tr style="display: none;">
-					<td class="goalDate"><%=dto.getSup_goal_date() %></td>
-					<td><%=dto.getSup_date() %></td>
-					<td><%=dto.getSup_idx() %></td>
-					<td><%=dto.getSup_readcount() %></td>
-				</tr>
+				<div style="display: none;">
+					<span class="goalDate"><%=dto.getSup_goal_date() %></span>
+					<span><%=dto.getSup_date() %></span>
+					<span><%=dto.getSup_idx() %></span>
+					<span><%=dto.getSup_readcount() %></span>
+				</div>
 				
-			</table>
 			
 			
 			
 			<!-- 후원 버튼 -->			
-		 	<button  id="giveMoney"  type="button" >후원하기</button>
+		 	<button class="sup_button" id="giveMoney"  type="button" >후원하기</button>
 		
 		</div>
-		
-		
 		
 		
 			<!-- 내용 -->
 			<div class="content"><%=dto.getSup_content() %></div>
 		
+		
+			<hr style="color: gray; opacity: 70%; margin: 50px;">
+			
+			
 			<!-- 상세 페이지 -->		
 			<img id="sup_original" alt="" src="./img/support/<%=dto.getSup_original_file() %>" width="70%">
 			

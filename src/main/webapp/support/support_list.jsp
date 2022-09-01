@@ -124,10 +124,8 @@ Back to top button
    <!-- 해더 -->
    
    
-	<!--  전체의 기준이 되는 태그 -->
-   
 	<!-- 후원 메인 블럭 -->
-   <main >
+   <main>
    
 	 <hr style="color: gray; opacity: 70%; margin: 70px;">
 		   
@@ -138,143 +136,157 @@ Back to top button
 		            SupportDTO support = (SupportDTO)o; 
 		         %>
 		      <div class="list">
+							
+	
+		             	  
+				  <!-- 섬네일 블럭-->		
+				  <div class="sup_thum_div">
+	                  <a href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
+	                  <img class="img" alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" ></a>
+              	  </div>
+              	  
+              	  
+              	  <!-- 제목 블럭-->
+              	  <div class="sup_sub_div">
+              	  	<a class="sup_main_font" class="subject" href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><%=support.getSup_subject()%></a>
+              	  </div>
 
-		             	 <span class="dDay<%=support.getSup_idx() %>"></span>
-		
-		                  <a  href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>">
-		                  <img class="img" alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" ></a>
-	
-		              	 <a class="subject" href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><%=support.getSup_subject()%></a>
-	
-		                  <div class="progressBar<%=support.getSup_idx() %>"></div>
-		                  <div class="myBar<%=support.getSup_idx() %>"></div>
+
+	              <!-- 퍼센트 블록 -->
+	              <div class="sup_per_div">
+	              
+	              
+	              	  <!-- 퍼센트 바 -->
+	              	  <div style="position: relative; width: 100%">
+			              <div style="position: absolute; border-radius: 3px; width: 10px;" class="progressBar<%=support.getSup_idx() %>"></div>
+		                  <div style="position: absolute; border-radius: 3px; width: 10px;" class="myBar<%=support.getSup_idx() %>"></div>
+	                  </div>
+	                  
+	                  <div style="margin-top: 20px">
+		                  <!-- 퍼센트 -->
+		                  <span class="moneyPer<%=support.getSup_idx() %>"></span>
+		                  
+		                  
+		                  <!-- 현재 모금 돈 -->
 		                  <span class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></span>원
-		                  <span style="text-align: left;" class="moneyPer<%=support.getSup_idx() %>"></span>
-		
-							<!--  제이쿼리용 디스플레이 none 처리 -->
-		                  <div style=": none;" class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></div>
-		                  <div style="disdisplayplay: none;" class="goalPrice<%=support.getSup_idx() %>"><%=support.getSup_goal_price() %></div>
-		                  <div style="display: none;" class="goalDate<%=support.getSup_idx() %>"><%=support.getSup_goal_date() %></div>
-		
-				            <script type="text/javascript">
-						      //제이쿼리
-						      $(function() {
-									
-		
-						    	 // D-Day 구하기 -----------------------------------------------------------------------------
-						    	  
-							         //오늘 날짜
-							         var today = new Date();
-							         
-							         //골 날짜
-							         var goalDate = $(".goalDate<%=support.getSup_idx() %>").html();
-							         var dday = new Date(goalDate)
-							         
-							         //디데이 계산
-							         var gap = dday.getTime() - today.getTime();
-							         var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
-							         
-							         var day =  1 / result * 100
-							         
-						         
-						    	 //  D-Day 프로그레스 바 -----------------------------------------------------------------------------
-		
-						         
-			// 				         //프로그레스 바 전체
-			<%-- 				         $(".progressBar<%=support.getSup_idx() %>").css({ --%>
-			// 				           width: "100%",
-			// 				           background: "grey"
-			// 				         });
-							         
-			// 				         //프로그레스 바 진행도
-			<%-- 				         $(".myBar<%=support.getSup_idx() %>").css({ --%>
-			// 				           width: day+"%",
-			// 				           height: "30px",
-			// 				           background: "skyblue"
-			// 				         });
-									
-			// 				         //프로그레스 바 진행도 퍼센트
-			<%-- 				         $(".myBar<%=support.getSup_idx() %>").html(Math.round(day)+"%"); --%>
-			
-			
-			
-								// 후원금 구하기 -----------------------------------------------------------------------------
+		              	 
+		              	 
+		              	  <!-- 디데이 -->
+	             		  <span style="text-align: right;" class="dDay<%=support.getSup_idx() %>"></span>
+	                  </div>
+	                  
+	                  
+	              </div>
+
+
+				  <!--  제이쿼리용 디스플레이 none 처리 -->
+                  <div style="display: none;" class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></div>
+                  <div style="display: none;" class="goalPrice<%=support.getSup_idx() %>"><%=support.getSup_goal_price() %></div>
+                  <div style="display: none;" class="goalDate<%=support.getSup_idx() %>"><%=support.getSup_goal_date() %></div>
+
+		            <script type="text/javascript">
+				      //제이쿼리
+				      $(function() {
 							
-												    	  
-							         //모인 후원금
-							         var money = $(".money<%=support.getSup_idx() %>").html();
-									
-									 //골 프라이스(전체값)
-							         var goalPrice = $(".goalPrice<%=support.getSup_idx() %>").html();
-									
-									 //일부값
-							         var moneyPer = Number(goalPrice) / Number(money) * 100;;
-							        	 
-									 if(moneyPer == "Infinity"){
-										 moneyPer = 0;
-									 }
-							        	 
-									 
-									
-								// 후원금 프로그레스 바 -----------------------------------------------------------------------------
+
+				    	 // D-Day 구하기 -----------------------------------------------------------------------------
+				    	  
+					         //오늘 날짜
+					         var today = new Date();
+					         
+					         //골 날짜
+					         var goalDate = $(".goalDate<%=support.getSup_idx() %>").html();
+					         var dday = new Date(goalDate)
+					         
+					         //디데이 계산
+					         var gap = dday.getTime() - today.getTime();
+					         var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+					         
+					         var day =  1 / result * 100
+					         
+				         
+
+						// 후원금 구하기 -----------------------------------------------------------------------------
+					
+										    	  
+					         //모인 후원금
+					         var money = $(".money<%=support.getSup_idx() %>").html();
 							
-								
-								         //프로그레스 바 전체
-							         $(".progressBar<%=support.getSup_idx() %>").css({
-								           width: "100%",
-								           height: "5px",
-								           background: "grey"
-								         });
-							         
-								         //프로그레스 바 진행도
-							         $(".myBar<%=support.getSup_idx() %>").css({
-								           width: moneyPer+"%",
-								           height: "5px",
-								           background: "skyblue"
-								         });
+							 //골 프라이스(전체값)
+					         var goalPrice = $(".goalPrice<%=support.getSup_idx() %>").html();
+							
+							 //일부값
+					         var moneyPer = Number(money) / Number(goalPrice) * 100;
+					        	 
+							 if(moneyPer == "Infinity"){
+								 moneyPer = 0;
+							 }
+							 
+							 
+							
+						// 후원금 프로그레스 바 -----------------------------------------------------------------------------
+					
+						
+						     //프로그레스 바 전체
+					         $(".progressBar<%=support.getSup_idx() %>").css({
+						           width: "100%",
+						           height: "7px",
+						           background: "grey"
+						         });
+					         
+						
+						     //프로그레스 바 진행도
+					         $(".myBar<%=support.getSup_idx() %>").css({
+						           width: moneyPer+"%",
+						           height: "7px",
+						           background: "skyblue"
+						         });
+							
+						     
+						     //프로그레스 바 진행도 퍼센트
+					         $(".moneyPer<%=support.getSup_idx() %>").html(Math.round(moneyPer*10)/10+"%");
+					         //디데이
+						     $(".dDay<%=support.getSup_idx() %>").html(result+"일 남음");
+					     
+					     
+
+				      });      
+				      
+					// back to top 버튼 -----------------------------------------------------------------------------
+								$(document).ready(function(){
+					
+									// 사용하지 않을 때 숨김처리
+									$("#back-top").hide();
 									
-								     //프로그레스 바 진행도 퍼센트
-							         $(".moneyPer<%=support.getSup_idx() %>").html(Math.round(moneyPer)+"%");
-							         //디데이
-								     $(".dDay<%=support.getSup_idx() %>").html(result+"일 남음");
-							     
-							     
-		
-						      });      
-						      
-							// back to top 버튼 -----------------------------------------------------------------------------
-										$(document).ready(function(){
-							
-											// 사용하지 않을 때 숨김처리
-											$("#back-top").hide();
-											
-											// 사라지기 효과
-											$(function () {
-												$(window).scroll(function () {
-													if ($(this).scrollTop() > 100) {
-														$('#back-top').fadeIn();
-													} else {
-														$('#back-top').fadeOut();
-													}
-												});
-							
-												// scroll body to 0px on click
-												$('#back-top a').click(function () {
-													$('body,html').animate({
-														scrollTop: 0
-													}, 800);
-													return false;
-												});
-											});
-							
+									// 사라지기 효과
+									$(function () {
+										$(window).scroll(function () {
+											if ($(this).scrollTop() > 100) {
+												$('#back-top').fadeIn();
+											} else {
+												$('#back-top').fadeOut();
+											}
 										});
-					         </script>
+					
+										// scroll body to 0px on click
+										$('#back-top a').click(function () {
+											$('body,html').animate({
+												scrollTop: 0
+											}, 800);
+											return false;
+										});
+									});
+					
+								});
+			         </script>
+		
 		
 			  </div>
 			  <%} %>   
 			</div>
 	
 	</main>         
+	
 	
 	<div id="pagewrap">
 	<p id="back-top">
