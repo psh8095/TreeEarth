@@ -14,8 +14,9 @@ CREATE TABLE diary (
 	diary_thumb_img VARCHAR(100),
 	diary_thumb_real_img VARCHAR(100),
 	diary_readcount INT NOT NULL,
+	diary_likecnt INT NOT NULL,
 	diary_date date,
-	FOREIGN KEY (diary_id) REFERENCES member(mem_id) ON DELETE CASCADE 
+	FOREIGN KEY (diary_id) REFERENCES member(mem_id) ON DELETE CASCADE
 	);
 */
 
@@ -29,6 +30,7 @@ public class DiaryDTO {
 	private String diary_thumb_img;
 	private String diary_thumb_real_img;
 	private int diary_readcount;
+	private int diary_likecnt;
 	private Date diary_date;
 	
 	public int getDiary_idx() {
@@ -84,6 +86,12 @@ public class DiaryDTO {
 	}
 	public void setDiary_readcount(int diary_readcount) {
 		this.diary_readcount = diary_readcount;
+	}
+	public int getDiary_likecnt() {
+		return diary_likecnt;
+	}
+	public void setDiary_likecnt(int diary_likecnt) {
+		this.diary_likecnt = diary_likecnt;
 	}
 	public Date getDiary_date() {
 		return diary_date;

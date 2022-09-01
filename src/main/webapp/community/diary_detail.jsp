@@ -6,13 +6,13 @@
 	// dto 객체 어트리뷰트로 받기
 	DiaryDTO diary = (DiaryDTO)request.getAttribute("diary");
 	String sId = (String)session.getAttribute("sId");
-	
 	%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>반려나무 성장일지</title>
+<script src="js/jquery-3.6.0.js"></script>
 <link href="../css/index.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
 <link href="css/community.css" rel="stylesheet">
@@ -32,10 +32,12 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
 table {
 	margin: auto;
 	width: 700px;
 }
+
 #commandCell {
 	text-align: center;
 }
@@ -76,7 +78,41 @@ table {
     border: 3px solid aliceblue;
     color: #1e6b7b;
 }
+
+#heart {
+	margin-top: 30px;
+	margin-left: 1300px;
+	margin-bottom: 50px;
+}
 </style>
+<script type="text/javascript">
+
+	$(function(){
+		$("#heart").on("click", function(){
+			//로그인판별
+			var sId = '<%=sId%>'
+			var diaryno = <%=diary.getDiary_idx()%>
+			if(sId == 'null') {
+				alert("로그인 이후 사용해 주세요!");
+				window.open("MemberLoginForm.me","로그인", "width=400, height=600");
+			} else { 
+				$.ajax({
+					type: "post",
+					url: "DiaryHeart.cm",
+					data: {
+						mid: '<%=sId%>',
+						diaryno: <%=diary.getDiary_idx()%>
+					},
+					dataType: "text",
+					success: function(response) {
+						
+					}
+				});
+			}
+		});
+	});
+
+</script>
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
@@ -84,39 +120,45 @@ table {
 	<section id="writeForm">
 		<h2> 나만의 반려나무를 자랑해봐요</h2>
 		
-		
-		
 		<section id="">
 			<table>
-			<tr><th width="70">제 목</th><td colspan="3" >${diary.diary_subject }</td></tr>
-			<tr>
-				<th width="70">작성자</th><td>${diary.diary_id }</td>
-				<th width="70">작성일</th><td>${diary.diary_date }</td>
-			</tr>
-			<tr>
-				<th width="70">첨부파일</th>
-				<td>
-					<a href="upload/${diary.diary_real_img }" download="${diary.diary_img }">
-						${diary.diary_img }
-					</a>
-				</td>
-				<th width="70">조회수</th>
-				<td>${diary.diary_readcount }</td>
-			</tr>
-			<tr>
-				<th width="70">내용</th>
-				<td>
-					${diary.diary_content }<br><br>
-<%-- 					<img alt="${diary.diary_img }" src="img/community/${diary.diary_real_img }"> --%>
-			<img alt="" src="img/community/<%=diary.getDiary_thumb_img() %>" width="70%">
-			<img alt="" src="img/community//<%=diary.getDiary_img() %>" width="70%">
-				</td>
-			</tr>
+				<tr><th width="70">제 목</th><td colspan="3" >${diary.diary_subject }</td></tr>
+				<tr>
+					<th width="70">작성자</th><td>${diary.diary_id }</td>
+					<th width="70">작성일</th><td>${diary.diary_date }</td>
+				</tr>
+				<tr>
+					<th width="70">첨부파일</th>
+					<td>
+						<a href="upload/${diary.diary_real_img }">
+							${diary.diary_img }
+						</a>
+					</td>
+					<th width="70">조회수</th>
+					<td>${diary.diary_readcount }</td>
+				</tr>
+				<tr>
+					<th width="70">내용</th>
+					<td>
+						${diary.diary_content }<br><br>
+	<%-- 					<img alt="${diary.diary_img }" src="img/community/${diary.diary_real_img }"> --%>
+						<img alt="" src="img/community/<%=diary.getDiary_thumb_img() %>" width="70%">
+						<img alt="" src="img/community//<%=diary.getDiary_img() %>" width="70%">
+					</td>
+				</tr>
 			</table>
 		</section>
+		
+			<!-- 이거 뭐야? -->
 			<section id="articleContentArea">
 			</section>
+			
 	</section>
+	
+	<!-- 좋아요 기능 -->
+	<div>
+		<img id="heart" alt="" src="img/community/heart.png" width="50px" height="50px">
+	</div>
 	
 <!-- 	로그인을 해야만 수정, 삭제 가능 -->
 	<%if(sId != null){%>
