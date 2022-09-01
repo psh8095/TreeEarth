@@ -132,7 +132,8 @@
 		});
 		
 		// 주문하기 버튼 클릭 시 결제 페이지로 이동
-		$("#order").on("click", function() {
+		$("#my_order_button2").on("click", function() {
+			// 파라미터 저장할 배열 생성
 			var sto_idxs = [];
 			var quantities = [];
 			var amount = parseInt($(".totalPrice").html());
@@ -144,8 +145,19 @@
 				}
 			}
 			
+			// 파라미터 연결할 변수 선언
+			var p = "";
+			
+			for(var i = 0; i < sto_idxs.length; i++) {
+				p += "sto_idx=" + sto_idxs[i] + "&";
+			}
+			
+			for(var i = 0; i < quantities.length; i++) {
+				p += "quantity=" + quantities[i] + "&";
+			}
+			
 			if(parseInt($(".totalPrice").html()) > 0) {
-				location.href="Payment.st";
+				location.href="Order.st?" + p;
 			} else {
 				alert("결제할 금액이 없습니다.");
 			}
@@ -226,7 +238,7 @@
 				</div>
 			</div>
 			<div >
-				<input id="my_order_button2" type="button" id="order" value="주문하기">
+				<input id="my_order_button2" type="button" value="주문하기">
 			</div>
 		</div>	
 	</div>

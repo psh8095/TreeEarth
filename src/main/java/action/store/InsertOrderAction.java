@@ -1,5 +1,8 @@
 package action.store;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -38,12 +41,26 @@ public class InsertOrderAction implements Action {
 		insertOrderService service = new insertOrderService();
 		service.insertOrder(order);
 		
-		OrderDetailDTO orderDetail = new OrderDetailDTO();
-		orderDetail.setOrder_id(request.getParameter("order_id"));
-		orderDetail.setSto_idx(Integer.parseInt(request.getParameter("sto_idx")));
-		orderDetail.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+		String[] sto_idx = request.getParameterValues("sto_idx[]");
+		String[] quantity = request.getParameterValues("quantity[]");
 		
-		service.insertOrderDetail(orderDetail);
+		// 데이터 확인용 출력
+//		System.out.println(sto_idx.length);
+//		System.out.println(quantity.length);
+//		for(int i = 0; i < sto_idx.length; i++) {
+//			System.out.println(sto_idx[i]);
+//			System.out.println(quantity[i]);
+//		}
+		
+		for(int i = 0; i < sto_idx.length; i++) {
+			OrderDetailDTO orderDetail = new OrderDetailDTO();
+			
+			orderDetail.setOrder_id(request.getParameter("order_id"));
+			orderDetail.setSto_idx(Integer.parseInt(sto_idx[i]));
+			orderDetail.setQuantity(Integer.parseInt(quantity[i]));
+			
+			service.insertOrderDetail(orderDetail);
+		}
 		
 		return forward;
 	}
