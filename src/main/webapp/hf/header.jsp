@@ -131,8 +131,8 @@
 	
 	<!-- 헤더 산 사진 -->
 	<div style=" width:100%; height:800px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
-<!-- 	    <img src="img/main/main_mountain.jpg" width="100%" alt="나무"> -->
-	    <img src="img/jang.jpg" width="100%" alt="나무" style="top: -500px; position: relative;" >
+	    <img src="img/main/main_mountain.jpg" width="100%" alt="나무">
+<!-- 	    <img src="img/jang.jpg" width="100%" alt="나무" style="top: -500px; position: relative;" > -->
  	</div>
  	
 	<!-- 백그라운드 -->

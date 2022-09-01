@@ -65,12 +65,12 @@
 				total += parseInt($(".price").eq($(".checkCart").index(this)).html());
 // 				alert(total);
 
-				$("#totalPrice").html(total);
+				$(".totalPrice").html(total);
 			} else {
 				if(total > 0) {
 					total -= parseInt($(".price").eq($(".checkCart").index(this)).html());
 	
-					$("#totalPrice").html(total);
+					$(".totalPrice").html(total);
 				}
 			}
 		});
@@ -100,7 +100,7 @@
 				}
 			}
 			
-			$("#totalPrice").html(total);
+			$(".totalPrice").html(total);
 		});
 		
 		// 전체 해제 버튼 클릭 시 동작
@@ -112,26 +112,26 @@
 				}
 			}
 			
-			$("#totalPrice").html(total);
+			$(".totalPrice").html(total);
 		});
 		
 		// 주문하기 버튼 클릭 시 결제 페이지로 이동
 		$("#order").on("click", function() {
 			var sto_idxs = [];
 			var quantities = [];
-			var amount = parseInt($("#totalPrice").html());
+			var amount = parseInt($(".totalPrice").html());
 			
 			for(var i = 0; i < ${cart.size()}; i++) {
 				if($(".checkCart").eq(i).is(":checked")) {
 // 					alert($(".sto_idx").eq(i).val());
 // 					alert($(".quantity").eq(i).val());
-// 					alert(parseInt($("#totalPrice").html()));
+// 					alert(parseInt($(".totalPrice").html()));
 					sto_idxs.push($(".sto_idx").eq(i).val());
 					quantities.push($(".quantity").eq(i).val());
 				}
 			}
 			
-			if(parseInt($("#totalPrice").html()) > 0) {
+			if(parseInt($(".totalPrice").html()) > 0) {
 				location.href="Payment.st";
 			} else {
 				alert("결제할 금액이 없습니다.");
@@ -149,10 +149,9 @@
 
 	<div id="main">
 	
-		<h1>장바구니</h1>
+		<h1 style="margin: 30px 0px 50px 0px">장바구니</h1>
 		
 		
-		<hr style="color: gray; opacity: 70%; margin: 50px;">
 				
 			<div>
 				<input type="button" id="allCheck" value="전체 선택">
@@ -165,6 +164,7 @@
 	
 				<!-- 게시판 구별 -->
 				<div id="my_title">
+					<span class="my_check"></span>
 					<span class="my_img">사진</span>
 					<span class="my_subject">제목</span>
 					<span class="my_button">수량</span>
@@ -183,9 +183,11 @@
 				<c:otherwise>
 					<c:forEach var="cart" items="${cart }">
 					
+						<div class="my_check">
+							<input type="checkbox" class="checkCart">
+						</div>
 					
 						<div class="my_img">
-							<input type="checkbox" class="checkCart">
 							<img src="img/store/${cart.sto_thum_file }" width="150">
 						</div>
 						
@@ -218,21 +220,36 @@
 		</div>
 	
 	
-	
+		<!-- 결제 창 -->
 		<div id="orderDiv">
-			<div>
-				<h2>결제 예정 금액 &nbsp;&nbsp;<span id="totalPrice">0</span>원</h2>
+		
+			<div >
+				<input id="my_order_button1" type="button" id="order" value="배송지 변경">
+			</div>
+		
+		
+			<div class="my_back">
+				<div class="orderSpan">
+					<span>상품 금액<span class="totalPrice">0</span>원</span>
+				</div>
+			
+				<div class="orderSpan">
+					<span>상품 할인 금액<span>0</span>원</span>
+				</div>
+			
+				<div class="orderSpan">
+					<span>배송비<span >0</span>원</span>
+				</div>
+			
+				<div class="orderSpan4">
+					<h3>결제 예정 금액<span class="totalPrice">0</span>원</h3>
+				</div>
 			</div>
 			
-			
-			<div>
-				<h3>
-					선택한 상품&nbsp;&nbsp;
-				</h3>
-			</div>
+
 			
 			<div >
-				<input id="my_order_button" type="button" id="order" value="주문하기">
+				<input id="my_order_button2" type="button" id="order" value="주문하기">
 			</div>
 			
 		</div>	
@@ -243,5 +260,8 @@
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
+	
+	
+	
 </body>
 </html>
