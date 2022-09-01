@@ -1,6 +1,6 @@
 package vo.store;
 
-import java.sql.Date;
+import java.sql.*;
 
 /*
  * 아이디, 상품 번호, 상품 구매 평점, 상품 구매 후기 내용
@@ -10,9 +10,9 @@ CREATE TABLE store_review (
    sto_idx INT,
    sto_re_idx INT PRIMARY KEY,
    sto_re_score INT CHECK (sto_re_score IN (1,2,3,4,5)),
-   sto_re_content VARCHAR(300) NOT NULL,
-   sto_re_file VARCHAR(30) NOT NULL,
-   sto_re_real_file VARCHAR(30) NOT NULL,
+   sto_re_content VARCHAR(300),
+   sto_re_file VARCHAR(30),
+   sto_re_real_file VARCHAR(30),
    sto_re_date DATE NOT NULL,
    FOREIGN KEY (mem_id) REFERENCES member (mem_id) ON DELETE CASCADE,
    FOREIGN KEY (sto_idx) REFERENCES store (sto_idx) ON DELETE CASCADE
