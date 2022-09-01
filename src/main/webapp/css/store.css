@@ -211,21 +211,52 @@ hr{
 /* ---------------------------------------------------------------------------------------------------- */
 /* 스토어 후기  */
 
-/* 자유게시판 타이틀  */
+/* 스토어 후기 타이틀  */
 .r_sto_title{
 	float: left;
 	margin: 15px;
 }
 
 
-/* 글쓰기  */
+/* 후기 작성 버튼  */
 .r_sto_title_button{
 	float: right;
 	margin-right: 10px;
 	margin: 15px;
 }
 
+#review_btn {
+	display: flex;
+	height: auto;
+}
 
+#review_btn{
+/* 	margin-top:4px; */
+	padding-left: 17px;
+	padding-top: 9px;
+	flex:3;
+	background-color: rgba(0,0,0,0);
+	border:1px solid lightgray;
+	border-radius: 2px;
+	color: black;
+	transition:0.3s;
+	font-size: 14px;
+	height: 40px;
+	width: 120px;
+}
+
+#review_btn:first-child{
+	background: #1a82bb;
+	color: white;
+}
+
+#review_btn:focus {
+   outline:0;
+}
+#review_btn:hover{
+   cursor: pointer;
+   border:1px solid black;
+}
 
 /* 제목  */
 .r_sto_subject{
@@ -235,7 +266,7 @@ hr{
 	width: 15%;
 }
 
-/* 조회수  */
+/* 후기글 내용  */
 .r_sto_content{
 /* 	border: 5px solid blue; */
 	margin: 15px;
@@ -275,6 +306,24 @@ hr{
     object-fit:cover;
 	box-sizing:border-box;
 	border-radius: 7px;
+}
+
+.str_reivew_d {
+	width:100%;
+    height:100px;
+}
+
+.sto_rev_im {
+	display:block;
+	width:100%;
+    height:100px;
+    object-fit:cover;
+	box-sizing:border-box;
+	border-radius: 7px;
+}
+
+#sto_img {
+	
 }
 
 

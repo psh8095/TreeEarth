@@ -9,8 +9,19 @@
 <title>treeEarth</title>
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-	// 후기 별점 출력
+	
 	$(function() {
+		// 상품 후기 버튼 => 비회원 작성 시도 시 로그인 창 open 및 로그인 후 회원만 후기 작성 가능
+		$("#review_btn").on("click", function() {
+			if(${empty sessionScope.sId}) {
+				alert("로그인이 필요한 기능입니다.");
+				window.open("MemberLoginForm.me?returnUrl=StoreReviewList.st", "", "width=400, height=600");
+			} else {
+				location.href="StoreReviewWriteForm.st?sto_idx=${store.sto_idx}";
+			}
+		});
+		
+		// 후기 별점 출력
 		for(var k = 0; k < ${storeReviewList.size()}; k++) {
 			var i = $(".score").eq(k).html();
 // 			alert(i);
@@ -77,65 +88,55 @@ fieldset legend {
 </head>
 <body>
 	
-	
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
-	
 	<!-- 게시판 리스트 -->
 	<div class="main">
 	
-	
 	 	<hr>
-	 	
 	 			<!-- 스토어 후기 타이틀-->
 				<div class="r_sto_title">
 					<span>구매 후기</span>
 				</div>
-	
-	
-					<!-- 글쓰기 -->
+
+				<!-- 글쓰기 -->
 				<div class="r_sto_title_button">
-					<input type="button" value="후기 작성하기" onclick="location.href='StoreReviewWriteForm.st?sto_idx=${store.sto_idx}'">
+<!-- 					<button id="review_btn"><img src="img/community/pencil.png" width="47px" height="50px">후기 작성하기</button> -->
+					<button id="review_btn">후기 작성하기</button>
 				</div>
-			
-		
 		 <hr>
-	
-	
-					<!-- 게시판 구별 -->
+				<!-- 게시판 구별 -->
 				<div >
 					<span class="r_sto_subject">상품</span>
 					<span class="r_sto_content">내용</span>
 					<span class="r_sto_name">작성자</span>
 					<span class="r_sto_date">작성일</span>
 				</div>
-
-		
 		 <hr>
-		
-		
-		
+
 		<!-- 게시판 내용 -->
 		<div >
-
-<%-- 		<h1>${store.sto_idx }</h1> --%>
 			<c:choose>
 				<c:when test="${not empty storeReviewList and pageInfo.itemListCount gt 0}">
 					<c:forEach var="store_review" items="${storeReviewList }">
 						
-						
 						<!-- 제목 -->
 						<div class="r_sto_subject">
-
-							<!-- 이미지 -->	
+							
+							<a href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}'>
 							<c:choose>
 								<c:when test="${not empty store_review.sto_re_file}"> 
-									<a href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}' ><img class="r_sto_img" alt="" src="upload/${store_review.sto_re_file }" width="300" height="250">	</a> 
+									<img class="r_sto_img" alt="" src="img/store/${store_review.sto_re_file }">
 								</c:when>
+								<c:otherwise>
+									<img alt="기본 이미지" src="img/store/store_reivew_d.png" class="sto_rev_im">
+								</c:otherwise>
 							</c:choose>
-							<div class="score">${store_review.sto_re_score }</div>
+							</a>
+
+							<div class="score">${store_review.sto_re_score }</div> <!-- 상품후기 별점 출력 -->
 							<fieldset>
 								<span class="rate1" id="st">⭐</span>
 								<span class="rate2" id="st">⭐</span>
@@ -143,47 +144,35 @@ fieldset legend {
 								<span class="rate4" id="st">⭐</span>
 								<span class="rate5" id="st">⭐</span>
 							</fieldset>
-							
 						</div>
 					
-					
 						<div >	
-						
-						
 							<!-- 내용 -->
 							<div class="r_sto_content">
-								<a href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}' >${store_review.sto_re_content }	</a>
+								<a href='StoreReviewDetail.st?sto_idx=${store.sto_idx}&sto_re_idx=${store_review.sto_re_idx }&pageNum=${pageInfo.pageNum}'>${store_review.sto_re_content }</a>
 							</div>
-							
 							
 							<!-- 작성자 -->	
 							<div class="r_sto_name">
 								${store_review.mem_id }
 							</div>	
 							
-							
 							<!-- 작성일 -->	
 							<div class="r_sto_date">
 								${store_review.sto_re_date }
 							</div>	
 						</div>
-				
-				
 						 <hr>
-				
-						
 					</c:forEach>
 				</c:when>
+
 				<c:otherwise>
 					<h2><b>후기가 없습니다.</b><br></h2>
 					<h3>후기를 작성해 보세요!</h3>
 				</c:otherwise>
 			</c:choose>
-			
-			
 		</div>	
 	</div>
-
 
 	<br>
 	<div style="clear: both;">
