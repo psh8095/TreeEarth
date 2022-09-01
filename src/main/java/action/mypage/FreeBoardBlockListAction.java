@@ -22,9 +22,9 @@ public class FreeBoardBlockListAction implements Action {
 		
 		//전체 게시물 목록 요청
 		FreeBoardBlockListService service = new FreeBoardBlockListService();
-		ArrayList<FreeBoardBlockDTO> blockList = service.getBlockList();
+		ArrayList<FreeBoardBlockDTO> freeBlockList = service.getBlockList();
 		
-		request.setAttribute("blockList", blockList);
+		request.setAttribute("freeBlockList", freeBlockList);
 		
 		forward = new ActionForward();
 		forward.setPath("mypage/block_list.jsp");

@@ -1,7 +1,6 @@
 package action.mypage;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 import action.Action;
 import svc.community.FreeBoardBlockDetailService;
@@ -30,7 +29,7 @@ public class FreeBoardBlockDetailAction implements Action {
 		request.setAttribute("freeboard", freeboard);
 		
 		forward = new ActionForward();
-		forward.setPath("mypage/block_detail.jsp");
+		forward.setPath("mypage/freeblock_detail.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

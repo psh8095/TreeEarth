@@ -12,14 +12,15 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
-	<h1>신고 글 조회(캠페인 참여후기)</h1>
+	<h1>신고 글 조회</h1>
+	<h3>1. 캠페인 참여후기</h3>
 	
 	<table>
 		<tr>
-			<td>!문제의 글!</td>
-			<td>신고자</td>
-			<td>신고일</td>
-			<td>신고이유</td>
+			<td>[문제의 글!]</td>
+			<td>[신고자]</td>
+			<td>[신고일]</td>
+			<td>[신고이유]</td>
 		</tr>
 		<c:choose>
 			<c:when test="${not empty blockList }">
@@ -38,30 +39,30 @@
 		</c:choose>
 	</table>
 	
-<!-- 	<h1>신고 글 조회(자유게시판)</h1> -->
-<!-- 	<table> -->
-<!-- 		<tr> -->
-<!-- 			<td>!문제의 글!</td> -->
-<!-- 			<td>신고자</td> -->
-<!-- 			<td>신고일</td> -->
-<!-- 			<td>신고이유</td> -->
-<!-- 		</tr> -->
-<%-- 		<c:choose> --%>
-<%-- 			<c:when test="${not empty blockList }"> --%>
-<%-- 				<c:forEach var="free_block" items="${blockList }"> --%>
-<%-- 					<tr onclick="location.href='FreeBoardBlockDetail.my?free_block_ref=${free_block.free_block_ref}'"> --%>
-<%-- 						<td>${free_block.free_block_ref }</td> --%>
-<%-- 						<td>${free_block.free_block_id }</td> --%>
-<%-- 						<td>${free_block.free_block_date }</td> --%>
-<%-- 						<td>${free_block.free_block_reason }</td> --%>
-<!-- 					</tr> -->
-<%-- 				</c:forEach> --%>
-<%-- 			</c:when> --%>
-<%-- 			<c:otherwise> --%>
-<!-- 				<h1>게시물이 존재하지 않습니다.</h1> -->
-<%-- 			</c:otherwise> --%>
-<%-- 		</c:choose> --%>
-<!-- 	</table> -->
+	<h3>2. 자유게시판</h3>
+	<table>
+		<tr>
+			<td>[문제의 글]</td>
+			<td>[신고자]</td>
+			<td>[신고일]</td>
+			<td>[신고이유]</td>
+		</tr>
+		<c:choose>
+			<c:when test="${not empty freeBlockList }">
+				<c:forEach var="free_block" items="${freeBlockList }">
+					<tr onclick="location.href='FreeBoardBlockDetail.my?free_block_ref=${free_block.free_block_ref}'">
+						<td>${free_block.free_block_ref }</td>
+						<td>${free_block.free_block_id }</td>
+						<td>${free_block.free_block_date }</td>
+						<td>${free_block.free_block_reason }</td>
+					</tr>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<h3>~게시물이 존재하지 않습니다~</h3>
+			</c:otherwise>
+		</c:choose>
+	</table>
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
