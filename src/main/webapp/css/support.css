@@ -29,8 +29,8 @@ body{
 	position:relative;
 	width: 60%;
 	margin: 0 auto;
-	
-	
+	padding-left: 80px; 
+	z-index: 2;
 }
 
 
