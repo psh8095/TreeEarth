@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 
 import action.*;
 import svc.campaign.*;
+import svc.community.FreeBoardBlockListService;
 import vo.*;
 import vo.community.*;
 
@@ -22,6 +23,11 @@ public class CampaignReviewBlockListAction implements Action {
 		ArrayList<CampaignReviewBlockDTO> blockList = service.getBlockList();
 		
 		request.setAttribute("blockList", blockList);
+		
+		FreeBoardBlockListService service2 = new FreeBoardBlockListService();
+		ArrayList<FreeBoardBlockDTO> freeBlockList = service2.getBlockList();
+		
+		request.setAttribute("freeBlockList", freeBlockList);
 		
 		forward = new ActionForward();
 		forward.setPath("mypage/block_list.jsp");

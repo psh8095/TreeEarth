@@ -88,7 +88,6 @@ public class CommunityFrontController extends HttpServlet {
 			}
 		} 
 		
-		
 //		=================================================================================================================================		
 		if(command.equals("/FreeBoardWriteForm.cm")) { 
 			// 자유게시판 글작성 폼

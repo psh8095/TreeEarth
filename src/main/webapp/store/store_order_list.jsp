@@ -98,31 +98,33 @@
 		<c:choose>
 			<c:when test="${not empty orderList and pageInfo.itemListCount gt 0 }">
 				<!-- c:foreach 태그를 사용하여 boardList 객체의 BoardDTO 객체를 꺼내서 출력 -->
-				<c:forEach var="order" items="${orderList }">
+				<c:forEach var="orderList" items="${orderList }">
 					<tr>
-						<td>${order.order_id }</td>
-						<td>${order.mem_id }</td>
-						<td>${order.mem_name }</td>
-						<td>${order.mem_address }</td>
-						<td>${order.mem_address_detail }</td>
-						<td>${order.mem_phone }</td>
-						<td>${order.mem_email }</td>
-						<td>${order.amount } 원</td>
-						<td>${order.order_date }</td>
+						<td>${orderList.order_id }</td>
+						<td>${orderList.mem_id }</td>
+						<td>${orderList.mem_name }</td>
+						<td>${orderList.mem_address }</td>
+						<td>${orderList.mem_address_detail }</td>
+						<td>${orderList.mem_phone }</td>
+						<td>${orderList.mem_email }</td>
+						<td>${orderList.amount } 원</td>
+						<td>${orderList.order_date }</td>
 						<td id="order_status">
 							<a href="StoreOrderDetail.st?order_id=${order.order_status }&pageNum=${pageInfo.pageNum}">
 								${order.order_status }
 							</a>
 						</td>
-						<select name="order_status" onchange="orderStatus()"> <!-- 데이터 전송 및 접근을 위한 name 속성 설정 -->
-							<!-- option 태그의 disabled 속성 지정 시 해당 항목 선택 불가 -->
-							<option value="">주문 상태 변경</option>
-							<option value="A">배송 대기</option>
-							<option value="B">배송 중</option>
-							<option value="C">배송 완료</option>
-						</select>
-						<input type="submit" value="변경">
-					</tr>
+						
+<!-- 						<select name="order_status" onchange="orderStatus()"> 데이터 전송 및 접근을 위한 name 속성 설정 -->
+<!-- 							option 태그의 disabled 속성 지정 시 해당 항목 선택 불가 -->
+<!-- 							<option value="">주문 상태 변경</option> -->
+<!-- 							<option value="A">배송 대기</option> -->
+<!-- 							<option value="B">배송 중</option> -->
+<!-- 							<option value="C">배송 완료</option> -->
+							
+<!-- 							<input type="submit" value="변경"> -->
+							
+<!-- 						</select> -->
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
