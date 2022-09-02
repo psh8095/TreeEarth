@@ -16,6 +16,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<div id="container">
 	<h1>캠페인 참가 신청서</h1>
 	<form action="CampaignApplyPro.cp" method="post">

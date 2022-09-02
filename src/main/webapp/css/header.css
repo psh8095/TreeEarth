@@ -166,6 +166,7 @@ a{text-decoration: none; color:black;}
 	left: -110px;
 	top: 39px;
 	overflow: hidden;
+	opacity: 0;
 }
 
 
@@ -186,6 +187,7 @@ a{text-decoration: none; color:black;}
 
 .myPage > li:hover .subMyPage{
 	display: block;
+	opacity: 1;
 	transition-duration: 0.5s;
 }
 
@@ -228,6 +230,7 @@ a{text-decoration: none; color:black;}
 	display: none;	
 	background-color: white;
 	overflow: hidden;
+	opacity: 0;
 	
 }
 
@@ -246,6 +249,7 @@ a{text-decoration: none; color:black;}
 .menu > li:hover .subMenu{
 	display: block;
 	transition-duration: 0.5s;
+	opacity: 1;
 }
 
 
@@ -260,5 +264,6 @@ a{text-decoration: none; color:black;}
 .subMenu a:hover {
 	background-color: #dcdcdc;
 	transition-duration: 0.5s;
+	
 }
 

@@ -28,6 +28,11 @@
 <body>
 	<!-- 게시판 글 삭제 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<h2>후원 게시판 글 삭제</h2>
 	<section id="passForm">
 		<form action="SupportDeleteProAdmin.su" name="deleteForm" method="post">

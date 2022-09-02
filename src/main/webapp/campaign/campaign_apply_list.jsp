@@ -11,6 +11,11 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<div style="height: 50px"></div>
 	<h1>참가 내역</h1>
 	<c:choose>

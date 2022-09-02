@@ -12,6 +12,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="">
 		<h1>캠페인 후기 작성</h1>
 		<form action="CampaignReviewPro.cm" method="post" enctype="multipart/form-data">

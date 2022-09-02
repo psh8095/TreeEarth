@@ -60,6 +60,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<!-- 게시판 상세내용 보기 -->
 	<section id="articleForm">
 		<h2>등록 된 상품을 상세조회하는 페이지</h2>

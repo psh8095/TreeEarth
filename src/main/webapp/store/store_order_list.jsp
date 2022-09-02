@@ -70,6 +70,12 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
+	
 	<!-- 게시판 리스트 -->
 	<section id="listForm">
 	<h2>주문관리 - 배송 전/배송 중/배송 완료 주문목록</h2>

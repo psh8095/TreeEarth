@@ -11,6 +11,10 @@
 <%-- 	<jsp:include page="../hf/header.jsp"></jsp:include> --%>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="writeForm">
 		<h1>공지사항 수정</h1>
 		<form action="NoticeModifyPro.cm" method="post">

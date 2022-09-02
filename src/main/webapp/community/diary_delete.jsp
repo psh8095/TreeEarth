@@ -29,6 +29,11 @@
 <body>
 	<!-- 게시판 글 삭제 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<h2>성장일지 삭제</h2>
 	<section id="passForm">
 		<form action="DiaryDeletePro.cm" method="post">

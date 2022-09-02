@@ -13,6 +13,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="qnaForm">
 		<h1>상품 간단 문의 작성</h1>
 		<form action="StoreQnaWritePro.st" method="post">

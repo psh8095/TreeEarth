@@ -11,6 +11,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="writeForm">
 		<h1>캠페인 후기 수정</h1>
 		<form action="CampaignReviewModifyPro.cm" method="post">

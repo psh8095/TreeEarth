@@ -30,6 +30,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="deleteForm">
 	<h2>캠페인 게시글 삭제</h2>
 		 <section>

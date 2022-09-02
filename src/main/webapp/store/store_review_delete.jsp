@@ -12,6 +12,11 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<h2>구매후기 글 삭제</h2>
 	<section id="">
 		<form action="StoreReviewDeletePro.st" method="post">

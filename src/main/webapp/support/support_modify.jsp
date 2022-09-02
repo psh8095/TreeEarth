@@ -15,6 +15,10 @@
 <body>
 <jsp:include page="../hf/header.jsp"></jsp:include>
 
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+
 <section id="writeForm">
 		<h2>후원 수정</h2>
 		<form action="SupportModifyProAdmin.su" method="post"

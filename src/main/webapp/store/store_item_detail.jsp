@@ -121,6 +121,11 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 	<!-- 헤더 -->
 
 
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
+
 	<!-- 디테일 메인 블럭 -->
    <div class="main1">
 

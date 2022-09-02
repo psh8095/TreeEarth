@@ -11,7 +11,13 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-	
+
+   
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+
+
 	<section id="listForm">
 		<h1>등록 된 상품목록</h1>
 		<table>
