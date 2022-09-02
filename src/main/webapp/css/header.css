@@ -53,6 +53,7 @@ a{text-decoration: none; color:black;}
 	 letter-spacing: 1px;
 	 font-size: 50px;
 	 color: white;
+	 
 }
 
 
@@ -103,11 +104,16 @@ a{text-decoration: none; color:black;}
 /* ---------------------------------------------------------------------------------------------------- */
 /* 헤더 */
 
+#main_logo{
+	width: 150px;
+	height: 100px;
+	margin: -65px -45px -30px -30px;
+}
 
 /* 로고 */
 #logo{	
 	display: inline-block;
-	margin: 10px;
+	margin: 30px 10px 10px 10px;
 	
 }
 
@@ -116,8 +122,8 @@ a{text-decoration: none; color:black;}
 #login{
 	display: inline-block;
 	position: absolute;
-	right: 20px;
-	top: 10px
+	right: 80px;
+	top: 45px
 	
 }
 
@@ -125,9 +131,9 @@ a{text-decoration: none; color:black;}
 /* 장바구니 글자, 마이페이지 */
 #myPage, #cart {box-sizing:border-box;
 	display: inline-block;
-	height: 24px;
    	vertical-align: top;
-   	margin-left: 20px;
+   	margin:-10px 20px 0px 0px;
+
 }	
 
 
