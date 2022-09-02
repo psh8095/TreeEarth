@@ -6,31 +6,80 @@
     font-style: normal;
 }
 
-/* Ä·ÆäÀÎ ½½¶óÀÌµå ¹è³Ê */
-.outer {
-  border: 6px solid royalblue;
-  width: 300px;
-  height: 200px;
-  margin: 0 auto;
-  overflow-x: hidden;
+/* ìº í˜ì¸ ìŠ¬ë¼ì´ë“œ ë°°ë„ˆ */
+.slider{
+    width: 640px;
+    height: 480px;
+    position: relative;
+    margin: 0 auto;
+}
+.slider input[type=radio]{
+    display: none;
+}
+ul.imgs{
+    padding: 0;
+    margin: 0;
+}
+ul.imgs li{
+    position: absolute;
+    opacity: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition-delay: 0.9s;
+}
+.bullets{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    z-index: 2;
+}
+.bullets label{
+    display: inline-block;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.55);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
+    background-color: #fff;
+}
+.slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
+    background-color: #fff;
+}
+.slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
+    background-color: #fff;
+}
+.slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
+    background-color: #fff;
 }
 
-.inner-list {
-  display: flex;
-  transition: .3s ease-out;
-  height: 100%;
+.slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
+    opacity: 1;
+    transition: 1s;
+    z-index: 1;
+}
+.slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
+    opacity: 1;
+    transition: 1s;
+    z-index: 1;
+}
+.slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
+    opacity: 1;
+    transition: 1s;
+    z-index: 1;
+}
+.slider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
+    opacity: 1;
+    transition: 1s;
+    z-index: 1;
 }
 
-.inner {
-  border: 6px solid olive;
-  padding: 0 16px;
-}
 
-.button-list {
-  text-align: center;
-}
 
-/* Ä·ÆäÀÎ Âü°¡ ½ÅÃ»¼­ Æû */
+/* ìº í˜ì¸ ì°¸ê°€ ì‹ ì²­ì„œ í¼ */
 body {
     padding: 2rem;
     background-color: hsl(0,0%,95%);
@@ -71,7 +120,7 @@ h1{
 }
 
 
-/* Áö¿øÇÏ±â ¹öÆ° ¸ğ¾ç*/
+/* ì§€ì›í•˜ê¸° ë²„íŠ¼ ëª¨ì–‘*/
 #cam_button{
 	text-align: center;
 }
