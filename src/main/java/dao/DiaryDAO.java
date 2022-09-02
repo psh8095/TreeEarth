@@ -72,7 +72,7 @@ public class DiaryDAO {
 		int startRow = (pageNum - 1) * listLimit;
 		
 		try {
-			String sql = "SELECT * FROM diary ORDER BY diary_idx LIMIT ?,?";
+			String sql = "SELECT * FROM diary ORDER BY diary_idx DESC LIMIT ?,? " ;
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startRow);

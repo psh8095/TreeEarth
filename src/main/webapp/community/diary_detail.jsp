@@ -154,6 +154,7 @@ table {
 			</section>
 			
 	</section>
+
 	
 	<!-- 좋아요 기능 -->
 	<div>
@@ -163,20 +164,20 @@ table {
 <!-- 	로그인을 해야만 수정, 삭제 가능 -->
 	<%if(sId != null){%>
 	<section id="commandListUser">
-			<button class="w-btn-outline w-btn-indigo-outline" type="button" onclick="location.href='DiaryModifyForm.cm?diary_idx=${diary.diary_idx}&pageNum=${param.pageNum}'">수정</button>
-			<button class="w-btn-outline w-btn-indigo-outline"  type="button" onclick="location.href='DiaryDeleteForm.cm?diary_idx=${diary.diary_idx}&pageNum=${param.pageNum}'">삭제</button>
-			<button class="w-btn-outline w-btn-indigo-outline" type="button" onclick="location.href='DiaryList.cm?pageNum=${param.pageNum}'">목록</button>
+			<button class="w-btn-outline w-btn-green-outline"type="button" onclick="location.href='DiaryModifyForm.cm?diary_idx=${diary.diary_idx}&pageNum=${param.pageNum}'">수정</button>
+			<button class="w-btn-outline w-btn-green-outline"  type="button" onclick="location.href='DiaryDeleteForm.cm?diary_idx=${diary.diary_idx}&pageNum=${param.pageNum}'">삭제</button>
+			<button class="w-btn-outline w-btn-green-outline" type="button" onclick="location.href='DiaryList.cm?pageNum=${param.pageNum}'">목록</button>
 			</section>
 <%-- 			<input type="button" value="목록" onclick="location.href='SupportListAction.su?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum} '"> --%>
 		<%}else{%>
 		<section id="commandList">
-		<button class="w-btn-outline w-btn-indigo-outline"  type="button" onclick="location.href='DiaryList.cm?pageNum=${param.pageNum}'">목록</button>
+		<button class="w-btn-outline w-btn-green-outline"  type="button" onclick="location.href='DiaryList.cm?pageNum=${param.pageNum}'">목록</button>
 		</section>
 			
 	<%}%>	
 
 	<!-- 푸터 -->
-<%-- 	<jsp:include page="../hf/footer.jsp"></jsp:include> --%>
+	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->
 </body>
 </html>

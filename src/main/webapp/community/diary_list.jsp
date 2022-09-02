@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>treeEarth</title>
 <link href="../css/index.css" rel="stylesheet">
+<link href="css/community.css" rel="stylesheet">
 <style type="text/css">
 #best{
 align: center;
@@ -26,16 +27,17 @@ margin-left:400px;
 #pageList{
 margin:auto;
 display:block;
+margin-left: 900px;
 }
 
 #pencil{
-	width:120px;
-	height: 40px;
+	width:80px;
+	height:80px;
 	color:#fff;
-	background: #0080ff ;
+ 	background: #0080ff ;
 	font-size: 16px;
 	border:none;
-	border-radius: 12px;
+	border-radius: 70px;
 	transition:0.3s;
 	transform: translate(-50%,-50%);
 }
@@ -43,7 +45,7 @@ display:block;
 	outline:0;
 }
 #pencil:hover{
-	background: #3fffa7 ;
+	background: #7fd49b ;
 	cursor: pointer;
 }
 </style>
@@ -54,56 +56,51 @@ display:block;
 	<!-- 헤더 -->
 	
 <!-- 	목록 전체 -->
-	<section id="">
 	<section id ="best">
 		<img alt="diarybanner" src="img/community/diarybanner.png"  >
 	</section>
+<!-- 인스타 위젯 적용 -->
 <section id="insta">
 <script src="https://snapwidget.com/js/snapwidget.js"></script>
 <iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:400%; "></iframe>
 </section>
-<h2>반려나무 성장일지</h2>
+
+<!-- 성장일지 회원 작성  -->
+   <main >
+   
+		<hr style="color: gray; opacity: 70%; margin: 50px;">
+		
+		   <div class="main">
 <!-- 			목록 기능구현 -->
 		<c:choose>
 			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}">
 				<c:forEach var="diary" items="${diaryList }">
 <!-- 				앨범형 작업 -->
-				<div style="float: left; width: 30%; padding: 20px;">
-					<table>
-						<tr>
-							<td colspan="2">
+<!-- 					<table> -->
+<!-- 						<tr> -->
+<!-- 							<td colspan="2"> -->
+							<div class="list">
 								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
 									<c:choose>
 										<c:when test="${not empty diary.diary_img}">
-											<img alt="" src="img/community/${diary.diary_img }" width="500px">
+											<img class="img"  alt="" src="img/community/${diary.diary_img }" width="500px">
 										</c:when>
 										<c:otherwise>
-											<img alt="썸네일없음" src="img/community/treediary.png" width="500px">
+											<img class="img"  alt="" src="img/community/treediary.png" width="500px">
 										</c:otherwise>
 									</c:choose>
 								</a>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">
+								
+<!-- 								글제목 -->
+								<div>
 								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
 									<b>${diary.diary_subject }</b>
 								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>작성자</td>
-							<td>${diary.diary_id }</td>
-						</tr>
-						<tr>
-							<td>작성일</td>
-							<td>${diary.diary_date }</td>
-						</tr>
-						<tr>
-							<td>조회수</td>
-							<td>${diary.diary_readcount }</td>
-						</tr>
-					</table>
+								</div>
+								
+						 <span>작성자 ${diary.diary_id }</span> 
+					 	 <span>작성일 ${diary.diary_date }</span> 
+						 <span>조회수 ${diary.diary_readcount }</span> 
 						</div>
 				</c:forEach>
 			</c:when>
@@ -111,8 +108,8 @@ display:block;
 				<h1>게시물이 존재하지 않습니다.</h1>
 			</c:otherwise>
 		</c:choose>
-	</section>
-	
+	</div>
+</main>
 	<br>
 	
 <!-- 	버튼 목록 -->
@@ -120,14 +117,14 @@ display:block;
 	
 			<div id="buttonArea">
 	<c:if test="${not empty sessionScope.sId}">
-		   <button id="pencil" onclick="location.href='DiaryWriteForm.cm'" >✏ 글쓰기</button>
+		   <button id ="pencil" onclick="location.href='DiaryWriteForm.cm'" ><img src="img/community/free-icon-writing-6782423.png" width="47px" height="50px"></button>
 		</c:if>
 			</div>
 			
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageNum - 1}'">
+				<input type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
 				<input type="button" value="이전">
