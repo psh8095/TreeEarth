@@ -159,6 +159,15 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 				System.out.println("MemberFrontController - MemberLogout 오류");
 			}
+		} else if(command.equals("/KakaoLoginPro.me")) { //카톡 로그인 작업
+			try {
+				action = new KakaoLoginProAction();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("MemberFrontController - KakaoLoginPro 오류");
+			}
+
 		}
 		
 	// @아이디/비밀번호 찾기@--------------------------------------------------------------------------------------

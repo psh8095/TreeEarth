@@ -38,18 +38,17 @@
 					success: function (response) {
 						console.log(response)
 						alert("로그인 완료!");
+						alert(response.id);
 						
 						$.ajax({
 							type: "post",
-							url: "MemberLoginPro.me",
+							url: "KakaoLoginPro.me",
 							data: {
-								mem_id: response.profile_nickname
+								mem_id: response.id
 							},
 							dataType: "text",
 							success: function(response) {
-								session.setAttribute("sId", mem_id);
-								opener.location.reload();
-								window.close();
+								
 							}
 						});
 						
@@ -108,7 +107,8 @@
 						
 				
 					<div >
-						<input class="login_button" type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
+						<input class="login_button" type="submit" value="로그인">
+						<input class="login_button" type="button" value="회원가입" onclick="location.href='requiredTerms.me'">
 					</div>
 
 				<hr>
@@ -122,7 +122,6 @@
 					<div>
 						<span id="searchId" onclick="findId()">아이디 찾기</span>&nbsp;&nbsp;&nbsp;
 						<span id="searchPass" onclick="findPass()">비밀번호찾기</span>
-						<span><a href="requiredTerms.me">회원가입</a></span>
 					</div>				
 				
 				
