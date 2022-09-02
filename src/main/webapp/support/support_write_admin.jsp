@@ -11,9 +11,8 @@
 </head>
 <style type="text/css">	
 #writeForm {
-	width: 800px;
-	height: 610px;
-	border: 1px solid green;
+/* 	width: 800px; */
+/* 	height: 610px; */
 	margin: auto;
 }
 
@@ -23,17 +22,17 @@ h2 {
 
 table {
 	margin: auto;
-	width: 600px;
+/* 	width: 0px; */
 }
 
 .td_left {
-	width: 150px;
-	background: green;
+/* 	width: 150px; */
+/* 	background: green; */
 }
 
 .td_right {
-	width: 300px;
-	background: yellowgreen;
+/* 	width: 300px;s
+/* 	background: yellowgreen; */
 }
 
 #commandCell {
@@ -44,7 +43,7 @@ table {
 <body>
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<section id="writeForm">
-		<h2>게시판글등록</h2>
+		<h2>후원 등록</h2>
 		<form action="SupportWriteProAdmin.su" method="post"
 			enctype="multipart/form-data" name="boardForm" >
 			<input type="hidden" name="mem_id" value="${param.mem_id }">

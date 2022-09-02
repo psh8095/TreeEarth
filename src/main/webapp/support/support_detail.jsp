@@ -206,7 +206,7 @@ margin:auto;
 				var sId = '<%=sId%>'
 				if(sId == 'null') {
 					alert("로그인 이후 사용해 주세요!");
-					window.open("MemberLoginForm.me?returnUrl=SupportList.su");
+					window.open("MemberLoginForm.me?returnUrl=SupportList.su", "width=300,height=610");
 // 				// 회원만 작성하게 만드세요
 				} else if(sId != 'null'){ 
 					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=1000,height=610");
@@ -340,7 +340,6 @@ margin:auto;
 			<!-- 상세 페이지 -->		
 			<img id="sup_original" alt="" src="./img/support/<%=dto.getSup_original_file() %>" width="70%">
 			
-		
 		
 		
 		
