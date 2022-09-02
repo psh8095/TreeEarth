@@ -23,6 +23,26 @@
 <%-- 	<jsp:include page="hf/mainBanner.jsp" ></jsp:include> --%>
 	<!-- 배너 --> 
 	
+	<!-- 슬라이드 배너 -->
+	<div class="slider">
+		   <input type="radio" name="slide" id="slide1" checked>
+		   <input type="radio" name="slide" id="slide2">
+		   <input type="radio" name="slide" id="slide3">
+		   <input type="radio" name="slide" id="slide4">
+		   <ul id="imgholder" class="imgs">
+		       <li><img src="img/fire.png"></li>
+		       <li><img src="img/cam_tree.png"></li>
+		       <li><img src="img/dog.jpg"></li>
+		       <li><img src="img/cat01.jpg"></li>
+		   </ul>
+		   <div class="bullets">
+		       <label for="slide1">&nbsp;</label>
+		       <label for="slide2">&nbsp;</label>
+		       <label for="slide3">&nbsp;</label>
+		       <label for="slide4">&nbsp;</label>
+		   </div>
+	 </div>
+	
 	
     <main style="position: relative;">
   		
@@ -32,12 +52,12 @@
 	
   		
 		<!-- 백그라운드 -->
-    	<div id="main_back0">
-    	    <div>
-    	   		<img style="filter: grayscale(100%);" id="main_fixed" src="img/forest.jpeg" alt="대충 메인 베너1" width="80%">
-    			<h1 id="main_fixed2">바꿨어</h1>
-    		</div>
-    	</div>
+<!--     	<div id="main_back0"> -->
+<!--     	    <div> -->
+<!--     	   		<img style="filter: grayscale(100%);" id="main_fixed" src="img/forest.jpeg" alt="대충 메인 베너1" width="80%"> -->
+<!--     			<h1 id="main_fixed2">바꿨어</h1> -->
+<!--     		</div> -->
+<!--     	</div> -->
 
 
 		<!-- 이미지 -->
