@@ -16,7 +16,7 @@
 <!-- 		<h3>구매후기 상세내용</h3> -->
 		<div id="">
 		 	<table>
-		 		<tr><th width="300">${store_review.mem_id }님의 후기입니다.</th></tr>
+		 		<tr><th width="300">&lt;${store_review.mem_id }님의 후기입니다&gt;</th></tr>
 		 		<tr><th>${store_review.sto_re_date }</th></tr>
 		 		<tr>
 		 			<th width="70">후기 사진</th>
