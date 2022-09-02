@@ -6,14 +6,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{margin: 0; padding: 0; font-family: 'HallymGothic-Regular';}
+
+td {
+text-align: center;
+}
+</style>
 </head>
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
-	<h1>주문 내역</h1>
-	
+	<div id="main">
+		<h1 style="margin: 30px 0px 50px 0px">주문 내역</h1>
+	</div>
 	<hr>
 	
 	<c:choose>
@@ -23,6 +38,7 @@
 		<c:otherwise>
 			<table>
 				<tr>
+					<td width="100">배송 현황</td>
 					<td width="150">주문 번호</td>
 					<td width="200">상품</td>
 					<td width="200">상품명</td>
@@ -34,6 +50,7 @@
 				</tr>
 				<c:forEach var="order" items="${orderList }">
 					<tr>
+						<td>${order.order_status }</td>
 						<td width="150">${order.order_id }</td>
 						<td width="200"><img src="img/store/${order.sto_thum_file }" width="150"></td>
 						<td width="200">${order.sto_subject }</td>
