@@ -67,6 +67,10 @@ table input{
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<div id="writeForm">
 	<h2>캠페인 게시글 작성</h2>
 		<form action="CampaignWritePro.cp" method="post" enctype="multipart/form-data">

@@ -29,6 +29,10 @@ table {
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="writeForm">
 		<h1>반려나무 성장일지 작성</h1>
 		<form action="DiaryWritePro.cm" method="post"

@@ -12,6 +12,10 @@
 <%-- 	<jsp:include page="../hf/header.jsp"></jsp:include> --%>
 	<!-- 헤더 -->
 
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+
 	<%
 		String no_id = null;
 		if (session.getAttribute("no_id") != null) {

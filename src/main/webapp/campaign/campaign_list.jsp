@@ -60,6 +60,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<div style="height: 50px"></div>
 		<div class="slider">
 		   <input type="radio" name="slide" id="slide1" checked>

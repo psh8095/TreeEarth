@@ -13,6 +13,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<!-- 게시판 글 수정 -->
 	<section id="modifyForm">
 		<h1>자유게시판 글 수정</h1>

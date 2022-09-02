@@ -11,6 +11,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<!-- 게시판 등록 -->
 	<section id="writeForm">
 		<h1>상품 등록(관리자페이지)</h1>

@@ -14,6 +14,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="reviewForm">
 		<h1>상품 구매 후기 작성</h1>
 		<form action="StoreReviewWritePro.st"  name="reviewModifyForm" id="reviewModifyForm" method="post" enctype="multipart/form-data">

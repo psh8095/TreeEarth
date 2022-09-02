@@ -13,6 +13,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<h1>Q&A 수정</h1>
 	
 	<form action="QnaModifyPro.cm" method="post">

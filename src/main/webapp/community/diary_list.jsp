@@ -55,6 +55,10 @@ margin-left: 900px;
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 <!-- 	목록 전체 -->
 	<section id ="best">
 		<img alt="diarybanner" src="img/community/diarybanner.png"  >

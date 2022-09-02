@@ -12,6 +12,11 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<!-- 구매후기 상세내용 보기 -->
 <!-- 		<h3>구매후기 상세내용</h3> -->
 		<div id="">

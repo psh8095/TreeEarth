@@ -44,6 +44,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<!-- 게시판 답글 작성 -->
 	<section id="replyForm">
 		<h1>게시판 답글 작성</h1>

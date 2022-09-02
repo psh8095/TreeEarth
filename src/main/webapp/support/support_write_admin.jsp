@@ -42,6 +42,11 @@ table {
 </head>
 <body>
 	<jsp:include page="../hf/header.jsp"></jsp:include>
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<section id="writeForm">
 		<h2>후원 등록</h2>
 		<form action="SupportWriteProAdmin.su" method="post"

@@ -43,6 +43,12 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
+	
 		<h3>상품 문의 목록</h3> 
 		<br>
 			<div>

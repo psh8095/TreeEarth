@@ -358,6 +358,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+
 	<!-- 회원가입 절차 -->
 	<jsp:include page="currentLocation.jsp"></jsp:include>
 	<!-- 회원가입 절차 -->
