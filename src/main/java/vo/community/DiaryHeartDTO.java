@@ -3,7 +3,8 @@ package vo.community;
 /*
  * 좋아요 수, 킹려나무번호, 아이디
 CREATE d_heart (
-	likeno INT PRIMARY KEY auto_increment,
+	like_idx INT PRIMARY KEY,
+	likeno INT NOT NULL,
 	diaryno INT NOT NULL,
 	mid VARCHAR(50) NOT NULL,
 	FOREIGN KEY (mid) REFERENCES member (mem_id),
