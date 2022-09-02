@@ -15,17 +15,21 @@ public class DeleteWishlistAction implements Action {
 		System.out.println("DeleteWishlistAction");
 		ActionForward forward = null;
 		
-		int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
+		// 파라미터 데이터 배열에 저장
+		String[] sto_idx = request.getParameterValues("sto_idx");
+		
 		HttpSession session = request.getSession();
 		String sId = session.getAttribute("sId").toString();
 		
 		DeleteWishlistService service = new DeleteWishlistService();
 		
 		// 상품 번호가 0 이면 위시리스트 전체 삭제, 아니면 상품 번호에 해당하는 아이템 삭제
-		if(sto_idx == 0) {
-			service.deleteWishlist(sId);
-		} else {
-			service.deleteWishlist(sto_idx, sId);
+		for(int i = 0; i < sto_idx.length; i++) {
+			if(Integer.parseInt(sto_idx[i]) == 0) {
+				service.deleteWishlist(sId);
+			} else {
+				service.deleteWishlist(Integer.parseInt(sto_idx[i]), sId);
+			}
 		}
 		
 		forward = new ActionForward();

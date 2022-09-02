@@ -111,6 +111,7 @@ public class OrderDAO {
 			
 			while(rs.next()) {
 				OrderListDTO order = new OrderListDTO();
+				order.setOrder_status(rs.getString("order_status"));
 				order.setOrder_id(rs.getString("order_id"));
 				order.setSto_idx(rs.getInt("sto_idx"));
 				order.setSto_thum_file(rs.getString("sto_thum_file"));
