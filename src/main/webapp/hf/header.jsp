@@ -35,13 +35,15 @@
 		  		$("#backGraound").css({
 		  			"z-index" : "2",
 		  			"position" : "fixed ",
-		  			"transition-duration" : "1s"
+		  			"transition-duration" : "0.5s",
+		  			"opacity": "1"
 		  		});
 		       
 		  		
 		  		/* 로고 글자 */
 		  		$("#logo > a").css({
-		  			"color" : "black ",
+// 		  			"color" : "#4288eb ",
+		  			"color" : "#81c543 ",
 		  			"transition-duration" : "0.5s"
 		  		});
 		  		
@@ -77,7 +79,8 @@
 		  		
 		  		$("#backGraound").css({
 		  			"z-index" : "",
-		  			"transition-duration" : "0.5s"
+		  			"transition-duration" : "0.5s",
+		  			"opacity": "0"
 		  		});
 		       
 		  		/* 로고 글자 */
@@ -125,23 +128,14 @@
 
 
 <!-- 헤더 -->
-<header style="position: relative; width:100%; height: 500px">
+<header style="position: relative; width:100%;">
 	
 	
-	
-	<!-- 헤더 산 사진 -->
-	<div style=" width:100%; height:500px; background-color: white; position: absolute; z-index: 1; overflow: hidden; ">
-	    <img src="img/main/main_mountain.jpg" width="100%" alt="나무">
-<!-- 	    <img src="img/jang.jpg" width="100%" alt="나무" style="top: -500px; position: relative;" > -->
- 	</div>
- 	
+		 	
 	<!-- 백그라운드 -->
-	<div id="backGraound" style=" width:100%; height:160px; background-color: white; position: absolute; z-index: 0; "></div>
-	
-	<!-- 밝기 조절 -->
-	<div id="backGraound" style=" width:100%; height:500px; background-color: black; position: absolute; z-index: 1; opacity: 0.33;"></div>
-	
-	
+	<div id="backGraound" style=" width:100%; height:180px; background-color: white; position: absolute; z-index: 0; opacity: 0;"></div>
+
+
 	<!-- 헤더 기능 메뉴 -->
 	<div id="header1" style=" width:100%; position: absolute; z-index: 3; ">
 	
@@ -153,9 +147,13 @@
 	
 	
 		<!-- 로고 -->
+	
+			
+		<img id="main_logo" src="img/main/main_logo.png" alt="로고">
+		
+		
 		<div id="logo">
 			<a href="./">트리어스</a>
-<!-- 			<a href="./"><img src="img/main/main_logo.png" alt="트리어스" width="250"></a> -->
 		</div>
 		
 		
@@ -168,7 +166,7 @@
 				<c:choose>
 					<c:when test="${empty sessionScope.sId}">
 						<div class="login">
-							<a href="requiredTerms.me">회원가입</a> /
+							
 							<a onclick="login()">로그인</a>
 						</div>
 					</c:when>

@@ -122,6 +122,7 @@
 					<div>
 						<span id="searchId" onclick="findId()">아이디 찾기</span>&nbsp;&nbsp;&nbsp;
 						<span id="searchPass" onclick="findPass()">비밀번호찾기</span>
+						<span><a href="requiredTerms.me">회원가입</a></span>
 					</div>				
 				
 				
