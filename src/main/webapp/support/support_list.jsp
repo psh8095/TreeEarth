@@ -135,12 +135,12 @@ Back to top button
 	 <hr style="color: gray; opacity: 70%; margin: -20px 30px 30px 30px;">
 		   
 		   
-			<!--  베너 -->
-	       <div style="width: 75%; overflow:hidden; height:300px; background-color: black; z-index: 1; margin: 0 auto; top: 115px;  position: relative;">
-		  		<div style="background-color: black; opacity: 0.33;" >
-		  	 		<img src="img/jang.jpg" style=" display:block; width:100%; height: 100%">
-		   		</div>
-		   </div>
+<!-- 			<!--  베너 --> 
+<!-- 	       <div style="width: 75%; overflow:hidden; height:300px; background-color: black; z-index: 1; margin: 0 auto; top: 115px;  position: relative;"> -->
+<!-- 		  		<div style="background-color: black; opacity: 0.33;" > -->
+<!-- 		  	 		<img src="img/jang.jpg" style=" display:block; width:100%; height: 100%"> -->
+<!-- 		   		</div> -->
+<!-- 		   </div> -->
 		   
 		   
 			<!-- 글 목록 -->
