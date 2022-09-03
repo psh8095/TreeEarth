@@ -95,12 +95,49 @@ hr{
 #mem_main_div{
 	position: relative;
 	width: 40%;
-	border: 5px solid red;
+/* 	border: 5px solid red; */
 	box-sizing: border-box;
-	height: 100%;
+	height: 700px;
+	margin: 0 auto;
+	
 }
 
-#login_back{
-	background-color: #dcdcdc;
-	border-radius: 5px;
+
+.mem_margin{
+	
+	margin: 40px;
+}
+
+
+.mem_margin > div{
+
+	margin-bottom: 20px; 
+	
+}
+
+.mem_margin > div > span{
+	display: inline-block;
+	width: 100px; 
+
+	
+}
+
+.mem_margin > input, .mem_margin > form > input{
+	margin-left: 10px; 
+}
+
+
+/* 가입절차 */
+.location > div{
+	display: inline-block;
+	border: 7px solid ;
+	border-radius: 30%;
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+	padding: 30px;
+	
+}
+
+h2{
 }

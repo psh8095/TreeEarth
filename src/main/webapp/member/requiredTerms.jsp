@@ -91,53 +91,64 @@
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 	
+	<div style="text-align: center;">
+		<!-- 회원가입 절차 -->
+		<jsp:include page="currentLocation.jsp"></jsp:include>
+		<!-- 회원가입 절차 -->
+	</div>
+	
 	<form action="">
 	
+	
 			<div id="mem_main_div">
+			
+			
 				<div id="mem_back_div">
 						
 						
 						
-					<!-- 회원가입 절차 -->
-					<jsp:include page="currentLocation.jsp"></jsp:include>
-					<!-- 회원가입 절차 -->
+
 					
 					<hr>
 					
-					<h1 style="text-align: center;">가입 약관</h1>
+					<h1 class="mem_margin">가입 약관</h1>
+					
+										
+					<div class="mem_margin">
 					
 					
-							
-					<div>
-						<input type="checkbox" class="check"> 트리어스 구매 회원 이용약관
-						<span>(필수)</span>
+						<div>
+							<input type="checkbox" id="allCheck"> 전체동의
+						</div>
+								
+								
+						<div>
+							<input type="checkbox" class="check"> 트리어스 구매 회원 이용약관
+							<span>(필수)</span>
+						</div>
+						
+						
+						<div>
+							<input type="checkbox" class="check"> 전자금융서비스 이용약관
+							<span>(필수)</span>
+						</div>
+						
+						
+						<div>
+							<input type="checkbox" class="check"> 개인정보 수집 및 이용
+							<span>(선택)</span>
+						</div>
+						
+						
+						<div>
+							<input type="checkbox" class="check"> 개인정보 제3자 제공 동의
+							<span>(선택)</span>
+						</div>
+					
+					
 					</div>
 					
-					
-					<div>
-						<input type="checkbox" class="check"> 전자금융서비스 이용약관
-						<span>(필수)</span>
-					</div>
-					
-					
-					<div>
-						<input type="checkbox" class="check"> 개인정보 수집 및 이용
-						<span>(선택)</span>
-					</div>
-					
-					
-					<div>
-						<input type="checkbox" class="check"> 개인정보 제3자 제공 동의
-						<span>(선택)</span>
-					</div>
-					
-					
-					<div>
-						<input type="checkbox" id="allCheck"> 전체동의
-					</div>
-					
-					
-					<div>
+					<div class="mem_margin">
 						<!-- 만약 디비를 추가면 디비 작업 추가-->
 						<input id="buntton1" type="button"  value="돌아가기" >
 						<input id="buntton2" type="button"  value="동의하고 회원가입" >
@@ -145,6 +156,9 @@
 					
 					
 				</div>
+				
+				<hr>
+				
 			</div>
 			
 
