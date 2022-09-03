@@ -6,7 +6,50 @@
     font-style: normal;
 }
 
-/* 캠페인 슬라이드 배너 */
+* {-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  
+/* 캠페인 공고 작성 폼 */
+#back {
+   padding: 2rem;
+   background-color: hsl(0,0%,95%);
+} 
+
+#writeForm{
+	width: 500px;
+	padding: 10px;
+	margin: 45px auto 25px auto;
+	text-align: center;
+}
+
+#writeForm h2{
+	text-align: center;
+	padding: 20px;
+}
+
+#cam_form {
+    max-width: 30rem;
+    margin: 0 auto;
+	padding: 1.5rem 2rem; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+#table_from input{
+	 outline: 0;
+	 background: #ffffff;
+	 width: 100%;
+	 border: 0;
+	 padding: 15px;
+	 box-sizing: border-box;
+	 font-size: 15px;
+}
+
+#commandCell{
+	text-align: center;
+}
 
 /* 캠페인 참가 신청서 폼 */
 #back{

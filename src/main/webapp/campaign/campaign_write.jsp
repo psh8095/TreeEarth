@@ -5,28 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
+<link href="css/campaign.css" rel="stylesheet">
+<link href="css/button.css" rel="stylesheet">
 <style type="text/css">
-body {
-   padding: 2rem;
-   background-color: hsl(0,0%,95%);
-}
-
-* {-webkit-box-sizing: border-box;
-   -moz-box-sizing: border-box;
-   box-sizing: border-box; 
-}
-  
-#writeForm{
-	width: 550px;
-	padding: 20px;
-	margin: 45px auto 25px auto;
-}
-
-h2{
-	text-align: center;
-	padding: 20px;
-}
-
 form{
 	max-width: 30rem;
 	margin: 0 auto;
@@ -45,24 +26,10 @@ table input{
 	font-size: 15px;
 	
 }
-
-/* .td_left { */
-/* 	width: 150px; */
-/* 	background: gray; */
-/* 	text-align: center; */
-/* } */
 	
-/* .td_right { */
-/* 	width: 300px; */
-/* 	background: skyblue; */
-/* } */
-	
-#commandCell {
-	text-align: center;
-}	
 </style>
 </head>
-<body>
+<body id="back">
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
@@ -72,16 +39,16 @@ table input{
 	<!-- top -->
 	
 	<div id="writeForm">
-		<h2>캠페인 게시글 작성</h2>
-		<form action="CampaignWritePro.cp" method="post" enctype="multipart/form-data">
-			<table>
+		<h2>캠페인 공고 작성</h2>
+		<form id="cam_form" action="CampaignWritePro.cp" method="post" enctype="multipart/form-data">
+			<table id="table_form" border="1">
 				<tr>
 					<td><label for="cam_subject">제목</label></td>
 					<td><input type="text" name="cam_subject"></td>
 				</tr>
 				<tr>
 					<td><label for="cam_content">내용</label></td>
-					<td><textarea rows="15" cols="40" required="required" name="cam_content"></textarea>
+					<td><textarea rows="15" cols="41" required="required" name="cam_content"></textarea>
 				</tr>
 				<tr>
 					<td><label for="cam_img">파일 첨부</label></td>
@@ -90,9 +57,9 @@ table input{
 			</table>
 		<br>
 			<div id="commandCell"> 
-				<input id="cam_apply" type="submit" value="등록">&nbsp;&nbsp;
-				<input id="cam_apply" type="reset" value="다시쓰기">&nbsp;&nbsp;
-				<input id="cam_apply" type="button" value="취소" onclick="history.back()">
+				<input type="submit" value="등록">&nbsp;&nbsp;
+				<input type="reset" value="다시쓰기">&nbsp;&nbsp;
+				<input type="button" value="취소" onclick="history.back()">
 			</div>
 		</form>
 	</div>
