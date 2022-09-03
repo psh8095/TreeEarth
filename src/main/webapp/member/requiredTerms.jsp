@@ -28,7 +28,7 @@
 				//전체선택 체크 상태가 true 일 경우
 				if($("#allCheck").is(":checked")){
 					
-					//전체 체크
+					//전체 체크																																																
 					$(".check").each(function(index, dirrhks) {
 						dirrhks.checked = true;
 					});
@@ -83,7 +83,13 @@
 <body>
 
 
+	<!-- 헤더 -->
+	<jsp:include page="../hf/header.jsp"></jsp:include>
+	<!-- 헤더 -->
 
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
 	
 	<form action="">
 	
@@ -115,13 +121,13 @@
 					
 					
 					<div>
-						<input type="checkbox" class="check_no"> 개인정보 수집 및 이용
+						<input type="checkbox" class="check"> 개인정보 수집 및 이용
 						<span>(선택)</span>
 					</div>
 					
 					
 					<div>
-						<input type="checkbox" class="check_no"> 개인정보 제3자 제공 동의
+						<input type="checkbox" class="check"> 개인정보 제3자 제공 동의
 						<span>(선택)</span>
 					</div>
 					

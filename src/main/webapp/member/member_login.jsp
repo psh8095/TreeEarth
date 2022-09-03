@@ -80,6 +80,11 @@
 		}
 	}
 	
+	function join() {
+		opener.location.href="requiredTerms.me";
+		window.close();
+	}
+	
 </script>
 </head>
 <body>
@@ -108,7 +113,7 @@
 				
 					<div >
 						<input class="login_button" type="submit" value="로그인">
-						<input class="login_button" type="button" value="회원가입" onclick="location.href='requiredTerms.me'">
+						<input class="login_button" type="button" value="회원가입" onclick="join()">
 					</div>
 
 				<hr>
