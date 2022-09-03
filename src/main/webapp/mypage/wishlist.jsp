@@ -101,7 +101,9 @@
 							<input type="checkbox" class="checkWishlist">
 						</div>
 						<div class="my_img">
-							<img src="img/store/${wishlist.sto_thum_file }" width="150">
+							<a href="StoreItemDetail.st?sto_idx=${wishlist.sto_idx }">
+								<img src="img/store/${wishlist.sto_thum_file }" width="150">
+							</a>
 						</div>
 						<div class="my_subject">
 							${wishlist.sto_subject }
