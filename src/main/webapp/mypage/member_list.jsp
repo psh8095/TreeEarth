@@ -12,6 +12,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<h1>회원 목록</h1>
 	<table border="1">
 		<tr>

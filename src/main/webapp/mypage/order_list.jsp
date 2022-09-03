@@ -26,6 +26,10 @@ text-align: center;
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<div id="main">
 		<h1 style="margin: 30px 0px 50px 0px">주문 내역</h1>
 	</div>
