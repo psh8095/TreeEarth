@@ -32,7 +32,7 @@
 }
 
 .header {
-	background-color: #7fd49b;
+	background-color: #c5e096;
 	color: #ffffff;
 	font-weight: 600;
 }

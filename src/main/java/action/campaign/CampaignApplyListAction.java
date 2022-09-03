@@ -27,7 +27,7 @@ public class CampaignApplyListAction implements Action {
 		request.setAttribute("applyList", applyList);
 		
 		forward = new ActionForward();
-		forward.setPath("campaign/campaign_apply_list.jsp");
+		forward.setPath("mypage/campaign_apply_list.jsp");
 		return forward;
 	}
 
