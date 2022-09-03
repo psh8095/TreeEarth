@@ -1,5 +1,7 @@
 package action.member;
 
+import java.io.*;
+
 import javax.servlet.http.*;
 
 import action.*;
@@ -14,6 +16,16 @@ public class KakaoLoginProAction implements Action {
 		
 		String mem_id = request.getParameter("mem_id");
 		System.out.println(mem_id);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("sId", mem_id);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("opener.location.reload()");
+		out.println("window.close();");
+		out.println("</script>");
 		
 		return forward;
 	}
