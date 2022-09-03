@@ -12,6 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link href="css/member.css" rel="stylesheet">
 
 	<script type="text/javascript">
 	
@@ -31,22 +32,46 @@
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
+			
+			
+			<div style="text-align: center;">
+				<!-- 회원가입 절차 -->
+				<jsp:include page="currentLocation.jsp"></jsp:include>
+				<!-- 회원가입 절차 -->
+			</div>
+			
+			
+			<div id="mem_main_div" >
+		
+			
 
-	<!-- 회원가입 절차 -->
-	<jsp:include page="currentLocation.jsp"></jsp:include>
-	<!-- 회원가입 절차 -->
+					
+					
+					<hr>
+			
+					<div id="mem_back_div">
+					
+					
+					<h1 class="mem_margin">본인 인증</h1>
+					
+					
+					<div class="mem_margin">
+						<form action="">
+							
+							
+							<input type="button" value="휴대폰 인증하기" onclick="location.href=''">
+							<input type="button" value="이메일 인증하기" onclick="checkEmail()">
+							
+						</form>
+					</div>
 	
-	<h1>본인 인증</h1>
+				</div>
+				
+				<hr>
+				
+			</div>	
 	
-	
-	<form action="">
-		
-		
-		<input type="button" value="휴대폰 인증하기" onclick="location.href=''">
-		<input type="button" value="이메일 인증하기" onclick="checkEmail()">
-		
-	</form>
-	
+				
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

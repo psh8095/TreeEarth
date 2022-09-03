@@ -20,28 +20,47 @@
 			
 			//페이지에 따라 색깔 변경
 			if(<%=location%> == 1){
-				$("#1").css("color", "red");
+				$("#1").css("color", "#4288eb");
 				
 			} else if(<%=location%> == 2){
-				$("#2").css("color", "red");
+				$("#2").css("color", "#4288eb");
 				
 			} else if(<%=location%> == 3){
-				$("#3").css("color", "red");
+				$("#3").css("color", "#4288eb");
 				
 			} else if(<%=location%> == 4){
-				$("#4").css("color", "red");
+				$("#4").css("color", "#4288eb");
 			}
 		});
 	</script>
 	
+		<link href="css/member.css" rel="stylesheet">
 	
 </head>
 <body>
 	
-	<h2 id="1">약관</h2>
-	<h2 id="2">본인인증</h2>
-	<h2 id="3">정보입력</h2>
-	<h2 id="4">가입완료</h2>
+	<div class="location">
+		
+		<div id="1">
+			<h2 >약관</h2>
+		</div>
+		
+		
+		<div id="2">
+			<h2 >본인인증</h2>
+		</div>
+		
+		
+		<div id="3"> 
+			<h2 >정보입력</h2>
+		</div>
+		
+		
+		<div id="4">
+			<h2 >가입완료</h2>
+		</div>
+	
+	</div>
 	
 </body>
 </html>
