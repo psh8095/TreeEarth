@@ -26,20 +26,19 @@
 </script>
 </head>
 <body>
-
-
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
 	
 	<hr style="color: gray; opacity: 50%; margin: 50px;">
 	
 	
 	<!-- 메인 디브 -->
 	<div id="mem_main">
-	
-	
-		<!-- 샬라샬라 -->
 		<h1 class="text_div">개인 정보 수정</h1>
 		
 		<div class="text_div">
@@ -47,13 +46,9 @@
 			<span>회원님의 정보를 안전하게 보호하기위해 비밀번호를 다시 한번 확인해 주세요</span>
 		</div>
 
-
-
 		<!-- 기능  div -->
 		<div id="mem_contnet">
-		
 			<hr style="color: gray; opacity: 70%; margin: 20px;">
-		
 			<!-- input 바 -->
 			<div id="input_from">
 				<div >
@@ -67,17 +62,13 @@
 				</div>
 			</div>
 			
-			
 			<hr style="color: gray; opacity: 70%; margin: 20px;">
 			
 			<div>
 				<input type="button" value="확인" id="checkPass"><br><br>
 			</div>
 		</div>
-
-	
 	</div>
-	
 	
 	
 	<!-- 푸터 -->

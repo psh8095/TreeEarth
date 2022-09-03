@@ -13,6 +13,10 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
 
 	<h1>후원 내역 조회</h1>
 	
