@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>트리어스 자유게시판</title>
 <style type="text/css">
-
 	.free_title {
 		color: #c5e096;
 	}
