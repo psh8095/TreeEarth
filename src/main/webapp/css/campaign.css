@@ -6,9 +6,75 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {-webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 공용css */
+
+*{margin: 0; padding: 0;}
+ul{list-style: none; padding-left: 0;}
+a{text-decoration: none; color:black;}
+
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 캠페인  */
+
+.cam_img_div1{
+	position: relative;
+	width: 100%;
+	height: 500px;
+	overflow:hidden;
+	text-align: center;
+}
+
+
+
+.cam_sub_img{
+	 position: absolute;
+	 width: 100%;
+	 filter: blur(5px);
+ 	 -webkit-filter: blur(5px);
+ 	 top: -100px;
+	
+}
+.cam_sub_span{
+	position: absolute;
+	font-family: 'GangwonEduPowerExtraBoldA';
+	font-size: 60px;
+   	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.cam_img_div2{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+ 	 margin: 300px 0px 70px 0px; 
+ }
+
+.cam_img_div2 > img{
+
+}
+
+.cam_main_div{
+	text-align: center;
+}
+
+ /* ---------------------------------------------------------------------------------------------------- */
   
 /* 캠페인 공고 작성 폼 */
 #back {

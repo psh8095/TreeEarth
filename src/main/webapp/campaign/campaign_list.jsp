@@ -64,7 +64,13 @@
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 	
-	<div style="height: 50px"></div>
+	<div style="text-align: center;">
+	
+	<hr style="color: gray; opacity: 70%; width: 70%; display: block; margin: 70px auto;" >
+	
+	
+	<h1 style="display: block; margin: 50px;">진행중인 캠페인</h1>
+	
 	<c:choose>
 		<c:when test="${empty campaignList }">
 			<h1>현재 진행중인 캠페인이 없습니다.</h1>
@@ -72,14 +78,17 @@
 		<c:otherwise>
 			<section id="listBar">
 				<c:forEach var="cam" items="${campaignList }">
-					<button class="cam_subject w-btn-outline w-btn-green-outline">${cam.cam_subject }</button>
+					
+<%-- 					<button class="cam_subject w-btn-outline w-btn-green-outline">${cam.cam_subject }</button> --%>
+					<button  class="cam_subject">${cam.cam_subject }</button>
 					<span class="cam_idx" hidden="">${cam.cam_idx }</span>
+				
 				</c:forEach>
 			</section>
 			<section id="detailView"></section>
 		</c:otherwise>	
 	</c:choose>
-	
+	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
 	<!-- 푸터 -->

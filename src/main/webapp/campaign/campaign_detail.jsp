@@ -7,10 +7,6 @@
 <title>TreeEarth</title>
 <link href="../css/index.css" rel="stylesheet">
 <style type="text/css">
-.img {
-	padding: 2%;
-	text-align: center;
-}
 
 #cam_apply{
 	width:150px;
@@ -39,10 +35,31 @@
 </style>
 </head>
 <body>
-	<div class="img"><img src="img/campaign/${campaign.cam_real_img }" width="70%"></div>
-	<div class="img">${campaign.cam_content }</div>
-	<div class="img">
-		<a href="CampaignApplyForm.cp?cam_idx=${campaign.cam_idx }"><button id="cam_apply" type="button">캠페인 참가 신청</button></a>
+	
+	<div class="cam_main_div">	
+	
+		<hr style="color: gray; opacity: 70%; width: 70%; display: block; margin: 50px auto;" >
+	
+	
+		<div class="cam_img_div1">
+			<div class="cam_sub_img"><img alt="" src="img/campaign/${campaign.cam_real_img }"></div>
+			<div class="cam_sub_span"><span>${campaign.cam_content }</span></div>
+		</div>
+		
+			
+		
+		<div class="cam_img_div2">
+			<img alt="" src="img/campaign/${campaign.cam_real_img }">
+		</div>
+		
+		
+		
+		<div class="img">
+			<a href="CampaignApplyForm.cp?cam_idx=${campaign.cam_idx }"><button id="cam_apply" type="button">캠페인 참가 신청</button></a>
+		</div>
+		
+		
 	</div>
+	
 </body>
 </html>
