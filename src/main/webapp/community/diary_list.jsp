@@ -27,7 +27,7 @@ margin-left:400px;
 #pageList{
 margin:auto;
 display:block;
-margin-left: 900px;
+margin-left: -100px;
 }
 
 #pencil{

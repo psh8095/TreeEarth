@@ -16,7 +16,6 @@
 <link href="../css/index.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
 <link href="css/community.css" rel="stylesheet">
-</head>
 <style type="text/css">	
 
 @font-face {
@@ -73,11 +72,6 @@ table {
     transition: 0.25s;
 }
 
-	
-.w-btn-indigo-outline {
-    border: 3px solid aliceblue;
-    color: #1e6b7b;
-}
 
 #heart {
 	margin-top: 30px;
@@ -113,14 +107,19 @@ table {
 	});
 
 </script>
+</head>
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
+	
+	   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	
+	   <div class="main">
+	   <hr style="color: gray; opacity: 70%; margin: 50px;">
+		<div id="content">
 	<section id="writeForm">
-		<h2> 나만의 반려나무를 자랑해봐요</h2>
 		
-		<section id="">
 			<table>
 				<tr><th width="70">제 목</th><td colspan="3" >${diary.diary_subject }</td></tr>
 				<tr>
@@ -148,12 +147,11 @@ table {
 				</tr>
 			</table>
 		</section>
-		
+		</div>
 			<!-- 이거 뭐야? -->
-			<section id="articleContentArea">
-			</section>
+<!-- 			<section id="articleContentArea"> -->
 			
-	</section>
+		</div>
 
 	
 	<!-- 좋아요 기능 -->
@@ -162,6 +160,7 @@ table {
 	</div>
 	
 <!-- 	로그인을 해야만 수정, 삭제 가능 -->
+<div>
 	<%if(sId != null){%>
 	<section id="commandListUser">
 			<button class="w-btn-outline w-btn-green-outline"type="button" onclick="location.href='DiaryModifyForm.cm?diary_idx=${diary.diary_idx}&pageNum=${param.pageNum}'">수정</button>
@@ -175,6 +174,7 @@ table {
 		</section>
 			
 	<%}%>	
+</div>
 
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
