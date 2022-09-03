@@ -17,67 +17,68 @@
 <link href="css/button.css" rel="stylesheet">
 <link href="css/community.css" rel="stylesheet">
 <style type="text/css">	
-
-@font-face {
- font-family: 'MICEGothic Bold';
-	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
-	    font-weight: 700;
-	    font-style: normal;
-}
-#writeForm {
-	width: 800px;
-	height: 610px;
-	margin: auto;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-table {
-	margin: auto;
-	width: 700px;
-}
-
-#commandCell {
-	text-align: center;
-}
-
-#articleContentArea {
-		margin-top: 20px;
-		width:auto;
-		height: 420px;
-		text-align: center;
-		overflow: auto;
-		white-space: pre-line;
+	
+	@font-face {
+	 font-family: 'MICEGothic Bold';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+		    font-weight: 700;
+		    font-style: normal;
 	}
 	
-		#commandList {
+	#writeForm {
+		width: 800px;
+		height: 610px;
 		margin: auto;
-		width: 500px;
-		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
 	}
-		#commandListUser {
+	
+	table {
 		margin: auto;
-		width: 500px;
+		width: 700px;
+	}
+	
+	#commandCell {
 		text-align: center;
 	}
 	
-	.w-btn-outline {
-    position: relative;
-    padding: 12px 12px;
-    border-radius: 15px;
-    font-family:'MICEGothic Bold';
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-
-#heart {
-	margin-top: 30px;
-	margin-left: 1300px;
-	margin-bottom: 50px;
-}
+	#articleContentArea {
+			margin-top: 20px;
+			width:auto;
+			height: 420px;
+			text-align: center;
+			overflow: auto;
+			white-space: pre-line;
+		}
+		
+			#commandList {
+			margin: auto;
+			width: 500px;
+			text-align: center;
+		}
+			#commandListUser {
+			margin: auto;
+			width: 500px;
+			text-align: center;
+		}
+		
+		.w-btn-outline {
+	    position: relative;
+	    padding: 12px 12px;
+	    border-radius: 15px;
+	    font-family:'MICEGothic Bold';
+	    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: 0.25s;
+	}
+	
+	
+	#heart {
+		margin-top: 30px;
+		margin-left: 1300px;
+		margin-bottom: 50px;
+	}
 </style>
 <script type="text/javascript">
 
