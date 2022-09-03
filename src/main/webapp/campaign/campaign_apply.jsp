@@ -11,7 +11,7 @@
 
 </style>
 </head>
-<body>
+<body id="back">
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
@@ -22,9 +22,9 @@
 	
 	<div id="container">
 	<h1>캠페인 참가 신청서</h1>
-	<form action="CampaignApplyPro.cp" method="post">
+	<form class="cam_form" action="CampaignApplyPro.cp" method="post">
 		<input type="hidden" name="cam_idx" value="${param.cam_idx }">
-		<table border="1">
+		<table id="table_form" border="1">
 			<tr>
 				<td><label for="cam_name">이름</label></td>
 				<td><input type="text" name="mem_name" required="required"></td>

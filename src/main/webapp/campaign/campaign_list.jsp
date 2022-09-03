@@ -65,25 +65,6 @@
 	<!-- top -->
 	
 	<div style="height: 50px"></div>
-		<div class="slider">
-		   <input type="radio" name="slide" id="slide1" checked>
-		   <input type="radio" name="slide" id="slide2">
-		   <input type="radio" name="slide" id="slide3">
-		   <input type="radio" name="slide" id="slide4">
-		   <ul id="imgholder" class="imgs">
-		       <li><img src="img/campaign/slide1.jpg"></li>
-		       <li><img src="img/campaign/slide2.jpg"></li>
-		       <li><img src="img/campaign/slide3.jpg"></li>
-		       <li><img src="img/campaign/slide4.jpg"></li>
-		   </ul>
-		   <div class="bullets">
-		       <label for="slide1">&nbsp;</label>
-		       <label for="slide2">&nbsp;</label>
-		       <label for="slide3">&nbsp;</label>
-		       <label for="slide4">&nbsp;</label>
-		   </div>
-	</div>
-	
 	<c:choose>
 		<c:when test="${empty campaignList }">
 			<h1>현재 진행중인 캠페인이 없습니다.</h1>

@@ -7,80 +7,9 @@
 }
 
 /* 캠페인 슬라이드 배너 */
-.slider{
-    width: 640px;
-    height: 480px;
-    position: relative;
-    margin: 0 auto;
-}
-.slider input[type=radio]{
-    display: none;
-}
-ul.imgs{
-    padding: 0;
-    margin: 0;
-}
-ul.imgs li{
-    position: absolute;
-    opacity: 0;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    transition-delay: 0.9s;
-}
-.bullets{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    z-index: 2;
-}
-.bullets label{
-    display: inline-block;
-    border-radius: 50%;
-    background-color: rgba(0,0,0,0.55);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-.slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
-    background-color: #fff;
-}
-
-.slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-.slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-.slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-.slider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-
-
 
 /* 캠페인 참가 신청서 폼 */
-body {
+#back{
     background-color: hsl(0,0%,95%);
 }
 
@@ -93,8 +22,13 @@ body {
   	padding: 20px;
   	margin: 45px auto 25px auto;
 }
-  
-form {
+
+#container h1{
+	text-align: center;
+	padding: 20px;
+}
+ 
+.cam_form {
     max-width: 30rem;
     margin: 0 auto;
 	padding: 1.5rem 2rem; 
@@ -103,19 +37,14 @@ form {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-table input {
-  outline: 0;
-  background: #ffffff;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 15px;
-}
-
-h1{
-	text-align: center;
-	padding: 20px;
+#table_form input {
+	 outline: 0;
+	 background: #ffffff;
+	 width: 100%;
+	 border: 0;
+	 padding: 15px;
+	 box-sizing: border-box;
+	 font-size: 15px;
 }
 
 
