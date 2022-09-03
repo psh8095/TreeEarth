@@ -43,6 +43,7 @@
 	
 		<div class="cam_img_div1">
 			<div class="cam_sub_img"><img alt="" src="img/campaign/${campaign.cam_real_img }"></div>
+			<div style=" width:100%; height:500px; background-color: black; position: absolute; z-index: 1; opacity: 0.20;"></div>
 			<div class="cam_sub_span"><span>${campaign.cam_content }</span></div>
 		</div>
 		

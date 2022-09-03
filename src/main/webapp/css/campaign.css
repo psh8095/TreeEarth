@@ -48,6 +48,8 @@ a{text-decoration: none; color:black;}
  	 top: -100px;
 	
 }
+
+/* 캠페인 서브젝트 */
 .cam_sub_span{
 	position: absolute;
 	font-family: 'GangwonEduPowerExtraBoldA';
@@ -56,6 +58,7 @@ a{text-decoration: none; color:black;}
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    z-index: 1;
 }
 
 .cam_img_div2{
