@@ -20,6 +20,11 @@
     font-style: normal;
 }
 
+*{margin: 0; padding: 0; font-family: 'HallymGothic-Regular';}
+
+.cam_subject {
+	font-family: 'HallymGothic-Regular';
+}
 </style>
 <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
@@ -79,8 +84,7 @@
 			<section id="listBar">
 				<c:forEach var="cam" items="${campaignList }">
 					
-<%-- 					<button class="cam_subject w-btn-outline w-btn-green-outline">${cam.cam_subject }</button> --%>
-					<button  class="cam_subject">${cam.cam_subject }</button>
+					<button class="cam_subject w-btn-outline w-btn-green-outline">${cam.cam_subject }</button>
 					<span class="cam_idx" hidden="">${cam.cam_idx }</span>
 				
 				</c:forEach>
