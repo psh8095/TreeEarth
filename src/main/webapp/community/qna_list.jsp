@@ -46,6 +46,10 @@
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include> 
 	<!-- 헤더 -->
+	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
 
 	<!-- 카테고리 선택했을때 페이지 이동 -->
 	<div class="qna_category">

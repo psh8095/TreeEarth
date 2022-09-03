@@ -11,6 +11,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<h1>관리자 페이지</h1><br>
 	
 	<h3>1. 상품 관리</h3>

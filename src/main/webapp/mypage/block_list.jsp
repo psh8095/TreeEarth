@@ -12,6 +12,10 @@
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
 	
+	<!-- top -->
+   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	
 	<h1>신고 글 조회</h1>
 	<h3>1. 캠페인 참여후기</h3>
 	
