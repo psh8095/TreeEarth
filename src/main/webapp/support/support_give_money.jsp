@@ -3,9 +3,10 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	
+	SupportDTO dto = (SupportDTO)request.getAttribute("dto");
 	int idx = Integer.parseInt(request.getParameter("idx"));
-// 	out.print(idx);
+	String sId = (String)session.getAttribute("sId");
+	String sup_subject = request.getParameter("sup_subject");
 %>
 
 <!DOCTYPE html>
@@ -193,7 +194,7 @@ $(function() {
 	<div class="gm_main_div">
 		<form action="GiveMoneyPro.su">
 			
-			
+				<div class="donator">"<%=sId %>" 님의 소중한 마음이 기부 될,</div>
 				<div class="gm_main_text1">[ 대충 산살리기 캠페인 제목 ]</div>
 				
 			<hr style="margin-bottom: 30px; opacity: 0.5; ">
