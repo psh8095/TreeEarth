@@ -83,6 +83,7 @@
 		       <label for="slide4">&nbsp;</label>
 		   </div>
 	</div>
+	
 	<c:choose>
 		<c:when test="${empty campaignList }">
 			<h1>현재 진행중인 캠페인이 없습니다.</h1>
@@ -90,12 +91,11 @@
 		<c:otherwise>
 			<section id="listBar">
 				<c:forEach var="cam" items="${campaignList }">
-					<button class="w-btn-outline w-btn-green-outline">${cam.cam_subject }</button>
+					<button class="cam_subject w-btn-outline w-btn-green-outline">${cam.cam_subject }</button>
 					<span class="cam_idx" hidden="">${cam.cam_idx }</span>
 				</c:forEach>
 			</section>
 			<section id="detailView"></section>
-			
 		</c:otherwise>	
 	</c:choose>
 	
