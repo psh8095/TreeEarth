@@ -40,12 +40,12 @@
 		  		});
 		       
 		  		
-		  		/* 로고 글자 */
-		  		$("#logo > a").css({
-// 		  			"color" : "#4288eb ",
-		  			"color" : "#81c543 ",
-		  			"transition-duration" : "0.5s"
-		  		});
+	              /* 로고 글자 */
+	              $("#logo > a").css({
+	                  "color" : "#4288eb ",
+// 	                 "color" : "#81c543 ",
+	                 "transition-duration" : "0.5s"
+	              });
 		  		
 		  		
 		  		/* 로그인 글자 */

@@ -31,37 +31,27 @@
 	console.log(Kakao.isInitialized());
 	
 	function kakaoLogin() {
-		Kakao.Auth.login({
-			success: function (response) {
-				Kakao.API.request({
-					url: '/v2/user/me',
-					success: function (response) {
-						console.log(response)
-						alert("로그인 완료!");
-						alert(response.id);
-						
-						$.ajax({
-							type: "post",
-							url: "KakaoLoginPro.me",
-							data: {
-								mem_id: response.id
-							},
-							dataType: "text",
-							success: function(response) {
-								
-							}
-						});
-						
-					},
-					fail: function (error) {
-						console.log(error)
-					},
-				})
-			},
-			fail: function (error) {
-				console.log(error)
-			},
-		})
+	    window.Kakao.Auth.login({
+	    	//동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값
+	        scope: 'profile_nickname, account_email, gender', 
+	        success: function(response) {
+	        	// 로그인 성공하면 받아오는 데이터
+	            console.log(response) 
+	            // 사용자 정보 가져오기
+	            window.Kakao.API.request({  
+	                url: '/v2/user/me',
+	                success: (response) => {
+	                	// 가입자 이름 저장
+	                    var mem_id = response.properties.nickname; 
+	                    alert(mem_id); 
+	                    location.href="KakaoLoginPro.me?mem_id=" + mem_id; 
+	                }
+	            });
+	        },
+	        fail: function(error) {
+	            console.log(error);
+	        }
+	    });
 	}
 	
 	function kakaoLogout() {
