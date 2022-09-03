@@ -132,8 +132,7 @@ Back to top button
 	<!-- 후원 메인 블럭 -->
    <main>
    
-	 <hr style="color: gray; opacity: 70%; margin: -20px 30px 30px 30px;">
-		   
+	 <hr style="color: gray; opacity: 70%; margin: 70px;">		   
 		   
 <!-- 			<!--  베너 --> 
 <!-- 	       <div style="width: 75%; overflow:hidden; height:300px; background-color: black; z-index: 1; margin: 0 auto; top: 115px;  position: relative;"> -->
