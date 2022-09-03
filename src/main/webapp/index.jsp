@@ -51,7 +51,11 @@
 		   
 		  
 		   <ul id="imgholder" class="imgs">
-		       <li class="main_forest"><img src="img/main/main_forest.jpg" width="100%" alt="나무"></li>
+		   
+		       <li class="main_forest">
+		       	<img src="img/main/whfrnl.png" width="100%" alt="나무">
+		       </li>
+<!-- 		       <li class="main_forest"><img src="img/main/main_forest.jpg" width="100%" alt="나무"></li> -->
 		       <li class="main_forest"><img src="img/main/main_forest2.jpg" width="100%" alt="나무"></li>
 		       <li class="main_forest"><img src="img/main/main_forest3.jpg" width="100%" alt="나무"></li>
 		       <li class="main_forest"><img src="img/main/main_forest4.jpg" width="100%" alt="나무"></li>
