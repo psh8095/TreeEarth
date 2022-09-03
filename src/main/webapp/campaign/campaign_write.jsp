@@ -8,25 +8,51 @@
 <link href="css/campaign.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
 <style type="text/css">
-form{
-	max-width: 30rem;
-	margin: 0 auto;
-	padding: 1.5rem 2rem;
-	background-color: #ffffff;
-	border-radius: 8px;
-	box-shadow: 0 4px 20px raba(0,0,0,0.15);
-}
-
-table input{
-	outline: 0;
-	background: #ffffff;
-	width: 100%;
-	padding: 15px;
-	box-sizing: border-box;
-	font-size: 15px;
+	#writeForm {
+		width: 500px;
+		height: 450px;
+		border: 1px #c5e096;
+		margin: auto;
+	}
 	
-}
+	h1 {
+		text-align: center;
+		color: #c5e096;
+	}
 	
+	.table {
+		margin: auto;
+		width: 450px;
+		color: white;
+	}
+	
+	.td_left {
+		width: 150px;
+		background: #c5e096;
+		text-align: center;
+		color: white;
+	}
+	
+	#button {
+		margin-right: 9in;
+		position: absolute;
+		bottom: -0.3in;
+		right: 6px;		 
+	}
+	
+	#button2 {
+		color: white; 
+		padding: 4px 10px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
 </style>
 </head>
 <body id="back">
@@ -38,31 +64,31 @@ table input{
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 	
-	<div id="writeForm">
-		<h2>캠페인 공고 작성</h2>
+	<section id="writeForm">
+		<h1>캠페인 공고 작성</h1>
 		<form id="cam_form" action="CampaignWritePro.cp" method="post" enctype="multipart/form-data">
-			<table id="table_form" border="1">
+			<table id="table">
 				<tr>
-					<td><label for="cam_subject">제목</label></td>
+					<td class="td_left"><label for="cam_subject">제목</label></td>
 					<td><input type="text" name="cam_subject"></td>
 				</tr>
 				<tr>
-					<td><label for="cam_content">내용</label></td>
+					<td class="td_left"><label for="cam_content">내용</label></td>
 					<td><textarea rows="15" cols="41" required="required" name="cam_content"></textarea>
 				</tr>
 				<tr>
-					<td><label for="cam_img">파일 첨부</label></td>
+					<td class="td_left"><label for="cam_img">파일 첨부</label></td>
 					<td><input type="file" name="cam_img"></td>
 				</tr>
 			</table>
-		<br>
-			<div id="commandCell"> 
-				<input type="submit" value="등록">&nbsp;&nbsp;
-				<input type="reset" value="다시쓰기">&nbsp;&nbsp;
-				<input type="button" value="취소" onclick="history.back()">
-			</div>
+			
+			<section id="button">
+				<button id="button2" type="submit" value="등록">등록</button>
+				<button id="button2" type="reset" value="다시쓰기">다시쓰기</button>
+				<button id="button2" type="button" value="취소" onclick="history.back()">취소</button>
+			</section>
 		</form>
-	</div>
+	</section>
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>

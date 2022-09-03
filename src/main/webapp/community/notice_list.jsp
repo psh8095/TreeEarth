@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
+<style type="text/css">
+	.free_title {
+		color: #c5e096;
+	}
+</style>
 <link href="css/community.css" rel="stylesheet">
 </head>
 <body>
@@ -21,12 +26,15 @@
 	<!-- 공지사항 메인 -->
    <main>
    
-		<hr style="color: gray; opacity: 70%; margin: 50px;">
-			   
-	   
 		<!-- 공지사항 목록 -->
 	    <div class="main">
-	
+	    
+	    <hr style="color: gray; opacity: 70%; margin: 50px;">
+		
+			<div class="free_title">
+				<span>공지사항</span>
+			</div>
+		
 			<c:choose>
 				<c:when test="${not empty noticeList and pageInfo.itemListCount gt 0}">
 					<c:forEach var="notice" items="${noticeList }">
