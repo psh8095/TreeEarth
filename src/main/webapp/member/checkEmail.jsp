@@ -135,7 +135,12 @@
 		
 		// 인증 코드 발송 ---------------------------------------------------------------------------------
 			
+							
 		
+		// 1번 타이머 인터벌
+		var intervalTime1 = null;
+		// 2번 타이머 인터벌
+		var intervalTime2 = null;
 		
 		//인증 타이머 
 			
@@ -162,12 +167,7 @@
 		
 					
 		// 인증 메일 타이머 ---------------------------------------------------------------------------------
-					
-		
-					// 1번 타이머 인터벌
-					var intervalTime1 = null;
-					// 2번 타이머 인터벌
-					var intervalTime2 = null;
+
 					
 					var time = 180;
 					var min = "";
@@ -178,7 +178,7 @@
 					if(isStop > 2){
 						isStop = 1;
 					}
-					alert(isStop)
+				
 					
 
 						//1번 타이머 작동
@@ -193,7 +193,7 @@
 								sec = time%60;
 								
 								
-								$("#authCodeSpan").html(min + "분" + sec + "초" + "1번");
+								$("#authCodeSpan").html(min + "분" + sec + "초" );
 								
 								//갱신될 때마다 실행되는 코드
 								time--;
@@ -222,7 +222,7 @@
 								sec = time%60;
 								
 								
-								$("#authCodeSpan").html(min + "분" + sec + "초" + "2번");
+								$("#authCodeSpan").html(min + "분" + sec + "초" );
 								
 								//갱신될 때마다 실행되는 코드
 								time--;

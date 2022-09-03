@@ -350,6 +350,7 @@
 	}	
 		
 	</script>
+	<link href="css/member.css" rel="stylesheet">
 
 </head>
 <body>
@@ -362,111 +363,123 @@
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 
-	<!-- 회원가입 절차 -->
-	<jsp:include page="currentLocation.jsp"></jsp:include>
-	<!-- 회원가입 절차 -->
 	
-	<h1>회원가입</h1>
-	<form action="joinProAction.me" method="get">
-		<table border="1">
-			
-			
-			<tr>
-				<td>ID</td>
-				<td>
-					<input id="id" type="text" name="id" placeholder="5~20글자 사이 입력" required="required">
-					<input id="checkId" type="button" value="아이디 중복확인."><br>
-					<span id="idSpan"></span>
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td>비밀번호</td>
-				<td>
-					<input id="passwd" type="password" name="pass" placeholder="8 ~ 16글자 사이 입력" required="required"><br>
-					<span id="passwdSpan"></span>
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td>비밀번호확인</td>
-				<td>
-					<input id="checkPasswd" type="password" name="passwd2" required="required"><br>
-					<span id="checkPasswdSpan"></span>
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td>이름</td>
-				<td>
-					<input id="name" type="text" name="name" required="required">
-				</td>
-			</tr>
-			
+	
+	<div style="text-align: center;">
+		<!-- 회원가입 절차 -->
+		<jsp:include page="currentLocation.jsp"></jsp:include>
+		<!-- 회원가입 절차 -->
+	</div>
 
-			<tr>
-				<td>생년월일</td>
-				<td>
-					<input id="birth" type="date" name="birth" required="required" > 
-					
-				</td>
-			</tr>
+			<div id="mem_main_div">
 			
 			
-			<tr>
-				<tr>
-				<td>성별</td>
-				<td>
-					<input type="radio" name="gender" value="남" checked="checked">남
-					<input type="radio" name="gender" value="여">여 
-					
-				</td>
-			</tr>
+				<hr>
 			
+						
+				<h1 class="mem_margin">회원가입</h1>
+				<form action="joinProAction.me" method="get">
+				
+						
+						<div class="mem_margin">
+						
+							<div>
+								<span>ID</span>
+								<input id="id" type="text" name="id" placeholder="5~20글자 사이 입력" required="required">
+								<input id="checkId" type="button" value="아이디 중복확인."><br>
+								<span id="idSpan"></span>
+							</div>
+						
+						
+						
+						
+							<div>
+								<span>비밀번호</span>
+								<input id="passwd" type="password" name="pass" placeholder="8 ~ 16글자 사이 입력" required="required"><br>
+								<span id="passwdSpan"></span>
+							</div>
+						
+						
+						
+						
+							<div>
+								<span>비밀번호확인</span>
+								<input id="checkPasswd" type="password" name="passwd2" required="required"><br>
+								<span id="checkPasswdSpan"></span>
+							</div>
+						
+						
+						
+						
+							<div>
+								<span>이름</span>
+								<input id="name" type="text" name="name" required="required">
+								<span></span>
+							</div>
+						
+						
 			
-			<tr>
-				<td>주소</td>
-				<td>
-					<input type="text" id="postcode" name="post_code" placeholder="우편번호" required="required" readonly="readonly" onclick="execDaumPostcode()">
-					<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="address" name="address" required="required" placeholder="도로명 주소">
-					<input type="text" id="address_detail" name="address_detail" required="required" placeholder="상세주소">
-					
-					
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td>핸드폰</td>
-				<td>
-					<input id="phone" type="text" name="phone" placeholder="숫자로 입력해주세요" required="required">
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td>E-Mail</td>
-				<td>
-					<input id="email" type="text" name="email" readonly="readonly" value="<%=email %>" >
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td colspan="2">
-					<input type="button" id="join" value="가입">
-					<input type="reset" value="초기화">
-					<input type="button" value="돌아가기" onclick="history.back()">
-				</td>
-			</tr>
-			
-			
-		</table>
-	</form>
+						
+							<div>
+								<span>생년월일</span>
+								<input id="birth" type="date" name="birth" required="required" > 
+								<span></span>
+							</div>
+						
+						
+						
+						
+							
+							<div>
+								<span>성별</span>
+								<input type="radio" name="gender" value="남" checked="checked">남
+								<input type="radio" name="gender" value="여">여 
+								<span></span>
+							</div>
+						
+						
+						
+						
+							<div>
+							<span>주소</span>
+								<input type="text" id="postcode" name="post_code" placeholder="우편번호" required="required" readonly="readonly" onclick="execDaumPostcode()">
+								<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+							<span></span>
+								<input type="text" id="address" name="address" required="required" placeholder="도로명 주소">
+								<input type="text" id="address_detail" name="address_detail" required="required" placeholder="상세주소">
+								<span></span>
+								
+							</div>
+						
+						
+						
+						
+							<div>
+								<span>핸드폰</span>
+								<input id="phone" type="text" name="phone" placeholder="숫자로 입력해주세요" required="required">
+								<span></span>
+							</div>
+						
+						
+						
+						
+							<div>
+								<span>E-Mail</span>
+								<input id="email" type="text" name="email" readonly="readonly" value="<%=email %>" >
+								<span></span>
+							</div>
+						
+						
+						
+							<div class="mem_margin">
+								<input type="button" id="join" value="가입">
+								<input type="reset" value="초기화">
+								<input type="button" value="돌아가기" onclick="history.back()">
+							</div>
+						</div>
+				</form>
+			<hr>
+		</div>	
 	
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
