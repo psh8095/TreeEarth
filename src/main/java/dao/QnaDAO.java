@@ -55,19 +55,20 @@ public class QnaDAO {
 			
 			close(pstmt);
 			
-			if(qna_content.equals(null)) {
-				qna_content = null;
-			}
-			
 			//데이터 insert
 			sql = "INSERT INTO qna VALUES (?,?,?,?,?,now())";
 
 			pstmt = con.prepareStatement(sql);
+			
+			if(qna.getQna_content() == null) {
+				qna_content = "";
+			}
+			
 			pstmt.setInt(1, num);
 			pstmt.setString(2, qna.getQna_id());
 			pstmt.setString(3, qna.getQna_tag());
 			pstmt.setString(4, qna.getQna_subject());
-			pstmt.setString(5, qna.getQna_content());
+			pstmt.setString(5, qna_content);
 			
 			insertCount = pstmt.executeUpdate();
 			

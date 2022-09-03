@@ -6,7 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
-<link href="css/community.css" rel="stylesheet">
+<link href="css/table.css" rel="stylesheet">
+<style type="text/css">
+table {
+	height: 40px;
+}
+
+.co {
+	width: 150px;
+}
+</style>
 </head>
 <body>
 
@@ -18,19 +27,19 @@
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 
-	<h1>후원 내역 조회</h1>
+	<h1 class="title">후원 내역 조회</h1>
 	
 	<table id="sup_list">
 		<tr>
-			<td>회원ID</td>
-			<td>후원글</td>
-			<td>후원금액</td>
-			<td>후원일</td>
+			<td class="co">회원ID</td>
+			<td class="co">후원글</td>
+			<td class="co">후원금액</td>
+			<td class="co">후원일</td>
 		</tr>
 		<c:choose>
 			<c:when test="${not empty supList }">
 				<c:forEach var="supporthistory" items="${supList }">
-					<tr>
+					<tr id="commandCell">
 						<td>${supporthistory.mem_id }</td>
 						<td>${supporthistory.sup_idx }</td>
 						<td>${supporthistory.suphi_money }</td>
@@ -39,7 +48,9 @@
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<h1>게시물이 존재하지 않습니다.</h1>
+				<tr>
+					<td colspan="4"><h3 class="title">게시물이 존재하지 않습니다.</h3></td>
+				</tr>
 			</c:otherwise>
 		</c:choose>
 	</table>

@@ -15,7 +15,7 @@ public class KakaoLoginProAction implements Action {
 		ActionForward forward = null;
 		
 		String mem_id = request.getParameter("mem_id");
-		System.out.println(mem_id);
+//		System.out.println(mem_id);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("sId", mem_id);

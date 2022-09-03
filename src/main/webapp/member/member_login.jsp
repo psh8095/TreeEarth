@@ -43,7 +43,7 @@
 	                success: (response) => {
 	                	// 가입자 이름 저장
 	                    var mem_id = response.properties.nickname; 
-	                    alert(mem_id); 
+// 	                    alert(mem_id); 
 	                    location.href="KakaoLoginPro.me?mem_id=" + mem_id; 
 	                }
 	            });
@@ -110,7 +110,6 @@
 									
 					<div class="contnet_div">
 						<input  type="button" value="카카오톡으로 로그인" onclick="kakaoLogin()">
-						<input  type="button" value="카카오톡 로그아웃" onclick="kakaoLogout()">
 					</div>
 		
 		

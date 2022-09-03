@@ -1,6 +1,13 @@
 @charset "UTF-8";
 @import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
 
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 .qna_category {
 	background-color: white;
 	margin-top: 0px;
@@ -102,9 +109,20 @@ h3 {
 	color:#e82b2b; 
 }
 
+/* css 속성 삭제 */
+.clear {
+	clear: both;
+}
+
 /* 수정, 삭제 버튼 */
-#deleteBtn #modifyBtn{
-	float: right;
+.answer>#modifyBtn, .answer>#deleteBtn {
+   float: right !important;
+	background-color: #c5e096;
+	color: black;
+	padding: 5px 10px 5px 10px;
+	border-color: white;
+	border-radius: 4px;
+	font-size: 12px;
 }
 
 /* 글쓰기 버튼*/

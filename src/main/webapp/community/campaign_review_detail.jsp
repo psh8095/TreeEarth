@@ -15,6 +15,7 @@
 	
 </script>
 <link href="css/community.css" rel="stylesheet">
+<link href="css/table.css" rel="stylesheet">
 </head>
 <body>
 
@@ -70,13 +71,13 @@
 		<br>
 		
 		<!-- 버튼 -->	
-		<div>
-			<input type="button" value="수정" onclick="location.href='CampaignReviewModifyForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
-			<input type="button" value="삭제" onclick="location.href='CampaignReviewDeleteForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
-			<input type="button" value="목록" onclick="location.href='CampaignReviewList.cm?pageNum=${param.pageNum}'">
+		<div id="commandCell">
+			<input class="btn" type="button" value="수정" onclick="location.href='CampaignReviewModifyForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
+			<input class="btn" type="button" value="삭제" onclick="location.href='CampaignReviewDeleteForm.cm?cam_re_idx=${campaign_review.cam_re_idx}&pageNum=${param.pageNum}'">
+			<input class="btn" type="button" value="목록" onclick="location.href='CampaignReviewList.cm?pageNum=${param.pageNum}'">
 		
 			<c:if test="${not empty sessionScope.sId}">
-				<input type="button" value="신고하기" onclick="blockForm()">
+				<input class="btn" type="button" value="신고하기" onclick="blockForm()">
 			</c:if>
 		
 		</div>
