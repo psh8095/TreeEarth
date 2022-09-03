@@ -10,6 +10,38 @@
 	.free_title {
 		color: #c5e096;
 	}
+	
+	#button {
+		color: white; 
+		padding: 2px 2px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
+	
+	#button2 {
+		color: white; 
+		padding: 4px 10px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+		position: absolute;
+		left: 80%;
+		top: 6in;
+	}
+	
 </style>
 <link href="css/community.css" rel="stylesheet">
 </head>
@@ -86,7 +118,7 @@
 	
 		<c:if test="${not empty sessionScope.sId}">
 			<section id="buttonArea">
-				<input type="button" value="글쓰기" onclick="location.href='NoticeWriteForm.cm'" />
+				<input id="button2" type="button" value="글쓰기" onclick="location.href='NoticeWriteForm.cm'" />
 			</section>
 		</c:if>
 		
@@ -96,7 +128,7 @@
 					<input type="button" value="이전" onclick="location.href='NoticeList.cm?pageNum=${pageNum - 1}'">
 				</c:when>
 				<c:otherwise>
-					<input type="button" value="이전">
+					<input id="button" type="button" value="이전">
 				</c:otherwise>
 			</c:choose>
 				
@@ -116,7 +148,7 @@
 					<input type="button" value="다음" onclick="location.href='NoticeList.cm?pageNum=${pageNum + 1}'">
 				</c:when>
 				<c:otherwise>
-					<input type="button" value="다음">
+					<input id="button" type="button" value="다음">
 				</c:otherwise>
 			</c:choose>
 		</section>
