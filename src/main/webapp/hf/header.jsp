@@ -42,8 +42,8 @@
 		  		
 	              /* 로고 글자 */
 	              $("#logo > a").css({
-	                  "color" : "#4288eb ",
-// 	                 "color" : "#81c543 ",
+// 	                  "color" : "#4288eb ",
+	                 "color" : "#81c543 ",
 	                 "transition-duration" : "0.5s"
 	              });
 		  		
@@ -262,7 +262,7 @@
 				</li>
 				
 				
-				<li><a href="">커뮤니티</a>
+				<li><a href="DiaryList.cm">커뮤니티</a>
 					<ul class="subMenu">
 						<li><a href="NoticeList.cm">공지사항</a></li>
 						<li><a href="CampaignReviewList.cm">캠페인 참여후기</a></li>
