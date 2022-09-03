@@ -50,19 +50,15 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 							
 							<!-- 상품이미지	 -->
 							<a href="StoreItemDetail.st?sto_idx=<%=dto.getSto_idx() %>">
-							<img class="img" src="img/store/<%=dto.getSto_thum_file() %>" width="500" height="500">
+							<img class="img" src="img/store/<%=dto.getSto_thum_file() %>" alt="" width="500" height="500">
+<%-- 							<img class="img" src="img/store/<%=dto.getSto_thum_file() %>" alt="" width="500" height="500"> --%>
 							</a>
 							
 							<!-- 상품명	 -->
 							<div class="list_subject">
 								<%=dto.getSto_subject() %>
 							</div>
-					
-							
-							<!-- 상품명	 -->
-<%-- 						<%=dto.getSto_content() %>--%>
 
-							
 							<!-- 가격	 -->
 							<div class="list_subject">
 								<%=dto.getSto_price() %>원
