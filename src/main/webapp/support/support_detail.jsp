@@ -7,6 +7,7 @@
 	// dto 객체 어트리뷰트로 받기
 	SupportDTO dto = (SupportDTO)request.getAttribute("dto");
 	String sId = (String)session.getAttribute("sId");
+	String sup_subject = request.getParameter("sup_subject");
 
 	%>
 	
@@ -22,86 +23,86 @@
 /* 	font: .88em/150% Arial, Helvetica, sans-serif; */
 /* 	margin: 0px auto; */
 /* } */
-/* h1 { */
+h1 {
 /* 	font: bold 80%/120% Arial, Helvetica, sans-serif; */
-/* 	text-transform: uppercase; */
-/* 	margin: 0 0 10px; */
-/* 	color: #999; */
-/* } */
-/* h2 { */
-/* 	font-size: 2.5em; */
-/* 	margin: 0 0 8px; */
-/* } */
-/* h3 { */
-/* 	font-size: 1.6em; */
-/* 	margin: 20px 0 5px; */
-/* } */
-/* a { */
-/* 	color: #69C; */
-/* 	text-decoration: none; */
-/* } */
+	text-transform: uppercase;
+	margin: 0 0 10px;
+	color: #999;
+}
+h2 {
+	font-size: 2.5em;
+	margin: 0 0 8px;
+}
+h3 {
+	font-size: 1.6em;
+	margin: 20px 0 5px;
+}
+a {
+	color: #69C;
+	text-decoration: none;
+}
 /* a:hover { */
 /* 	color: #F30; */
 /* } */
-/* p { */
-/* 	margin: 0 0 10px; */
-/* } */
-/* .credits { */
-/* 	border-bottom: solid 1px #eee; */
-/* 	padding-bottom: 10px; */
-/* 	margin: 0 0 30px; */
-/* } */
-/* #pagewrap { */
-/* 	margin: 0 auto; */
-/* 	width: 600px; */
-/* 	padding-left: 150px; */
-/* 	position: relative; */
-/* } */
+p {
+	margin: 0 0 10px;
+}
+.credits {
+	border-bottom: solid 1px #eee;
+	padding-bottom: 10px;
+	margin: 0 0 30px;
+}
+#pagewrap {
+	margin: 0 auto;
+	width: 600px;
+	padding-left: 150px;
+	position: relative;
+}
 
 /* /* */
 /* Back to top button  */
 /* */ */
-/* #back-top { */
-/* 	position: fixed; */
-/* 	bottom: 30px; */
-/* 	margin-left: -150px; */
-/* } */
-/* #back-top a { */
-/* 	width: 108px; */
-/* 	display: block; */
-/* 	margin-left:1200px; */
-/* 	text-align: center; */
+#back-top {
+	position: fixed;
+	bottom: 30px;
+	margin-left: -150px;
+}
+#back-top a {
+	width: 108px;
+	display: block;
+	margin-left:1200px;
+	text-align: center;
 /* 	font: 11px/100% Arial, Helvetica, sans-serif; */
-/* 	text-transform: uppercase; */
-/* 	text-decoration: none; */
-/* 	color: #bbb; */
-/* 	/* background color transition */ */
-/* 	-webkit-transition: 1s; */
-/* 	-moz-transition: 1s; */
-/* 	transition: 1s; */
-/* } */
-/* #back-top a:hover { */
-/* 	color: #000; */
-/* } */
-/* /* arrow icon (span tag) */ */
-/* #back-top span { */
-/* 	width: 108px; */
-/* 	height: 108px; */
-/* 	display: block; */
-/* 	margin-bottom: 7px; */
-/* 	background: #ddd url(up-arrow.png) no-repeat center center; */
-/* 	/* rounded corners */ */
-/* 	-webkit-border-radius: 15px; */
-/* 	-moz-border-radius: 15px; */
-/* 	border-radius: 15px; */
-/* 	/* background color transition */ */
-/* 	-webkit-transition: 1s; */
-/* 	-moz-transition: 1s; */
-/* 	transition: 1s; */
-/* } */
-/* #back-top a:hover span { */
-/* 	background-color: #777; */
-/* } */
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #bbb;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover {
+	color: #000;
+}
+/* arrow icon (span tag) */
+#back-top span {
+	width: 108px;
+	height: 108px;
+	display: block;
+	margin-bottom: 7px;
+	background: #ddd url(up-arrow.png) no-repeat center center;
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover span {
+	background-color: #777;
+}
 
 /* 후원하기 버튼 */
 /* #giveMoney{ */
@@ -207,10 +208,10 @@
 				var sId = '<%=sId%>'
 				if(sId == 'null') {
 					alert("로그인 이후 사용해 주세요!");
-					window.open("MemberLoginForm.me?returnUrl=SupportList.su", "width=300,height=610");
+					window.open("MemberLoginForm.me?returnUrl=SupportList.su", "", "width=400,height=610");
 // 				// 회원만 작성하게 만드세요
 				} else if(sId != 'null'){ 
-					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>, "giveMoney", "width=1000,height=610");
+					window.open("GiveMoneyForm.su?idx="+<%=dto.getSup_idx() %>+"&mem_id="+ sId, "giveMoney", "width=1000,height=670");
 				}
 			});
 
@@ -249,6 +250,7 @@
 
 </head>
 <body id="top">
+
 
 
    <!-- 해더 -->
