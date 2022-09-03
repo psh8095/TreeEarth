@@ -42,6 +42,11 @@
 		top: 6in;
 	}
 	
+	#pageList {
+		width: 100px;
+		margin: 0 auto;
+	}
+	
 </style>
 <link href="css/community.css" rel="stylesheet">
 </head>

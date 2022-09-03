@@ -34,10 +34,7 @@
 	}
 	
 	#button {
-		margin-right: 9in;
-		position: absolute;
-		bottom: -0.3in;
-		right: 6px;		 
+		margin: 0 auto;
 	}
 	
 	#button2 {
