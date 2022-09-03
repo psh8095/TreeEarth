@@ -72,7 +72,7 @@ table input{
 	<!-- top -->
 	
 	<div id="writeForm">
-	<h2>캠페인 게시글 작성</h2>
+		<h2>캠페인 게시글 작성</h2>
 		<form action="CampaignWritePro.cp" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
@@ -88,14 +88,13 @@ table input{
 					<td><input type="file" name="cam_img"></td>
 				</tr>
 			</table>
-		</form>
 		<br>
 			<div id="commandCell"> 
 				<input id="cam_apply" type="submit" value="등록">&nbsp;&nbsp;
 				<input id="cam_apply" type="reset" value="다시쓰기">&nbsp;&nbsp;
 				<input id="cam_apply" type="button" value="취소" onclick="history.back()">
 			</div>
-		
+		</form>
 	</div>
 	
 	<!-- 푸터 -->
