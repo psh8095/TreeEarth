@@ -117,15 +117,13 @@
 
         // 룰렛 입니다. 
         //    --------------------------------------------------
-       		var a = 3;
-            var b = 0;
+            var a = 9;
+            var b = 8;
             var c = 0;
-            var d = 0;
-            var e = 0;
-            var f = 0;
-            var g = 0;
-            var h = 0;
-            var i = 0;
+            var d = 9;
+            var e = 2;
+            var f = 7;
+     
 
 
             var i0 = a+1;
@@ -357,87 +355,6 @@
         <h1 class="roulette50"></h1>
     </div>
     
-    
-      <!-- 6번 룰렛 -->
-    <div class="box2"></div>
-    <div class="box" id="roulette6" >
-        <h1 class="roulette60"></h1>
-        <h1 class="roulette61"></h1>
-        <h1 class="roulette62"></h1>
-        <h1 class="roulette63"></h1>
-        <h1 class="roulette64"></h1>
-        <h1 class="roulette65"></h1>
-        <h1 class="roulette66"></h1>
-        <h1 class="roulette67"></h1>
-        <h1 class="roulette68"></h1>
-        <h1 class="roulette69"></h1>
-        <h1 class="roulette60"></h1>
-        <h1 class="roulette61"></h1>
-        <h1 class="roulette62"></h1>
-        <h1 class="roulette63"></h1>
-        <h1 class="roulette64"></h1>
-        <h1 class="roulette65"></h1>
-        <h1 class="roulette66"></h1>
-        <h1 class="roulette67"></h1>
-        <h1 class="roulette68"></h1>
-        <h1 class="roulette69"></h1>
-        <h1 class="roulette60"></h1>
-    </div>
-    
-    
-      <!-- 6번 룰렛 -->
-    <div class="box2"></div>
-    <div class="box" id="roulette7" >
-        <h1 class="roulette70"></h1>
-        <h1 class="roulette71"></h1>
-        <h1 class="roulette72"></h1>
-        <h1 class="roulette73"></h1>
-        <h1 class="roulette74"></h1>
-        <h1 class="roulette75"></h1>
-        <h1 class="roulette76"></h1>
-        <h1 class="roulette77"></h1>
-        <h1 class="roulette78"></h1>
-        <h1 class="roulette79"></h1>
-        <h1 class="roulette70"></h1>
-        <h1 class="roulette71"></h1>
-        <h1 class="roulette72"></h1>
-        <h1 class="roulette73"></h1>
-        <h1 class="roulette74"></h1>
-        <h1 class="roulette75"></h1>
-        <h1 class="roulette76"></h1>
-        <h1 class="roulette77"></h1>
-        <h1 class="roulette78"></h1>
-        <h1 class="roulette79"></h1>
-        <h1 class="roulette70"></h1>
-    </div>
-    
-    
-      <!-- 6번 룰렛 -->
-    <div class="box2"></div>
-    <div class="box" id="roulette8" >
-        <h1 class="roulette80"></h1>
-        <h1 class="roulette81"></h1>
-        <h1 class="roulette82"></h1>
-        <h1 class="roulette83"></h1>
-        <h1 class="roulette84"></h1>
-        <h1 class="roulette85"></h1>
-        <h1 class="roulette86"></h1>
-        <h1 class="roulette87"></h1>
-        <h1 class="roulette88"></h1>
-        <h1 class="roulette89"></h1>
-        <h1 class="roulette80"></h1>
-        <h1 class="roulette81"></h1>
-        <h1 class="roulette82"></h1>
-        <h1 class="roulette83"></h1>
-        <h1 class="roulette84"></h1>
-        <h1 class="roulette85"></h1>
-        <h1 class="roulette86"></h1>
-        <h1 class="roulette87"></h1>
-        <h1 class="roulette88"></h1>
-        <h1 class="roulette89"></h1>
-        <h1 class="roulette80"></h1>
-    </div>
-
 
     <!-- 가림막 -->
     <div  id="box3"></div>

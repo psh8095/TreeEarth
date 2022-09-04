@@ -7,9 +7,26 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TreeEarth</title>
+<title>트리어스</title>
+<link href="img/main/icon3.png" rel="shortcut icon" type="image/x-icon">
 <link href="css/index.css" rel="stylesheet">
 
+<style type="text/css">
+
+	@font-face {
+	    font-family: 'GangwonEduPowerExtraBoldA';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	
+	@font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 </head>
 <body>
 
@@ -21,29 +38,9 @@
 	</div>
 	
 	
-	
-	<!-- 나무 이미지-->
-<!-- 	<div > -->
-	
-<!-- 		<!-- 헤더 산 사진 --> 
-<!-- 		<div style=" width:100%; height:800px; background-color: white; position: absolute; z-index: 1; overflow: hidden; "> -->
-<!-- 		    <img src="img/main/main_forest.jpg" width="100%" alt="나무"> -->
-<!-- 	 	</div> -->
-	 	
-<!-- 		<!-- 밝기 조절 -->
-<!-- 		<div id="backGraound" style=" width:100%; height:800px; background-color: black; position: absolute; z-index: 1; opacity: 0.33;"></div> -->
-	
-<!-- 	</div> -->
-	
-		
-	
-	
- 	<!-- 배너 --> 
-<%-- 	<jsp:include page="hf/mainBanner.jsp" ></jsp:include> --%>
-	<!-- 배너 --> 
-	
+
 	<!-- 슬라이드 배너 -->
-	<div class="slider" style="position: relative; width:100%; height: 1100px">
+	<div class="slider" style="position: relative; width:100%; height: 1100px; z-index: 3;">
 		   <input type="radio" name="slide" id="slide1" checked>
 		   <input type="radio" name="slide" id="slide2">
 		   <input type="radio" name="slide" id="slide3">
@@ -98,28 +95,37 @@
 		   
 	 </div>
 	
-	
-    <main style="position: relative;">
-  		
-<!--   	<div style="position: absolute; z-index: 4;"> -->
-<%--   		<jsp:include page="hf/roulette.jsp" ></jsp:include> --%>
-<!--   	</div> -->
-	
-  		
-<!-- <!-- 	백그라운드 --> -->
-<!--     	<div id="main_back0"> -->
-<!--     	    <div> -->
-<!--     	     	<div id="backGraound" style=" width:100%; height:100%; background-color: black; position: absolute; z-index: 2; opacity: 0.33;"></div> -->
-<!--     	   		<img id="main_fixed" src="img/main/treeearth_text.png" alt="대충 메인 베너1" width="80%"> -->
-<!--     		</div> -->
-<!--     	</div> -->
 
+	
+    <main style="position: relative; text-align: center;">
+  		
+  	<!-- 	여기야 여기 ---------------------------->
+	
+		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:250px; left: 800px; color: #4288eb">모금자</span>
+		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:250px; left: 1910px; color: #81c543">모금액</span>
+		
+		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 905px; ">,</span>
+		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 1955px; ">,</span>
+		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 2150px; ">,</span>
+
+  		
+  	
+  	<div style="position: absolute; z-index: 2; left: 700px;">
+  		<jsp:include page="hf/roulette2.jsp" ></jsp:include>
+  	</div>	
+  	
+
+  	<div style="position: absolute; z-index: 2; right: 700px;">
+  		<jsp:include page="hf/roulette.jsp" ></jsp:include>
+  	</div>
+
+
+
+		<hr style="margin: 0px 200px 800px 200px; z-index: 3; opacity: 0" >
 
 		<!-- 이미지 -->
-		<div id="main_back1">
-	  	</div> 
-	  	
-		<div id="main_back2">
+		<div style="position:relative; z-index: 3;">
+		    <img style="width: 70%" src="img/main/main_img.png" alt="대충 메인 베너1">
 	  	</div> 
    
    
