@@ -18,6 +18,7 @@
 	h1 {
 		text-align: center;
 		color: #c5e096;
+		padding: 20px;
 	}
 	
 	.table {
@@ -35,9 +36,12 @@
 	
 	#button {
 		margin: 0 auto;
+		text-align: center;
 	}
 	
+	
 	#button2 {
+		text-align: center;
 		color: white; 
 		padding: 4px 10px;
 		background-color: #c5e096;
