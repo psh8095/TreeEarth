@@ -22,7 +22,7 @@
 
 	//비밀번호 찾기 창
 	function findPass() {
-		window.open("FindPassForm.me", "findPass", "width=400, height=600");
+		window.open("FindPassForm.me", "findPass", "width=450, height=600");
 	}
 	
 	//카카오 API key

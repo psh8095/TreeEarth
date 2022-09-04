@@ -50,7 +50,7 @@
 		   <ul id="imgholder" class="imgs">
 		       <li class="main_forest">
 	      		    <div class="backGraound" ></div>
-		       		<h1>"나무 1그루가 인간 10마리를 살립니다"</h1>
+		       		<h1>"문명 유지는 나무 한 그루에서 시작됩니다."</h1>
 		       		<h2>숲조성을 도와주세요!</h2>
 		       		<a href="CampaignList.cp">캠페인 지원하기</a>
 		       		<img src="img/main/main_forest.jpg" width="100%" alt="나무">
@@ -60,9 +60,9 @@
 		       <li class="main_forest">
 
 		      		<div class="backGraound" ></div>
-		      		<h1 >"살고 싶으면 나무 심으세요"</h1>
+		      		<h1 >"나무와 공존하는 삶"</h1>
 		       		<h2>나무가 사람을 살린다!</h2>
-		       		<a href="SupportList.su">돈쭐 내러가기</a>		       		
+		       		<a href="SupportList.su">후원 하러가기</a>		       		
 		       		<img src="img/main/main_forest2.jpg" width="100%" alt="나무">
 		       	</li>
 		       	
@@ -78,9 +78,9 @@
 
 		       <li class="main_forest">
 		     	  	<div class="backGraound" ></div>
-		     	  	<h1 >"이래뵈도 정상 영업 중입니다."</h1>
-		       		<h2>공지는 좀 읽어주세요 흑우들아!</h2>
-		       		<a href="CampaignList.cp">음머어~</a>		       		
+		     	  	<h1 >"공지사항"</h1>
+		       		<h2>공지사항을 확인해주세요.</h2>
+		       		<a href="CampaignList.cp">공지사항</a>		       		
 		       		<img src="img/main/main_forest4.jpg" width="100%" alt="나무">
 		       </li>
 		   </ul>
