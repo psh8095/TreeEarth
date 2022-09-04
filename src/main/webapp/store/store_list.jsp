@@ -107,7 +107,7 @@
 					<div class="row">
 						<div class="cell">${store.sto_idx }</div>
 						<div class="cell">
-							<a href="StoreDetail.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum }">
+							<a href="StoreItemDetail.st?sto_idx=${store.sto_idx }">
 								${store.sto_subject }
 							</a>
 						</div>
