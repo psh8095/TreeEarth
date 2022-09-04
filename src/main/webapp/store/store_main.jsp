@@ -15,20 +15,14 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 <title>TreeEarth</title>
 <link href="css/store.css" rel="stylesheet">
 </head>
-
 <body>
-
-
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
-
 	
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
-	
-
 	 <hr style="color: gray; opacity: 70%; margin: 70px;">
 
 	<!-- 	상품이 없을 때 -->
