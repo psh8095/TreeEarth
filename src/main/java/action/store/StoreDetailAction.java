@@ -24,7 +24,7 @@ public class StoreDetailAction implements Action {
 		request.setAttribute("store", store);
 		
 		forward = new ActionForward();
-		forward.setPath("store/store_view.jsp");
+		forward.setPath("store/store_detail.jsp");
 		forward.setRedirect(false);
 		
 		return forward;
