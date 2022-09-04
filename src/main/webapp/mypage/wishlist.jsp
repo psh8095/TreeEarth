@@ -86,7 +86,6 @@
 				<span class="my_check"></span>
 				<span class="my_img">사진</span>
 				<span class="my_subject">제목</span>
-				<span class="my_button">수량</span>
 				<span class="my_price">가격</span>
 			</div>
 		 <hr>

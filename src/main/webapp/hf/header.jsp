@@ -200,13 +200,10 @@
 			
 										<li><a>${sessionScope.sId }님</a>
 											<ul class="subMyPage">
-												<li><a href="">적립금</a></li>
-												<li><a href="Wishlist.my">위시리스트</a></li>
 												<li><a href="UpdateMemberInfoForm.my">회원정보수정</a></li>
-												<li><a href="SupportHistory.my">후원금 내역 조회</a></li>
+												<li><a href="Wishlist.my">위시리스트</a></li>
+												<li><a href="SupportHistory.my">후원 내역 조회</a></li>
 												<li> <a href="CampaignApplyList.cp">신청 캠페인 조회</a></li>
-												<li><a href="">작성한 글</a></li>
-												<li> <a href="">작성한 댓글</a></li>
 												<li><a href="OrderList.my">주문내역 조회</a></li>
 												<li><a href="MemberLogout.me">로그아웃</a></li>
 											</ul>

@@ -9,18 +9,18 @@
 <style type="text/css">
 
 #cam_apply{
-	width:150px;
-	height: 50px;
+	width:500px;
+	height: 100px;
     background-color: #c5e096;  ;
     color: black;
     font:bold;
-    font-size: 16px;
+    font-size: 50px;
     border:1px solid lightgray;
     border-radius: 2px;
     transition:0.3s;
     position: relative;   
-    left:75px;
-    top:50px;
+    left:250px;
+    top:100px;
     transform: translate(-50%,-50%);
 }
 #cam_apply:focus {

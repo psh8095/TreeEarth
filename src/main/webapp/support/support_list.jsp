@@ -23,12 +23,12 @@
 /* 	font: .88em/150% Arial, Helvetica, sans-serif; */
 /* 	margin: 30px auto; */
 /* } */
-h1 {
-/* 	font: bold 80%/120% Arial, Helvetica, sans-serif; */
-	text-transform: uppercase;
-	margin: 0 0 10px;
-	color: #999;
-}
+/* h1 { */
+/* /* 	font: bold 80%/120% Arial, Helvetica, sans-serif; */ */
+/* 	text-transform: uppercase; */
+/* 	margin: 0 0 10px; */
+/* 	color: #999; */
+/* } */
 h2 {
 	font-size: 2.5em;
 	margin: 0 0 8px;
@@ -115,23 +115,17 @@ Back to top button
 </script>
 <script src="js/jquery-3.6.0.js"></script>
 </head>
-
-
-
 <body id="top">
    <!-- 해더 -->
    <jsp:include page="../hf/header.jsp"></jsp:include>
    <!-- 해더 -->
    
-   
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
    
-   
 	<!-- 후원 메인 블럭 -->
    <main>
-   
 	 <hr style="color: gray; opacity: 70%; margin: 70px;">		   
 		   
 <!-- 			<!--  베너 --> 
@@ -141,15 +135,12 @@ Back to top button
 <!-- 		   		</div> -->
 <!-- 		   </div> -->
 		   
-		   
 			<!-- 글 목록 -->
 		   <div class="main">
 		         <%for(Object o : List){
 		            SupportDTO support = (SupportDTO)o; 
 		         %>
 		      <div class="list">
-							
-	
 		             	  
 				  <!-- 섬네일 블럭-->		
 				  <div class="sup_thum_div">
@@ -157,16 +148,13 @@ Back to top button
 	                  <img class="img" alt="썸네일" src="img/support/<%=support.getSup_thumbnail_file()%>" ></a>
               	  </div>
               	  
-              	  
               	  <!-- 제목 블럭-->
               	  <div class="sup_sub_div">
               	  	<a class="sup_main_font" class="subject" href ="SupportDetail.su?sup_idx=<%=support.getSup_idx() %>"><%=support.getSup_subject()%></a>
               	  </div>
 
-
 	              <!-- 퍼센트 블록 -->
 	              <div class="sup_per_div">
-	              
 	              
 	              	  <!-- 퍼센트 바 -->
 	              	  <div style="position: relative; width: 100%">
@@ -178,91 +166,73 @@ Back to top button
 		                  <!-- 퍼센트 -->
 		                  <span class="moneyPer<%=support.getSup_idx() %>"></span>
 		                  
-		                  
 		                  <!-- 현재 모금 돈 -->
 		                  <span class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></span>원
-		              	 
 		              	 
 		              	  <!-- 디데이 -->
 	             		  <span style="text-align: right;" class="dDay<%=support.getSup_idx() %>"></span>
 	                  </div>
-	                  
-	                  
 	              </div>
-
 
 				  <!--  제이쿼리용 디스플레이 none 처리 -->
                   <div style="display: none;" class="money<%=support.getSup_idx() %>"><%=support.getSup_money() %></div>
                   <div style="display: none;" class="goalPrice<%=support.getSup_idx() %>"><%=support.getSup_goal_price() %></div>
                   <div style="display: none;" class="goalDate<%=support.getSup_idx() %>"><%=support.getSup_goal_date() %></div>
 
-		            <script type="text/javascript">
-				      //제이쿼리
-				      $(function() {
-							
-
-				    	 // D-Day 구하기 -----------------------------------------------------------------------------
-				    	  
-					         //오늘 날짜
-					         var today = new Date();
-					         
-					         //골 날짜
-					         var goalDate = $(".goalDate<%=support.getSup_idx() %>").html();
-					         var dday = new Date(goalDate)
-					         
-					         //디데이 계산
-					         var gap = dday.getTime() - today.getTime();
-					         var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
-					         
-					         var day =  1 / result * 100
-					         
+				  <script type="text/javascript">
+			      //제이쿼리
+			      $(function() {
+			    	 // D-Day 구하기 -----------------------------------------------------------------------------
+				         //오늘 날짜
+				         var today = new Date();
 				         
+				         //골 날짜
+				         var goalDate = $(".goalDate<%=support.getSup_idx() %>").html();
+				         var dday = new Date(goalDate)
+				         
+				         //디데이 계산
+				         var gap = dday.getTime() - today.getTime();
+				         var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+				         
+				         var day =  1 / result * 100
+			         
 
-						// 후원금 구하기 -----------------------------------------------------------------------------
-					
-										    	  
-					         //모인 후원금
-					         var money = $(".money<%=support.getSup_idx() %>").html();
-							
-							 //골 프라이스(전체값)
-					         var goalPrice = $(".goalPrice<%=support.getSup_idx() %>").html();
-							
-							 //일부값
-					         var moneyPer = Number(money) / Number(goalPrice) * 100;
-					        	 
-							 if(moneyPer == "Infinity"){
-								 moneyPer = 0;
-							 }
-							 
-							 
-							
-						// 후원금 프로그레스 바 -----------------------------------------------------------------------------
-					
+					// 후원금 구하기 -----------------------------------------------------------------------------
+				         //모인 후원금
+				         var money = $(".money<%=support.getSup_idx() %>").html();
 						
-						     //프로그레스 바 전체
-					         $(".progressBar<%=support.getSup_idx() %>").css({
-						           width: "100%",
-						           height: "7px",
-						           background: "grey"
-						         });
-					         
+						 //골 프라이스(전체값)
+				         var goalPrice = $(".goalPrice<%=support.getSup_idx() %>").html();
 						
-						     //프로그레스 바 진행도
-					         $(".myBar<%=support.getSup_idx() %>").css({
-						           width: moneyPer+"%",
-						           height: "7px",
-						           background: "skyblue"
-						         });
-							
-						     
-						     //프로그레스 바 진행도 퍼센트
-					         $(".moneyPer<%=support.getSup_idx() %>").html(Math.round(moneyPer*10)/10+"%");
-					         //디데이
-						     $(".dDay<%=support.getSup_idx() %>").html(result+"일 남음");
+						 //일부값
+				         var moneyPer = Number(money) / Number(goalPrice) * 100;
+				        	 
+						 if(moneyPer == "Infinity"){
+							 moneyPer = 0;
+						 }
+						 
+					// 후원금 프로그레스 바 -----------------------------------------------------------------------------
+					     //프로그레스 바 전체
+				         $(".progressBar<%=support.getSup_idx() %>").css({
+					           width: "100%",
+					           height: "7px",
+					           background: "grey"
+					         });
+				         
+					
+					     //프로그레스 바 진행도
+				         $(".myBar<%=support.getSup_idx() %>").css({
+					           width: moneyPer+"%",
+					           height: "7px",
+					           background: "skyblue"
+					         });
+						
 					     
-					     
-
-				      });      
+					     //프로그레스 바 진행도 퍼센트
+				         $(".moneyPer<%=support.getSup_idx() %>").html(Math.round(moneyPer*10)/10+"%");
+				         //디데이
+					     $(".dDay<%=support.getSup_idx() %>").html(result+"일 남음");
+			      });      
 				      
 					// back to top 버튼 -----------------------------------------------------------------------------
 								$(document).ready(function(){

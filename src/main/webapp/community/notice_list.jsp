@@ -121,7 +121,7 @@
 	<!-- 버튼들 -->
 	<div style="clear: both;">
 	
-		<c:if test="${not empty sessionScope.sId}">
+		<c:if test="${sessionScope.sId eq 'admin'}">
 			<section id="buttonArea">
 				<input id="button2" type="button" value="글쓰기" onclick="location.href='NoticeWriteForm.cm'" />
 			</section>

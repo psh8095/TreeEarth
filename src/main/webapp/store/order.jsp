@@ -9,6 +9,11 @@
 <link href="css/mypage.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
 <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+<style type="text/css">
+td {
+	text-align: center;
+}
+</style>
 <script>
 	$(function() {
 		// 파라미터를 저장할 배열 및 변수 생성

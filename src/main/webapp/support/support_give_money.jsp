@@ -199,8 +199,8 @@ $(function() {
 				
 			<hr style="margin-bottom: 30px; opacity: 0.5; ">
 				
-				<div class="gm_main_text2">"대충 감동적인 맨트 입니다."</div>
-				<div class="gm_main_text3">"대충 작은 감동적인 맨트 입니다."</div>
+				<div class="gm_main_text2">"대충 감동적인 멘트 입니다."</div>
+				<div class="gm_main_text3">"대충 작은 감동적인 멘트 입니다."</div>
 				
 			<hr style="margin-bottom: 30px; opacity: 0.5; ">
 			
