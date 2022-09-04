@@ -7,35 +7,40 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-@font-face {
-    font-family: 'HallymGothic-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
+	@font-face {
+	    font-family: 'HallymGothic-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	
+	*{margin: 0; padding: 0; font-family: 'HallymGothic-Regular';}
+	
+	.table {
+		margin: 0 0 40px 0;
+		width: 100%;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+		display: table;
+	}
+	
+	.row {
+		display: table-row;
+	}
+	
+	.cell {
+		display: table-cell;
+	}
+	
+	.header {
+		background-color: #c5e096;
+		color: #ffffff;
+		font-weight: 600;
+	}
 
-*{margin: 0; padding: 0; font-family: 'HallymGothic-Regular';}
-
-.table {
-	margin: 0 0 40px 0;
-	width: 100%;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-	display: table;
-}
-
-.row {
-	display: table-row;
-}
-
-.cell {
-	display: table-cell;
-}
-
-.header {
-	background-color: #c5e096;
-	color: #ffffff;
-	font-weight: 600;
-}
+	h1 {
+		text-align: center;
+		color: #c5e096;
+	}
 </style>
 </head>
 <body>

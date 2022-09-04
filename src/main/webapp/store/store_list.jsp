@@ -6,6 +6,77 @@
 <head>
 <meta charset="UTF-8">
 <title>상품관리 - 상품목록</title>
+<style type="text/css">
+	@font-face {
+	    font-family: 'HallymGothic-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	
+	*{margin: 0; padding: 0; font-family: 'HallymGothic-Regular';}
+	
+	.table {
+		margin: 0 0 40px 0;
+		width: 100%;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+		display: table;
+	}
+	
+	.row {
+		display: table-row;
+	}
+	
+	.cell {
+		display: table-cell;
+	}
+	
+	.header {
+		background-color: #c5e096;
+		color: #ffffff;
+		font-weight: 600;
+	}
+
+	h1 {
+		text-align: center;
+		color: #c5e096;
+	}
+	
+	#button {
+		color: white; 
+		padding: 2px 2px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
+	
+	#button2 {
+		color: white; 
+		padding: 4px 10px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+		position: absolute;
+		left: 90%;
+	}
+	
+	#pageList {
+		width: 100px;
+		margin: 0 auto;
+	}
+</style>
 </head>
 <body>
 	<!-- 헤더 -->
@@ -16,45 +87,45 @@
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
+	
+	<h1>등록 된 상품목록</h1>
+	<hr style="color: gray; opacity: 50%; margin-bottom: 15px;">
 
-
-	<section id="listForm">
-		<h1>등록 된 상품목록</h1>
-		<table>
-			<tr id="tr_top">
-				<td width="100">상품 번호</td>
-				<td width="300"> 상품 제목</td>
-				<td width=100>상품 가격</td>
-				<td width="400">상품 내용</td>
-				<td width="100">상품 태그</td>
-				<td width="100">상품 분류</td>
-			</tr>
-			<c:choose>
-				<c:when test="${not empty storeList and pageInfo.itemListCount gt 0 }">
-					<c:forEach var="store" items="${storeList }">
-						<tr>
-							<td>${store.sto_idx }</td>
-							<td id="subject">
-								<a href="StoreDetail.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum }">
-									${store.sto_subject }
-								</a>
-							</td>
-							<td>${store.sto_price} 원</td>
-							<td>${store.sto_content }</td>
-							<td>${store.sto_tag }</td>
-							<td>${store.sto_category }</td>
-						</tr>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<tr><td>등록 된 상품이 존재하지 않습니다.</td></tr>
-				</c:otherwise>
-			</c:choose>
-		</table>
-	</section>
+	<div class="table">
+		<div class="row header">
+			<div class="cell">상품 번호</div>
+			<div class="cell">상품 제목</div>
+			<div class="cell">상품 가격</div>
+			<div class="cell">상품 내용</div>
+			<div class="cell">상품 태그</div>
+			<div class="cell">상품 분류</div>
+		</div>
+		
+		<c:choose>
+			<c:when test="${not empty storeList and pageInfo.itemListCount gt 0 }">
+				<c:forEach var="store" items="${storeList }">
+					<div class="row">
+						<div class="cell">${store.sto_idx }</div>
+						<div class="cell">
+							<a href="StoreDetail.st?sto_idx=${store.sto_idx }&pageNum=${pageInfo.pageNum }">
+								${store.sto_subject }
+							</a>
+						</div>
+						<div class="cell">${store.sto_price} 원</div>
+						<div class="cell">${store.sto_content }</div>
+						<div class="cell">${store.sto_tag }</div>
+						<div class="cell">${store.sto_category }</div>
+					</div>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<div class="row">등록 된 상품이 존재하지 않습니다.</div>
+			</c:otherwise>
+		</c:choose>
+	</div>
+	
 	<section id="buttonArea">
-		<input type="button" value="상품 등록" onclick="location.href='StoreWriteForm.st'">
-<!-- 		<input type="button" value="상품 삭제" onclick="location.href='StoreDeleteForm.st'"> -->
+		<input id="button2" type="button" value="상품 등록" onclick="location.href='StoreWriteForm.st'">
 	</section>
 	<section id="pageList">	
 		<c:choose>
@@ -62,7 +133,7 @@
 				<input type="button" value="이전" onclick="location.href='StoreList.st?pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
-				<input type="button" value="이전">
+				<input id="button" type="button" value="이전">
 			</c:otherwise>
 		</c:choose>
 			
@@ -85,7 +156,7 @@
 				<input type="button" value="다음" onclick="location.href='StoreList.st?pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
-				<input type="button" value="다음">
+				<input id="button" type="button" value="다음">
 			</c:otherwise>
 		</c:choose>
 	</section>
