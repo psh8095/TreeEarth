@@ -109,12 +109,11 @@ fieldset legend {
 
 				<!-- 글쓰기 -->
 				<div class="r_sto_title_button">
-<!-- 					<button id="review_btn"><img src="img/community/pencil.png" width="47px" height="50px">후기 작성하기</button> -->
 					<button id="review_btn">후기 작성하기</button>
 				</div>
 		 <hr>
 				<!-- 게시판 구별 -->
-				<div >
+				<div>
 					<span class="r_sto_subject">상품</span>
 					<span class="r_sto_content">내용</span>
 					<span class="r_sto_name">작성자</span>

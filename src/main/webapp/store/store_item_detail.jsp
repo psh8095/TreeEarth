@@ -199,7 +199,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 			<hr style="color: gray; opacity: 70%; margin: 40px 20px 20px 20px;">
 <%-- 			<a href="StoreReviewList.st?sto_idx=${store.sto_idx }"><button class="review_btn" type="button">구매 후기</button></a> /  --%>
 <%-- 			<a href="StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1"><button class="review_btn" type="button">상품 문의</button></a> --%>
-			<span onclick="location.href='StoreReviewList.st?sto_idx=${store.sto_idx }'" class="rq_st">구매 후기</span> / 
+			<span onclick="location.href='StoreReviewList.st?sto_idx=${store.sto_idx }'" class="rq_st">구매 후기</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&nbsp;&nbsp;&nbsp;&nbsp;
 			<span onclick="location.href='StoreQnaList.st?sto_idx=${store.sto_idx }&pageNum=1'" class="rq_st">상품 문의</span>
 			<hr style="color: gray; opacity: 70%; margin: 20px 20px 40px 20px;">
 		</div>

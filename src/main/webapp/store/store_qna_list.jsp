@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>treeEarth</title>
 <link href="css/qna.css" rel="stylesheet">
+<link href="css/store.css" rel="stylesheet">
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/TweenMax.js"></script>
 <script type="text/javascript">
@@ -79,7 +80,7 @@
 	
 		<c:choose>
 			<c:when test="${not empty sessionScope.sId}">
-				<input type="button" value="문의 작성하기" onclick="location.href='StoreQnaWriteForm.st?sto_idx=${store.sto_idx}'">
+				<input type="button" id="store_qna_btn" value="문의 작성하기" onclick="location.href='StoreQnaWriteForm.st?sto_idx=${store.sto_idx}'">
 			</c:when>
 		</c:choose>
 		
