@@ -101,27 +101,27 @@
   		
   	<!-- 	여기야 여기 ---------------------------->
 	
-		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:250px; left: 800px; color: #4288eb">모금자</span>
-		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:250px; left: 1910px; color: #81c543">모금액</span>
+<!-- 		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:250px; left: 800px; color: #4288eb">모금자</span> -->
+<!-- 		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:250px; left: 1910px; color: #81c543">모금액</span> -->
 		
-		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 905px; ">,</span>
-		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 1955px; ">,</span>
-		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 2150px; ">,</span>
+<!-- 		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 905px; ">,</span> -->
+<!-- 		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 1955px; ">,</span> -->
+<!-- 		<span style=" font-size: 100px;     font-family: 'EarlyFontDiary'; position: absolute; z-index: 3; top:400px; left: 2150px; ">,</span> -->
 
   		
   	
-  	<div style="position: absolute; z-index: 2; left: 700px;">
-  		<jsp:include page="hf/roulette2.jsp" ></jsp:include>
-  	</div>	
+<!--   	<div style="position: absolute; z-index: 2; left: 700px;"> -->
+<%--   		<jsp:include page="hf/roulette2.jsp" ></jsp:include> --%>
+<!--   	</div>	 -->
   	
 
-  	<div style="position: absolute; z-index: 2; right: 700px;">
-  		<jsp:include page="hf/roulette.jsp" ></jsp:include>
-  	</div>
+<!--   	<div style="position: absolute; z-index: 2; right: 700px;"> -->
+<%--   		<jsp:include page="hf/roulette.jsp" ></jsp:include> --%>
+<!--   	</div> -->
 
 
 
-		<hr style="margin: 0px 200px 800px 200px; z-index: 3; opacity: 0" >
+<!-- 		<hr style="margin: 0px 200px 800px 200px; z-index: 3; opacity: 0" > -->
 
 		<!-- 이미지 -->
 		<div style="position:relative; z-index: 3;">
