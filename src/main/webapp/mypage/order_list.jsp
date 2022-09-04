@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="css/button.css" rel="stylesheet">
 <style type="text/css">
 @font-face {
     font-family: 'HallymGothic-Regular';
@@ -18,6 +19,12 @@
 
 td {
 text-align: center;
+}
+
+.w-btn-outline {
+	font-family: 'HallymGothic-Regular';
+	font-weight: 300;
+	font-size: 16px;
 }
 </style>
 </head>
