@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
-<link href="css/campaign.css" rel="stylesheet">
+<!-- <link href="css/campaign.css" rel="stylesheet"> -->
 <link href="css/button.css" rel="stylesheet">
 <style type="text/css">
 	#writeForm {
@@ -18,6 +18,7 @@
 	h1 {
 		text-align: center;
 		color: #c5e096;
+		padding: 20px;
 	}
 	
 	.table {
@@ -35,9 +36,12 @@
 	
 	#button {
 		margin: 0 auto;
+		text-align: center;
 	}
 	
+	
 	#button2 {
+		text-align: center;
 		color: white; 
 		padding: 4px 10px;
 		background-color: #c5e096;
