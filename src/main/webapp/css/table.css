@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.title {
+	text-align: center;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+* {
+	margin: 0; 
+	padding: 0; 
+	font-family: 'HallymGothic-Regular';
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	height: 200px;
+}
+
+.co {
+	background-color: #c5e096;
+	color: black;
+	font-weight: 600;
+	text-align: center;
+	width: 100px;
+}
+
+#commandCell {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.btn {
+	background-color: #c5e096;
+	color: black;
+	padding: 5px 10px 5px 10px;
+	border-color: white;
+	border-radius: 4px;
+}

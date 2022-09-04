@@ -7,7 +7,6 @@
     font-style: normal;
 }
 
-
 /* ---------------------------------------------------------------------------------------------------- */
 /* 공용css */
 
@@ -118,6 +117,10 @@ body{
 	font-size: 30px;	
 }
 
+.cam_nothing {
+	font-size: 25px;
+	text-align: center;
+}
 
 /* 버튼 */
 .button {
@@ -125,8 +128,9 @@ body{
 	text-align: center;
 	width: 40px;
 	height: 25px;
+	margin-top: 20px;
+	
 }
-
 
 /* 한줄 설명 */
 .content{

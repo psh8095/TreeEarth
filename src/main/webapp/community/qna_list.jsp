@@ -77,7 +77,10 @@
 					        	<c:if test="${sessionScope.sId eq 'admin'}">
 						        	<input id="modifyBtn" type="button" value="답변" onclick="location.href='QnaModifyForm.cm?qna_idx=${qna.qna_idx}'">
 					        	</c:if>
-					        	<input id="deleteBtn" type="button" value="삭제" onclick="location.href='QnaDeleteForm.cm?qna_idx=${qna.qna_idx}'">
+					        	&nbsp;&nbsp;
+					        	<c:if test="${not empty sessionScope.sId}">
+					        		<input id="deleteBtn" type="button" value="삭제" onclick="location.href='QnaDeleteForm.cm?qna_idx=${qna.qna_idx}'">
+					        	</c:if>
 					        </div>
 						</li>
 					</c:forEach>

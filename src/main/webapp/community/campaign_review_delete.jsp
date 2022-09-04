@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
+<link href="css/table.css" rel="stylesheet">
 </head>
 <body>
-	<h2>게시판 글 삭제</h2>
+	<h2 class="title">게시판 글 삭제</h2>
 	<section id="">
 		<form action="CampaignReviewDeletePro.cm" method="post">
 			<input type="hidden" name="cam_re_idx" value="${param.cam_re_idx }">
@@ -20,8 +21,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="삭제">&nbsp;&nbsp;
-						<input type="button" value="돌아가기" onclick="javascript:history.back()">
+						<input class="btn" type="submit" value="삭제">&nbsp;&nbsp;
+						<input class="btn" type="button" value="돌아가기" onclick="javascript:history.back()">
 					</td>
 				</tr>
 			</table>

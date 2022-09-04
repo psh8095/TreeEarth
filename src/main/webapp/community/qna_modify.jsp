@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>TreeEarth</title>
+<link href="css/table.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,19 +18,19 @@
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 	
-	<h1>Q&A 수정</h1>
+	<h2 class="title">Q&A 수정</h2>
 	
 	<form action="QnaModifyPro.cm" method="post">
 		<input type="hidden" name="qna_idx" value="${param.qna_idx }">
 		<table>
 			<tr>
-				<td><label for="qna_id">작성자</label></td>
+				<td class="co"><label for="qna_id">작성자</label></td>
 				<td>
 					<input type="text" name="qna_id" value="${qna.qna_id }" required="required">
 				</td>
 			</tr>
 			<tr>
-				<td>카테고리</td>
+				<td class="co">카테고리</td>
 				<td>
 					<select name="qna_tag" onchange="changeTag()">
 						<option value="faq">자주묻는질문</option>
@@ -41,18 +42,18 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for="qna_subject">질문</label></td>
+				<td class="co"><label for="qna_subject">질문</label></td>
 				<td>
-					<textarea name="qna_subject" cols="40" rows="15" required="required">
+					<textarea name="qna_subject" cols="40" rows="5" required="required">
 						${qna.qna_subject }
 					</textarea>
 				</td>
 			</tr>
 			<c:if test="${sessionScope.sId eq 'admin'}">
 				<tr>
-					<td><label for="qna_content">답변</label></td>
+					<td class="co"><label for="qna_content">답변</label></td>
 					<td>
-						<textarea id="qna_content" name="qna_content" cols="40" rows="15" required="required">
+						<textarea id="qna_content" name="qna_content" cols="40" rows="5" required="required">
 							${qna.qna_content }
 						</textarea>
 					</td>
@@ -61,9 +62,9 @@
 		</table>
 		
 		<section id="commandCell">
-			<input type="submit" value="수정">&nbsp;&nbsp;
-			<input type="reset" value="다시쓰기">&nbsp;&nbsp;
-			<input type="button" value="취소" onclick="history.back()">
+			<input class="btn" type="submit" value="수정">&nbsp;&nbsp;
+			<input class="btn" type="reset" value="다시쓰기">&nbsp;&nbsp;
+			<input class="btn" type="button" value="취소" onclick="history.back()">
 		</section>
 	</form>
 	

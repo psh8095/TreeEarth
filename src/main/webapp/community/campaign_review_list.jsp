@@ -49,15 +49,15 @@
 								</a>
 							</div>	
 		
-							<span>작성자 ${campaign_review.cam_re_id }</span> 
-							<span>작성일 ${campaign_review.cam_re_date }</span> 
-							<span>조회수 ${campaign_review.cam_re_readcount }</span> 
+							<span>작성자 ${campaign_review.cam_re_id }</span><br>
+							<span>작성일 ${campaign_review.cam_re_date }</span><br> 
+							<span>조회수 ${campaign_review.cam_re_readcount }</span><br> 
 						</div>
 						
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
-					<h1>게시물이 존재하지 않습니다.</h1>
+					<h1 class="cam_nothing">게시물이 존재하지 않습니다.</h1>
 				</c:otherwise>
 			</c:choose>
 			
