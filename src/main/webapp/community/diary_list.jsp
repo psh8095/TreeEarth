@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>treeEarth</title>
-<link href="../css/index.css" rel="stylesheet">
+<title>TreeEarth</title>
 <link href="css/community.css" rel="stylesheet">
 <style type="text/css">
 #best{
@@ -14,40 +13,22 @@ align: center;
  width:fit-content;
  margin:auto;
 }
+
 #insta{
-/* align: center; */
 margin-left:400px;
  width:fit-content;
 }
+
 #buttonArea{
-   margin-left:auto;
         display:block;
-          width:100px;
 }
+
 #pageList{
 margin:auto;
 display:block;
 margin-left: -100px;
 }
 
-#pencil{
-	width:80px;
-	height:80px;
-	color:#fff;
- 	background: #0080ff ;
-	font-size: 16px;
-	border:none;
-	border-radius: 70px;
-	transition:0.3s;
-	transform: translate(-50%,-50%);
-}
-#pencil:focus {
-	outline:0;
-}
-#pencil:hover{
-	background: #7fd49b ;
-	cursor: pointer;
-}
 </style>
 </head>
 <body>
@@ -63,18 +44,19 @@ margin-left: -100px;
 	<section id ="best">
 		<img alt="diarybanner" src="img/community/diarybanner.png"  >
 	</section>
-<!-- 인스타 위젯 적용 -->
-<section id="insta">
-<script src="https://snapwidget.com/js/snapwidget.js"></script>
-<iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:400%; "></iframe>
-</section>
+	
+	<!-- 인스타 위젯 적용 -->
+	<section id="insta">
+		<script src="https://snapwidget.com/js/snapwidget.js"></script>
+		<iframe src="https://snapwidget.com/embed/1007907" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:400%; "></iframe>
+	</section>
 
 <!-- 성장일지 회원 작성  -->
-   <main >
+	<main >
    
 		<hr style="color: gray; opacity: 70%; margin: 50px;">
 		
-		   <div class="main">
+		<div class="main">
 <!-- 			목록 기능구현 -->
 		<c:choose>
 			<c:when test="${not empty diaryList and pageInfo.itemListCount gt 0}">
@@ -97,15 +79,15 @@ margin-left: -100px;
 								
 <!-- 								글제목 -->
 								<div>
-								<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
-									<b>${diary.diary_subject }</b>
-								</a>
+									<a href="DiaryBoardDetail.cm?diary_idx=${diary.diary_idx }&pageNum=${pageInfo.pageNum}">
+										<b>${diary.diary_subject }</b>
+									</a>
 								</div>
 								
-						 <span>작성자 ${diary.diary_id }</span> 
-					 	 <span>작성일 ${diary.diary_date }</span> 
-						 <span>조회수 ${diary.diary_readcount }</span> 
-						</div>
+							 <span>작성자 ${diary.diary_id }</span> 
+						 	 <span>작성일 ${diary.diary_date }</span> 
+							 <span>조회수 ${diary.diary_readcount }</span> 
+							</div>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
@@ -113,48 +95,49 @@ margin-left: -100px;
 			</c:otherwise>
 		</c:choose>
 	</div>
-</main>
+	</main>
+	
 	<br>
 	
 <!-- 	버튼 목록 -->
 	<div style="clear: both;">
 	
-			<div id="buttonArea">
-	<c:if test="${not empty sessionScope.sId}">
-		   <button id ="pencil" onclick="location.href='DiaryWriteForm.cm'" ><img src="img/community/free-icon-writing-6782423.png" width="47px" height="50px"></button>
-		</c:if>
-			</div>
+		<div id="buttonArea">
+			<c:if test="${not empty sessionScope.sId}">
+			   <button id ="pencil" onclick="location.href='DiaryWriteForm.cm'" ><img src="img/community/free-icon-writing-6782423.png" width="47px" height="50px"></button>
+			</c:if>
+		</div>
 			
-	<section id="pageList">
-		<c:choose>
-			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum - 1}'">
-			</c:when>
-			<c:otherwise>
-				<input type="button" value="이전">
-			</c:otherwise>
-		</c:choose>
-			
-		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
+		<section id="pageList">
 			<c:choose>
-				<c:when test="${pageInfo.pageNum eq i}">
-					${i }
+				<c:when test="${pageInfo.pageNum > 1}">
+					<input type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum - 1}'">
 				</c:when>
 				<c:otherwise>
-					<a href="DiaryList.cm?pageNum=${i }">${i }</a>
+					<input type="button" value="이전">
 				</c:otherwise>
 			</c:choose>
-		</c:forEach>
-
-		<c:choose>
-			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum + 1}'">
-			</c:when>
-			<c:otherwise>
-				<input type="button" value="다음">
-			</c:otherwise>
-		</c:choose>
-	</section>
+				
+			<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
+				<c:choose>
+					<c:when test="${pageInfo.pageNum eq i}">
+						${i }
+					</c:when>
+					<c:otherwise>
+						<a href="DiaryList.cm?pageNum=${i }">${i }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+	
+			<c:choose>
+				<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
+					<input type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum + 1}'">
+				</c:when>
+				<c:otherwise>
+					<input type="button" value="다음">
+				</c:otherwise>
+			</c:choose>
+		</section>
 	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
