@@ -7,10 +7,6 @@
 <meta charset="UTF-8">
 <title>트리어스 자유게시판</title>
 <style type="text/css">
-	.free_title {
-		color: #c5e096;
-	}
-	
 	#button {
 		color: white; 
 		padding: 2px 2px;
@@ -39,6 +35,14 @@
 		            0 3px 13px -1px rgba(0,0,0,0.21);
 	}
 	
+	h1 {
+		color: #c5e096;
+	}
+	
+	#su {
+		color: #c5e096;
+		text-shadow: -1px 0px yellow;
+	}
 </style>
 <link href="css/community.css" rel="stylesheet">
 </head>
@@ -61,7 +65,7 @@
 
 				<!-- 자유게시판 타이틀-->
 				<div class="free_title">
-					<span>자유게시판</span>
+					<h1>자유게시판</h1>
 				</div>
 				 
 				
@@ -76,10 +80,10 @@
 	
 				<!-- 게시판 구별 -->
 				<div >
-					<span class="free_subject">제목</span>
-					<span class="free_name">작성자</span>
-					<span class="free_date">작성일</span>
-					<span class="free_read">조회수</span>
+					<span id="su" class="free_subject">제목</span>
+					<span id="su" class="free_name">작성자</span>
+					<span id="su" class="free_date">작성일</span>
+					<span id="su" class="free_read">조회수</span>
 				</div>
 			
 		
@@ -194,16 +198,3 @@
 	
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

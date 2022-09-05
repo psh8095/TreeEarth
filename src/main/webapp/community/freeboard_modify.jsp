@@ -6,6 +6,50 @@
 <meta charset="UTF-8">
 <title>트리어스 자유게시판</title>
 <style type="text/css">
+	.modifyForm {
+		width: 500px;
+		height: 450px;
+		border: 1px #c5e096;
+		margin: auto;
+	}
+	
+	h1 {
+		color: #c5e096;
+		position: absolute;
+		left: 0%;
+		top: 2%;
+	}
+	
+	table {
+		margin: auto;
+		width: 450px;
+		color: black;
+	}
+	
+	.td_left {
+		width: 150px;
+		background: #c5e096;
+		text-align: center;
+	}
+	
+	#button {
+		position: absolute;
+		left: 50%;
+	}
+	
+	#button2 {
+		color: white; 
+		padding: 4px 10px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
 </style>
 </head>
 <body>
@@ -50,15 +94,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="td_left"><label for="free_img">파일</label></td>
+					<td class="td_left"><label for="free_img">이미지</label></td>
 					<!-- 파일 수정 기능은 제외(파일명만 표시) -->
-					<td class="td_right">${freeboard.free_img }(수정불가)</td>
+					<td class="td_right">이미지(수정불가)</td>
 				</tr>
 			</table>
-			<section id="commandCell">
-				<input type="submit" value="수정">&nbsp;&nbsp;
-				<input type="reset" value="다시쓰기">&nbsp;&nbsp;
-				<input type="button" value="취소" onclick="history.back()">
+			<section id="button">
+				<input id="button2" type="submit" value="수정">&nbsp;&nbsp;
+				<input id="button2" type="reset" value="다시쓰기">&nbsp;&nbsp;
+				<input id="button2" type="button" value="취소" onclick="history.back()">
 			</section>
 		</form>
 	</section>
@@ -69,11 +113,3 @@
 	
 </body>
 </html>
-
-
-
-
-
-
-
-

@@ -10,12 +10,13 @@
 	#passForm {
 		width: 300px;
 		margin: auto;
-		border: 1px solid orange;
+		border: 1px solid c5e096;
 		text-align: center;
 	}
 	
 	h2 {
 		text-align: center;
+		color: #c5e096;
 	}
 	
 	table {
@@ -24,6 +25,24 @@
 		text-align: center;
 	}
 	
+	#button {
+		color: white; 
+		padding: 2px 2px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
+	
+	#button2 {
+		position: absolute;
+		left: 53%;
+	}	
 </style>
 </head>
 <body>
@@ -39,9 +58,9 @@
 					<td><input type="password" name="free_pass" required="required"></td>
 				</tr>
 				<tr>
-					<td colspan="2">
-						<input type="submit" value="삭제">&nbsp;&nbsp;
-						<input type="button" value="돌아가기" onclick="javascript:history.back()">
+					<td id="button2">
+						<input id="button" type="submit" value="삭제">&nbsp;&nbsp;
+						<input id="button" type="button" value="돌아가기" onclick="javascript:history.back()">
 					</td>
 				</tr>
 			</table>
@@ -49,8 +68,3 @@
 	</section>
 </body>
 </html>
-
-
-
-
-
