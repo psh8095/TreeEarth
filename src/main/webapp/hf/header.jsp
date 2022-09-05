@@ -18,6 +18,7 @@
 	    var delta = 15;
 	    
 	    $(window).scroll(function(event){
+	    	
 	       var st = $(this).scrollTop();
 	       
 	       if(Math.abs(lastScrollTop - st) <= delta)
@@ -228,14 +229,14 @@
 		</div>
 		
 		
-		<hr id="main_hr">
+		<hr style="	width: 100%; opacity: 1; margin: 0 ;">
 		
 		
 	 	<!-- 메뉴바 영역 -->
 		<div id="menu">
 			<ul class="menu">
 			
-			
+				<!-- 서브메뉴 영역 -->
 				<li><a href="CampaignList.cp">캠페인</a>
 					<ul class="subMenu">
 						<li><a href="CampaignList.cp">진행중인 캠페인</a></li>
@@ -243,6 +244,7 @@
 				</li>
 				
 				
+				<!-- 서브메뉴 영역 -->				
 				<li><a href="SupportList.su">후원하기</a>
 					<ul class="subMenu">
 						<li><a href="SupportList.su">진행중인 후원</a></li>
@@ -250,6 +252,7 @@
 				</li>
 				
 				
+				<!-- 서브메뉴 영역 -->
 				<li><a href="StoreItemList.st?sto_category=반려나무">스토어</a>
 					<ul class="subMenu">
 						<li><a href="StoreItemList.st?sto_category=반려나무">반려나무</a></li>
@@ -259,6 +262,7 @@
 				</li>
 				
 				
+				<!-- 서브메뉴 영역 -->
 				<li><a href="DiaryList.cm">커뮤니티</a>
 					<ul class="subMenu">
 						<li><a href="NoticeList.cm">공지사항</a></li>

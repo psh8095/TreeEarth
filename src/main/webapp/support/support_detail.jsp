@@ -294,7 +294,7 @@ p {
 				<!-- 목표 금액 -->
 				<div class="sup_con_div" id="goalPrice">
 					<span class="goalPrice" ><%=dto.getSup_goal_price() %></span>
-	                <span >원(목표금액)</span>
+	                <span >원/목표금액</span>
 				</div>
 		
 				
@@ -307,11 +307,11 @@ p {
 	                  
 	                  <!-- 현제 모인 금액 -->
 	                  <span class="money"><%=dto.getSup_money() %></span>원
-	                  <span >(현재 모인 금액)</span>
+	                  <span >/현재 모인 금액</span>
 	                  
 	                  <!-- 현제 모인 금액 -->
 	                  <span style="text-align: left;" class="moneyPer"></span>
-	                  <span >(진행률)</span>
+	                  <span >/진행률</span>
 	                  
 	               </div>
 	            </div>

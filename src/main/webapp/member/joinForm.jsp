@@ -139,16 +139,16 @@
 					
 					//포인트 체크 코드
 					if(count == 4) {
-						passwdSpan.html("비밀번호 안전도 | 높음" + "<br>" + "예측하기 힘든 비밀번호로 더욱 안전합니다.").css("color","GREEN");
+						passwdSpan.html("비밀번호 안전도 | 높음 |" + "<br>" + "예측하기 힘든 비밀번호로 더욱 안전합니다.").css("color","GREEN");
 						passPasswd = true;
 							
 					} else if(count == 3) {
-						passwdSpan.html("비밀번호 안전도 | 적정" + "<br>" + "안전하게 사용하실 수 있는 비밀번호입니다.").css("color","ORANGE");
+						passwdSpan.html("비밀번호 안전도 | 적정 |" + "<br>" + "안전하게 사용하실 수 있는 비밀번호입니다.").css("color","ORANGE");
 						passPasswd = true;
 
 						
 					} else if(count == 2) {
-						passwdSpan.html("비밀번호 안전도 | 낮음" + "<br>" + "안전도가 높은 비밀번호를 권장합니다.").css("color","ORANGE");
+						passwdSpan.html("비밀번호 안전도 | 낮음 |" + "<br>" + "안전도가 높은 비밀번호를 권장합니다.").css("color","ORANGE");
 						passPasswd = true;
 
 					} else {
@@ -246,8 +246,6 @@
 			//왜 밖으로 빼면 얼럿에서 인식을 못하는 건지
 			var passNameVal = $("#name").val();
 			
-			alert(passNameVal)
-			
 			if(passNameVal != ""){
 				passName = true;
 			} else {
@@ -283,12 +281,12 @@
 				
 				if(passPasswd){
 					allCheck++
-					alert(passPasswd)
+// 					alert(passPasswd)
 				}
 				
 				if(passCheckPasswd){
 					allCheck++
-					alert(passCheckPasswd)
+// 					alert(passCheckPasswd)
 				}
 				
 				if(passName){
@@ -298,12 +296,10 @@
 				
 				if(passBirth){
 					allCheck++
-					alert(passBirth)
+// 					alert(passBirth)
 				}
 				
-				
-				alert(allCheck);
-				
+// 				alert(allCheck);
 				
 				// 조인으로 이동
 				if(allCheck == 4){
@@ -387,7 +383,7 @@
 								<span>ID</span>
 								<input id="id" type="text" name="id" placeholder="5~20글자 사이 입력" required="required">
 								<input id="checkId" type="button" value="아이디 중복확인."><br>
-								<span id="idSpan"></span>
+									<span></span><div id="idSpan"></div>
 							</div>
 						
 						
@@ -396,7 +392,7 @@
 							<div>
 								<span>비밀번호</span>
 								<input id="passwd" type="password" name="pass" placeholder="8 ~ 16글자 사이 입력" required="required"><br>
-								<span id="passwdSpan"></span>
+									<span></span><div id="passwdSpan"></div>
 							</div>
 						
 						
@@ -405,7 +401,7 @@
 							<div>
 								<span>비밀번호확인</span>
 								<input id="checkPasswd" type="password" name="passwd2" required="required"><br>
-								<span id="checkPasswdSpan"></span>
+									<span></span><div id="checkPasswdSpan"></div>
 							</div>
 						
 						
@@ -414,7 +410,8 @@
 							<div>
 								<span>이름</span>
 								<input id="name" type="text" name="name" required="required">
-								<span></span>
+									<span></span><div></div>
+							
 							</div>
 						
 						
@@ -423,7 +420,7 @@
 							<div>
 								<span>생년월일</span>
 								<input id="birth" type="date" name="birth" required="required" > 
-								<span></span>
+									<span></span><div></div>
 							</div>
 						
 						
@@ -434,7 +431,7 @@
 								<span>성별</span>
 								<input type="radio" name="gender" value="남" checked="checked">남
 								<input type="radio" name="gender" value="여">여 
-								<span></span>
+									<span></span><div></div>
 							</div>
 						
 						
@@ -447,8 +444,8 @@
 							<span></span>
 								<input type="text" id="address" name="address" required="required" placeholder="도로명 주소">
 								<input type="text" id="address_detail" name="address_detail" required="required" placeholder="상세주소">
-								<span></span>
-								
+							
+								<div></div>
 							</div>
 						
 						
@@ -456,8 +453,8 @@
 						
 							<div>
 								<span>핸드폰</span>
-								<input id="phone" type="text" name="phone" placeholder="숫자로 입력해주세요" required="required">
-								<span></span>
+								<input id="phone" type="text" name="phone" placeholder=" 핸드폰 번호를 입력해 주세요." required="required">
+									<span></span><div></div>
 							</div>
 						
 						
@@ -466,7 +463,7 @@
 							<div>
 								<span>E-Mail</span>
 								<input id="email" type="text" name="email" readonly="readonly" value="<%=email %>" >
-								<span></span>
+									<span></span><div></div>
 							</div>
 						
 						

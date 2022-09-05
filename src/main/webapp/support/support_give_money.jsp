@@ -194,13 +194,13 @@ $(function() {
 	<div class="gm_main_div">
 		<form action="GiveMoneyPro.su">
 			
-				<div class="donator">"<%=sId %>" 님의 소중한 마음이 기부 될,</div>
-				<div class="gm_main_text1">[ 대충 산살리기 캠페인 제목 ]</div>
+				<div class="donator"> </div>
+				<div class="gm_main_text1">["<%=sId %>" 후원자님, 감사합니다!  ]</div>
 				
 			<hr style="margin-bottom: 30px; opacity: 0.5; ">
 				
-				<div class="gm_main_text2">"대충 감동적인 멘트 입니다."</div>
-				<div class="gm_main_text3">"대충 작은 감동적인 멘트 입니다."</div>
+				<div class="gm_main_text2">"진정한 후원은 후원이 끝나게 하는 것입니다."</div>
+				<div class="gm_main_text3">"사람을 구하는건 나무밖에 없습니다."</div>
 				
 			<hr style="margin-bottom: 30px; opacity: 0.5; ">
 			
@@ -228,7 +228,7 @@ $(function() {
 				<div class="gm_order_money">
 					<div style="background-color: #dcdcdc; border-radius: 3px; padding: 15px;">
 					
-							<div style="padding: 10px;">기부금 제세 해택은 최대 5조5억입니다. 그리고 어쩌구 저쩌구 감사합니다.</div>
+							<div style="padding: 10px;">연말정산 또는 종합소득세 신고시 연간 소득금액 한도 내에서 기부금액의 15%를 세액공제 받으실 수 있습니다.</div>
 						
 							<hr style="margin: 10px;">
 						
