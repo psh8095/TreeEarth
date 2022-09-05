@@ -19,24 +19,20 @@
 ul{list-style: none; padding-left: 0;}
 a{text-decoration: none; color: black;}
 
-
 body{
 	height: 100%;
 }
-
 
 .main {
 /* 	border: 5px solid green; */
 	position:relative;
 	width: 80%;
 	margin: 0 auto;
-	
 }
 
 #pageList {
 	text-align: center;
 }
-
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* 메인  */
@@ -52,7 +48,6 @@ body{
 /* 	overflow: hidden; */
 	padding: 15px;
 }
-
 
 /* 사진 크기 */
 .img{
@@ -70,7 +65,8 @@ body{
 }
 
 .list_subject{
-	margin-top: 8px
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 /* 태그 */
@@ -91,12 +87,9 @@ body{
 	position:relative;
 	width: 60%;
 	margin: 0 auto;
-	
-	
 	/* 푸터의 높이 */
   	padding: 30px;
 }
-
 
 /* 썸네일 */
 #sto_thumbnai{
@@ -110,7 +103,6 @@ body{
 	margin-left: 48px;
 }
 
-
 /* 썸네일 옆 컨텐츠들 */
 #content{
 /* 	border: 5px solid blue; */
@@ -121,7 +113,6 @@ body{
 	height:450px;
 	float: right;
 }
-
 
 /* 제목 */
 .sto_subject{
@@ -135,17 +126,14 @@ body{
 	font-size: 30px;	
 }
 
-
 /* 썸네일 옆 컨텐츠들 간격 */
 table {
   border-collapse: separate;
   border-spacing: 0 20px;
 }
 
-
 /* 상세 페이지 */
 #sto_original{
-	
 /* 	border: 5px solid green; */
 	display:block;
 	width: 100%;
@@ -153,7 +141,6 @@ table {
 	margin: 0 auto;
 	padding: 30px;
 }
-
 
 #qna{
 /* 	border: 5px solid green; */
@@ -165,7 +152,6 @@ table {
 	cursor: pointer;
 	font-size: 18px;
 }
-
 
 hr{
 	color: gray; opacity: 100%;  width: 100%;
@@ -201,6 +187,7 @@ hr{
 .sto_od:not(:last-child){
 	margin-right: 10px;
 }
+
 .sto_od:first-child{
 	background: #c5e096;
 	color:  white;
@@ -222,7 +209,6 @@ hr{
 	float: left;
 	margin: 15px;
 }
-
 
 /* 후기 작성 버튼  */
 .r_sto_title_button{
@@ -259,6 +245,7 @@ hr{
 #review_btn:focus {
    outline:0;
 }
+
 #review_btn:hover{
    cursor: pointer;
    border:1px solid black;
@@ -280,21 +267,18 @@ hr{
 	width: 35%;
 }
 
-
 /* 작성자  */
 .r_sto_name{
 /* 	border: 5px solid orange; */
 	margin: 15px;
 	float: left;
 	width: 15%;
-
 }
 
 /* 별점 출력 값 숨김 처리 */
 .score{
 	visibility: hidden;	
 }
-
 
 /* 작성일  */
 .r_sto_date{
@@ -364,7 +348,3 @@ hr{
    cursor: pointer;
    border:1px solid black;
 }
-
-
-
-

@@ -8,7 +8,6 @@
 	SupportDTO dto = (SupportDTO)request.getAttribute("dto");
 	String sId = (String)session.getAttribute("sId");
 	String sup_subject = request.getParameter("sup_subject");
-
 	%>
 	
 <!DOCTYPE html>
@@ -29,29 +28,36 @@ h1 {
 	margin: 0 0 10px;
 	color: #999;
 }
+
 h2 {
 	font-size: 2.5em;
 	margin: 0 0 8px;
 }
+
 h3 {
 	font-size: 1.6em;
 	margin: 20px 0 5px;
 }
+
 a {
 	color: #69C;
 	text-decoration: none;
 }
+
 /* a:hover { */
 /* 	color: #F30; */
 /* } */
+
 p {
 	margin: 0 0 10px;
 }
+
 .credits {
 	border-bottom: solid 1px #eee;
 	padding-bottom: 10px;
 	margin: 0 0 30px;
 }
+
 #pagewrap {
 	margin: 0 auto;
 	width: 600px;
@@ -61,16 +67,18 @@ p {
 
 /* /* */
 /* Back to top button  */
-/* */ */
+/* */ 
+
 #back-top {
 	position: fixed;
 	bottom: 30px;
 	margin-left: -150px;
 }
+
 #back-top a {
-	width: 108px;
+	width: 100px;
 	display: block;
-	margin-left:1200px;
+	margin-left:1100px;
 	text-align: center;
 /* 	font: 11px/100% Arial, Helvetica, sans-serif; */
 	text-transform: uppercase;
@@ -86,8 +94,8 @@ p {
 }
 /* arrow icon (span tag) */
 #back-top span {
-	width: 108px;
-	height: 108px;
+	width: 90px;
+	height: 90px;
 	display: block;
 	margin-bottom: 7px;
 	background: #ddd url(up-arrow.png) no-repeat center center;
@@ -245,35 +253,25 @@ p {
 			});
 </script>
 		
-		
-
-
 </head>
 <body id="top">
 
-
-
-   <!-- 해더 -->
+   <!-- 헤더 -->
    <jsp:include page="../hf/header.jsp"></jsp:include>
-   <!-- 해더 -->
+   <!-- 헤더 -->
    
-   <!-- top -->
-   <jsp:include page="../hf/top.jsp" ></jsp:include>
+	<!-- top -->
+	<jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
    
 	<!-- 디테일 메인 블럭 -->
    <div class="main">
 
-
 	 <hr style="color: gray; opacity: 70%; margin: 50px;">
-	
 	
 		<!-- 썸네일 -->
 		<img id="sup_thumbnai" alt="" src="./img/support/<%=dto.getSup_thumbnail_file() %>" width="70%">
 
-			
-			
-			
 		<!-- 섬네일 옆	 -->
 		<div id="content">
 			
@@ -282,14 +280,10 @@ p {
 					<span class="sup_subject"><%=dto.getSup_subject() %></span>
 				</div>
 				
-				
-				
 				<!-- D-Day -->
 				<div class="sup_con_div">
 					<span id="dDay"><span class="dDay"></span></span>
 				</div>
-				
-				
 				
 				<!-- 목표 금액 -->
 				<div class="sup_con_div" id="goalPrice">
@@ -297,7 +291,6 @@ p {
 	                <span >원/목표금액</span>
 				</div>
 		
-				
 				<!-- 퍼센트 바 -->
 	            <div class="sup_con_div" id="progressBar">
 	               <div>
@@ -316,7 +309,6 @@ p {
 	               </div>
 	            </div>
 				
-				
 				<!-- idx, date, readcount 안보이게 -->
 				<div style="display: none;">
 					<span class="goalDate"><%=dto.getSup_goal_date() %></span>
@@ -325,44 +317,31 @@ p {
 					<span><%=dto.getSup_readcount() %></span>
 				</div>
 				
-			
-			
-			
 			<!-- 후원 버튼 -->			
 		 	<button class="sup_button" id="giveMoney"  type="button" >후원하기</button>
 		
 		</div>
 		
-		
 			<!-- 내용 -->
 			<div class="content"><%=dto.getSup_content() %></div>
 		
-		
 			<hr style="color: gray; opacity: 70%; margin: 50px;">
-			
 			
 			<!-- 상세 페이지 -->		
 			<img id="sup_original" alt="" src="./img/support/<%=dto.getSup_original_file() %>" width="70%">
-			
-		
-		
-		
 	
-	   <%if(sId == null){%>
-      <section id="List">
-      <button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>   
-      </section>
+			<%if(sId == null){%>
+				<section id="List">
+					<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>   
+				</section>
 
-      <%}else if(sId.equals("admin")){%>
-            <button class="w-btn w-btn-gra2 w-btn-gra-anim"  type="button" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">수정</button>
-            <button class="w-btn w-btn-gra2 w-btn-gra-anim" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">삭제</button>
-            <button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>
-         <%}else{ %>
-  
-      <button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>   
- 
-      
-      <%}%>   
+			<%}else if(sId.equals("admin")){%>
+	            <button class="w-btn w-btn-gra2 w-btn-gra-anim"  type="button" onclick="location.href='SupportModifyAdmin.su?sup_idx=${dto.sup_idx }&pageNum=${param.pageNum}'">수정</button>
+	            <button class="w-btn w-btn-gra2 w-btn-gra-anim" onclick="location.href='SupportDeleteFormAdmin.su?sup_idx=${dto.sup_idx}&pageNum=${param.pageNum}'">삭제</button>
+	            <button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>
+			<%}else{ %>
+				<button class="w-btn w-btn-gra2 w-btn-gra-anim" type="button" onclick="location.href='SupportList.su<%--?sup_idx=<%=dto.getSup_idx() %> &pageNum=${param.pageNum}  --%>'">목록</button>   
+			<%}%>   
 	</div>
 	
 <!-- 	위로 스크롤 올리기 버튼  -->

@@ -109,7 +109,7 @@
 				<hr>
 									
 					<div class="contnet_div">
-						<input  type="button" value="카카오톡으로 로그인" onclick="kakaoLogin()">
+						<img alt="kakao_login" src="img/kakao_login.png" onclick="kakaoLogin()">
 					</div>
 		
 		
