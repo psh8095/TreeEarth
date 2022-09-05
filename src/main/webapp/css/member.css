@@ -94,7 +94,7 @@ hr{
 
 #mem_main_div{
 	position: relative;
-	width: 40%;
+	width: 45%;
 /* 	border: 5px solid red; */
 	box-sizing: border-box;
 	height: 700px;
@@ -119,7 +119,12 @@ hr{
 	display: inline-block;
 	width: 100px; 
 
-	
+}
+
+.mem_margin > div > div{
+	display: inline-block;
+	width: 330px;
+	margin: 5px;
 }
 
 .mem_margin > input, .mem_margin > form > input{
@@ -139,5 +144,3 @@ hr{
 	
 }
 
-h2{
-}

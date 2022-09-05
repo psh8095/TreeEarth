@@ -50,8 +50,8 @@
 		   <ul id="imgholder" class="imgs">
 		       <li class="main_forest">
 	      		    <div class="backGraound" ></div>
-		       		<h1>"문명 유지는 나무 한 그루에서 시작됩니다."</h1>
-		       		<h2>숲조성을 도와주세요!</h2>
+		       		<h1>"나의 작은 노력 녹색 지구를 만듭니다."</h1>
+		       		<h2>숲조성을 도와주세요.</h2>
 		       		<a href="CampaignList.cp">캠페인 지원하기</a>
 		       		<img src="img/main/main_forest.jpg" width="100%" alt="나무">
 		       </li>
@@ -60,8 +60,8 @@
 		       <li class="main_forest">
 
 		      		<div class="backGraound" ></div>
-		      		<h1 >"나무와 공존하는 삶"</h1>
-		       		<h2>나무가 사람을 살린다!</h2>
+		      		<h1 >"진정한 후원은 후원이 끝나게 하는 것입니다."</h1>
+		       		<h2>나무가 사람을 살린다.</h2>
 		       		<a href="SupportList.su">후원 하러가기</a>		       		
 		       		<img src="img/main/main_forest2.jpg" width="100%" alt="나무">
 		       	</li>
@@ -69,8 +69,8 @@
 		       	
 		       <li class="main_forest">
 		       		<div class="backGraound" ></div>
-		       		<h1 >"나무야 나무야 서서자는 나무야"</h1>
-		       		<h2>나만의 작고 소중한 반려나무 pick!</h2>
+		       		<h1 >"나는 나는 오늘 한 그루의 사과나무를 심겠다"</h1>
+		       		<h2>나만의 작고 소중한 반려나무.</h2>
 		       		<a href="StoreItemList.st?sto_category=반려나무">나무 입양하기</a>		       		
 		       		<img src="img/main/main_forest3.jpg" width="100%" alt="나무">
 		       	</li>
@@ -78,7 +78,7 @@
 
 		       <li class="main_forest">
 		     	  	<div class="backGraound" ></div>
-		     	  	<h1 >"공지사항"</h1>
+		     	  	<h1 >"책을 펴보지 않으면 나무조각과 같다"</h1>
 		       		<h2>공지사항을 확인해주세요.</h2>
 		       		<a href="CampaignList.cp">공지사항</a>		       		
 		       		<img src="img/main/main_forest4.jpg" width="100%" alt="나무">
@@ -124,6 +124,7 @@
 <!-- 		<hr style="margin: 0px 200px 800px 200px; z-index: 3; opacity: 0" > -->
 
 		<!-- 이미지 -->
+			<div style="position:relative; z-index: 3; height: 200px;"></div>
 		<div style="position:relative; z-index: 3;">
 		    <img style="width: 70%" src="img/main/main_img.png" alt="대충 메인 베너1">
 	  	</div> 
