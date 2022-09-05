@@ -26,7 +26,7 @@ public class FreeBoardDAO {
 			this.con = con;
 		}
 		
-		// 자유게시판 글 작성하는 함수 (완료)
+		// 자유게시판 글 작성하는 함수
 		public int insertFreeBoard(FreeboardDTO board) {
 			int insertCount = 0; // insert 작업결과 리턴받아 저장할 변수 선언
 			
@@ -72,7 +72,7 @@ public class FreeBoardDAO {
 			return insertCount;
 		}
 	
-		// 게시물 목록 조회 (완료)
+		// 게시물 목록 조회
 		public ArrayList<FreeboardDTO> selectFreeBoardList(int pageNum, int listLimit) {
 			ArrayList<FreeboardDTO> boardList = null;
 			
@@ -122,7 +122,7 @@ public class FreeBoardDAO {
 			return boardList;
 		}
 
-		// 1개의 자유게시판 글을 상세조회하는 메서드 (완료)
+		// 1개의 자유게시판 글을 상세조회하는 메서드
 		public FreeboardDTO selectFreeBoardList(int free_idx) {
 			
 			FreeboardDTO board = null;
@@ -163,7 +163,7 @@ public class FreeBoardDAO {
 		}
 		
 		
-		// 조회수 증가 작업 처리 메서드 (완료)
+		// 조회수 증가 작업 처리 메서드
 		public void updateReadcount(int free_idx) {
 			PreparedStatement pstmt = null;
 			
@@ -180,7 +180,7 @@ public class FreeBoardDAO {
 			}
 		}
 		
-		// 전체 자유게시판 게시글 수 조회 (완료)
+		// 전체 자유게시판 게시글 수 조회
 		public int selectListCount() {
 			int listCount = 0;
 			
@@ -208,7 +208,7 @@ public class FreeBoardDAO {
 			return listCount;
 		}
 		
-		// 글 수정 작업을 수행하는 메서드 (완료)
+		// 글 수정 작업을 수행하는 메서드
 		public int updateFreeBoard(FreeboardDTO board) {
 			int updateCount = 0;
 			
@@ -233,7 +233,7 @@ public class FreeBoardDAO {
 			return updateCount;
 		}
 		
-		// 글 삭제 권한 판별 (완료)
+		// 글 삭제 권한 판별
 		public boolean isFreeBoardWriter(int free_idx, String free_pass) {
 			boolean isFreeBoardWriter = false;
 			
@@ -265,29 +265,47 @@ public class FreeBoardDAO {
 		}
 		
 		
-		// 글 삭제 작업 수행 메서드 (완료)
-		public int deleteBoard(int free_idx) {
-			int deleteCount = 0;
-			
-			PreparedStatement pstmt = null;
-			
-			try {
-				String sql = "DELETE FROM freeboard WHERE free_idx=?";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, free_idx);
-				
-				deleteCount = pstmt.executeUpdate();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				System.out.println("SQL 구문 오류 발생! - deleteBoard() : " + e.getMessage());
-			} finally {
-				close(pstmt);
-			}
-			
-			return deleteCount;
-		}
+		// 글 삭제 작업 수행 메서드
+	      public int deleteBoard(int free_idx) {
+	         int deleteCount = 0;
+	         
+	         PreparedStatement pstmt = null;
+	         PreparedStatement pstmt2 = null;
+	         ResultSet rs = null;
+	         
+	            try {
+	               String sql2 = "SELECT free_re_lev FROM freeboard WHERE free_idx = ?";
+	               pstmt2 = con.prepareStatement(sql2);
+	               pstmt2.setInt(1, free_idx);
+	               rs = pstmt2.executeQuery();
+	               
+	               rs.next();
+	               int lev = rs.getInt(1);
+	               
+	               if(lev == 0) {
+	                  String sql = "DELETE FROM freeboard WHERE free_re_ref = ?";
+	                  pstmt = con.prepareStatement(sql);
+	                  pstmt.setInt(1, free_idx);
+	               }else {
+	                  String sql = "DELETE FROM freeboard WHERE free_idx = ?";
+	                  pstmt = con.prepareStatement(sql);
+	                  pstmt.setInt(1, free_idx);
+	               }
+	               
+	               deleteCount = pstmt.executeUpdate();
+	            } catch (SQLException e) {
+	               e.printStackTrace();
+	               System.out.println("SQL 구문 오류 - deleteBoard() : " + e.getMessage());
+	            }finally{
+	               close(rs);
+	               close(pstmt2);
+	               close(pstmt);
+	            }
+	         
+	         return deleteCount;
+	      }
 
-		// 답글 작성을 수행하는 insertReplyFreeBoard() 메서드 (완료)
+		// 답글 작성을 수행하는 insertReplyFreeBoard() 메서드
 		public int insertReplyBoard(FreeboardDTO board) {
 			int insertCount = 0;
 			
