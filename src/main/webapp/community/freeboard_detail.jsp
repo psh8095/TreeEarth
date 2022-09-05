@@ -14,10 +14,39 @@
 </script>
 <link href="css/community.css" rel="stylesheet">
 <style type="text/css">
+	.detail {
+		width: 500px;
+		height: 450px;
+		border: 1px #c5e096;
+		margin: auto;
+	}
+	
+	h1 {
+		color: #c5e096;
+	}
+	
+	.td_left {
+		width: 150px;
+		background: #c5e096;
+		text-align: center;
+	}
+	
+	#button2 {
+		color: white; 
+		padding: 4px 10px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
 </style>
 </head>
 <body>
-
 	<!-- 헤더 -->
 	<jsp:include page="../hf/header.jsp"></jsp:include>
 	<!-- 헤더 -->
@@ -26,17 +55,17 @@
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 	
-   <div class="main">
+   <div class="detail">
 
 	 <hr style="color: gray; opacity: 70%; margin: 50px;">
 	
 	
 		<!-- 섬네일 옆	 -->
 		<div id="content">
-
+			<h1>자유게시판</h1>
 		
 			<!-- 제목 -->
-			<div >
+			<div>
 				<span class="free_subject">제목 : ${freeboard.free_subject} </span>
 			</div>
 			
@@ -73,13 +102,13 @@
 						
 				
 		<div>
-			<input type="button" value="답변" onclick="location.href='FreeBoardReplyForm.cm?free_idx=${freeboard.free_idx }&pageNum=${param.pageNum}'">
-			<input type="button" value="수정" onclick="location.href='FreeBoardModifyForm.cm?free_idx=${freeboard.free_idx }&pageNum=${param.pageNum}'">
-			<input type="button" value="삭제" onclick="location.href='FreeBoardDeleteForm.cm?free_idx=${freeboard.free_idx }&pageNum=${param.pageNum}'">
-			<input type="button" value="목록" onclick="location.href='FreeBoardList.cm?pageNum=${param.pageNum }'">
+			<input id="button2" type="button" value="답변" onclick="location.href='FreeBoardReplyForm.cm?free_idx=${freeboard.free_idx }&pageNum=${param.pageNum}'">
+			<input id="button2" type="button" value="수정" onclick="location.href='FreeBoardModifyForm.cm?free_idx=${freeboard.free_idx }&pageNum=${param.pageNum}'">
+			<input id="button2" type="button" value="삭제" onclick="location.href='FreeBoardDeleteForm.cm?free_idx=${freeboard.free_idx }&pageNum=${param.pageNum}'">
+			<input id="button2" type="button" value="목록" onclick="location.href='FreeBoardList.cm?pageNum=${param.pageNum }'">
 
 			<c:if test="${not empty sessionScope.sId}">
-				<input type="button" value="신고하기" onclick="blockForm()">
+				<input id="button2" type="button" value="신고하기" onclick="blockForm()">
 			</c:if>
 		</div>
 		
@@ -89,19 +118,3 @@
 	<!-- 푸터 -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
