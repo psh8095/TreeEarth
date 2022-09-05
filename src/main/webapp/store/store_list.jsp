@@ -72,10 +72,10 @@
 		left: 90%;
 	}
 	
-	#pageList {
-		width: 100px;
-		margin: 0 auto;
-	}
+/* 	#pageList { */
+/* 		width: 100px; */
+/* 		margin: 0 auto; */
+/* 	} */
 </style>
 </head>
 <body>
@@ -127,10 +127,10 @@
 	<section id="buttonArea">
 		<input id="button2" type="button" value="상품 등록" onclick="location.href='StoreWriteForm.st'">
 	</section>
-	<section id="pageList">	
+	<section id="pageList" style="text-align: center;">	
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='StoreList.st?pageNum=${pageInfo.pageNum - 1}'">
+				<input id="button" type="button" value="이전" onclick="location.href='StoreList.st?pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
 				<input id="button" type="button" value="이전">
@@ -153,7 +153,7 @@
 		<!-- 현재 페이지 번호(pageNum)가 총 페이지 수보다 작을 때만 [다음] 링크 동작 -->
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='StoreList.st?pageNum=${pageInfo.pageNum + 1}'">
+				<input id="button" type="button" value="다음" onclick="location.href='StoreList.st?pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
 				<input id="button" type="button" value="다음">

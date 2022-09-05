@@ -9,6 +9,20 @@
 <link href="../css/index.css" rel="stylesheet">
 <link href="css/community.css" rel="stylesheet">
 <style type="text/css">
+#button {
+		color: white; 
+		padding: 2px 2px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
+	
 #best{
 align: center;
  width:fit-content;
@@ -61,7 +75,7 @@ margin-left: -100px;
 	
 <!-- 	목록 전체 -->
 	<section id ="best">
-		<img alt="diarybanner" src="img/community/diarybanner.png"  >
+		<img alt="diarybanner" src="img/community/diarybanner.png">
 	</section>
 <!-- 인스타 위젯 적용 -->
 <section id="insta">
@@ -128,10 +142,10 @@ margin-left: -100px;
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
-				<input type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum - 1}'">
+				<input id="button" type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum - 1}'">
 			</c:when>
 			<c:otherwise>
-				<input type="button" value="이전">
+				<input id="button" type="button" value="이전">
 			</c:otherwise>
 		</c:choose>
 			
@@ -148,10 +162,10 @@ margin-left: -100px;
 
 		<c:choose>
 			<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-				<input type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum + 1}'">
+				<input id="button" type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum + 1}'">
 			</c:when>
 			<c:otherwise>
-				<input type="button" value="다음">
+				<input id="button" type="button" value="다음">
 			</c:otherwise>
 		</c:choose>
 	</section>

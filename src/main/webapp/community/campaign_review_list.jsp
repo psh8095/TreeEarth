@@ -7,6 +7,21 @@
 <meta charset="UTF-8">
 <title>treeEarth</title>
 <link href="css/community.css" rel="stylesheet">
+<style type="text/css">
+#button {
+		color: white; 
+		padding: 2px 2px;
+		background-color: #c5e096;
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom-color: rgba(0,0,0,0.34);
+		text-shadow:0 1px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+		            0 2px 0 -1px rgba(0,0,0,0.13), 
+		            0 3px 0 -1px rgba(0,0,0,0.08), 
+		            0 3px 13px -1px rgba(0,0,0,0.21);
+	}
+</style>
 </head>
 <body>
 
@@ -85,10 +100,10 @@
 		<section id="pageList">
 			<c:choose>
 				<c:when test="${pageInfo.pageNum > 1}">
-					<input type="button" value="이전" onclick="location.href='CampaignReviewList.cm?pageNum=${pageInfo.pageNum - 1}'">
+					<input id="button" type="button" value="이전" onclick="location.href='CampaignReviewList.cm?pageNum=${pageInfo.pageNum - 1}'">
 				</c:when>
 				<c:otherwise>
-					<input type="button" value="이전">
+					<input id="button" type="button" value="이전">
 				</c:otherwise>
 			</c:choose>
 				
@@ -105,10 +120,10 @@
 	
 			<c:choose>
 				<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-					<input type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageInfo.pageNum + 1}'">
+					<input id="button" type="button" value="다음" onclick="location.href='CampaignReviewList.cm?pageNum=${pageInfo.pageNum + 1}'">
 				</c:when>
 				<c:otherwise>
-					<input type="button" value="다음">
+					<input id="button" type="button" value="다음">
 				</c:otherwise>
 			</c:choose>
 		</section>
