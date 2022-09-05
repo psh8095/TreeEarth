@@ -24,6 +24,7 @@
 					</td>
 				</tr>
 			</table>
+			
 			<table id="free_block">
 				<tr>
 					<td>신고자</td>
