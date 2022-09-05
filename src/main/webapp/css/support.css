@@ -18,11 +18,9 @@
 ul{list-style: none; padding-left: 0;}
 a{text-decoration: none; color: black;}
 
-
 body{
 	height: 100%;
 }
-
 
 .main {
 /* 	border: 5px solid red; */
@@ -33,10 +31,8 @@ body{
 	z-index: 2;
 }
 
-
 /* ---------------------------------------------------------------------------------------------------- */
 /* 후원 리스트  */
-
 
 /* 리스트 */
 .list {
@@ -49,9 +45,7 @@ body{
 	float: left;
 	overflow:hidden;
 	padding: 18px;
-
 }
-
 
 /* 사진 크기 */
 .img{
@@ -80,7 +74,6 @@ body{
 	box-sizing: border-box;
 	margin: 5px;
 	height: 50px;
-	
 }
 
 .sup_per_div{
@@ -88,9 +81,7 @@ body{
 	box-sizing: border-box;
 	padding: 10px;
 	overflow: hidden;
-	
 }
-
 
 .sup_main_font{
 	font-weight: 700;
@@ -118,7 +109,6 @@ body{
 	padding: 20px 0px 30px 30px;
 }
 
-
 /* 썸네일 옆 컨텐츠들 */
 #content{
 /* 	border: 5px solid green; */
@@ -131,7 +121,6 @@ body{
 	padding: 20px 30px 40px 0px;
 }
 
-
 /* 제목 */
 .sup_subject{
 /* 	border: 5px solid orange; */
@@ -140,17 +129,14 @@ body{
 	font-weight: 700;
 }
 
-
 /* 글자 사이즈 */
 .sup_subject, #dDay > span, #goalPrice > span, #progressBar{
 	font-size: 30px;	
 }
 
-
 .sup_con_div{
 	margin: 15px;
 }
-
 
 .butten {
 	text-align: center;
@@ -158,7 +144,6 @@ body{
 	height: 25px;
 	border-top:  50px solid #fff;
 }
-
 
 /* 상세 페이지 */
 #sup_original{
@@ -169,7 +154,6 @@ body{
 	margin: 0 auto;
 	padding: 30px;
 }
-
 
 /* 한줄 설명 */
 .content{
@@ -185,11 +169,12 @@ body{
 	text-align: center;
 	height: 50px;
 	margin: 15px;
-	  color: gray; 
-	background-color: #7fd49b;
+	color: gray; 
+	background-color: #c5e096;
 	border:1px solid lightgray;
     border-radius: 2px;
 }
+
 .sup_button:focus {
    outline:0;
 }
@@ -231,7 +216,6 @@ body{
 	font-weight: 700;
 	text-align: center;
 	margin: 25px;
-	
 }
 
 /* 서브 작은글자 */
@@ -244,7 +228,6 @@ body{
 	margin: 25px;
 }
 
-
 /* 버튼, 글자 후원금 입력 폼 */
 .gm_money{
 /* 	border: 5px solid orange;  */
@@ -252,7 +235,6 @@ body{
 	float: left;
 	margin: 20px 0px 20px 120px;
 	box-sizing: border-box;
-	
 }
 
 /* 글자 입력폼 */
@@ -270,28 +252,24 @@ body{
 	margin: 0 auto;
  	text-align: center;
 	color: gray; 
-	background-color: #7fd49b;
+	background-color: #c5e096 ;
 	border:1px solid lightgray;
     border-radius: 2px;
     box-sizing: border-box;
 }
 
-
 #button_money_10000:focus {
    outline:0;
 }
-
 #button_money_10000:hover{
    color:black;
    cursor: pointer;
    border:1px solid black;
 }
 
-
 #button_money_20000:focus {
    outline:0;
 }
-
 #button_money_20000:hover{
    color:black;
    cursor: pointer;
@@ -302,13 +280,11 @@ body{
 #button_money_30000:focus {
    outline:0;
 }
-
 #button_money_30000:hover{
    color:black;
    cursor: pointer;
    border:1px solid black;
 }
-
 
 /* 후원 하기 폼 */
 .gm_order_money{
@@ -316,7 +292,6 @@ body{
 	width: 28%;
 	float: right;
 	margin: 20px 120px 20px 0px;
-
 }
 
 #donate{

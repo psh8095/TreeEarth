@@ -18,11 +18,9 @@
 ul{list-style: none; padding-left: 0;}
 a{text-decoration: none; color: black;}
 
-
 body{
 	height: 100%;
 }
-
 
 .main {
 	position:relative;
@@ -36,8 +34,6 @@ body{
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
-/* 캠페인 참여 휴기 메인  */
-
 
 /* 리스트 */
 .list {
@@ -71,16 +67,17 @@ body{
 }
 
 #pencil{
-   width:80px;
-   height:80px;
-   color:#fff;
-    background: #0080ff ;
-   font-size: 16px;
-   border:none;
-   border-radius: 70px;
-   transition:0.3s;
-   transform: translate(-50%,-50%);
-   float: right;
+	width:80px;
+	height:80px;
+	color:#fff;
+	background: #0080ff ;
+	font-size: 16px;
+	border:none;
+	border-radius: 70px;
+	transition:0.3s;
+	transform: translate(-50%,-50%);
+/*    float: right;*/
+	margin-left: 80%
 }
 
 #pencil:focus {
@@ -88,15 +85,11 @@ body{
 }
 
 #pencil:hover{
-   background: #7fd49b ;
+   background: #c5e096 ;
    cursor: pointer;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
-/* 캠페인 참여 휴기 디테일  */
-
-
-
 
 /* 썸네일 옆 컨텐츠들 */
 #content{
@@ -104,7 +97,6 @@ body{
 	box-sizing: border-box;
 	display:block;
 }
-
 
 /* 제목 */
 /* 	border: 5px solid orange; */
@@ -129,7 +121,6 @@ body{
 	width: 40px;
 	height: 25px;
 	margin-top: 20px;
-	
 }
 
 /* 한줄 설명 */
@@ -139,7 +130,6 @@ body{
 	margin: 30px 0px 30px 0px;
 }
 
-
 #cam_img{
 /* 	border: 5px solid green; */
 	box-sizing: border-box;;
@@ -147,14 +137,11 @@ body{
 	display:block;
 }
 
-
 /* 선 */
 hr{
 	color: gray; opacity: 100%;  width: 100%;
 }
 /* ---------------------------------------------------------------------------------------------------- */
-/* 자유게시판 후기  */
-
 
 /* 자유게시판 타이틀  */
 .free_title{
@@ -162,15 +149,12 @@ hr{
 	margin: 15px;
 }
 
-
 /* 글쓰기  */
 .free_title_button{
 	float: right;
 	margin-right: 10px;
 	margin: 15px;
 }
-
-
 
 /* 제목  */
 .free_subject{
@@ -181,17 +165,13 @@ hr{
 	overflow: hidden;
 }
 
-
 /* 작성자  */
 .free_name{
 /* 	border: 5px solid orange; */
 	margin: 15px;
 	float: left;
 	width: 10%
-
 }
-
-
 
 /* 작성일  */
 .free_date{
@@ -201,8 +181,6 @@ hr{
 	width: 15%
 }
 
-
-
 /* 조회수  */
 .free_read{
 /* 	border: 5px solid blue; */
@@ -210,8 +188,3 @@ hr{
 	float: left;
 	width: 10%
 }
-
-/* ---------------------------------------------------------------------------------------------------- */
-/* 자유게시판 후기 디테일  */
-
-
