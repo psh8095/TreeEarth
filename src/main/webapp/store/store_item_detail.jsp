@@ -73,6 +73,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 					dataType: "text",
 					success: function(response) {
 						alert("장바구니에 담았습니다!");
+						location.href="Cart.my";
 					}
 				});
 			}
@@ -93,6 +94,7 @@ int sto_idx = Integer.parseInt(request.getParameter("sto_idx"));
 					dataType: "text",
 					success: function(response) {
 						alert("위시리스트에 담았습니다!");
+						location.href="Wishlist.my";
 					}
 				});
 			}
