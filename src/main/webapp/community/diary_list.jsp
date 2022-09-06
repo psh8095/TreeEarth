@@ -138,7 +138,6 @@ margin-left: -100px;
 			</c:if>
 		</div>
 			
-<<<<<<< HEAD
 	<section id="pageList">
 		<c:choose>
 			<c:when test="${pageInfo.pageNum > 1}">
@@ -149,19 +148,7 @@ margin-left: -100px;
 			</c:otherwise>
 		</c:choose>
 			
-		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
-=======
-		<section id="pageList">
->>>>>>> branch 'master' of https://github.com/psh8095/TreeEarth.git
-			<c:choose>
-				<c:when test="${pageInfo.pageNum > 1}">
-					<input type="button" value="이전" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum - 1}'">
-				</c:when>
-				<c:otherwise>
-					<input type="button" value="이전">
-				</c:otherwise>
-			</c:choose>
-<<<<<<< HEAD
+		<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">${i }
 		</c:forEach>
 
 		<c:choose>
@@ -173,29 +160,6 @@ margin-left: -100px;
 			</c:otherwise>
 		</c:choose>
 	</section>
-=======
-				
-			<c:forEach var="i" begin="${pageInfo.startPage }" end="${pageInfo.endPage }">
-				<c:choose>
-					<c:when test="${pageInfo.pageNum eq i}">
-						${i }
-					</c:when>
-					<c:otherwise>
-						<a href="DiaryList.cm?pageNum=${i }">${i }</a>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-	
-			<c:choose>
-				<c:when test="${pageInfo.pageNum < pageInfo.maxPage}">
-					<input type="button" value="다음" onclick="location.href='DiaryList.cm?pageNum=${pageInfo.pageNum + 1}'">
-				</c:when>
-				<c:otherwise>
-					<input type="button" value="다음">
-				</c:otherwise>
-			</c:choose>
-		</section>
->>>>>>> branch 'master' of https://github.com/psh8095/TreeEarth.git
 	</div>
 	<!-- 푸터 -->
 	<jsp:include page="../hf/footer.jsp"></jsp:include>
