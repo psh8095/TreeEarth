@@ -136,13 +136,13 @@
 						
 						<div>
 							<input type="checkbox" class="check"> 개인정보 수집 및 이용
-							<span>(선택)</span>
+							<span>(필수)</span>
 						</div>
 						
 						
 						<div>
 							<input type="checkbox" class="check"> 개인정보 제3자 제공 동의
-							<span>(선택)</span>
+							<span>(필수)</span>
 						</div>
 					
 					
