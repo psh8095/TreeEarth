@@ -21,6 +21,16 @@
 		            0 3px 0 -1px rgba(0,0,0,0.08), 
 		            0 3px 13px -1px rgba(0,0,0,0.21);
 	}
+	
+	
+	/* 한림예고 */
+	@font-face {
+	    font-family: 'HallymGothic-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	
 </style>
 </head>
 <body>
@@ -32,6 +42,11 @@
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
+	
+	
+	<div style="text-align: center;">
+   		<h1 style="display: block; margin: 70px auto; font-size: 40px; font-family: 'HallymGothic-Regular'; font-weight: 700;">[ 캠페인 후기 ]</h1>
+	</div>
 
 	<!-- 후원 메인 블럭 -->
    <main >

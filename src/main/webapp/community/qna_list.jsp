@@ -40,6 +40,18 @@
 	});
 	
 </script>
+
+<style type="text/css">
+	/* 한림예고 */
+	@font-face {
+	    font-family: 'HallymGothic-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	
+</style>
+
 </head>
 <body>
 	
@@ -50,6 +62,10 @@
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
+
+	<div style="text-align: center;">
+   		<h1 style="display: block; margin: 70px auto; font-size: 40px; font-family: 'HallymGothic-Regular'; font-weight: 700;">[ Q & A ]</h1>
+	</div>
 
 	<!-- 카테고리 선택했을때 페이지 이동 -->
 	<div class="qna_category">

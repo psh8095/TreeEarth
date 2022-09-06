@@ -43,6 +43,15 @@
 		color: #c5e096;
 		text-shadow: -1px 0px yellow;
 	}
+	
+	/* 한림예고 */
+	@font-face {
+	    font-family: 'HallymGothic-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	
 </style>
 <link href="css/community.css" rel="stylesheet">
 </head>
@@ -57,16 +66,17 @@
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
 
+	
+	<div style="text-align: center;">
+   		<h1 style="display: block; margin: 70px auto; font-size: 40px; font-family: 'HallymGothic-Regular'; font-weight: 700; color: black; ">[ 자유게시판 ]</h1>
+	</div>
+	
+
 	<!-- 게시판 리스트 -->
 	<div class="main">
 	
 	
 	 	 <hr style="color: gray; opacity: 70%; margin: 50px;">
-
-				<!-- 자유게시판 타이틀-->
-				<div class="free_title">
-					<h1>자유게시판</h1>
-				</div>
 				 
 				
 				<!-- 글쓰기 -->

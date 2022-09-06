@@ -104,7 +104,25 @@ Back to top button
 	background-color: #777;
 }
 
-
+	@font-face {
+	    font-family: 'GangwonEduPowerExtraBoldA';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	
+	@font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
 </style>
 <!-- 스크립트 -->
 <script>
@@ -123,7 +141,10 @@ Back to top button
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
-   
+
+	<div style="text-align: center;">
+   		<h1 style="display: block; margin: 70px auto; font-size: 40px; font-family: 'HallymGothic-Regular'; font-weight: 700;">[ 스토어 ]</h1>
+	</div>
 	<!-- 후원 메인 블럭 -->
    <main>
 	 <hr style="color: gray; opacity: 70%; margin: 70px;">		   

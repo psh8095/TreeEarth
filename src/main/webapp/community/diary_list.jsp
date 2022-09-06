@@ -43,6 +43,16 @@ display:block;
 margin-left: -100px;
 }
 
+
+	/* 한림예고 */
+	@font-face {
+	    font-family: 'HallymGothic-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	
+
 </style>
 </head>
 <body>
@@ -53,6 +63,12 @@ margin-left: -100px;
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
+	
+	<div style="text-align: center;">
+   		<h1 style="display: block; margin: 70px auto; font-size: 40px; font-family: 'HallymGothic-Regular'; font-weight: 700;">[ 반려나무 일기 ]</h1>
+	</div>
+			<hr style="color: gray; opacity: 70%; margin: 50px;">
+	
 	
 <!-- 	목록 전체 -->
 	<section id ="best">
