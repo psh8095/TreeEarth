@@ -47,6 +47,14 @@
 		margin: 0 auto;
 	}
 	
+		/* 한림예고 */
+	@font-face {
+	    font-family: 'HallymGothic-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	
 </style>
 <link href="css/community.css" rel="stylesheet">
 </head>
@@ -66,12 +74,12 @@
 		<!-- 공지사항 목록 -->
 	    <div class="main">
 	    
-	    <hr style="color: gray; opacity: 70%; margin: 50px;">
 		
-			<div class="free_title">
-				<span>공지사항</span>
-			</div>
-		
+	<div style="text-align: center;">
+   		<h1 style="display: block; margin: 70px auto; font-size: 40px; font-family: 'HallymGothic-Regular'; font-weight: 700;">[ 공지사항 ]</h1>
+	</div>
+		    <hr style="color: gray; opacity: 70%; margin: 50px;">
+
 			<c:choose>
 				<c:when test="${not empty noticeList and pageInfo.itemListCount gt 0}">
 					<c:forEach var="notice" items="${noticeList }">

@@ -74,7 +74,7 @@
 	<hr style="color: gray; opacity: 70%; width: 70%; display: block; margin: 70px auto;" >
 	
 	
-	<h1 style="display: block; margin: 50px;">진행중인 캠페인</h1>
+	<h1 style="display: block; margin: 50px auto;">진행중인 캠페인</h1>
 	
 	<c:choose>
 		<c:when test="${empty campaignList }">

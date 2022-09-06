@@ -14,6 +14,16 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TreeEarth</title>
 <link href="css/store.css" rel="stylesheet">
+<style type="text/css">
+/* 한림예고 */
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+</style>
+
 </head>
 <body>
 	<!-- 헤더 -->
@@ -23,6 +33,11 @@ ArrayList<StoreDTO> storeList = (ArrayList<StoreDTO>)request.getAttribute("store
 	<!-- top -->
    <jsp:include page="../hf/top.jsp" ></jsp:include>
 	<!-- top -->
+	
+	<div style="text-align: center;">
+   		<h1 style="display: block; margin: 70px auto; font-size: 40px; font-family: 'HallymGothic-Regular'; font-weight: 700;">[ 스토어 ]</h1>
+	</div>
+	
 	 <hr style="color: gray; opacity: 70%; margin: 70px;">
 
 	<!-- 	상품이 없을 때 -->
